@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SMSContextStoreContainer" CdmEntityContainer="SMS_DatabaseEntities">
+    <EntitySetMapping Name="DishTypes">
+      <EntityTypeMapping TypeName="SMSContext.DishType">
+        <MappingFragment StoreEntitySet="DishType">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
