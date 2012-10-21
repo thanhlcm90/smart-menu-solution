@@ -27,6 +27,7 @@ namespace SMS_Management
             try
             {
                 List<DISH_TYPE> lst = (from p in Context.DISH_TYPE select p).ToList();
+                //Select p.* from DISH_TYPE p
                 return lst;
             }
             catch (Exception ex)
@@ -75,7 +76,7 @@ namespace SMS_Management
                 List<DISH_TYPE> query = (from p in Context.DISH_TYPE where IDs.Contains(p.Id) select p).ToList();
                 foreach (DISH_TYPE dt in query)
                 {
-                    Context.DeleteObject(dt);
+                    Context.DISH_TYPE.DeleteObject(dt);
                 }
                 Context.SaveChanges();
                 return true;
