@@ -13,3 +13,15 @@ D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Win
 D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\System.Data.SqlServerCe.dll
 D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\System.Data.SqlServerCe.Entity.dll
 D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\EntityFramework.xml
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\SMS_Management.exe.config
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.exe
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.pdb
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.csprojResolveAssemblyReference.cache
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.FormBase.resources
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.frmDishType.resources
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.Properties.Resources.resources
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.csproj.GenerateResource.Cache
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\SMS_Management.exe
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\SMS_Management.pdb
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\EntityFramework.dll
+D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\EntityFramework.xml

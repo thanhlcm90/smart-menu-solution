@@ -322,7 +322,7 @@ namespace SMS_Management
                 dt.NAME = txtNAME.Text.Trim();
                 rep.InsertDishType(dt);
             }
-            else if (FormStaste == FormStateType.Edit)
+            else if (FormState == FormStateType.Edit)
             {
                 dt.Id = PKEY;
                 dt.NAME=txtNAME.Text.Trim();
