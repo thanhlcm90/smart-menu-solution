@@ -13,6 +13,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -131,6 +131,7 @@
     <EmbeddedResource Include="frmDishType.resx">
       <DependentUpon>frmDishType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -182,16 +183,19 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SMS_Database.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SMS_Database_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SMS_Database.mdf</DependentUpon>
+    </Content>
     <None Include="Resources\add.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\delete.png" />
     <None Include="Resources\page_save.png" />
     <None Include="Resources\page_edit.png" />
     <Content Include="SMSContext.edmx.sql" />
-    <Content Include="SMS_Database.mdf" />
-    <Content Include="SMS_Database_log.LDF">
-      <DependentUpon>SMS_Database.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

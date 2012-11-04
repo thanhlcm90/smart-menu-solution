@@ -15,5 +15,9 @@ namespace SMS_Management
         {
             InitializeComponent();
         }
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

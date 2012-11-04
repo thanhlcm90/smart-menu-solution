@@ -7,6 +7,21 @@ namespace SMS_Management
 {
     class RcvCodeHandler
     {
+
+        SMS_DatabaseEntities _ctx;
+        public SMS_DatabaseEntities Context
+        {
+            get
+            {
+                if (_ctx == null)
+                {
+                    _ctx = new SMS_DatabaseEntities();
+                    _ctx.ContextOptions.LazyLoadingEnabled = true;
+                }
+                return _ctx;
+            }
+        }
+
         public static void CodeExtractor(string RcvCode)
         {
             //Received Code AXXYYYZZ
@@ -23,19 +38,6 @@ namespace SMS_Management
             string ZZ = RcvCode.Substring(6, 8);
         }
 
-        SMS_DatabaseEntities _ctx;
-        public SMS_DatabaseEntities Context
-        {
-            get
-            {
-                if (_ctx == null)
-                {
-                    _ctx = new SMS_DatabaseEntities();
-                    _ctx.ContextOptions.LazyLoadingEnabled=true;
-                }
-                return _ctx;
-            }
-        }
 
         //List ordered dishes
         public List<ORDERED > GetOrdered()

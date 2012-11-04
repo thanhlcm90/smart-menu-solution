@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SMS_Management
 {
-    class SerialPortConnection
+    public class SerialPortConnection
     {
         // Create the serial port with basic settings
         private SerialPort port = new SerialPort("COM5",
