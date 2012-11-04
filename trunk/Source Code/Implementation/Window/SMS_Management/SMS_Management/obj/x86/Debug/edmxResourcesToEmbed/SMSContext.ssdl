@@ -1,13 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SMSContext.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="SMSContextStoreContainer">
-    <EntitySet Name="DishType" EntityType="SMSContext.Store.DishType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BILLING_DETAIL" EntityType="SMSContext.Store.BILLING_DETAIL" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CHEF_INFO" EntityType="SMSContext.Store.CHEF_INFO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CURENCY_TYPE" EntityType="SMSContext.Store.CURENCY_TYPE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DISH_TYPE" EntityType="SMSContext.Store.DISH_TYPE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FRM_ORDERING" EntityType="SMSContext.Store.FRM_ORDERING" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STATUS" EntityType="SMSContext.Store.STATUS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TABLES_INFO" EntityType="SMSContext.Store.TABLES_INFO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WAITER_INFO" EntityType="SMSContext.Store.WAITER_INFO" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
-  <EntityType Name="DishType">
+  <EntityType Name="BILLING_DETAIL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AMOUNT" Type="int" Nullable="false" />
+    <Property Name="COMMENT" Type="nvarchar" MaxLength="250" />
+    <Property Name="DISH_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BILL_ID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CHEF_INFO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BIRTHDAY" Type="datetime" />
+    <Property Name="PHONE" Type="nchar" MaxLength="15" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CURENCY_TYPE">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="DISH_TYPE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="FRM_ORDERING">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TABLE_ID" Type="nchar" MaxLength="10" />
+    <Property Name="DISH_ID" Type="nchar" MaxLength="10" />
+    <Property Name="STAFF_ID" Type="nchar" MaxLength="10" />
+    <Property Name="CHEF_ID" Type="nchar" MaxLength="10" />
+    <Property Name="Add_Time" Type="nchar" MaxLength="10" />
+    <Property Name="Status" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="STATUS">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="TABLES_INFO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CODE" Type="nchar" Nullable="false" MaxLength="2" />
+    <Property Name="WAITER_ID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WAITER_INFO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BIRTHDAY" Type="datetime" />
+    <Property Name="PHONE" Type="nchar" MaxLength="15" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="250" />
   </EntityType>
 </Schema>

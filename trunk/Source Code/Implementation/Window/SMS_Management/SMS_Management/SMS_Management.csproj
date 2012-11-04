@@ -52,6 +52,15 @@
     <StartupObject>SMS_Management.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v12.1.Core, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
@@ -79,6 +88,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RcvCodeHandler.cs" />
+    <Compile Include="SerialPortConnection.cs" />
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,12 +104,19 @@
       <DependentUpon>SMSContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="SMSRepostitory.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDishType.resx">
       <DependentUpon>frmDishType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -109,10 +127,32 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\BILLING.datasource" />
+    <None Include="Properties\DataSources\BILLING_DETAIL.datasource" />
+    <None Include="Properties\DataSources\CHEF_INFO.datasource" />
+    <None Include="Properties\DataSources\CURENCY_TYPE.datasource" />
+    <None Include="Properties\DataSources\DISH.datasource" />
+    <None Include="Properties\DataSources\DISH_TYPE.datasource" />
+    <None Include="Properties\DataSources\FormBase.datasource" />
+    <None Include="Properties\DataSources\FormBase.FormStateType.datasource" />
+    <None Include="Properties\DataSources\frmDishType.datasource" />
+    <None Include="Properties\DataSources\PROCESSING.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\SMSRepostitory.datasource" />
+    <None Include="Properties\DataSources\SMS_DatabaseEntities.datasource" />
+    <None Include="Properties\DataSources\SMS_DatabaseEntities1.datasource" />
+    <None Include="Properties\DataSources\SMS_Management.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\SMS_Management.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\STATUS.datasource" />
+    <None Include="Properties\DataSources\TABLES_INFO.datasource" />
+    <None Include="Properties\DataSources\WAITER_INFO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

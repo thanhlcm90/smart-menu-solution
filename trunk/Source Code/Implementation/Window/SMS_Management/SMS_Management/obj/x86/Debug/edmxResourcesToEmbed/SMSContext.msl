@@ -1,10 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SMSContextStoreContainer" CdmEntityContainer="SMS_DatabaseEntities">
-    <EntitySetMapping Name="DishTypes">
-      <EntityTypeMapping TypeName="SMSContext.DishType">
-        <MappingFragment StoreEntitySet="DishType">
+    <EntitySetMapping Name="CHEF_INFO">
+      <EntityTypeMapping TypeName="IsTypeOf(SMSContext.CHEF_INFO)">
+        <MappingFragment StoreEntitySet="CHEF_INFO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CURENCY_TYPE">
+      <EntityTypeMapping TypeName="IsTypeOf(SMSContext.CURENCY_TYPE)">
+        <MappingFragment StoreEntitySet="CURENCY_TYPE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DISH_TYPE">
+      <EntityTypeMapping TypeName="IsTypeOf(SMSContext.DISH_TYPE)">
+        <MappingFragment StoreEntitySet="DISH_TYPE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STATUS">
+      <EntityTypeMapping TypeName="IsTypeOf(SMSContext.STATUS)">
+        <MappingFragment StoreEntitySet="STATUS">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TABLES_INFO">
+      <EntityTypeMapping TypeName="IsTypeOf(SMSContext.TABLES_INFO)">
+        <MappingFragment StoreEntitySet="TABLES_INFO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="WAITER_ID" ColumnName="WAITER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BILLING_DETAIL">
+      <EntityTypeMapping TypeName="IsTypeOf(SMSContext.BILLING_DETAIL)">
+        <MappingFragment StoreEntitySet="BILLING_DETAIL">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+          <ScalarProperty Name="DISH_ID" ColumnName="DISH_ID" />
+          <ScalarProperty Name="BILL_ID" ColumnName="BILL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FRM_ORDERING">
+      <EntityTypeMapping TypeName="SMSContext.FRM_ORDERING">
+        <MappingFragment StoreEntitySet="FRM_ORDERING">
+          <ScalarProperty Name="STATUS" ColumnName="Status" />
+          <ScalarProperty Name="ADD_TIME" ColumnName="Add_Time" />
+          <ScalarProperty Name="CHEF_ID" ColumnName="CHEF_ID" />
+          <ScalarProperty Name="STAFF_ID" ColumnName="STAFF_ID" />
+          <ScalarProperty Name="DISH_ID" ColumnName="DISH_ID" />
+          <ScalarProperty Name="TABLE_ID" ColumnName="TABLE_ID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WAITER_INFO">
+      <EntityTypeMapping TypeName="IsTypeOf(SMSContext.WAITER_INFO)">
+        <MappingFragment StoreEntitySet="FRM_ORDERING">
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
