@@ -1,12 +1,12 @@
-#region Namespace Inclusions
+﻿#region Namespace Inclusions
 using System;
 using System.IO.Ports;
 using System.Windows.Forms;
 #endregion
 
-namespace SerialPortConnection
+namespace SMS_Management
 {
-    class SerialPortProgram
+    class SerialPortConnection
     {
         // Create the serial port with basic settings
         private SerialPort port = new SerialPort("COM5",
@@ -16,10 +16,10 @@ namespace SerialPortConnection
         static void Main(string[] args)
         {
             // Instatiate this class
-            new SerialPortProgram();
+            new SerialPortConnection();
         }
 
-        private SerialPortProgram()
+        private SerialPortConnection()
         {            
             // Attach a method to be called when there
             // is data waiting in the port's buffer
