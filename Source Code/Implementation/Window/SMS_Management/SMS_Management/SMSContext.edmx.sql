@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/08/2012 11:28:22
--- Generated from EDMX file: D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\SMSContext.edmx
+-- Date Created: 11/03/2012 20:34:02
+-- Generated from EDMX file: D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\SMSContext.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,25 +17,52 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_DISH_TYPEDISH]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DISHes] DROP CONSTRAINT [FK_DISH_TYPEDISH];
+GO
+IF OBJECT_ID(N'[dbo].[FK_STATUSPROCESSING]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PROCESSINGs] DROP CONSTRAINT [FK_STATUSPROCESSING];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TABLES_INFOPROCESSING]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PROCESSINGs] DROP CONSTRAINT [FK_TABLES_INFOPROCESSING];
+GO
+IF OBJECT_ID(N'[dbo].[FK_WAITER_INFOTABLES_INFO]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TABLES_INFO] DROP CONSTRAINT [FK_WAITER_INFOTABLES_INFO];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BILLINGBILLING_DETAIL]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BILLING_DETAIL] DROP CONSTRAINT [FK_BILLINGBILLING_DETAIL];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TABLES_INFOBILLING]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BILLINGs] DROP CONSTRAINT [FK_TABLES_INFOBILLING];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DISHBILLING_DETAIL]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BILLING_DETAIL] DROP CONSTRAINT [FK_DISHBILLING_DETAIL];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CHEF_INFOBILLING]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BILLINGs] DROP CONSTRAINT [FK_CHEF_INFOBILLING];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CHEF_INFOPROCESSING]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PROCESSINGs] DROP CONSTRAINT [FK_CHEF_INFOPROCESSING];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[BILLING]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[BILLING];
-GO
-IF OBJECT_ID(N'[dbo].[BILLING_DETAIL]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[BILLING_DETAIL];
-GO
 IF OBJECT_ID(N'[dbo].[CHEF_INFO]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CHEF_INFO];
 GO
 IF OBJECT_ID(N'[dbo].[CURENCY_TYPE]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CURENCY_TYPE];
 GO
+IF OBJECT_ID(N'[dbo].[DISHes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DISHes];
+GO
 IF OBJECT_ID(N'[dbo].[DISH_TYPE]', 'U') IS NOT NULL
     DROP TABLE [dbo].[DISH_TYPE];
+GO
+IF OBJECT_ID(N'[dbo].[PROCESSINGs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PROCESSINGs];
 GO
 IF OBJECT_ID(N'[dbo].[STATUS]', 'U') IS NOT NULL
     DROP TABLE [dbo].[STATUS];
@@ -45,6 +72,12 @@ IF OBJECT_ID(N'[dbo].[TABLES_INFO]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[WAITER_INFO]', 'U') IS NOT NULL
     DROP TABLE [dbo].[WAITER_INFO];
+GO
+IF OBJECT_ID(N'[dbo].[BILLINGs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BILLINGs];
+GO
+IF OBJECT_ID(N'[dbo].[BILLING_DETAIL]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BILLING_DETAIL];
 GO
 
 -- --------------------------------------------------
