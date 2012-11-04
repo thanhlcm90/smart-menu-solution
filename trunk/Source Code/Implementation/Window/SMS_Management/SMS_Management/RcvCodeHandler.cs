@@ -42,7 +42,7 @@ namespace SMS_Management
         {
             try
             {
-                List<ORDERED> lst = (from p in Context.ORDERED select p).ToList();
+                List<ORDERED> lst = (from p in Context.ORDERED  select p).ToList();
                 return lst;
             }
             catch (Exception ex)
@@ -57,7 +57,7 @@ namespace SMS_Management
             try
             {
                 lst.Id = Guid.NewGuid();
-                Context.ORDEREDs.AddObject(lst);
+                Context.ORDERED.AddObject(lst);
                 Context.SaveChanges();
                 return true;
             }

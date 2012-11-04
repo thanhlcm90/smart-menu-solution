@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/03/2012 20:34:02
--- Generated from EDMX file: D:\Project\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\SMSContext.edmx
+-- Date Created: 11/04/2012 12:51:34
+-- Generated from EDMX file: D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\SMSContext.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -44,6 +44,21 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_CHEF_INFOPROCESSING]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PROCESSINGs] DROP CONSTRAINT [FK_CHEF_INFOPROCESSING];
 GO
+IF OBJECT_ID(N'[dbo].[FK_TABLES_INFOORDERED]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ORDEREDs] DROP CONSTRAINT [FK_TABLES_INFOORDERED];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DISHORDERED]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ORDEREDs] DROP CONSTRAINT [FK_DISHORDERED];
+GO
+IF OBJECT_ID(N'[dbo].[FK_WAITER_INFOORDERED]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ORDEREDs] DROP CONSTRAINT [FK_WAITER_INFOORDERED];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CHEF_INFOORDERED]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ORDEREDs] DROP CONSTRAINT [FK_CHEF_INFOORDERED];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DISHPROCESSING]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PROCESSINGs] DROP CONSTRAINT [FK_DISHPROCESSING];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -78,6 +93,9 @@ IF OBJECT_ID(N'[dbo].[BILLINGs]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[BILLING_DETAIL]', 'U') IS NOT NULL
     DROP TABLE [dbo].[BILLING_DETAIL];
+GO
+IF OBJECT_ID(N'[dbo].[ORDEREDs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ORDEREDs];
 GO
 
 -- --------------------------------------------------
@@ -164,7 +182,7 @@ CREATE TABLE [dbo].[BILLINGs] (
     [SELL_DATE] datetime  NOT NULL,
     [MONEY] decimal(18,0)  NOT NULL,
     [TABLE_ID] uniqueidentifier  NOT NULL,
-    [CHEF_ID] uniqueidentifier  NOT NULL
+    [CHEF_ID] uniqueidentifier  NULL
 );
 GO
 
@@ -175,6 +193,18 @@ CREATE TABLE [dbo].[BILLING_DETAIL] (
     [COMMENT] nvarchar(250)  NULL,
     [DISH_ID] uniqueidentifier  NOT NULL,
     [BILL_ID] uniqueidentifier  NOT NULL
+);
+GO
+
+-- Creating table 'ORDERED'
+CREATE TABLE [dbo].[ORDERED] (
+    [Id] uniqueidentifier  NOT NULL,
+    [TABLE_ID] uniqueidentifier  NULL,
+    [DISH_ID] uniqueidentifier  NULL,
+    [WAITER_ID] uniqueidentifier  NULL,
+    [CHEF_ID] uniqueidentifier  NULL,
+    [Add_Time] nchar(10)  NULL,
+    [Status] nchar(10)  NULL
 );
 GO
 
@@ -239,6 +269,12 @@ GO
 -- Creating primary key on [Id] in table 'BILLING_DETAIL'
 ALTER TABLE [dbo].[BILLING_DETAIL]
 ADD CONSTRAINT [PK_BILLING_DETAIL]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'ORDERED'
+ALTER TABLE [dbo].[ORDERED]
+ADD CONSTRAINT [PK_ORDERED]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -370,6 +406,76 @@ ADD CONSTRAINT [FK_CHEF_INFOPROCESSING]
 CREATE INDEX [IX_FK_CHEF_INFOPROCESSING]
 ON [dbo].[PROCESSINGs]
     ([CHEF_ID]);
+GO
+
+-- Creating foreign key on [TABLE_ID] in table 'ORDERED'
+ALTER TABLE [dbo].[ORDERED]
+ADD CONSTRAINT [FK_TABLES_INFOORDERED]
+    FOREIGN KEY ([TABLE_ID])
+    REFERENCES [dbo].[TABLES_INFO]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_TABLES_INFOORDERED'
+CREATE INDEX [IX_FK_TABLES_INFOORDERED]
+ON [dbo].[ORDERED]
+    ([TABLE_ID]);
+GO
+
+-- Creating foreign key on [DISH_ID] in table 'ORDERED'
+ALTER TABLE [dbo].[ORDERED]
+ADD CONSTRAINT [FK_DISHORDERED]
+    FOREIGN KEY ([DISH_ID])
+    REFERENCES [dbo].[DISHes]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DISHORDERED'
+CREATE INDEX [IX_FK_DISHORDERED]
+ON [dbo].[ORDERED]
+    ([DISH_ID]);
+GO
+
+-- Creating foreign key on [WAITER_ID] in table 'ORDERED'
+ALTER TABLE [dbo].[ORDERED]
+ADD CONSTRAINT [FK_WAITER_INFOORDERED]
+    FOREIGN KEY ([WAITER_ID])
+    REFERENCES [dbo].[WAITER_INFO]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_WAITER_INFOORDERED'
+CREATE INDEX [IX_FK_WAITER_INFOORDERED]
+ON [dbo].[ORDERED]
+    ([WAITER_ID]);
+GO
+
+-- Creating foreign key on [CHEF_ID] in table 'ORDERED'
+ALTER TABLE [dbo].[ORDERED]
+ADD CONSTRAINT [FK_CHEF_INFOORDERED]
+    FOREIGN KEY ([CHEF_ID])
+    REFERENCES [dbo].[CHEF_INFO]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CHEF_INFOORDERED'
+CREATE INDEX [IX_FK_CHEF_INFOORDERED]
+ON [dbo].[ORDERED]
+    ([CHEF_ID]);
+GO
+
+-- Creating foreign key on [DISH_ID] in table 'PROCESSINGs'
+ALTER TABLE [dbo].[PROCESSINGs]
+ADD CONSTRAINT [FK_DISHPROCESSING]
+    FOREIGN KEY ([DISH_ID])
+    REFERENCES [dbo].[DISHes]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DISHPROCESSING'
+CREATE INDEX [IX_FK_DISHPROCESSING]
+ON [dbo].[PROCESSINGs]
+    ([DISH_ID]);
 GO
 
 -- --------------------------------------------------
