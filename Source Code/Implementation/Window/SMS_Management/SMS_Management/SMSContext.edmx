@@ -5,399 +5,400 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SMS_Management.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="SMS_ManagementStoreContainer">
-    <EntitySet Name="CHEF_INFO" EntityType="SMS_Management.Store.CHEF_INFO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CURENCY_TYPE" EntityType="SMS_Management.Store.CURENCY_TYPE" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DISHes" EntityType="SMS_Management.Store.DISHes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DISH_TYPE" EntityType="SMS_Management.Store.DISH_TYPE" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PROCESSINGs" EntityType="SMS_Management.Store.PROCESSINGs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="STATUS" EntityType="SMS_Management.Store.STATUS" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TABLES_INFO" EntityType="SMS_Management.Store.TABLES_INFO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="WAITER_INFO" EntityType="SMS_Management.Store.WAITER_INFO" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BILLINGs" EntityType="SMS_Management.Store.BILLINGs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BILLING_DETAIL" EntityType="SMS_Management.Store.BILLING_DETAIL" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ORDERED" EntityType="SMS_Management.Store.ORDERED" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="DISH_TYPEDISH" Association="SMS_Management.Store.DISH_TYPEDISH">
-      <End Role="DISH_TYPE" EntitySet="DISH_TYPE" />
-      <End Role="DISH" EntitySet="DISHes" />
-    </AssociationSet>
-    <AssociationSet Name="STATUSPROCESSING" Association="SMS_Management.Store.STATUSPROCESSING">
-      <End Role="STATUS" EntitySet="STATUS" />
-      <End Role="PROCESSING" EntitySet="PROCESSINGs" />
-    </AssociationSet>
-    <AssociationSet Name="TABLES_INFOPROCESSING" Association="SMS_Management.Store.TABLES_INFOPROCESSING">
-      <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
-      <End Role="PROCESSING" EntitySet="PROCESSINGs" />
-    </AssociationSet>
-    <AssociationSet Name="WAITER_INFOTABLES_INFO" Association="SMS_Management.Store.WAITER_INFOTABLES_INFO">
-      <End Role="WAITER_INFO" EntitySet="WAITER_INFO" />
-      <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
-    </AssociationSet>
-    <AssociationSet Name="BILLINGBILLING_DETAIL" Association="SMS_Management.Store.BILLINGBILLING_DETAIL">
-      <End Role="BILLING" EntitySet="BILLINGs" />
-      <End Role="BILLING_DETAIL" EntitySet="BILLING_DETAIL" />
-    </AssociationSet>
-    <AssociationSet Name="TABLES_INFOBILLING" Association="SMS_Management.Store.TABLES_INFOBILLING">
-      <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
-      <End Role="BILLING" EntitySet="BILLINGs" />
-    </AssociationSet>
-    <AssociationSet Name="DISHBILLING_DETAIL" Association="SMS_Management.Store.DISHBILLING_DETAIL">
-      <End Role="DISH" EntitySet="DISHes" />
-      <End Role="BILLING_DETAIL" EntitySet="BILLING_DETAIL" />
-    </AssociationSet>
-    <AssociationSet Name="CHEF_INFOBILLING" Association="SMS_Management.Store.CHEF_INFOBILLING">
-      <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
-      <End Role="BILLING" EntitySet="BILLINGs" />
-    </AssociationSet>
-    <AssociationSet Name="CHEF_INFOPROCESSING" Association="SMS_Management.Store.CHEF_INFOPROCESSING">
-      <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
-      <End Role="PROCESSING" EntitySet="PROCESSINGs" />
-    </AssociationSet>
-    <AssociationSet Name="TABLES_INFOORDERED" Association="SMS_Management.Store.TABLES_INFOORDERED">
-      <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
-      <End Role="ORDERED" EntitySet="ORDERED" />
-    </AssociationSet>
-    <AssociationSet Name="DISHORDERED" Association="SMS_Management.Store.DISHORDERED">
-      <End Role="DISH" EntitySet="DISHes" />
-      <End Role="ORDERED" EntitySet="ORDERED" />
-    </AssociationSet>
-    <AssociationSet Name="WAITER_INFOORDERED" Association="SMS_Management.Store.WAITER_INFOORDERED">
-      <End Role="WAITER_INFO" EntitySet="WAITER_INFO" />
-      <End Role="ORDERED" EntitySet="ORDERED" />
-    </AssociationSet>
-    <AssociationSet Name="CHEF_INFOORDERED" Association="SMS_Management.Store.CHEF_INFOORDERED">
-      <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
-      <End Role="ORDERED" EntitySet="ORDERED" />
-    </AssociationSet>
-    <AssociationSet Name="DISHPROCESSING" Association="SMS_Management.Store.DISHPROCESSING">
-      <End Role="DISH" EntitySet="DISHes" />
-      <End Role="PROCESSING" EntitySet="PROCESSINGs" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="CHEF_INFO">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="BIRTHDAY" Type="datetime" Nullable="true" />
-    <Property Name="PHONE" Type="nchar" Nullable="true" MaxLength="15" />
-    <Property Name="ADDRESS" Type="nvarchar" Nullable="true" MaxLength="250" />
-  </EntityType>
-  <EntityType Name="CURENCY_TYPE">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="250" />
-  </EntityType>
-  <EntityType Name="DISHes">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CODE" Type="nchar" Nullable="false" MaxLength="3" />
-    <Property Name="NAME_VN" Type="nvarchar" Nullable="false" MaxLength="250" />
-    <Property Name="NAME_EN" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="DISHTYPE_ID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PRICE" Type="decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="CURENCYTYPE_ID" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DISH_TYPE">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="250" />
-  </EntityType>
-  <EntityType Name="PROCESSINGs">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="DISH_ID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PRIORITY" Type="int" Nullable="false" />
-    <Property Name="AMOUNT" Type="int" Nullable="false" />
-    <Property Name="STATUS_ID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="COMMENT" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="TALBLE_ID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CHEF_ID" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="STATUS">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="250" />
-  </EntityType>
-  <EntityType Name="TABLES_INFO">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CODE" Type="nchar" Nullable="false" MaxLength="2" />
-    <Property Name="WAITER_ID" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="WAITER_INFO">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="BIRTHDAY" Type="datetime" Nullable="true" />
-    <Property Name="PHONE" Type="nchar" Nullable="true" MaxLength="15" />
-    <Property Name="ADDRESS" Type="nvarchar" Nullable="true" MaxLength="250" />
-  </EntityType>
-  <EntityType Name="BILLINGs">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="SELL_DATE" Type="datetime" Nullable="false" />
-    <Property Name="MONEY" Type="decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="TABLE_ID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CHEF_ID" Type="uniqueidentifier" Nullable="true" />
-  </EntityType>
-  <EntityType Name="BILLING_DETAIL">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="AMOUNT" Type="int" Nullable="false" />
-    <Property Name="COMMENT" Type="nvarchar" Nullable="true" MaxLength="250" />
-    <Property Name="DISH_ID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="BILL_ID" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ORDERED">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="TABLE_ID" Type="uniqueidentifier" Nullable="true" />
-    <Property Name="DISH_ID" Type="uniqueidentifier" Nullable="true" />
-    <Property Name="WAITER_ID" Type="uniqueidentifier" Nullable="true" />
-    <Property Name="CHEF_ID" Type="uniqueidentifier" Nullable="true" />
-    <Property Name="Add_Time" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="Status" Type="nchar" Nullable="true" MaxLength="10" />
-  </EntityType>
-  <Association Name="DISH_TYPEDISH">
-    <End Role="DISH_TYPE" Type="SMS_Management.Store.DISH_TYPE" Multiplicity="1" />
-    <End Role="DISH" Type="SMS_Management.Store.DISHes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DISH_TYPE">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DISH">
-        <PropertyRef Name="DISHTYPE_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="STATUSPROCESSING">
-    <End Role="STATUS" Type="SMS_Management.Store.STATUS" Multiplicity="1" />
-    <End Role="PROCESSING" Type="SMS_Management.Store.PROCESSINGs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="STATUS">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PROCESSING">
-        <PropertyRef Name="STATUS_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TABLES_INFOPROCESSING">
-    <End Role="TABLES_INFO" Type="SMS_Management.Store.TABLES_INFO" Multiplicity="1" />
-    <End Role="PROCESSING" Type="SMS_Management.Store.PROCESSINGs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TABLES_INFO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PROCESSING">
-        <PropertyRef Name="TALBLE_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WAITER_INFOTABLES_INFO">
-    <End Role="WAITER_INFO" Type="SMS_Management.Store.WAITER_INFO" Multiplicity="1" />
-    <End Role="TABLES_INFO" Type="SMS_Management.Store.TABLES_INFO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="WAITER_INFO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TABLES_INFO">
-        <PropertyRef Name="WAITER_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="BILLINGBILLING_DETAIL">
-    <End Role="BILLING" Type="SMS_Management.Store.BILLINGs" Multiplicity="1" />
-    <End Role="BILLING_DETAIL" Type="SMS_Management.Store.BILLING_DETAIL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="BILLING">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BILLING_DETAIL">
-        <PropertyRef Name="DISH_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TABLES_INFOBILLING">
-    <End Role="TABLES_INFO" Type="SMS_Management.Store.TABLES_INFO" Multiplicity="1" />
-    <End Role="BILLING" Type="SMS_Management.Store.BILLINGs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TABLES_INFO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BILLING">
-        <PropertyRef Name="TABLE_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DISHBILLING_DETAIL">
-    <End Role="DISH" Type="SMS_Management.Store.DISHes" Multiplicity="1" />
-    <End Role="BILLING_DETAIL" Type="SMS_Management.Store.BILLING_DETAIL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DISH">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BILLING_DETAIL">
-        <PropertyRef Name="DISH_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CHEF_INFOBILLING">
-    <End Role="CHEF_INFO" Type="SMS_Management.Store.CHEF_INFO" Multiplicity="0..1" />
-    <End Role="BILLING" Type="SMS_Management.Store.BILLINGs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CHEF_INFO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BILLING">
-        <PropertyRef Name="CHEF_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CHEF_INFOPROCESSING">
-    <End Role="CHEF_INFO" Type="SMS_Management.Store.CHEF_INFO" Multiplicity="1" />
-    <End Role="PROCESSING" Type="SMS_Management.Store.PROCESSINGs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CHEF_INFO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PROCESSING">
-        <PropertyRef Name="CHEF_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="TABLES_INFOORDERED">
-    <End Role="TABLES_INFO" Type="SMS_Management.Store.TABLES_INFO" Multiplicity="0..1" />
-    <End Role="ORDERED" Type="SMS_Management.Store.ORDERED" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TABLES_INFO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ORDERED">
-        <PropertyRef Name="TABLE_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DISHORDERED">
-    <End Role="DISH" Type="SMS_Management.Store.DISHes" Multiplicity="0..1" />
-    <End Role="ORDERED" Type="SMS_Management.Store.ORDERED" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DISH">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ORDERED">
-        <PropertyRef Name="DISH_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="WAITER_INFOORDERED">
-    <End Role="WAITER_INFO" Type="SMS_Management.Store.WAITER_INFO" Multiplicity="0..1" />
-    <End Role="ORDERED" Type="SMS_Management.Store.ORDERED" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="WAITER_INFO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ORDERED">
-        <PropertyRef Name="WAITER_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CHEF_INFOORDERED">
-    <End Role="CHEF_INFO" Type="SMS_Management.Store.CHEF_INFO" Multiplicity="0..1" />
-    <End Role="ORDERED" Type="SMS_Management.Store.ORDERED" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CHEF_INFO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ORDERED">
-        <PropertyRef Name="CHEF_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DISHPROCESSING">
-    <End Role="DISH" Type="SMS_Management.Store.DISHes" Multiplicity="1" />
-    <End Role="PROCESSING" Type="SMS_Management.Store.PROCESSINGs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DISH">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PROCESSING">
-        <PropertyRef Name="DISH_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+        <EntityContainer Name="SMS_ManagementStoreContainer">
+          <EntitySet Name="BILLING" EntityType="SMS_Management.Store.BILLING" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BILLING_DETAIL" EntityType="SMS_Management.Store.BILLING_DETAIL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CHEF_INFO" EntityType="SMS_Management.Store.CHEF_INFO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CURENCY_TYPE" EntityType="SMS_Management.Store.CURENCY_TYPE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DISH" EntityType="SMS_Management.Store.DISH" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DISH_TYPE" EntityType="SMS_Management.Store.DISH_TYPE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ORDERED" EntityType="SMS_Management.Store.ORDERED" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PROCESSING" EntityType="SMS_Management.Store.PROCESSING" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="STATUS" EntityType="SMS_Management.Store.STATUS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TABLES_INFO" EntityType="SMS_Management.Store.TABLES_INFO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WAITER_INFO" EntityType="SMS_Management.Store.WAITER_INFO" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_BILLINGBILLING_DETAIL" Association="SMS_Management.Store.FK_BILLINGBILLING_DETAIL">
+            <End Role="BILLING" EntitySet="BILLING" />
+            <End Role="BILLING_DETAIL" EntitySet="BILLING_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHEF_INFOBILLING" Association="SMS_Management.Store.FK_CHEF_INFOBILLING">
+            <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
+            <End Role="BILLING" EntitySet="BILLING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHEF_INFOORDERED" Association="SMS_Management.Store.FK_CHEF_INFOORDERED">
+            <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
+            <End Role="ORDERED" EntitySet="ORDERED" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHEF_INFOPROCESSING" Association="SMS_Management.Store.FK_CHEF_INFOPROCESSING">
+            <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
+            <End Role="PROCESSING" EntitySet="PROCESSING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DISH_TYPEDISH" Association="SMS_Management.Store.FK_DISH_TYPEDISH">
+            <End Role="DISH_TYPE" EntitySet="DISH_TYPE" />
+            <End Role="DISH" EntitySet="DISH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DISHBILLING_DETAIL" Association="SMS_Management.Store.FK_DISHBILLING_DETAIL">
+            <End Role="DISH" EntitySet="DISH" />
+            <End Role="BILLING_DETAIL" EntitySet="BILLING_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DISHORDERED" Association="SMS_Management.Store.FK_DISHORDERED">
+            <End Role="DISH" EntitySet="DISH" />
+            <End Role="ORDERED" EntitySet="ORDERED" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DISHPROCESSING" Association="SMS_Management.Store.FK_DISHPROCESSING">
+            <End Role="DISH" EntitySet="DISH" />
+            <End Role="PROCESSING" EntitySet="PROCESSING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STATUSPROCESSING" Association="SMS_Management.Store.FK_STATUSPROCESSING">
+            <End Role="STATUS" EntitySet="STATUS" />
+            <End Role="PROCESSING" EntitySet="PROCESSING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TABLES_INFOBILLING" Association="SMS_Management.Store.FK_TABLES_INFOBILLING">
+            <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
+            <End Role="BILLING" EntitySet="BILLING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TABLES_INFOORDERED" Association="SMS_Management.Store.FK_TABLES_INFOORDERED">
+            <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
+            <End Role="ORDERED" EntitySet="ORDERED" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TABLES_INFOPROCESSING" Association="SMS_Management.Store.FK_TABLES_INFOPROCESSING">
+            <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
+            <End Role="PROCESSING" EntitySet="PROCESSING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WAITER_INFOORDERED" Association="SMS_Management.Store.FK_WAITER_INFOORDERED">
+            <End Role="WAITER_INFO" EntitySet="WAITER_INFO" />
+            <End Role="ORDERED" EntitySet="ORDERED" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WAITER_INFOTABLES_INFO" Association="SMS_Management.Store.FK_WAITER_INFOTABLES_INFO">
+            <End Role="WAITER_INFO" EntitySet="WAITER_INFO" />
+            <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BILLING">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SELL_DATE" Type="datetime" Nullable="false" />
+          <Property Name="MONEY" Type="decimal" Nullable="false" />
+          <Property Name="TABLE_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CHEF_ID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="BILLING_DETAIL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AMOUNT" Type="int" Nullable="false" />
+          <Property Name="COMMENT" Type="nvarchar" MaxLength="250" />
+          <Property Name="DISH_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BILL_ID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHEF_INFO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BIRTHDAY" Type="datetime" />
+          <Property Name="PHONE" Type="nchar" MaxLength="15" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="CURENCY_TYPE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="DISH">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CODE" Type="nchar" Nullable="false" MaxLength="3" />
+          <Property Name="NAME_VN" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="NAME_EN" Type="nvarchar" MaxLength="250" />
+          <Property Name="DISHTYPE_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PRICE" Type="decimal" Nullable="false" />
+          <Property Name="CURENCYTYPE_ID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DISH_TYPE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="ORDERED">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TABLE_ID" Type="uniqueidentifier" />
+          <Property Name="DISH_ID" Type="uniqueidentifier" />
+          <Property Name="WAITER_ID" Type="uniqueidentifier" />
+          <Property Name="CHEF_ID" Type="uniqueidentifier" />
+          <Property Name="Add_Time" Type="datetime" />
+          <Property Name="Status" Type="nchar" MaxLength="10" />
+          <Property Name="Amount" Type="smallint" />
+        </EntityType>
+        <EntityType Name="PROCESSING">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DISH_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PRIORITY" Type="int" Nullable="false" />
+          <Property Name="AMOUNT" Type="int" Nullable="false" />
+          <Property Name="STATUS_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="COMMENT" Type="nvarchar" MaxLength="250" />
+          <Property Name="TALBLE_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CHEF_ID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TABLES_INFO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CODE" Type="nchar" Nullable="false" MaxLength="2" />
+          <Property Name="WAITER_ID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WAITER_INFO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BIRTHDAY" Type="datetime" />
+          <Property Name="PHONE" Type="nchar" MaxLength="15" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_BILLINGBILLING_DETAIL">
+          <End Role="BILLING" Type="SMS_Management.Store.BILLING" Multiplicity="1" />
+          <End Role="BILLING_DETAIL" Type="SMS_Management.Store.BILLING_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BILLING">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BILLING_DETAIL">
+              <PropertyRef Name="DISH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHEF_INFOBILLING">
+          <End Role="CHEF_INFO" Type="SMS_Management.Store.CHEF_INFO" Multiplicity="0..1" />
+          <End Role="BILLING" Type="SMS_Management.Store.BILLING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHEF_INFO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BILLING">
+              <PropertyRef Name="CHEF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHEF_INFOORDERED">
+          <End Role="CHEF_INFO" Type="SMS_Management.Store.CHEF_INFO" Multiplicity="0..1" />
+          <End Role="ORDERED" Type="SMS_Management.Store.ORDERED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHEF_INFO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDERED">
+              <PropertyRef Name="CHEF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHEF_INFOPROCESSING">
+          <End Role="CHEF_INFO" Type="SMS_Management.Store.CHEF_INFO" Multiplicity="1" />
+          <End Role="PROCESSING" Type="SMS_Management.Store.PROCESSING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHEF_INFO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PROCESSING">
+              <PropertyRef Name="CHEF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DISH_TYPEDISH">
+          <End Role="DISH_TYPE" Type="SMS_Management.Store.DISH_TYPE" Multiplicity="1" />
+          <End Role="DISH" Type="SMS_Management.Store.DISH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISH_TYPE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DISH">
+              <PropertyRef Name="DISHTYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DISHBILLING_DETAIL">
+          <End Role="DISH" Type="SMS_Management.Store.DISH" Multiplicity="1" />
+          <End Role="BILLING_DETAIL" Type="SMS_Management.Store.BILLING_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISH">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BILLING_DETAIL">
+              <PropertyRef Name="DISH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DISHORDERED">
+          <End Role="DISH" Type="SMS_Management.Store.DISH" Multiplicity="0..1" />
+          <End Role="ORDERED" Type="SMS_Management.Store.ORDERED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISH">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDERED">
+              <PropertyRef Name="DISH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DISHPROCESSING">
+          <End Role="DISH" Type="SMS_Management.Store.DISH" Multiplicity="1" />
+          <End Role="PROCESSING" Type="SMS_Management.Store.PROCESSING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISH">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PROCESSING">
+              <PropertyRef Name="DISH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STATUSPROCESSING">
+          <End Role="STATUS" Type="SMS_Management.Store.STATUS" Multiplicity="1" />
+          <End Role="PROCESSING" Type="SMS_Management.Store.PROCESSING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PROCESSING">
+              <PropertyRef Name="STATUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TABLES_INFOBILLING">
+          <End Role="TABLES_INFO" Type="SMS_Management.Store.TABLES_INFO" Multiplicity="1" />
+          <End Role="BILLING" Type="SMS_Management.Store.BILLING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TABLES_INFO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BILLING">
+              <PropertyRef Name="TABLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TABLES_INFOORDERED">
+          <End Role="TABLES_INFO" Type="SMS_Management.Store.TABLES_INFO" Multiplicity="0..1" />
+          <End Role="ORDERED" Type="SMS_Management.Store.ORDERED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TABLES_INFO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDERED">
+              <PropertyRef Name="TABLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TABLES_INFOPROCESSING">
+          <End Role="TABLES_INFO" Type="SMS_Management.Store.TABLES_INFO" Multiplicity="1" />
+          <End Role="PROCESSING" Type="SMS_Management.Store.PROCESSING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TABLES_INFO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PROCESSING">
+              <PropertyRef Name="TALBLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WAITER_INFOORDERED">
+          <End Role="WAITER_INFO" Type="SMS_Management.Store.WAITER_INFO" Multiplicity="0..1" />
+          <End Role="ORDERED" Type="SMS_Management.Store.ORDERED" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WAITER_INFO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDERED">
+              <PropertyRef Name="WAITER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WAITER_INFOTABLES_INFO">
+          <End Role="WAITER_INFO" Type="SMS_Management.Store.WAITER_INFO" Multiplicity="1" />
+          <End Role="TABLES_INFO" Type="SMS_Management.Store.TABLES_INFO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WAITER_INFO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TABLES_INFO">
+              <PropertyRef Name="WAITER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SMS_Management" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="SMS_DatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHEF_INFO" EntityType="SMS_Management.CHEF_INFO" />
           <EntitySet Name="CURENCY_TYPE" EntityType="SMS_Management.CURENCY_TYPE" />
-          <EntitySet Name="DISHes" EntityType="SMS_Management.DISH" />
+          <EntitySet Name="DISH" EntityType="SMS_Management.DISH" />
           <EntitySet Name="DISH_TYPE" EntityType="SMS_Management.DISH_TYPE" />
-          <EntitySet Name="PROCESSINGs" EntityType="SMS_Management.PROCESSING" />
+          <EntitySet Name="PROCESSING" EntityType="SMS_Management.PROCESSING" />
           <EntitySet Name="STATUS" EntityType="SMS_Management.STATUS" />
           <AssociationSet Name="DISH_TYPEDISH" Association="SMS_Management.DISH_TYPEDISH">
             <End Role="DISH_TYPE" EntitySet="DISH_TYPE" />
-            <End Role="DISH" EntitySet="DISHes" />
+            <End Role="DISH" EntitySet="DISH" />
           </AssociationSet>
           <AssociationSet Name="STATUSPROCESSING" Association="SMS_Management.STATUSPROCESSING">
             <End Role="STATUS" EntitySet="STATUS" />
-            <End Role="PROCESSING" EntitySet="PROCESSINGs" />
+            <End Role="PROCESSING" EntitySet="PROCESSING" />
           </AssociationSet>
           <EntitySet Name="TABLES_INFO" EntityType="SMS_Management.TABLES_INFO" />
           <AssociationSet Name="TABLES_INFOPROCESSING" Association="SMS_Management.TABLES_INFOPROCESSING">
             <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
-            <End Role="PROCESSING" EntitySet="PROCESSINGs" />
+            <End Role="PROCESSING" EntitySet="PROCESSING" />
           </AssociationSet>
           <EntitySet Name="WAITER_INFO" EntityType="SMS_Management.WAITER_INFO" />
           <AssociationSet Name="WAITER_INFOTABLES_INFO" Association="SMS_Management.WAITER_INFOTABLES_INFO">
             <End Role="WAITER_INFO" EntitySet="WAITER_INFO" />
             <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
           </AssociationSet>
-          <EntitySet Name="BILLINGs" EntityType="SMS_Management.BILLING" />
+          <EntitySet Name="BILLING" EntityType="SMS_Management.BILLING" />
           <EntitySet Name="BILLING_DETAIL" EntityType="SMS_Management.BILLING_DETAIL" />
           <AssociationSet Name="BILLINGBILLING_DETAIL" Association="SMS_Management.BILLINGBILLING_DETAIL">
-            <End Role="BILLING" EntitySet="BILLINGs" />
+            <End Role="BILLING" EntitySet="BILLING" />
             <End Role="BILLING_DETAIL" EntitySet="BILLING_DETAIL" />
           </AssociationSet>
           <AssociationSet Name="TABLES_INFOBILLING" Association="SMS_Management.TABLES_INFOBILLING">
             <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
-            <End Role="BILLING" EntitySet="BILLINGs" />
+            <End Role="BILLING" EntitySet="BILLING" />
           </AssociationSet>
           <AssociationSet Name="DISHBILLING_DETAIL" Association="SMS_Management.DISHBILLING_DETAIL">
-            <End Role="DISH" EntitySet="DISHes" />
+            <End Role="DISH" EntitySet="DISH" />
             <End Role="BILLING_DETAIL" EntitySet="BILLING_DETAIL" />
           </AssociationSet>
           <AssociationSet Name="CHEF_INFOBILLING" Association="SMS_Management.CHEF_INFOBILLING">
             <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
-            <End Role="BILLING" EntitySet="BILLINGs" />
+            <End Role="BILLING" EntitySet="BILLING" />
           </AssociationSet>
           <AssociationSet Name="CHEF_INFOPROCESSING" Association="SMS_Management.CHEF_INFOPROCESSING">
             <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
-            <End Role="PROCESSING" EntitySet="PROCESSINGs" />
+            <End Role="PROCESSING" EntitySet="PROCESSING" />
           </AssociationSet>
           <EntitySet Name="ORDERED" EntityType="SMS_Management.ORDERED" />
           <AssociationSet Name="TABLES_INFOORDERED" Association="SMS_Management.TABLES_INFOORDERED">
@@ -405,7 +406,7 @@
             <End Role="ORDERED" EntitySet="ORDERED" />
           </AssociationSet>
           <AssociationSet Name="DISHORDERED" Association="SMS_Management.DISHORDERED">
-            <End Role="DISH" EntitySet="DISHes" />
+            <End Role="DISH" EntitySet="DISH" />
             <End Role="ORDERED" EntitySet="ORDERED" />
           </AssociationSet>
           <AssociationSet Name="WAITER_INFOORDERED" Association="SMS_Management.WAITER_INFOORDERED">
@@ -417,8 +418,8 @@
             <End Role="ORDERED" EntitySet="ORDERED" />
           </AssociationSet>
           <AssociationSet Name="DISHPROCESSING" Association="SMS_Management.DISHPROCESSING">
-            <End Role="DISH" EntitySet="DISHes" />
-            <End Role="PROCESSING" EntitySet="PROCESSINGs" />
+            <End Role="DISH" EntitySet="DISH" />
+            <End Role="PROCESSING" EntitySet="PROCESSING" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="CHEF_INFO">
@@ -656,12 +657,13 @@
           <Property Type="Guid" Name="DISH_ID" />
           <Property Type="Guid" Name="WAITER_ID" />
           <Property Type="Guid" Name="CHEF_ID" />
-          <Property Type="String" Name="Add_Time" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Status" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="DateTime" Name="Add_Time" Nullable="true" />
+          <Property Type="String" Name="Status" MaxLength="10" FixedLength="true" Unicode="true" Nullable="true" />
           <NavigationProperty Name="TABLES_INFO" Relationship="SMS_Management.TABLES_INFOORDERED" FromRole="ORDERED" ToRole="TABLES_INFO" />
           <NavigationProperty Name="DISH" Relationship="SMS_Management.DISHORDERED" FromRole="ORDERED" ToRole="DISH" />
           <NavigationProperty Name="WAITER_INFO" Relationship="SMS_Management.WAITER_INFOORDERED" FromRole="ORDERED" ToRole="WAITER_INFO" />
           <NavigationProperty Name="CHEF_INFO" Relationship="SMS_Management.CHEF_INFOORDERED" FromRole="ORDERED" ToRole="CHEF_INFO" />
+          <Property Type="Int16" Name="Amount" Nullable="true" />
         </EntityType>
         <Association Name="TABLES_INFOORDERED">
           <End Type="SMS_Management.TABLES_INFO" Role="TABLES_INFO" Multiplicity="0..1" />
@@ -748,9 +750,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DISHes">
+    <EntitySetMapping Name="DISH">
       <EntityTypeMapping TypeName="IsTypeOf(SMS_Management.DISH)">
-        <MappingFragment StoreEntitySet="DISHes">
+        <MappingFragment StoreEntitySet="DISH">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CODE" ColumnName="CODE" />
           <ScalarProperty Name="NAME_VN" ColumnName="NAME_VN" />
@@ -769,9 +771,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PROCESSINGs">
+    <EntitySetMapping Name="PROCESSING">
       <EntityTypeMapping TypeName="IsTypeOf(SMS_Management.PROCESSING)">
-        <MappingFragment StoreEntitySet="PROCESSINGs">
+        <MappingFragment StoreEntitySet="PROCESSING">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="DISH_ID" ColumnName="DISH_ID" />
           <ScalarProperty Name="PRIORITY" ColumnName="PRIORITY" />
@@ -811,9 +813,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="BILLINGs">
+    <EntitySetMapping Name="BILLING">
       <EntityTypeMapping TypeName="IsTypeOf(SMS_Management.BILLING)">
-        <MappingFragment StoreEntitySet="BILLINGs">
+        <MappingFragment StoreEntitySet="BILLING">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SELL_DATE" ColumnName="SELL_DATE" />
           <ScalarProperty Name="MONEY" ColumnName="MONEY" />
@@ -843,6 +845,7 @@
           <ScalarProperty Name="CHEF_ID" ColumnName="CHEF_ID" />
           <ScalarProperty Name="Add_Time" ColumnName="Add_Time" />
           <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -918,21 +921,29 @@
           <ConnectorPoint PointX="6.25" PointY="1.9324446614583333" />
           <ConnectorPoint PointX="6.75" PointY="1.9324446614583333" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="SMS_Management.ORDERED" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SMS_Management.ORDERED" Width="1.5" PointX="10.75" PointY="0.75" Height="3.3263964843749996" />
         <AssociationConnector Association="SMS_Management.TABLES_INFOORDERED" >
           <ConnectorPoint PointX="8.25" PointY="6.8336393229166665" />
-          <ConnectorPoint PointX="11.057292916666667" PointY="6.8336393229166656" />
-          <ConnectorPoint PointX="11.223959583333334" PointY="6.8336393229166665" />
-          <ConnectorPoint PointX="11.5312525" PointY="6.8336393229166665" />
-          <ConnectorPoint PointX="11.5312525" PointY="3.8840950520833331" />
+          <ConnectorPoint PointX="11.120765182291665" PointY="6.8336393229166656" />
+          <ConnectorPoint PointX="11.287431848958333" PointY="6.8336393229166665" />
+          <ConnectorPoint PointX="11.72070203125" PointY="6.8336393229166665" />
+          <ConnectorPoint PointX="11.72070203125" PointY="4.076396484375" />
         </AssociationConnector>
         <AssociationConnector Association="SMS_Management.DISHORDERED" >
           <ConnectorPoint PointX="4.125" PointY="7.4682421875" />
-          <ConnectorPoint PointX="11.14062625" PointY="7.4682421875" />
-          <ConnectorPoint PointX="11.14062625" PointY="3.8840950520833331" />
+          <ConnectorPoint PointX="11.204098515624999" PointY="7.4682421875" />
+          <ConnectorPoint PointX="11.204098515624999" PointY="4.076396484375" />
         </AssociationConnector>
-        <AssociationConnector Association="SMS_Management.WAITER_INFOORDERED" />
-        <AssociationConnector Association="SMS_Management.CHEF_INFOORDERED" />
+        <AssociationConnector Association="SMS_Management.WAITER_INFOORDERED" >
+          <ConnectorPoint PointX="10.25" PointY="4.25" />
+          <ConnectorPoint PointX="10.75" PointY="4.076396484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="SMS_Management.CHEF_INFOORDERED" >
+          <ConnectorPoint PointX="6.25" PointY="0.75115284615384659" />
+          <ConnectorPoint PointX="6.6261528461538468" PointY="0.375" />
+          <ConnectorPoint PointX="10.375" PointY="0.375" />
+          <ConnectorPoint PointX="10.75" PointY="0.75" />
+        </AssociationConnector>
         <AssociationConnector Association="SMS_Management.DISHPROCESSING" >
           <ConnectorPoint PointX="4.125" PointY="4.75" />
           <ConnectorPoint PointX="4.5" PointY="4.375" />

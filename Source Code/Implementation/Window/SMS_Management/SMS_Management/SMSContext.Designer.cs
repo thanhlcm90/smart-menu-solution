@@ -118,18 +118,18 @@ namespace SMS_Management
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<DISH> DISHes
+        public ObjectSet<DISH> DISH
         {
             get
             {
-                if ((_DISHes == null))
+                if ((_DISH == null))
                 {
-                    _DISHes = base.CreateObjectSet<DISH>("DISHes");
+                    _DISH = base.CreateObjectSet<DISH>("DISH");
                 }
-                return _DISHes;
+                return _DISH;
             }
         }
-        private ObjectSet<DISH> _DISHes;
+        private ObjectSet<DISH> _DISH;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -150,18 +150,18 @@ namespace SMS_Management
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PROCESSING> PROCESSINGs
+        public ObjectSet<PROCESSING> PROCESSING
         {
             get
             {
-                if ((_PROCESSINGs == null))
+                if ((_PROCESSING == null))
                 {
-                    _PROCESSINGs = base.CreateObjectSet<PROCESSING>("PROCESSINGs");
+                    _PROCESSING = base.CreateObjectSet<PROCESSING>("PROCESSING");
                 }
-                return _PROCESSINGs;
+                return _PROCESSING;
             }
         }
-        private ObjectSet<PROCESSING> _PROCESSINGs;
+        private ObjectSet<PROCESSING> _PROCESSING;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -214,18 +214,18 @@ namespace SMS_Management
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<BILLING> BILLINGs
+        public ObjectSet<BILLING> BILLING
         {
             get
             {
-                if ((_BILLINGs == null))
+                if ((_BILLING == null))
                 {
-                    _BILLINGs = base.CreateObjectSet<BILLING>("BILLINGs");
+                    _BILLING = base.CreateObjectSet<BILLING>("BILLING");
                 }
-                return _BILLINGs;
+                return _BILLING;
             }
         }
-        private ObjectSet<BILLING> _BILLINGs;
+        private ObjectSet<BILLING> _BILLING;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -279,11 +279,11 @@ namespace SMS_Management
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the DISHes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the DISH EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToDISHes(DISH dISH)
+        public void AddToDISH(DISH dISH)
         {
-            base.AddObject("DISHes", dISH);
+            base.AddObject("DISH", dISH);
         }
     
         /// <summary>
@@ -295,11 +295,11 @@ namespace SMS_Management
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PROCESSINGs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PROCESSING EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPROCESSINGs(PROCESSING pROCESSING)
+        public void AddToPROCESSING(PROCESSING pROCESSING)
         {
-            base.AddObject("PROCESSINGs", pROCESSING);
+            base.AddObject("PROCESSING", pROCESSING);
         }
     
         /// <summary>
@@ -327,11 +327,11 @@ namespace SMS_Management
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the BILLINGs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the BILLING EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToBILLINGs(BILLING bILLING)
+        public void AddToBILLING(BILLING bILLING)
         {
-            base.AddObject("BILLINGs", bILLING);
+            base.AddObject("BILLING", bILLING);
         }
     
         /// <summary>
@@ -1729,7 +1729,7 @@ namespace SMS_Management
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Add_Time
+        public Nullable<global::System.DateTime> Add_Time
         {
             get
             {
@@ -1739,13 +1739,13 @@ namespace SMS_Management
             {
                 OnAdd_TimeChanging(value);
                 ReportPropertyChanging("Add_Time");
-                _Add_Time = StructuralObject.SetValidValue(value, true);
+                _Add_Time = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Add_Time");
                 OnAdd_TimeChanged();
             }
         }
-        private global::System.String _Add_Time;
-        partial void OnAdd_TimeChanging(global::System.String value);
+        private Nullable<global::System.DateTime> _Add_Time;
+        partial void OnAdd_TimeChanging(Nullable<global::System.DateTime> value);
         partial void OnAdd_TimeChanged();
     
         /// <summary>
@@ -1771,6 +1771,30 @@ namespace SMS_Management
         private global::System.String _Status;
         partial void OnStatusChanging(global::System.String value);
         partial void OnStatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                OnAmountChanging(value);
+                ReportPropertyChanging("Amount");
+                _Amount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Amount");
+                OnAmountChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _Amount;
+        partial void OnAmountChanging(Nullable<global::System.Int16> value);
+        partial void OnAmountChanged();
 
         #endregion
     
