@@ -31,15 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -58,11 +49,18 @@
             this.colBILLING_DETAILS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTABLES_INFO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCHEF_INFO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.comConnection1 = new SMS_Management.COMConnection();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TABLE_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DISH_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DISH_AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WAITER_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CHEF_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -78,87 +76,11 @@
             // 
             // xtraTabPage1
             // 
-            this.xtraTabPage1.Controls.Add(this.gridControl1);
             this.xtraTabPage1.Controls.Add(this.toolStrip1);
             this.xtraTabPage1.Enabled = true;
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(667, 298);
             this.xtraTabPage1.Text = "Gọi món";
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 70);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(667, 228);
-            this.gridControl1.TabIndex = 1;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4,
-            this.gridColumn5,
-            this.gridColumn6,
-            this.gridColumn7});
-            this.gridView1.CustomizationFormBounds = new System.Drawing.Rectangle(683, 330, 216, 183);
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Bàn số";
-            this.gridColumn1.FieldName = "gridColumn1";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Số món yêu cầu";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Số món đang làm";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Nhân viên";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Đầu bếp";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Giờ vào";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "Trạng thái";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
             // 
             // toolStrip1
             // 
@@ -188,6 +110,7 @@
             this.toolStripButton1.Text = "Xem chi tiết";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton1.ToolTipText = "Xem chi tiết";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripSeparator1
             // 
@@ -204,6 +127,7 @@
             this.toolStripButton3.Text = "Đưa vào bếp";
             this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton3.ToolTipText = "Đưa vào bếp";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripSeparator2
             // 
@@ -295,24 +219,102 @@
             this.colCHEF_INFO.FieldName = "CHEF_INFO";
             this.colCHEF_INFO.Name = "colCHEF_INFO";
             // 
+            // comConnection1
+            // 
+            this.comConnection1.Location = new System.Drawing.Point(632, 62);
+            this.comConnection1.Name = "comConnection1";
+            this.comConnection1.PortBaudRate = 9600;
+            this.comConnection1.PortDataBits = 8;
+            this.comConnection1.PortName = "COM4";
+            this.comConnection1.PortParity = System.IO.Ports.Parity.None;
+            this.comConnection1.PortStopBits = System.IO.Ports.StopBits.One;
+            this.comConnection1.Size = new System.Drawing.Size(31, 27);
+            this.comConnection1.TabIndex = 1;
+            this.comConnection1.DataReceived += new SMS_Management.COMConnection.DataReceivedEventHandler(this.comConnection1_DataReceived);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TABLE_NAME,
+            this.DISH_NAME,
+            this.DISH_AMOUNT,
+            this.WAITER_NAME,
+            this.CHEF_NAME,
+            this.STATUS});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 108);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(668, 230);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // TABLE_NAME
+            // 
+            this.TABLE_NAME.DataPropertyName = "TABLE_NAME";
+            this.TABLE_NAME.HeaderText = "Bàn số";
+            this.TABLE_NAME.Name = "TABLE_NAME";
+            this.TABLE_NAME.ReadOnly = true;
+            this.TABLE_NAME.Width = 70;
+            // 
+            // DISH_NAME
+            // 
+            this.DISH_NAME.DataPropertyName = "DISH_NAME";
+            this.DISH_NAME.HeaderText = "Tên món ăn";
+            this.DISH_NAME.Name = "DISH_NAME";
+            this.DISH_NAME.ReadOnly = true;
+            this.DISH_NAME.Width = 150;
+            // 
+            // DISH_AMOUNT
+            // 
+            this.DISH_AMOUNT.DataPropertyName = "DISH_AMOUNT";
+            this.DISH_AMOUNT.HeaderText = "Số lượng";
+            this.DISH_AMOUNT.Name = "DISH_AMOUNT";
+            this.DISH_AMOUNT.ReadOnly = true;
+            this.DISH_AMOUNT.Width = 80;
+            // 
+            // WAITER_NAME
+            // 
+            this.WAITER_NAME.DataPropertyName = "WAITER_NAME";
+            this.WAITER_NAME.HeaderText = "Nhân viên phục vụ";
+            this.WAITER_NAME.Name = "WAITER_NAME";
+            this.WAITER_NAME.ReadOnly = true;
+            this.WAITER_NAME.Width = 120;
+            // 
+            // CHEF_NAME
+            // 
+            this.CHEF_NAME.DataPropertyName = "CHEF_NAME";
+            this.CHEF_NAME.HeaderText = "Đầu bếp";
+            this.CHEF_NAME.Name = "CHEF_NAME";
+            this.CHEF_NAME.ReadOnly = true;
+            // 
+            // STATUS
+            // 
+            this.STATUS.DataPropertyName = "STATUS";
+            this.STATUS.HeaderText = "Trạng thái";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.ReadOnly = true;
+            this.STATUS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.STATUS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(697, 350);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.comConnection1);
             this.Controls.Add(this.xtraTabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "SMS Management";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -339,8 +341,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colBILLING_DETAILS;
         private DevExpress.XtraGrid.Columns.GridColumn colTABLES_INFO;
         private DevExpress.XtraGrid.Columns.GridColumn colCHEF_INFO;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
@@ -348,5 +348,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private COMConnection comConnection1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TABLE_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DISH_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DISH_AMOUNT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WAITER_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CHEF_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
     }
 }

@@ -18,24 +18,23 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("SMS_Management", "DISH_TYPEDISH", "DISH_TYPE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.DISH_TYPE), "DISH", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.DISH), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "STATUSPROCESSING", "STATUS", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.STATUS), "PROCESSING", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.PROCESSING), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "TABLES_INFOPROCESSING", "TABLES_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.TABLES_INFO), "PROCESSING", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.PROCESSING), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "WAITER_INFOTABLES_INFO", "WAITER_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.WAITER_INFO), "TABLES_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.TABLES_INFO), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "BILLINGBILLING_DETAIL", "BILLING", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.BILLING), "BILLING_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.BILLING_DETAIL), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "TABLES_INFOBILLING", "TABLES_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.TABLES_INFO), "BILLING", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.BILLING), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "DISHBILLING_DETAIL", "DISH", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.DISH), "BILLING_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.BILLING_DETAIL), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "CHEF_INFOBILLING", "CHEF_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SMS_Management.CHEF_INFO), "BILLING", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.BILLING), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "CHEF_INFOPROCESSING", "CHEF_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.CHEF_INFO), "PROCESSING", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.PROCESSING), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "TABLES_INFOORDERED", "TABLES_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SMS_Management.TABLES_INFO), "ORDERED", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.ORDERED), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "DISHORDERED", "DISH", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SMS_Management.DISH), "ORDERED", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.ORDERED), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "WAITER_INFOORDERED", "WAITER_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SMS_Management.WAITER_INFO), "ORDERED", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.ORDERED), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "CHEF_INFOORDERED", "CHEF_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SMS_Management.CHEF_INFO), "ORDERED", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.ORDERED), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "DISHPROCESSING", "DISH", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.DISH), "PROCESSING", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.PROCESSING), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "DISH_TYPEDISH", "DISH_TYPE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.DISH_TYPE), "DISH", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.DISH), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "TABLES_INFOPROCESSING", "TABLES_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.TABLES_INFO), "PROCESSING", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.PROCESSING), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "WAITER_INFOTABLES_INFO", "WAITER_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SMS_Management.Database.WAITER_INFO), "TABLES_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.TABLES_INFO), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "BILLINGBILLING_DETAIL", "BILLING", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.BILLING), "BILLING_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.BILLING_DETAIL), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "TABLES_INFOBILLING", "TABLES_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.TABLES_INFO), "BILLING", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.BILLING), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "DISHBILLING_DETAIL", "DISH", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.DISH), "BILLING_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.BILLING_DETAIL), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "CHEF_INFOBILLING", "CHEF_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SMS_Management.Database.CHEF_INFO), "BILLING", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.BILLING), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "CHEF_INFOPROCESSING", "CHEF_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.CHEF_INFO), "PROCESSING", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.PROCESSING), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "TABLES_INFOORDERED", "TABLES_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.TABLES_INFO), "ORDERED", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.ORDER), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "DISHPROCESSING", "DISH", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.DISH), "PROCESSING", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.PROCESSING), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "ORDERORDER_DETAIL", "ORDER", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.ORDER), "ORDER_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.ORDER_DETAIL), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "CHEF_INFOORDER_DETAIL", "CHEF_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SMS_Management.Database.CHEF_INFO), "ORDER_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.ORDER_DETAIL), true)]
+[assembly: EdmRelationshipAttribute("SMS_Management", "DISHORDER_DETAIL", "DISH", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.DISH), "ORDER_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.ORDER_DETAIL), true)]
 
 #endregion
 
-namespace SMS_Management
+namespace SMS_Management.Database
 {
     #region Contexts
     
@@ -102,22 +101,6 @@ namespace SMS_Management
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CURENCY_TYPE> CURENCY_TYPE
-        {
-            get
-            {
-                if ((_CURENCY_TYPE == null))
-                {
-                    _CURENCY_TYPE = base.CreateObjectSet<CURENCY_TYPE>("CURENCY_TYPE");
-                }
-                return _CURENCY_TYPE;
-            }
-        }
-        private ObjectSet<CURENCY_TYPE> _CURENCY_TYPE;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<DISH> DISH
         {
             get
@@ -162,22 +145,6 @@ namespace SMS_Management
             }
         }
         private ObjectSet<PROCESSING> _PROCESSING;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<STATUS> STATUS
-        {
-            get
-            {
-                if ((_STATUS == null))
-                {
-                    _STATUS = base.CreateObjectSet<STATUS>("STATUS");
-                }
-                return _STATUS;
-            }
-        }
-        private ObjectSet<STATUS> _STATUS;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -246,18 +213,34 @@ namespace SMS_Management
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ORDERED> ORDERED
+        public ObjectSet<ORDER> ORDER
         {
             get
             {
-                if ((_ORDERED == null))
+                if ((_ORDER == null))
                 {
-                    _ORDERED = base.CreateObjectSet<ORDERED>("ORDERED");
+                    _ORDER = base.CreateObjectSet<ORDER>("ORDER");
                 }
-                return _ORDERED;
+                return _ORDER;
             }
         }
-        private ObjectSet<ORDERED> _ORDERED;
+        private ObjectSet<ORDER> _ORDER;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ORDER_DETAIL> ORDER_DETAIL
+        {
+            get
+            {
+                if ((_ORDER_DETAIL == null))
+                {
+                    _ORDER_DETAIL = base.CreateObjectSet<ORDER_DETAIL>("ORDER_DETAIL");
+                }
+                return _ORDER_DETAIL;
+            }
+        }
+        private ObjectSet<ORDER_DETAIL> _ORDER_DETAIL;
 
         #endregion
         #region AddTo Methods
@@ -268,14 +251,6 @@ namespace SMS_Management
         public void AddToCHEF_INFO(CHEF_INFO cHEF_INFO)
         {
             base.AddObject("CHEF_INFO", cHEF_INFO);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the CURENCY_TYPE EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToCURENCY_TYPE(CURENCY_TYPE cURENCY_TYPE)
-        {
-            base.AddObject("CURENCY_TYPE", cURENCY_TYPE);
         }
     
         /// <summary>
@@ -300,14 +275,6 @@ namespace SMS_Management
         public void AddToPROCESSING(PROCESSING pROCESSING)
         {
             base.AddObject("PROCESSING", pROCESSING);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the STATUS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToSTATUS(STATUS sTATUS)
-        {
-            base.AddObject("STATUS", sTATUS);
         }
     
         /// <summary>
@@ -343,11 +310,19 @@ namespace SMS_Management
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ORDERED EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the ORDER EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToORDERED(ORDERED oRDERED)
+        public void AddToORDER(ORDER oRDER)
         {
-            base.AddObject("ORDERED", oRDERED);
+            base.AddObject("ORDER", oRDER);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ORDER_DETAIL EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToORDER_DETAIL(ORDER_DETAIL oRDER_DETAIL)
+        {
+            base.AddObject("ORDER_DETAIL", oRDER_DETAIL);
         }
 
         #endregion
@@ -1055,104 +1030,23 @@ namespace SMS_Management
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "CHEF_INFOORDERED", "ORDERED")]
-        public EntityCollection<ORDERED> ORDEREDs
+        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "CHEF_INFOORDER_DETAIL", "ORDER_DETAIL")]
+        public EntityCollection<ORDER_DETAIL> ORDER_DETAIL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ORDERED>("SMS_Management.CHEF_INFOORDERED", "ORDERED");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ORDER_DETAIL>("SMS_Management.CHEF_INFOORDER_DETAIL", "ORDER_DETAIL");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ORDERED>("SMS_Management.CHEF_INFOORDERED", "ORDERED", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ORDER_DETAIL>("SMS_Management.CHEF_INFOORDER_DETAIL", "ORDER_DETAIL", value);
                 }
             }
         }
 
         #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SMS_Management", Name="CURENCY_TYPE")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class CURENCY_TYPE : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new CURENCY_TYPE object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="nAME">Initial value of the NAME property.</param>
-        public static CURENCY_TYPE CreateCURENCY_TYPE(global::System.Guid id, global::System.String nAME)
-        {
-            CURENCY_TYPE cURENCY_TYPE = new CURENCY_TYPE();
-            cURENCY_TYPE.Id = id;
-            cURENCY_TYPE.NAME = nAME;
-            return cURENCY_TYPE;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NAME
-        {
-            get
-            {
-                return _NAME;
-            }
-            set
-            {
-                OnNAMEChanging(value);
-                ReportPropertyChanging("NAME");
-                _NAME = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("NAME");
-                OnNAMEChanged();
-            }
-        }
-        private global::System.String _NAME;
-        partial void OnNAMEChanging(global::System.String value);
-        partial void OnNAMEChanged();
-
-        #endregion
-    
     }
     
     /// <summary>
@@ -1173,8 +1067,7 @@ namespace SMS_Management
         /// <param name="nAME_VN">Initial value of the NAME_VN property.</param>
         /// <param name="dISHTYPE_ID">Initial value of the DISHTYPE_ID property.</param>
         /// <param name="pRICE">Initial value of the PRICE property.</param>
-        /// <param name="cURENCYTYPE_ID">Initial value of the CURENCYTYPE_ID property.</param>
-        public static DISH CreateDISH(global::System.Guid id, global::System.String cODE, global::System.String nAME_VN, global::System.Guid dISHTYPE_ID, global::System.Decimal pRICE, global::System.Guid cURENCYTYPE_ID)
+        public static DISH CreateDISH(global::System.Guid id, global::System.Int32 cODE, global::System.String nAME_VN, global::System.Guid dISHTYPE_ID, global::System.Decimal pRICE)
         {
             DISH dISH = new DISH();
             dISH.Id = id;
@@ -1182,7 +1075,6 @@ namespace SMS_Management
             dISH.NAME_VN = nAME_VN;
             dISH.DISHTYPE_ID = dISHTYPE_ID;
             dISH.PRICE = pRICE;
-            dISH.CURENCYTYPE_ID = cURENCYTYPE_ID;
             return dISH;
         }
 
@@ -1221,7 +1113,7 @@ namespace SMS_Management
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String CODE
+        public global::System.Int32 CODE
         {
             get
             {
@@ -1231,13 +1123,13 @@ namespace SMS_Management
             {
                 OnCODEChanging(value);
                 ReportPropertyChanging("CODE");
-                _CODE = StructuralObject.SetValidValue(value, false);
+                _CODE = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CODE");
                 OnCODEChanged();
             }
         }
-        private global::System.String _CODE;
-        partial void OnCODEChanging(global::System.String value);
+        private global::System.Int32 _CODE;
+        partial void OnCODEChanging(global::System.Int32 value);
         partial void OnCODEChanged();
     
         /// <summary>
@@ -1335,30 +1227,6 @@ namespace SMS_Management
         private global::System.Decimal _PRICE;
         partial void OnPRICEChanging(global::System.Decimal value);
         partial void OnPRICEChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid CURENCYTYPE_ID
-        {
-            get
-            {
-                return _CURENCYTYPE_ID;
-            }
-            set
-            {
-                OnCURENCYTYPE_IDChanging(value);
-                ReportPropertyChanging("CURENCYTYPE_ID");
-                _CURENCYTYPE_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CURENCYTYPE_ID");
-                OnCURENCYTYPE_IDChanged();
-            }
-        }
-        private global::System.Guid _CURENCYTYPE_ID;
-        partial void OnCURENCYTYPE_IDChanging(global::System.Guid value);
-        partial void OnCURENCYTYPE_IDChanged();
 
         #endregion
     
@@ -1430,28 +1298,6 @@ namespace SMS_Management
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "DISHORDERED", "ORDERED")]
-        public EntityCollection<ORDERED> ORDEREDs
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ORDERED>("SMS_Management.DISHORDERED", "ORDERED");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ORDERED>("SMS_Management.DISHORDERED", "ORDERED", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "DISHPROCESSING", "PROCESSING")]
         public EntityCollection<PROCESSING> PROCESSINGs
         {
@@ -1464,6 +1310,28 @@ namespace SMS_Management
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PROCESSING>("SMS_Management.DISHPROCESSING", "PROCESSING", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "DISHORDER_DETAIL", "ORDER_DETAIL")]
+        public EntityCollection<ORDER_DETAIL> ORDER_DETAIL
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ORDER_DETAIL>("SMS_Management.DISHORDER_DETAIL", "ORDER_DETAIL");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ORDER_DETAIL>("SMS_Management.DISHORDER_DETAIL", "ORDER_DETAIL", value);
                 }
             }
         }
@@ -1580,22 +1448,24 @@ namespace SMS_Management
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SMS_Management", Name="ORDERED")]
+    [EdmEntityTypeAttribute(NamespaceName="SMS_Management", Name="ORDER")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class ORDERED : EntityObject
+    public partial class ORDER : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new ORDERED object.
+        /// Create a new ORDER object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        public static ORDERED CreateORDERED(global::System.Guid id)
+        /// <param name="tABLE_ID">Initial value of the TABLE_ID property.</param>
+        public static ORDER CreateORDER(global::System.Guid id, global::System.Guid tABLE_ID)
         {
-            ORDERED oRDERED = new ORDERED();
-            oRDERED.Id = id;
-            return oRDERED;
+            ORDER oRDER = new ORDER();
+            oRDER.Id = id;
+            oRDER.TABLE_ID = tABLE_ID;
+            return oRDER;
         }
 
         #endregion
@@ -1631,9 +1501,9 @@ namespace SMS_Management
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Guid> TABLE_ID
+        public global::System.Guid TABLE_ID
         {
             get
             {
@@ -1648,8 +1518,8 @@ namespace SMS_Management
                 OnTABLE_IDChanged();
             }
         }
-        private Nullable<global::System.Guid> _TABLE_ID;
-        partial void OnTABLE_IDChanging(Nullable<global::System.Guid> value);
+        private global::System.Guid _TABLE_ID;
+        partial void OnTABLE_IDChanging(global::System.Guid value);
         partial void OnTABLE_IDChanged();
     
         /// <summary>
@@ -1657,144 +1527,48 @@ namespace SMS_Management
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Guid> DISH_ID
+        public Nullable<global::System.Int16> STATUS
         {
             get
             {
-                return _DISH_ID;
+                return _STATUS;
             }
             set
             {
-                OnDISH_IDChanging(value);
-                ReportPropertyChanging("DISH_ID");
-                _DISH_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DISH_ID");
-                OnDISH_IDChanged();
+                OnSTATUSChanging(value);
+                ReportPropertyChanging("STATUS");
+                _STATUS = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("STATUS");
+                OnSTATUSChanged();
             }
         }
-        private Nullable<global::System.Guid> _DISH_ID;
-        partial void OnDISH_IDChanging(Nullable<global::System.Guid> value);
-        partial void OnDISH_IDChanged();
+        private Nullable<global::System.Int16> _STATUS;
+        partial void OnSTATUSChanging(Nullable<global::System.Int16> value);
+        partial void OnSTATUSChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Guid> WAITER_ID
+        public Nullable<global::System.DateTime> ADD_TIME
         {
             get
             {
-                return _WAITER_ID;
+                return _ADD_TIME;
             }
             set
             {
-                OnWAITER_IDChanging(value);
-                ReportPropertyChanging("WAITER_ID");
-                _WAITER_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("WAITER_ID");
-                OnWAITER_IDChanged();
+                OnADD_TIMEChanging(value);
+                ReportPropertyChanging("ADD_TIME");
+                _ADD_TIME = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ADD_TIME");
+                OnADD_TIMEChanged();
             }
         }
-        private Nullable<global::System.Guid> _WAITER_ID;
-        partial void OnWAITER_IDChanging(Nullable<global::System.Guid> value);
-        partial void OnWAITER_IDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Guid> CHEF_ID
-        {
-            get
-            {
-                return _CHEF_ID;
-            }
-            set
-            {
-                OnCHEF_IDChanging(value);
-                ReportPropertyChanging("CHEF_ID");
-                _CHEF_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CHEF_ID");
-                OnCHEF_IDChanged();
-            }
-        }
-        private Nullable<global::System.Guid> _CHEF_ID;
-        partial void OnCHEF_IDChanging(Nullable<global::System.Guid> value);
-        partial void OnCHEF_IDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Add_Time
-        {
-            get
-            {
-                return _Add_Time;
-            }
-            set
-            {
-                OnAdd_TimeChanging(value);
-                ReportPropertyChanging("Add_Time");
-                _Add_Time = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Add_Time");
-                OnAdd_TimeChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _Add_Time;
-        partial void OnAdd_TimeChanging(Nullable<global::System.DateTime> value);
-        partial void OnAdd_TimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Status
-        {
-            get
-            {
-                return _Status;
-            }
-            set
-            {
-                OnStatusChanging(value);
-                ReportPropertyChanging("Status");
-                _Status = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Status");
-                OnStatusChanged();
-            }
-        }
-        private global::System.String _Status;
-        partial void OnStatusChanging(global::System.String value);
-        partial void OnStatusChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int16> Amount
-        {
-            get
-            {
-                return _Amount;
-            }
-            set
-            {
-                OnAmountChanging(value);
-                ReportPropertyChanging("Amount");
-                _Amount = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Amount");
-                OnAmountChanged();
-            }
-        }
-        private Nullable<global::System.Int16> _Amount;
-        partial void OnAmountChanging(Nullable<global::System.Int16> value);
-        partial void OnAmountChanged();
+        private Nullable<global::System.DateTime> _ADD_TIME;
+        partial void OnADD_TIMEChanging(Nullable<global::System.DateTime> value);
+        partial void OnADD_TIMEChanged();
 
         #endregion
     
@@ -1844,16 +1618,220 @@ namespace SMS_Management
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "DISHORDERED", "DISH")]
-        public DISH DISH
+        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "ORDERORDER_DETAIL", "ORDER_DETAIL")]
+        public EntityCollection<ORDER_DETAIL> ORDER_DETAIL
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISH>("SMS_Management.DISHORDERED", "DISH").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ORDER_DETAIL>("SMS_Management.ORDERORDER_DETAIL", "ORDER_DETAIL");
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISH>("SMS_Management.DISHORDERED", "DISH").Value = value;
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ORDER_DETAIL>("SMS_Management.ORDERORDER_DETAIL", "ORDER_DETAIL", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SMS_Management", Name="ORDER_DETAIL")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ORDER_DETAIL : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ORDER_DETAIL object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="dISH_ID">Initial value of the DISH_ID property.</param>
+        /// <param name="oRDER_ID">Initial value of the ORDER_ID property.</param>
+        public static ORDER_DETAIL CreateORDER_DETAIL(global::System.Guid id, global::System.Guid dISH_ID, global::System.Guid oRDER_ID)
+        {
+            ORDER_DETAIL oRDER_DETAIL = new ORDER_DETAIL();
+            oRDER_DETAIL.Id = id;
+            oRDER_DETAIL.DISH_ID = dISH_ID;
+            oRDER_DETAIL.ORDER_ID = oRDER_ID;
+            return oRDER_DETAIL;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid DISH_ID
+        {
+            get
+            {
+                return _DISH_ID;
+            }
+            set
+            {
+                OnDISH_IDChanging(value);
+                ReportPropertyChanging("DISH_ID");
+                _DISH_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DISH_ID");
+                OnDISH_IDChanged();
+            }
+        }
+        private global::System.Guid _DISH_ID;
+        partial void OnDISH_IDChanging(global::System.Guid value);
+        partial void OnDISH_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String STATUS
+        {
+            get
+            {
+                return _STATUS;
+            }
+            set
+            {
+                OnSTATUSChanging(value);
+                ReportPropertyChanging("STATUS");
+                _STATUS = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("STATUS");
+                OnSTATUSChanged();
+            }
+        }
+        private global::System.String _STATUS;
+        partial void OnSTATUSChanging(global::System.String value);
+        partial void OnSTATUSChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> AMOUNT
+        {
+            get
+            {
+                return _AMOUNT;
+            }
+            set
+            {
+                OnAMOUNTChanging(value);
+                ReportPropertyChanging("AMOUNT");
+                _AMOUNT = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AMOUNT");
+                OnAMOUNTChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _AMOUNT;
+        partial void OnAMOUNTChanging(Nullable<global::System.Int16> value);
+        partial void OnAMOUNTChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> CHEF_ID
+        {
+            get
+            {
+                return _CHEF_ID;
+            }
+            set
+            {
+                OnCHEF_IDChanging(value);
+                ReportPropertyChanging("CHEF_ID");
+                _CHEF_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CHEF_ID");
+                OnCHEF_IDChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _CHEF_ID;
+        partial void OnCHEF_IDChanging(Nullable<global::System.Guid> value);
+        partial void OnCHEF_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ORDER_ID
+        {
+            get
+            {
+                return _ORDER_ID;
+            }
+            set
+            {
+                OnORDER_IDChanging(value);
+                ReportPropertyChanging("ORDER_ID");
+                _ORDER_ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ORDER_ID");
+                OnORDER_IDChanged();
+            }
+        }
+        private global::System.Guid _ORDER_ID;
+        partial void OnORDER_IDChanging(global::System.Guid value);
+        partial void OnORDER_IDChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "ORDERORDER_DETAIL", "ORDER")]
+        public ORDER ORDER
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ORDER>("SMS_Management.ORDERORDER_DETAIL", "ORDER").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ORDER>("SMS_Management.ORDERORDER_DETAIL", "ORDER").Value = value;
             }
         }
         /// <summary>
@@ -1861,17 +1839,17 @@ namespace SMS_Management
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<DISH> DISHReference
+        public EntityReference<ORDER> ORDERReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISH>("SMS_Management.DISHORDERED", "DISH");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ORDER>("SMS_Management.ORDERORDER_DETAIL", "ORDER");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DISH>("SMS_Management.DISHORDERED", "DISH", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ORDER>("SMS_Management.ORDERORDER_DETAIL", "ORDER", value);
                 }
             }
         }
@@ -1882,54 +1860,16 @@ namespace SMS_Management
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "WAITER_INFOORDERED", "WAITER_INFO")]
-        public WAITER_INFO WAITER_INFO
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WAITER_INFO>("SMS_Management.WAITER_INFOORDERED", "WAITER_INFO").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WAITER_INFO>("SMS_Management.WAITER_INFOORDERED", "WAITER_INFO").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<WAITER_INFO> WAITER_INFOReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<WAITER_INFO>("SMS_Management.WAITER_INFOORDERED", "WAITER_INFO");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<WAITER_INFO>("SMS_Management.WAITER_INFOORDERED", "WAITER_INFO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "CHEF_INFOORDERED", "CHEF_INFO")]
+        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "CHEF_INFOORDER_DETAIL", "CHEF_INFO")]
         public CHEF_INFO CHEF_INFO
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CHEF_INFO>("SMS_Management.CHEF_INFOORDERED", "CHEF_INFO").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CHEF_INFO>("SMS_Management.CHEF_INFOORDER_DETAIL", "CHEF_INFO").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CHEF_INFO>("SMS_Management.CHEF_INFOORDERED", "CHEF_INFO").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CHEF_INFO>("SMS_Management.CHEF_INFOORDER_DETAIL", "CHEF_INFO").Value = value;
             }
         }
         /// <summary>
@@ -1941,13 +1881,51 @@ namespace SMS_Management
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CHEF_INFO>("SMS_Management.CHEF_INFOORDERED", "CHEF_INFO");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CHEF_INFO>("SMS_Management.CHEF_INFOORDER_DETAIL", "CHEF_INFO");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CHEF_INFO>("SMS_Management.CHEF_INFOORDERED", "CHEF_INFO", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CHEF_INFO>("SMS_Management.CHEF_INFOORDER_DETAIL", "CHEF_INFO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "DISHORDER_DETAIL", "DISH")]
+        public DISH DISH
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISH>("SMS_Management.DISHORDER_DETAIL", "DISH").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISH>("SMS_Management.DISHORDER_DETAIL", "DISH").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<DISH> DISHReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DISH>("SMS_Management.DISHORDER_DETAIL", "DISH");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DISH>("SMS_Management.DISHORDER_DETAIL", "DISH", value);
                 }
             }
         }
@@ -1972,17 +1950,17 @@ namespace SMS_Management
         /// <param name="dISH_ID">Initial value of the DISH_ID property.</param>
         /// <param name="pRIORITY">Initial value of the PRIORITY property.</param>
         /// <param name="aMOUNT">Initial value of the AMOUNT property.</param>
-        /// <param name="sTATUS_ID">Initial value of the STATUS_ID property.</param>
+        /// <param name="sTATUS">Initial value of the STATUS property.</param>
         /// <param name="tALBLE_ID">Initial value of the TALBLE_ID property.</param>
         /// <param name="cHEF_ID">Initial value of the CHEF_ID property.</param>
-        public static PROCESSING CreatePROCESSING(global::System.Guid id, global::System.Guid dISH_ID, global::System.Int32 pRIORITY, global::System.Int32 aMOUNT, global::System.Guid sTATUS_ID, global::System.Guid tALBLE_ID, global::System.Guid cHEF_ID)
+        public static PROCESSING CreatePROCESSING(global::System.Guid id, global::System.Guid dISH_ID, global::System.Int32 pRIORITY, global::System.Int32 aMOUNT, global::System.Int16 sTATUS, global::System.Guid tALBLE_ID, global::System.Guid cHEF_ID)
         {
             PROCESSING pROCESSING = new PROCESSING();
             pROCESSING.Id = id;
             pROCESSING.DISH_ID = dISH_ID;
             pROCESSING.PRIORITY = pRIORITY;
             pROCESSING.AMOUNT = aMOUNT;
-            pROCESSING.STATUS_ID = sTATUS_ID;
+            pROCESSING.STATUS = sTATUS;
             pROCESSING.TALBLE_ID = tALBLE_ID;
             pROCESSING.CHEF_ID = cHEF_ID;
             return pROCESSING;
@@ -2095,24 +2073,24 @@ namespace SMS_Management
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Guid STATUS_ID
+        public global::System.Int16 STATUS
         {
             get
             {
-                return _STATUS_ID;
+                return _STATUS;
             }
             set
             {
-                OnSTATUS_IDChanging(value);
-                ReportPropertyChanging("STATUS_ID");
-                _STATUS_ID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("STATUS_ID");
-                OnSTATUS_IDChanged();
+                OnSTATUSChanging(value);
+                ReportPropertyChanging("STATUS");
+                _STATUS = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("STATUS");
+                OnSTATUSChanged();
             }
         }
-        private global::System.Guid _STATUS_ID;
-        partial void OnSTATUS_IDChanging(global::System.Guid value);
-        partial void OnSTATUS_IDChanged();
+        private global::System.Int16 _STATUS;
+        partial void OnSTATUSChanging(global::System.Int16 value);
+        partial void OnSTATUSChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2189,44 +2167,6 @@ namespace SMS_Management
         #endregion
     
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "STATUSPROCESSING", "STATUS")]
-        public STATUS STATUS
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<STATUS>("SMS_Management.STATUSPROCESSING", "STATUS").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<STATUS>("SMS_Management.STATUSPROCESSING", "STATUS").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<STATUS> STATUSReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<STATUS>("SMS_Management.STATUSPROCESSING", "STATUS");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<STATUS>("SMS_Management.STATUSPROCESSING", "STATUS", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2348,112 +2288,6 @@ namespace SMS_Management
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="SMS_Management", Name="STATUS")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class STATUS : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new STATUS object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="nAME">Initial value of the NAME property.</param>
-        public static STATUS CreateSTATUS(global::System.Guid id, global::System.String nAME)
-        {
-            STATUS sTATUS = new STATUS();
-            sTATUS.Id = id;
-            sTATUS.NAME = nAME;
-            return sTATUS;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NAME
-        {
-            get
-            {
-                return _NAME;
-            }
-            set
-            {
-                OnNAMEChanging(value);
-                ReportPropertyChanging("NAME");
-                _NAME = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("NAME");
-                OnNAMEChanged();
-            }
-        }
-        private global::System.String _NAME;
-        partial void OnNAMEChanging(global::System.String value);
-        partial void OnNAMEChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "STATUSPROCESSING", "PROCESSING")]
-        public EntityCollection<PROCESSING> PROCESSING
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PROCESSING>("SMS_Management.STATUSPROCESSING", "PROCESSING");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PROCESSING>("SMS_Management.STATUSPROCESSING", "PROCESSING", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="SMS_Management", Name="TABLES_INFO")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -2466,13 +2300,13 @@ namespace SMS_Management
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="cODE">Initial value of the CODE property.</param>
-        /// <param name="wAITER_ID">Initial value of the WAITER_ID property.</param>
-        public static TABLES_INFO CreateTABLES_INFO(global::System.Guid id, global::System.String cODE, global::System.Guid wAITER_ID)
+        /// <param name="nAME">Initial value of the NAME property.</param>
+        public static TABLES_INFO CreateTABLES_INFO(global::System.Guid id, global::System.Int32 cODE, global::System.String nAME)
         {
             TABLES_INFO tABLES_INFO = new TABLES_INFO();
             tABLES_INFO.Id = id;
             tABLES_INFO.CODE = cODE;
-            tABLES_INFO.WAITER_ID = wAITER_ID;
+            tABLES_INFO.NAME = nAME;
             return tABLES_INFO;
         }
 
@@ -2511,7 +2345,7 @@ namespace SMS_Management
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String CODE
+        public global::System.Int32 CODE
         {
             get
             {
@@ -2521,21 +2355,21 @@ namespace SMS_Management
             {
                 OnCODEChanging(value);
                 ReportPropertyChanging("CODE");
-                _CODE = StructuralObject.SetValidValue(value, false);
+                _CODE = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CODE");
                 OnCODEChanged();
             }
         }
-        private global::System.String _CODE;
-        partial void OnCODEChanging(global::System.String value);
+        private global::System.Int32 _CODE;
+        partial void OnCODEChanging(global::System.Int32 value);
         partial void OnCODEChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Guid WAITER_ID
+        public Nullable<global::System.Guid> WAITER_ID
         {
             get
             {
@@ -2550,9 +2384,33 @@ namespace SMS_Management
                 OnWAITER_IDChanged();
             }
         }
-        private global::System.Guid _WAITER_ID;
-        partial void OnWAITER_IDChanging(global::System.Guid value);
+        private Nullable<global::System.Guid> _WAITER_ID;
+        partial void OnWAITER_IDChanging(Nullable<global::System.Guid> value);
         partial void OnWAITER_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String NAME
+        {
+            get
+            {
+                return _NAME;
+            }
+            set
+            {
+                OnNAMEChanging(value);
+                ReportPropertyChanging("NAME");
+                _NAME = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("NAME");
+                OnNAMEChanged();
+            }
+        }
+        private global::System.String _NAME;
+        partial void OnNAMEChanging(global::System.String value);
+        partial void OnNAMEChanged();
 
         #endregion
     
@@ -2647,17 +2505,17 @@ namespace SMS_Management
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "TABLES_INFOORDERED", "ORDERED")]
-        public EntityCollection<ORDERED> ORDEREDs
+        public EntityCollection<ORDER> ORDEREDs
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ORDERED>("SMS_Management.TABLES_INFOORDERED", "ORDERED");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ORDER>("SMS_Management.TABLES_INFOORDERED", "ORDERED");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ORDERED>("SMS_Management.TABLES_INFOORDERED", "ORDERED", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ORDER>("SMS_Management.TABLES_INFOORDERED", "ORDERED", value);
                 }
             }
         }
@@ -2836,28 +2694,6 @@ namespace SMS_Management
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TABLES_INFO>("SMS_Management.WAITER_INFOTABLES_INFO", "TABLES_INFO", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SMS_Management", "WAITER_INFOORDERED", "ORDERED")]
-        public EntityCollection<ORDERED> ORDEREDs
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ORDERED>("SMS_Management.WAITER_INFOORDERED", "ORDERED");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ORDERED>("SMS_Management.WAITER_INFOORDERED", "ORDERED", value);
                 }
             }
         }

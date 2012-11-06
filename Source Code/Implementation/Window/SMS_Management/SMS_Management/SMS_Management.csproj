@@ -40,7 +40,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -103,8 +103,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RcvCodeHandler.cs" />
-    <Compile Include="SerialPortConnection.cs" />
+    <Compile Include="COMConnection.cs">
+      <SubType>UserControl</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="COMConnection.Designer.cs">
+      <DependentUpon>COMConnection.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="DataObject\OrderDTO.cs" />
+    <Compile Include="DataAccess\OrderRepostitory.cs" />
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,18 +122,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SMSContext.Designer.cs">
+    <Compile Include="Database\SMSContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SMSContext.edmx</DependentUpon>
     </Compile>
-    <Compile Include="SMSRepostitory.cs" />
+    <Compile Include="DataAccess\SMSRepostitory.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="COMConnection.resx">
+      <DependentUpon>COMConnection.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,16 +190,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="SMSContext.edmx">
+    <EntityDeploy Include="Database\SMSContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SMSContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SMS_Database.mdf">
+    <Content Include="Database\SMS_Database.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="SMS_Database_log.ldf">
+    <Content Include="Database\SMS_Database_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>SMS_Database.mdf</DependentUpon>
     </Content>
@@ -195,7 +208,7 @@
     <None Include="Resources\delete.png" />
     <None Include="Resources\page_save.png" />
     <None Include="Resources\page_edit.png" />
-    <Content Include="SMSContext.edmx.sql" />
+    <Content Include="Database\SMSContext.edmx.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
