@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding/.classpath=Cp1252
+encoding//.settings/org.eclipse.core.resources.prefs=Cp1252
+encoding//.settings/org.eclipse.jdt.core.prefs=Cp1252
+encoding//.settings/org.eclipse.xtend.shared.ui.prefs=Cp1252
+encoding//META-INF/MANIFEST.MF=Cp1252
+encoding//src/org/yakindu/sct/generator/xpand/Main.xpt=Cp1252
+encoding/<project>=Cp1252
+encoding/SMO.sct=UTF-8
+encoding/SMR.sct=UTF-8
+encoding/build.properties=Cp1252
