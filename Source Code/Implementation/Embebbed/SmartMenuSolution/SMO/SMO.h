@@ -15,8 +15,6 @@ typedef enum {
 	SMO_main_region_on ,
 	SMO_main_region_on_r1_Init ,
 	SMO_main_region_on_r1_Running ,
-	SMO_main_region_on_r1_Running_RF_DataReceived ,
-	SMO_main_region_on_r1_Running_RF_GetData ,
 	SMO_main_region_on_r1_Running_keypad_CheckKey ,
 	SMO_main_region_on_r1_Running_keypad_CheckKeyDown ,
 	SMO_main_region_on_r1_Running_running_main_ShowMenu ,
@@ -29,10 +27,13 @@ typedef enum {
 	SMO_main_region_on_r1_Running_running_main_EnterData_r1_CheckKeyPress2 ,
 	SMO_main_region_on_r1_Running_running_main_EnterData_r1_CheckAmount0 ,
 	SMO_main_region_on_r1_Running_running_main_EnterData_r1_EnterAmount ,
-	SMO_main_region_on_r1_Running_running_main_EnterData_r1_SendData ,
 	SMO_main_region_on_r1_Running_running_main_EnterData_r1__final_ ,
 	SMO_main_region_on_r1_Running_running_main_MenuA ,
 	SMO_main_region_on_r1_Running_running_main_CheckKeyPress ,
+	SMO_main_region_on_r1_Running_running_main_SendData ,
+	SMO_main_region_on_r1_Running_running_main_SendData_r1_Send ,
+	SMO_main_region_on_r1_Running_running_main_SendData_r1_Check ,
+	SMO_main_region_on_r1_Running_running_main_SendData_r1__final_ ,
 	SMO_last_state
 } SMOStates;
 
@@ -60,6 +61,7 @@ typedef struct {
 	sc_string  data;
 	sc_string  lastdata;
 	sc_boolean  result;
+	sc_integer  retry;
 	sc_integer  ID;
 	sc_boolean DataRecieved_raised;
 } SMOIfaceRF;
@@ -87,7 +89,7 @@ typedef struct {
 
 
 //! the maximum number of orthogonal states defines the dimension of the state configuration vector.
-#define SMO_MAX_ORTHOGONAL_STATES 3
+#define SMO_MAX_ORTHOGONAL_STATES 2
 
 /*! Type definition of the data structure for the SMO state machine.
 This data structure has to be allocated by the client code. */
@@ -160,6 +162,10 @@ extern void sMOIfaceRF_set_lastdata(SMO* handle, sc_string value);
 extern sc_boolean sMOIfaceRF_get_result(SMO* handle);
 /*! Sets the value of the variable 'result' that is defined in the interface scope 'RF'. */ 
 extern void sMOIfaceRF_set_result(SMO* handle, sc_boolean value);
+/*! Gets the value of the variable 'retry' that is defined in the interface scope 'RF'. */ 
+extern sc_integer sMOIfaceRF_get_retry(SMO* handle);
+/*! Sets the value of the variable 'retry' that is defined in the interface scope 'RF'. */ 
+extern void sMOIfaceRF_set_retry(SMO* handle, sc_integer value);
 /*! Gets the value of the variable 'ID' that is defined in the interface scope 'RF'. */ 
 extern sc_integer sMOIfaceRF_get_iD(SMO* handle);
 /*! Sets the value of the variable 'ID' that is defined in the interface scope 'RF'. */ 

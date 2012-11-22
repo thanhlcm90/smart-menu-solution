@@ -14,3 +14,5 @@ spi.c
 
 TimerEvent.c
 
+UART.c
+

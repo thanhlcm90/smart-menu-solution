@@ -31,6 +31,9 @@ struct SMO* l;
 char bufferin[NRF24L01_PAYLOAD];
 char bufferout[NRF24L01_PAYLOAD];
 
+static uint8_t nrf24l01_addr5[NRF24L01_ADDRSIZE] = NRF24L01_ADDRP5;
+static uint8_t nrf24l01_addrtx[NRF24L01_ADDRSIZE] = NRF24L01_ADDRTX;
+
 sc_integer sMOIfaceKEYPAD_checkpress() {
 	return KEYPAD_Check();
 }
@@ -56,24 +59,65 @@ void sMOIfaceLCD_init() {
 sc_string sMOIfaceRF_getData() {
 	uint8_t pipe = 0;
 	if (nrf24l01_readready(&pipe)) {
+		if (pipe==0) {
 		//clear buffer
-		for(uint8_t i=0; i<sizeof(bufferin); i++) bufferin[i] = 0;
+		for(uint8_t i=0; i<NRF24L01_PAYLOAD; i++) bufferin[i] = 0;
 		
 		//read buffer
 		nrf24l01_read(pipe,bufferin);
 		return bufferin;
-	} else {
-		return "";
+		}
 	}
+	return "";
 }
 
 sc_boolean sMOIfaceRF_sendMsg(const sc_string msg) {
-	uint8_t writeret = nrf24l01_write(msg);
+	//clear buffer
+	for(uint8_t i=0; i<NRF24L01_PAYLOAD; i++) {
+		if (i<strlen(msg)) bufferout[i]=msg[i];
+		else bufferout[i] = 0;
+	}
+	
+	//Set Address for Data
+	nrf24l01_settxaddr(nrf24l01_addrtx);
+	
+	uint8_t writeret = nrf24l01_write(bufferout);
 	if(writeret == 1) {
 		return true;
 	} else {
 		return false;
 	}
+}
+
+sc_boolean sMOIfaceRF_sendCheck() {
+	//set all buffer
+	for(uint8_t i=0; i<NRF24L01_PAYLOAD; i++) bufferout[i] = 1;
+	//Set Address for check
+	nrf24l01_settxaddr(nrf24l01_addr5);
+	
+	uint8_t writeret = nrf24l01_write(bufferout);
+	if(writeret == 1) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+sc_boolean sMOIfaceRF_getCheck() {
+	uint8_t pipe = 0;
+	if (nrf24l01_readready(&pipe)) {
+		if (pipe==5) {
+			//clear buffer
+			for(uint8_t i=0; i<NRF24L01_PAYLOAD; i++) bufferin[i] = 0;
+			
+			//read buffer
+			nrf24l01_read(pipe,bufferin);
+			
+			for(uint8_t i=0; i<NRF24L01_PAYLOAD; i++) if (bufferin[i]!=1) return false;
+			return true;
+		}
+	}
+	return false;
 }
 
 sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const sc_integer dish_id, const sc_integer amount) {
@@ -110,6 +154,9 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 		bufferout[6+i]=mod+'0';
 	}
 	
+	//Set Address for Data
+	nrf24l01_settxaddr(nrf24l01_addrtx);
+	
 	uint8_t writeret = nrf24l01_write(bufferout);
 	if(writeret == 1) {
 		return true;
@@ -117,6 +164,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 		return false;
 	}
 }
+
 
 void sMO_setTimer(const sc_eventid evid, const sc_integer time_ms, const sc_boolean periodic){
 	TimerSet(evid,time_ms);

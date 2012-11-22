@@ -40,7 +40,8 @@ C_SRCS +=  \
 ../rf.c \
 ../SMR.c \
 ../spi.c \
-../TimerEvent.c
+../TimerEvent.c \
+../UART.c
 
 
 PREPROCESSING_SRCS += 
@@ -55,7 +56,8 @@ Main.o \
 rf.o \
 SMR.o \
 spi.o \
-TimerEvent.o
+TimerEvent.o \
+UART.o
 
 
 OBJS_AS_ARGS +=  \
@@ -64,7 +66,8 @@ Main.o \
 rf.o \
 SMR.o \
 spi.o \
-TimerEvent.o
+TimerEvent.o \
+UART.o
 
 
 C_DEPS +=  \
@@ -73,7 +76,8 @@ Main.d \
 rf.d \
 SMR.d \
 spi.d \
-TimerEvent.d
+TimerEvent.d \
+UART.d
 
 
 C_DEPS_AS_ARGS +=  \
@@ -82,7 +86,8 @@ Main.d \
 rf.d \
 SMR.d \
 spi.d \
-TimerEvent.d
+TimerEvent.d \
+UART.d
 
 
 OUTPUT_FILE_PATH +=SMR.elf
@@ -94,6 +99,8 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR32/GNU C Compiler
+
+
 
 
 

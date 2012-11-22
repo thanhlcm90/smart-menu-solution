@@ -15,6 +15,7 @@ static void sMR_react_main_region_on_r1_Init(SMR* handle);
 static void sMR_react_main_region_on_r1_running_RF_Ready(SMR* handle);
 static void sMR_react_main_region_on_r1_running_RF_GetData(SMR* handle);
 static void sMR_react_main_region_on_r1_running_RF_DataRecieved(SMR* handle);
+static void sMR_react_main_region_on_r1_running_RF_SendSuccess(SMR* handle);
 static void clearInEvents(SMR* handle);
 static void clearOutEvents(SMR* handle);
 
@@ -51,6 +52,7 @@ void sMR_enter(SMR* handle)
 	handle->iface.tableId = 1;
 	sMRIfaceLCD_init();
 	sMRIfaceRF_init();
+	sMRIfaceUART_init();
 	sMRIfaceLCD_clear();
 	sMRIfaceLCD_writeString("Waitting...");
 	handle->stateConfVector[0] = SMR_main_region_on_r1_Init;
@@ -85,6 +87,12 @@ void sMR_exit(SMR* handle)
 		}
 		case SMR_main_region_on_r1_running_RF_DataRecieved : {
 			/* Default exit sequence for state DataRecieved */
+			handle->stateConfVector[0] = SMR_last_state;
+			handle->stateConfVectorPosition = 0;
+			break;
+		}
+		case SMR_main_region_on_r1_running_RF_SendSuccess : {
+			/* Default exit sequence for state SendSuccess */
 			handle->stateConfVector[0] = SMR_last_state;
 			handle->stateConfVectorPosition = 0;
 			break;
@@ -130,6 +138,10 @@ void sMR_runCycle(SMR* handle) {
 			sMR_react_main_region_on_r1_running_RF_DataRecieved(handle);
 			break;
 		}
+		case SMR_main_region_on_r1_running_RF_SendSuccess : {
+			sMR_react_main_region_on_r1_running_RF_SendSuccess(handle);
+			break;
+		}
 		default:
 			break;
 		}
@@ -149,13 +161,13 @@ sc_boolean sMR_isActive(SMR* handle, SMRStates state) {
 	switch (state) {
 		case SMR_main_region_on : 
 			return (sc_boolean) (handle->stateConfVector[0] >= SMR_main_region_on
-				&& handle->stateConfVector[0] <= SMR_main_region_on_r1_running_RF_DataRecieved);
+				&& handle->stateConfVector[0] <= SMR_main_region_on_r1_running_RF_SendSuccess);
 		case SMR_main_region_on_r1_Init : 
 			return (sc_boolean) (handle->stateConfVector[0] == SMR_main_region_on_r1_Init
 			);
 		case SMR_main_region_on_r1_running : 
 			return (sc_boolean) (handle->stateConfVector[0] >= SMR_main_region_on_r1_running
-				&& handle->stateConfVector[0] <= SMR_main_region_on_r1_running_RF_DataRecieved);
+				&& handle->stateConfVector[0] <= SMR_main_region_on_r1_running_RF_SendSuccess);
 		case SMR_main_region_on_r1_running_RF_Ready : 
 			return (sc_boolean) (handle->stateConfVector[0] == SMR_main_region_on_r1_running_RF_Ready
 			);
@@ -164,6 +176,9 @@ sc_boolean sMR_isActive(SMR* handle, SMRStates state) {
 			);
 		case SMR_main_region_on_r1_running_RF_DataRecieved : 
 			return (sc_boolean) (handle->stateConfVector[0] == SMR_main_region_on_r1_running_RF_DataRecieved
+			);
+		case SMR_main_region_on_r1_running_RF_SendSuccess : 
+			return (sc_boolean) (handle->stateConfVector[0] == SMR_main_region_on_r1_running_RF_SendSuccess
 			);
 		default: return bool_false;
 	}
@@ -233,6 +248,12 @@ sc_boolean sMRIfaceRF_get_result(SMR* handle) {
 }
 void sMRIfaceRF_set_result(SMR* handle, sc_boolean value) {
 	handle->ifaceRF.result = value;
+}
+sc_integer sMRIfaceRF_get_retry(SMR* handle) {
+	return handle->ifaceRF.retry;
+}
+void sMRIfaceRF_set_retry(SMR* handle, sc_integer value) {
+	handle->ifaceRF.retry = value;
 }
 sc_integer sMRIfaceRF_get_iD(SMR* handle) {
 	return handle->ifaceRF.ID;
@@ -348,6 +369,7 @@ static void sMR_react_main_region_on_r1_running_RF_GetData(SMR* handle) {
 		/* Entry action for state 'DataRecieved'. */
 		sMRIfaceLCD_clear();
 		sMRIfaceLCD_writeString(handle->ifaceRF.lastdata);
+		sMRIfaceUART_sendData(handle->ifaceRF.lastdata);
 		handle->stateConfVector[0] = SMR_main_region_on_r1_running_RF_DataRecieved;
 		handle->stateConfVectorPosition = 0;
 	}  else {
@@ -369,12 +391,35 @@ static void sMR_react_main_region_on_r1_running_RF_DataRecieved(SMR* handle) {
 		/* Default exit sequence for state DataRecieved */
 		handle->stateConfVector[0] = SMR_last_state;
 		handle->stateConfVectorPosition = 0;
+		/* Default enter sequence for state SendSuccess */
+		/* Entry action for state 'SendSuccess'. */
+		handle->ifaceRF.result = sMRIfaceRF_sendCheck();
+		handle->stateConfVector[0] = SMR_main_region_on_r1_running_RF_SendSuccess;
+		handle->stateConfVectorPosition = 0;
+	} 
+}
+
+/* The reactions of state SendSuccess. */
+static void sMR_react_main_region_on_r1_running_RF_SendSuccess(SMR* handle) {
+	/* The reactions of state SendSuccess. */
+	if (handle->ifaceRF.result == bool_true) { 
+		/* Default exit sequence for state SendSuccess */
+		handle->stateConfVector[0] = SMR_last_state;
+		handle->stateConfVectorPosition = 0;
 		/* Default enter sequence for state GetData */
 		/* Entry action for state 'GetData'. */
 		handle->ifaceRF.data = sMRIfaceRF_getData();
 		handle->stateConfVector[0] = SMR_main_region_on_r1_running_RF_GetData;
 		handle->stateConfVectorPosition = 0;
-	} 
+	}  else {
+		if (handle->ifaceRF.result == bool_false) { 
+			/* Default enter sequence for state SendSuccess */
+			/* Entry action for state 'SendSuccess'. */
+			handle->ifaceRF.result = sMRIfaceRF_sendCheck();
+			handle->stateConfVector[0] = SMR_main_region_on_r1_running_RF_SendSuccess;
+			handle->stateConfVectorPosition = 0;
+		} 
+	}
 }
 
 
