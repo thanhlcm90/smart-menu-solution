@@ -230,7 +230,7 @@
       <children xsi:type="notation:Shape" xmi:id="_duwWkzCvEeK_h_zxShIM2A" type="StatechartTextExpression" fontName="Verdana" lineColor="4210752">
         <layoutConstraint xsi:type="notation:Bounds" xmi:id="_duwWlDCvEeK_h_zxShIM2A"/>
       </children>
-      <layoutConstraint xsi:type="notation:Bounds" xmi:id="_duw9oDCvEeK_h_zxShIM2A" x="10" y="10" width="200" height="400"/>
+      <layoutConstraint xsi:type="notation:Bounds" xmi:id="_duw9oDCvEeK_h_zxShIM2A" x="10" y="10" width="200" height="891"/>
     </children>
     <styles xsi:type="notation:DiagramStyle" xmi:id="_duPZMTCvEeK_h_zxShIM2A"/>
     <edges xmi:id="_2ej4MDCvEeK_h_zxShIM2A" type="Transition" element="_2eUnoDCvEeK_h_zxShIM2A" source="_1uFdgDCvEeK_h_zxShIM2A" target="_2GBcYDCvEeK_h_zxShIM2A">
