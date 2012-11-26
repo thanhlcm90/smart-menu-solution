@@ -34,6 +34,18 @@ typedef enum {
 	SMO_main_region_on_r1_Running_running_main_SendData_r1_Send ,
 	SMO_main_region_on_r1_Running_running_main_SendData_r1_Check ,
 	SMO_main_region_on_r1_Running_running_main_SendData_r1__final_ ,
+	SMO_main_region_on_r1_Running_running_main_MenuB ,
+	SMO_main_region_on_r1_Running_running_main_MenuC ,
+	SMO_main_region_on_r1_Running_running_main_MenuD ,
+	SMO_main_region_on_r1_Running_running_main_SendRequest ,
+	SMO_main_region_on_r1_Running_running_main_SendRequest_r1_RequestConfirmation ,
+	SMO_main_region_on_r1_Running_running_main_SendRequest_r1_EnterConfirmation ,
+	SMO_main_region_on_r1_Running_running_main_SendRequest_r1_CheckKeyPress ,
+	SMO_main_region_on_r1_Running_running_main_SendRequest_r1__final_ ,
+	SMO_main_region_on_r1_Running_running_main_SendConfirm ,
+	SMO_main_region_on_r1_Running_running_main_SendConfirm_r1_SendConfirmation ,
+	SMO_main_region_on_r1_Running_running_main_SendConfirm_r1_Check ,
+	SMO_main_region_on_r1_Running_running_main_SendConfirm_r1__final_ ,
 	SMO_last_state
 } SMOStates;
 
@@ -73,6 +85,11 @@ typedef struct {
 	sc_integer  pos;
 } SMOIfaceDISH;
 
+//! Type definition of the data structure for the SMOIfaceCONF interface scope.
+typedef struct {
+	sc_integer  confirmId;
+} SMOIfaceCONF;
+
 //! Type definition of the data structure for the SMOIface interface scope.
 typedef struct {
 	sc_boolean  lightOn;
@@ -102,6 +119,7 @@ typedef struct {
 	SMOIfaceUART ifaceUART;
 	SMOIfaceRF ifaceRF;
 	SMOIfaceDISH ifaceDISH;
+	SMOIfaceCONF ifaceCONF;
 	SMOIface iface;
 	SMOTimeEvents timeEvents;
 } SMO;
@@ -186,6 +204,11 @@ extern void sMOIfaceDISH_set_amount(SMO* handle, sc_integer value);
 extern sc_integer sMOIfaceDISH_get_pos(SMO* handle);
 /*! Sets the value of the variable 'pos' that is defined in the interface scope 'DISH'. */ 
 extern void sMOIfaceDISH_set_pos(SMO* handle, sc_integer value);
+
+/*! Gets the value of the variable 'confirmId' that is defined in the interface scope 'CONF'. */ 
+extern sc_integer sMOIfaceCONF_get_confirmId(SMO* handle);
+/*! Sets the value of the variable 'confirmId' that is defined in the interface scope 'CONF'. */ 
+extern void sMOIfaceCONF_set_confirmId(SMO* handle, sc_integer value);
 
 /*! Gets the value of the variable 'lightOn' that is defined in the default interface scope. */ 
 extern sc_boolean sMOIface_get_lightOn(SMO* handle);
