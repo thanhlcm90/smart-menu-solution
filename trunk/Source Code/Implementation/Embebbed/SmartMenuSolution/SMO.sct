@@ -91,7 +91,7 @@
                   <vertices xsi:type="sgraph:Entry" xmi:id="_TDgMEDLkEeK2R6JJvSj0nw">
                     <outgoingTransitions xmi:id="_ZCTFwDLkEeK2R6JJvSj0nw" specification="" target="_TVPcUDLkEeK2R6JJvSj0nw"/>
                   </vertices>
-                  <vertices xsi:type="sgraph:State" xmi:id="_TVPcUDLkEeK2R6JJvSj0nw" specification="entry/&#xD;&#xA;RF.result = RF.SendData(menuId,tableId,DISH.ID,DISH.amount);&#xD;&#xA;RF.retry +=1" name="Send" incomingTransitions="_ZCTFwDLkEeK2R6JJvSj0nw _FY5AwDLlEeK2R6JJvSj0nw _I_qTIDLlEeK2R6JJvSj0nw">
+                  <vertices xsi:type="sgraph:State" xmi:id="_TVPcUDLkEeK2R6JJvSj0nw" specification="entry/&#xD;&#xA;RF.result = RF.SendData(menuId,tableId,DISH.ID,DISH.amount)" name="Send" incomingTransitions="_ZCTFwDLkEeK2R6JJvSj0nw _FY5AwDLlEeK2R6JJvSj0nw _I_qTIDLlEeK2R6JJvSj0nw">
                     <outgoingTransitions xmi:id="_jAZGkDLkEeK2R6JJvSj0nw" specification="[RF.result==true]" target="_f917kDLkEeK2R6JJvSj0nw"/>
                     <outgoingTransitions xmi:id="_I_qTIDLlEeK2R6JJvSj0nw" specification="[RF.result==false]" target="_TVPcUDLkEeK2R6JJvSj0nw"/>
                   </vertices>

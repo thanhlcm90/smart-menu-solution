@@ -12,10 +12,12 @@
 static void sMR_entryaction(SMR* handle);
 static void sMR_exitaction(SMR* handle);
 static void sMR_react_main_region_on_r1_Init(SMR* handle);
-static void sMR_react_main_region_on_r1_running_RF_Ready(SMR* handle);
-static void sMR_react_main_region_on_r1_running_RF_GetData(SMR* handle);
-static void sMR_react_main_region_on_r1_running_RF_DataRecieved(SMR* handle);
-static void sMR_react_main_region_on_r1_running_RF_SendSuccess(SMR* handle);
+static void sMR_react_main_region_on_r1_running_keypad_CheckKey(SMR* handle);
+static void sMR_react_main_region_on_r1_running_keypad_CheckKeyDown(SMR* handle);
+static void sMR_react_main_region_on_r1_running_region1_ShowMsg(SMR* handle);
+static void sMR_react_main_region_on_r1_running_region1_ShowNumber(SMR* handle);
+static void sMR_react_main_region_on_r1_running_region1_SendUART(SMR* handle);
+static void sMR_react_main_region_on_r1_running_region1_CheckKey(SMR* handle);
 static void clearInEvents(SMR* handle);
 static void clearOutEvents(SMR* handle);
 
@@ -51,7 +53,7 @@ void sMR_enter(SMR* handle)
 	sMR_setTimer( (sc_eventid) &(handle->timeEvents.Init_time_event_0_raised) , 3 * 1000, bool_false);
 	handle->iface.tableId = 1;
 	sMRIfaceLCD_init();
-	sMRIfaceRF_init();
+	sMRIfaceKEYPAD_init();
 	sMRIfaceUART_init();
 	sMRIfaceLCD_clear();
 	sMRIfaceLCD_writeString("Waitting...");
@@ -73,28 +75,44 @@ void sMR_exit(SMR* handle)
 			sMR_unsetTimer( (sc_eventid) &(handle->timeEvents.Init_time_event_0_raised) );		
 			break;
 		}
-		case SMR_main_region_on_r1_running_RF_Ready : {
-			/* Default exit sequence for state Ready */
+		case SMR_main_region_on_r1_running_keypad_CheckKey : {
+			/* Default exit sequence for state CheckKey */
 			handle->stateConfVector[0] = SMR_last_state;
 			handle->stateConfVectorPosition = 0;
 			break;
 		}
-		case SMR_main_region_on_r1_running_RF_GetData : {
-			/* Default exit sequence for state GetData */
+		case SMR_main_region_on_r1_running_keypad_CheckKeyDown : {
+			/* Default exit sequence for state CheckKeyDown */
 			handle->stateConfVector[0] = SMR_last_state;
 			handle->stateConfVectorPosition = 0;
 			break;
 		}
-		case SMR_main_region_on_r1_running_RF_DataRecieved : {
-			/* Default exit sequence for state DataRecieved */
-			handle->stateConfVector[0] = SMR_last_state;
-			handle->stateConfVectorPosition = 0;
+		default: break;
+	}
+	/* Handle exit of all possible states (of main region) at position 1... */
+	switch(handle->stateConfVector[ 1 ]) {
+		case SMR_main_region_on_r1_running__region1_ShowMsg : {
+			/* Default exit sequence for state ShowMsg */
+			handle->stateConfVector[1] = SMR_last_state;
+			handle->stateConfVectorPosition = 1;
 			break;
 		}
-		case SMR_main_region_on_r1_running_RF_SendSuccess : {
-			/* Default exit sequence for state SendSuccess */
-			handle->stateConfVector[0] = SMR_last_state;
-			handle->stateConfVectorPosition = 0;
+		case SMR_main_region_on_r1_running__region1_ShowNumber : {
+			/* Default exit sequence for state ShowNumber */
+			handle->stateConfVector[1] = SMR_last_state;
+			handle->stateConfVectorPosition = 1;
+			break;
+		}
+		case SMR_main_region_on_r1_running__region1_SendUART : {
+			/* Default exit sequence for state SendUART */
+			handle->stateConfVector[1] = SMR_last_state;
+			handle->stateConfVectorPosition = 1;
+			break;
+		}
+		case SMR_main_region_on_r1_running__region1_CheckKey : {
+			/* Default exit sequence for state CheckKey */
+			handle->stateConfVector[1] = SMR_last_state;
+			handle->stateConfVectorPosition = 1;
 			break;
 		}
 		default: break;
@@ -126,20 +144,28 @@ void sMR_runCycle(SMR* handle) {
 			sMR_react_main_region_on_r1_Init(handle);
 			break;
 		}
-		case SMR_main_region_on_r1_running_RF_Ready : {
-			sMR_react_main_region_on_r1_running_RF_Ready(handle);
+		case SMR_main_region_on_r1_running_keypad_CheckKey : {
+			sMR_react_main_region_on_r1_running_keypad_CheckKey(handle);
 			break;
 		}
-		case SMR_main_region_on_r1_running_RF_GetData : {
-			sMR_react_main_region_on_r1_running_RF_GetData(handle);
+		case SMR_main_region_on_r1_running_keypad_CheckKeyDown : {
+			sMR_react_main_region_on_r1_running_keypad_CheckKeyDown(handle);
 			break;
 		}
-		case SMR_main_region_on_r1_running_RF_DataRecieved : {
-			sMR_react_main_region_on_r1_running_RF_DataRecieved(handle);
+		case SMR_main_region_on_r1_running__region1_ShowMsg : {
+			sMR_react_main_region_on_r1_running_region1_ShowMsg(handle);
 			break;
 		}
-		case SMR_main_region_on_r1_running_RF_SendSuccess : {
-			sMR_react_main_region_on_r1_running_RF_SendSuccess(handle);
+		case SMR_main_region_on_r1_running__region1_ShowNumber : {
+			sMR_react_main_region_on_r1_running_region1_ShowNumber(handle);
+			break;
+		}
+		case SMR_main_region_on_r1_running__region1_SendUART : {
+			sMR_react_main_region_on_r1_running_region1_SendUART(handle);
+			break;
+		}
+		case SMR_main_region_on_r1_running__region1_CheckKey : {
+			sMR_react_main_region_on_r1_running_region1_CheckKey(handle);
 			break;
 		}
 		default:
@@ -161,24 +187,30 @@ sc_boolean sMR_isActive(SMR* handle, SMRStates state) {
 	switch (state) {
 		case SMR_main_region_on : 
 			return (sc_boolean) (handle->stateConfVector[0] >= SMR_main_region_on
-				&& handle->stateConfVector[0] <= SMR_main_region_on_r1_running_RF_SendSuccess);
+				&& handle->stateConfVector[0] <= SMR_main_region_on_r1_running__region1_CheckKey);
 		case SMR_main_region_on_r1_Init : 
 			return (sc_boolean) (handle->stateConfVector[0] == SMR_main_region_on_r1_Init
 			);
 		case SMR_main_region_on_r1_running : 
 			return (sc_boolean) (handle->stateConfVector[0] >= SMR_main_region_on_r1_running
-				&& handle->stateConfVector[0] <= SMR_main_region_on_r1_running_RF_SendSuccess);
-		case SMR_main_region_on_r1_running_RF_Ready : 
-			return (sc_boolean) (handle->stateConfVector[0] == SMR_main_region_on_r1_running_RF_Ready
+				&& handle->stateConfVector[0] <= SMR_main_region_on_r1_running__region1_CheckKey);
+		case SMR_main_region_on_r1_running_keypad_CheckKey : 
+			return (sc_boolean) (handle->stateConfVector[0] == SMR_main_region_on_r1_running_keypad_CheckKey
 			);
-		case SMR_main_region_on_r1_running_RF_GetData : 
-			return (sc_boolean) (handle->stateConfVector[0] == SMR_main_region_on_r1_running_RF_GetData
+		case SMR_main_region_on_r1_running_keypad_CheckKeyDown : 
+			return (sc_boolean) (handle->stateConfVector[0] == SMR_main_region_on_r1_running_keypad_CheckKeyDown
 			);
-		case SMR_main_region_on_r1_running_RF_DataRecieved : 
-			return (sc_boolean) (handle->stateConfVector[0] == SMR_main_region_on_r1_running_RF_DataRecieved
+		case SMR_main_region_on_r1_running__region1_ShowMsg : 
+			return (sc_boolean) (handle->stateConfVector[1] == SMR_main_region_on_r1_running__region1_ShowMsg
 			);
-		case SMR_main_region_on_r1_running_RF_SendSuccess : 
-			return (sc_boolean) (handle->stateConfVector[0] == SMR_main_region_on_r1_running_RF_SendSuccess
+		case SMR_main_region_on_r1_running__region1_ShowNumber : 
+			return (sc_boolean) (handle->stateConfVector[1] == SMR_main_region_on_r1_running__region1_ShowNumber
+			);
+		case SMR_main_region_on_r1_running__region1_SendUART : 
+			return (sc_boolean) (handle->stateConfVector[1] == SMR_main_region_on_r1_running__region1_SendUART
+			);
+		case SMR_main_region_on_r1_running__region1_CheckKey : 
+			return (sc_boolean) (handle->stateConfVector[1] == SMR_main_region_on_r1_running__region1_CheckKey
 			);
 		default: return bool_false;
 	}
@@ -330,95 +362,177 @@ static void sMR_react_main_region_on_r1_Init(SMR* handle) {
 		/* Exit action for state 'Init'. */
 		sMR_unsetTimer( (sc_eventid) &(handle->timeEvents.Init_time_event_0_raised) );		
 		/* Default enter sequence for state running */
-		/* Default enter sequence for region RF */
+		/* Default enter sequence for region keypad */
 		/* Default react sequence for initial entry  */
-		/* Default enter sequence for state Ready */
-		/* Entry action for state 'Ready'. */
-		sMRIfaceLCD_clear();
-		sMRIfaceLCD_writeString("Waiting for data");
-		handle->stateConfVector[0] = SMR_main_region_on_r1_running_RF_Ready;
+		/* Default enter sequence for state CheckKey */
+		/* Entry action for state 'CheckKey'. */
+		handle->ifaceKEYPAD.key = sMRIfaceKEYPAD_checkpress();
+		handle->ifaceKEYPAD.key_down = bool_false;
+		handle->stateConfVector[0] = SMR_main_region_on_r1_running_keypad_CheckKey;
 		handle->stateConfVectorPosition = 0;
+		/* Default enter sequence for region null */
+		/* Default react sequence for initial entry  */
+		/* Default enter sequence for state ShowMsg */
+		/* Entry action for state 'ShowMsg'. */
+		sMRIfaceLCD_clear();
+		sMRIfaceLCD_writeString("_ _ _ _ _ _ _ _");
+		handle->ifaceDISH.pos = 0;
+		handle->stateConfVector[1] = SMR_main_region_on_r1_running__region1_ShowMsg;
+		handle->stateConfVectorPosition = 1;
 	} 
 }
 
-/* The reactions of state Ready. */
-static void sMR_react_main_region_on_r1_running_RF_Ready(SMR* handle) {
-	/* The reactions of state Ready. */
-	if (bool_true) { 
-		/* Default exit sequence for state Ready */
+/* The reactions of state CheckKey. */
+static void sMR_react_main_region_on_r1_running_keypad_CheckKey(SMR* handle) {
+	/* The reactions of state CheckKey. */
+	if (handle->ifaceKEYPAD.key != 0) { 
+		/* Default exit sequence for state CheckKey */
 		handle->stateConfVector[0] = SMR_last_state;
 		handle->stateConfVectorPosition = 0;
-		/* Default enter sequence for state GetData */
-		/* Entry action for state 'GetData'. */
-		handle->ifaceRF.data = sMRIfaceRF_getData();
-		handle->stateConfVector[0] = SMR_main_region_on_r1_running_RF_GetData;
-		handle->stateConfVectorPosition = 0;
-	} 
-}
-
-/* The reactions of state GetData. */
-static void sMR_react_main_region_on_r1_running_RF_GetData(SMR* handle) {
-	/* The reactions of state GetData. */
-	if ((strcmp(handle->ifaceRF.data, "") != 0)
-	) { 
-		/* Default exit sequence for state GetData */
-		handle->stateConfVector[0] = SMR_last_state;
-		handle->stateConfVectorPosition = 0;
-		handle->ifaceRF.lastdata = handle->ifaceRF.data;
-		/* Default enter sequence for state DataRecieved */
-		/* Entry action for state 'DataRecieved'. */
-		sMRIfaceLCD_clear();
-		sMRIfaceLCD_writeString(handle->ifaceRF.lastdata);
-		sMRIfaceUART_sendData(handle->ifaceRF.lastdata);
-		handle->stateConfVector[0] = SMR_main_region_on_r1_running_RF_DataRecieved;
+		handle->ifaceKEYPAD.lastkey = handle->ifaceKEYPAD.key;
+		/* Default enter sequence for state CheckKeyDown */
+		/* Entry action for state 'CheckKeyDown'. */
+		handle->ifaceKEYPAD.key = sMRIfaceKEYPAD_checkpress();
+		handle->ifaceKEYPAD.key_down = bool_true;
+		handle->stateConfVector[0] = SMR_main_region_on_r1_running_keypad_CheckKeyDown;
 		handle->stateConfVectorPosition = 0;
 	}  else {
-		if ((strcmp(handle->ifaceRF.data, "") == 0)
-		) { 
-			/* Default enter sequence for state GetData */
-			/* Entry action for state 'GetData'. */
-			handle->ifaceRF.data = sMRIfaceRF_getData();
-			handle->stateConfVector[0] = SMR_main_region_on_r1_running_RF_GetData;
+		if (handle->ifaceKEYPAD.key == 0) { 
+			/* Default enter sequence for state CheckKey */
+			/* Entry action for state 'CheckKey'. */
+			handle->ifaceKEYPAD.key = sMRIfaceKEYPAD_checkpress();
+			handle->ifaceKEYPAD.key_down = bool_false;
+			handle->stateConfVector[0] = SMR_main_region_on_r1_running_keypad_CheckKey;
 			handle->stateConfVectorPosition = 0;
 		} 
 	}
 }
 
-/* The reactions of state DataRecieved. */
-static void sMR_react_main_region_on_r1_running_RF_DataRecieved(SMR* handle) {
-	/* The reactions of state DataRecieved. */
-	if (bool_true) { 
-		/* Default exit sequence for state DataRecieved */
+/* The reactions of state CheckKeyDown. */
+static void sMR_react_main_region_on_r1_running_keypad_CheckKeyDown(SMR* handle) {
+	/* The reactions of state CheckKeyDown. */
+	if (handle->ifaceKEYPAD.key == 0) { 
+		/* Default exit sequence for state CheckKeyDown */
 		handle->stateConfVector[0] = SMR_last_state;
 		handle->stateConfVectorPosition = 0;
-		/* Default enter sequence for state SendSuccess */
-		/* Entry action for state 'SendSuccess'. */
-		handle->ifaceRF.result = sMRIfaceRF_sendCheck();
-		handle->stateConfVector[0] = SMR_main_region_on_r1_running_RF_SendSuccess;
+		handle->ifaceKEYPAD.key_pressed_raised = bool_true;
+		/* Default enter sequence for state CheckKey */
+		/* Entry action for state 'CheckKey'. */
+		handle->ifaceKEYPAD.key = sMRIfaceKEYPAD_checkpress();
+		handle->ifaceKEYPAD.key_down = bool_false;
+		handle->stateConfVector[0] = SMR_main_region_on_r1_running_keypad_CheckKey;
 		handle->stateConfVectorPosition = 0;
+	}  else {
+		if (handle->ifaceKEYPAD.key != 0) { 
+			/* Default enter sequence for state CheckKeyDown */
+			/* Entry action for state 'CheckKeyDown'. */
+			handle->ifaceKEYPAD.key = sMRIfaceKEYPAD_checkpress();
+			handle->ifaceKEYPAD.key_down = bool_true;
+			handle->stateConfVector[0] = SMR_main_region_on_r1_running_keypad_CheckKeyDown;
+			handle->stateConfVectorPosition = 0;
+		} 
+	}
+}
+
+/* The reactions of state ShowMsg. */
+static void sMR_react_main_region_on_r1_running_region1_ShowMsg(SMR* handle) {
+	/* The reactions of state ShowMsg. */
+	if (bool_true) { 
+		/* Default exit sequence for state ShowMsg */
+		handle->stateConfVector[1] = SMR_last_state;
+		handle->stateConfVectorPosition = 1;
+		/* Default enter sequence for state CheckKey */
+		/* Entry action for state 'CheckKey'. */
+		handle->ifaceKEYPAD.lastkey = 0;
+		handle->stateConfVector[1] = SMR_main_region_on_r1_running__region1_CheckKey;
+		handle->stateConfVectorPosition = 1;
 	} 
 }
 
-/* The reactions of state SendSuccess. */
-static void sMR_react_main_region_on_r1_running_RF_SendSuccess(SMR* handle) {
-	/* The reactions of state SendSuccess. */
-	if (handle->ifaceRF.result == bool_true) { 
-		/* Default exit sequence for state SendSuccess */
-		handle->stateConfVector[0] = SMR_last_state;
-		handle->stateConfVectorPosition = 0;
-		/* Default enter sequence for state GetData */
-		/* Entry action for state 'GetData'. */
-		handle->ifaceRF.data = sMRIfaceRF_getData();
-		handle->stateConfVector[0] = SMR_main_region_on_r1_running_RF_GetData;
-		handle->stateConfVectorPosition = 0;
+/* The reactions of state ShowNumber. */
+static void sMR_react_main_region_on_r1_running_region1_ShowNumber(SMR* handle) {
+	/* The reactions of state ShowNumber. */
+	if (bool_true) { 
+		/* Default exit sequence for state ShowNumber */
+		handle->stateConfVector[1] = SMR_last_state;
+		handle->stateConfVectorPosition = 1;
+		/* Default enter sequence for state CheckKey */
+		/* Entry action for state 'CheckKey'. */
+		handle->ifaceKEYPAD.lastkey = 0;
+		handle->stateConfVector[1] = SMR_main_region_on_r1_running__region1_CheckKey;
+		handle->stateConfVectorPosition = 1;
+	} 
+}
+
+/* The reactions of state SendUART. */
+static void sMR_react_main_region_on_r1_running_region1_SendUART(SMR* handle) {
+	/* The reactions of state SendUART. */
+	if (bool_true) { 
+		/* Default exit sequence for state SendUART */
+		handle->stateConfVector[1] = SMR_last_state;
+		handle->stateConfVectorPosition = 1;
+		/* Default enter sequence for state ShowMsg */
+		/* Entry action for state 'ShowMsg'. */
+		sMRIfaceLCD_clear();
+		sMRIfaceLCD_writeString("_ _ _ _ _ _ _ _");
+		handle->ifaceDISH.pos = 0;
+		handle->stateConfVector[1] = SMR_main_region_on_r1_running__region1_ShowMsg;
+		handle->stateConfVectorPosition = 1;
+	} 
+}
+
+/* The reactions of state CheckKey. */
+static void sMR_react_main_region_on_r1_running_region1_CheckKey(SMR* handle) {
+	/* The reactions of state CheckKey. */
+	if (handle->ifaceDISH.pos < 8 && handle->ifaceKEYPAD.lastkey == 10 && handle->ifaceKEYPAD.key_pressed_raised) { 
+		/* Default exit sequence for state CheckKey */
+		handle->stateConfVector[1] = SMR_last_state;
+		handle->stateConfVectorPosition = 1;
+		handle->ifaceKEYPAD.lastkey = 0;
+		/* Default enter sequence for state ShowNumber */
+		/* Entry action for state 'ShowNumber'. */
+		sMRIfaceLCD_writeNumberXY(handle->ifaceKEYPAD.lastkey, handle->ifaceDISH.pos * 2, 0, 1);
+		handle->ifaceDISH.pos += 1;
+		sMRIface_convertNumber(handle->ifaceKEYPAD.lastkey, handle->ifaceDISH.pos);
+		handle->stateConfVector[1] = SMR_main_region_on_r1_running__region1_ShowNumber;
+		handle->stateConfVectorPosition = 1;
 	}  else {
-		if (handle->ifaceRF.result == bool_false) { 
-			/* Default enter sequence for state SendSuccess */
-			/* Entry action for state 'SendSuccess'. */
-			handle->ifaceRF.result = sMRIfaceRF_sendCheck();
-			handle->stateConfVector[0] = SMR_main_region_on_r1_running_RF_SendSuccess;
-			handle->stateConfVectorPosition = 0;
-		} 
+		if (handle->ifaceDISH.pos < 8 && handle->ifaceKEYPAD.lastkey <= 9 && handle->ifaceKEYPAD.lastkey >= 1 && handle->ifaceKEYPAD.key_pressed_raised) { 
+			/* Default exit sequence for state CheckKey */
+			handle->stateConfVector[1] = SMR_last_state;
+			handle->stateConfVectorPosition = 1;
+			/* Default enter sequence for state ShowNumber */
+			/* Entry action for state 'ShowNumber'. */
+			sMRIfaceLCD_writeNumberXY(handle->ifaceKEYPAD.lastkey, handle->ifaceDISH.pos * 2, 0, 1);
+			handle->ifaceDISH.pos += 1;
+			sMRIface_convertNumber(handle->ifaceKEYPAD.lastkey, handle->ifaceDISH.pos);
+			handle->stateConfVector[1] = SMR_main_region_on_r1_running__region1_ShowNumber;
+			handle->stateConfVectorPosition = 1;
+		}  else {
+			if (handle->ifaceKEYPAD.lastkey == 12 && handle->ifaceKEYPAD.key_pressed_raised) { 
+				/* Default exit sequence for state CheckKey */
+				handle->stateConfVector[1] = SMR_last_state;
+				handle->stateConfVectorPosition = 1;
+				/* Default enter sequence for state ShowMsg */
+				/* Entry action for state 'ShowMsg'. */
+				sMRIfaceLCD_clear();
+				sMRIfaceLCD_writeString("_ _ _ _ _ _ _ _");
+				handle->ifaceDISH.pos = 0;
+				handle->stateConfVector[1] = SMR_main_region_on_r1_running__region1_ShowMsg;
+				handle->stateConfVectorPosition = 1;
+			}  else {
+				if (handle->ifaceKEYPAD.lastkey == 11 && handle->ifaceKEYPAD.key_pressed_raised) { 
+					/* Default exit sequence for state CheckKey */
+					handle->stateConfVector[1] = SMR_last_state;
+					handle->stateConfVectorPosition = 1;
+					/* Default enter sequence for state SendUART */
+					/* Entry action for state 'SendUART'. */
+					sMRIfaceUART_sendTemp();
+					handle->stateConfVector[1] = SMR_main_region_on_r1_running__region1_SendUART;
+					handle->stateConfVectorPosition = 1;
+				} 
+			}
+		}
 	}
 }
 

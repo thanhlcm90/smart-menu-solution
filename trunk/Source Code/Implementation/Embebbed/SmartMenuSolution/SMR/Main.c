@@ -11,10 +11,11 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 #include "SMR.h"
-#include "UART.h"
 #include "lcd.h"
 #include "TimerEvent.h"
+#include "UART.h"
 #include "rf.h"
+#include "keypad.h"
 
 //send button
 #define BUTTONSEND_DDR DDRC
@@ -33,6 +34,13 @@ char bufferout[NRF24L01_PAYLOAD];
 
 static uint8_t nrf24l01_addr5[NRF24L01_ADDRSIZE] = NRF24L01_ADDRP5;
 static uint8_t nrf24l01_addrtx[NRF24L01_ADDRSIZE] = NRF24L01_ADDRTX;
+
+sc_integer sMRIfaceKEYPAD_checkpress() {
+	return KEYPAD_Check();
+}
+void sMRIfaceKEYPAD_init() {
+	KEYPAD_Init();
+}
 
 void sMRIfaceLCD_writeString(const sc_string chr) {
 	LCDWriteString(chr);
@@ -77,6 +85,8 @@ sc_boolean sMRIfaceRF_sendMsg(const sc_string msg) {
 	nrf24l01_settxaddr(nrf24l01_addrtx);
 	
 	uint8_t writeret = nrf24l01_write(bufferout);
+	_delay_ms(1);
+	
 	if(writeret == 1) {
 		return true;
 	} else {
@@ -91,6 +101,8 @@ sc_boolean sMRIfaceRF_sendCheck() {
 	nrf24l01_settxaddr(nrf24l01_addr5);
 	
 	uint8_t writeret = nrf24l01_write(bufferout);
+	_delay_ms(1);
+	
 	if(writeret == 1) {
 		return true;
 	} else {
@@ -153,6 +165,8 @@ sc_boolean sMRIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 	nrf24l01_settxaddr(nrf24l01_addrtx);
 	
 	uint8_t writeret = nrf24l01_write(bufferout);
+	_delay_ms(1);
+	
 	if(writeret == 1) {
 		return true;
 	} else {
@@ -179,6 +193,19 @@ void sMR_unsetTimer(const sc_eventid evid) {
 void sMRIfaceRF_init() {
 	nrf24l01_init();
 }
+
+char temp[9];
+
+void sMRIface_convertNumber(const sc_integer num, const sc_integer pos) {
+	temp[pos-1]=num+'0';
+}
+
+void sMRIfaceUART_sendTemp() {
+	temp[sizeof(temp)-1]='\0';
+	LCDWriteStringXY(0,1,temp);
+	uart_puts(temp);
+}
+
 
 int main(void)
 {
