@@ -82,6 +82,8 @@ sc_boolean sMOIfaceRF_sendMsg(const sc_string msg) {
 	nrf24l01_settxaddr(nrf24l01_addrtx);
 	
 	uint8_t writeret = nrf24l01_write(bufferout);
+	_delay_ms(1);
+	
 	if(writeret == 1) {
 		return true;
 	} else {
@@ -96,6 +98,8 @@ sc_boolean sMOIfaceRF_sendCheck() {
 	nrf24l01_settxaddr(nrf24l01_addr5);
 	
 	uint8_t writeret = nrf24l01_write(bufferout);
+	_delay_ms(1);
+	
 	if(writeret == 1) {
 		return true;
 	} else {
@@ -158,6 +162,8 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 	nrf24l01_settxaddr(nrf24l01_addrtx);
 	
 	uint8_t writeret = nrf24l01_write(bufferout);
+	_delay_ms(1);
+	
 	if(writeret == 1) {
 		return true;
 	} else {

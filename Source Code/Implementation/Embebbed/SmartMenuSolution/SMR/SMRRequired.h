@@ -26,12 +26,14 @@ This state machine makes use of operations declared in the state machines interf
 	- sMRIfaceKEYPAD_init
 	- sMRIfaceUART_init
 	- sMRIfaceUART_sendData
+	- sMRIfaceUART_sendTemp
 	- sMRIfaceRF_init
 	- sMRIfaceRF_sendData
 	- sMRIfaceRF_sendMsg
 	- sMRIfaceRF_sendCheck
 	- sMRIfaceRF_getCheck
 	- sMRIfaceRF_getData
+	- sMRIface_convertNumber
 are defined.
 		
 These functions will be called during a 'run to completion step' (runCycle) of the statechart. 
@@ -52,6 +54,7 @@ extern void sMRIfaceKEYPAD_init();
 
 extern void sMRIfaceUART_init();
 extern void sMRIfaceUART_sendData(const sc_string msg);
+extern void sMRIfaceUART_sendTemp();
 
 extern void sMRIfaceRF_init();
 extern sc_boolean sMRIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const sc_integer dish_id, const sc_integer amount);
@@ -61,6 +64,7 @@ extern sc_boolean sMRIfaceRF_getCheck();
 extern sc_string sMRIfaceRF_getData();
 
 
+extern void sMRIface_convertNumber(const sc_integer num, const sc_integer pos);
 
 
 

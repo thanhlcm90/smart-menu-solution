@@ -35,6 +35,7 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../keypad.c \
 ../lcd.c \
 ../Main.c \
 ../rf.c \
@@ -51,6 +52,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+keypad.o \
 lcd.o \
 Main.o \
 rf.o \
@@ -61,6 +63,7 @@ UART.o
 
 
 OBJS_AS_ARGS +=  \
+keypad.o \
 lcd.o \
 Main.o \
 rf.o \
@@ -71,6 +74,7 @@ UART.o
 
 
 C_DEPS +=  \
+keypad.d \
 lcd.d \
 Main.d \
 rf.d \
@@ -81,6 +85,7 @@ UART.d
 
 
 C_DEPS_AS_ARGS +=  \
+keypad.d \
 lcd.d \
 Main.d \
 rf.d \
@@ -99,6 +104,8 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR32/GNU C Compiler
+
+
 
 
 

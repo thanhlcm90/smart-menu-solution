@@ -1379,7 +1379,6 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 						/* Default enter sequence for state Send */
 						/* Entry action for state 'Send'. */
 						handle->ifaceRF.result = sMOIfaceRF_sendData(handle->iface.menuId, handle->iface.tableId, handle->ifaceDISH.ID, handle->ifaceDISH.amount);
-						handle->ifaceRF.retry += 1;
 						handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendData_r1_Send;
 						handle->stateConfVectorPosition = 1;
 					}  else {
@@ -1756,7 +1755,6 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendData_r1_Send(SM
 				/* Default enter sequence for state Send */
 				/* Entry action for state 'Send'. */
 				handle->ifaceRF.result = sMOIfaceRF_sendData(handle->iface.menuId, handle->iface.tableId, handle->ifaceDISH.ID, handle->ifaceDISH.amount);
-				handle->ifaceRF.retry += 1;
 				handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendData_r1_Send;
 				handle->stateConfVectorPosition = 1;
 			} 
@@ -1812,7 +1810,6 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendData_r1_Check(S
 			/* Default enter sequence for state Send */
 			/* Entry action for state 'Send'. */
 			handle->ifaceRF.result = sMOIfaceRF_sendData(handle->iface.menuId, handle->iface.tableId, handle->ifaceDISH.ID, handle->ifaceDISH.amount);
-			handle->ifaceRF.retry += 1;
 			handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendData_r1_Send;
 			handle->stateConfVectorPosition = 1;
 		}  else {
