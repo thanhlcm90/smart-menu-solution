@@ -102,6 +102,7 @@ typedef struct {
 //! Type definition of the data structure for the SMOTimeEvents interface scope.
 typedef struct {
 	sc_boolean Init_time_event_0_raised;
+	sc_boolean EnterConfirmation_time_event_0_raised;
 } SMOTimeEvents;
 
 
