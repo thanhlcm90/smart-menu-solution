@@ -224,6 +224,8 @@ void sMO_exit(SMO* handle)
 			/* Default exit sequence for state EnterConfirmation */
 			handle->stateConfVector[1] = SMO_last_state;
 			handle->stateConfVectorPosition = 1;
+			/* Exit action for state 'EnterConfirmation'. */
+			sMO_unsetTimer( (sc_eventid) &(handle->timeEvents.EnterConfirmation_time_event_0_raised) );		
 			break;
 		}
 		case SMO_main_region_on_r1_Running_running_main_SendRequest_r1_CheckKeyPress : {
@@ -1936,7 +1938,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_MenuD(SMO* handle) 
 /* The reactions of state RequestConfirmation. */
 static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_RequestConfirmation(SMO* handle) {
 	/* The reactions of state RequestConfirmation. */
-	if (bool_true) { 
+	if (handle->iface.menuId == 0) { 
 		/* Default exit sequence for state SendRequest */
 		/* Default exit sequence for region r1 */
 		/* Handle exit of all possible states (of r1) at position 1... */
@@ -1951,6 +1953,8 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Requ
 				/* Default exit sequence for state EnterConfirmation */
 				handle->stateConfVector[1] = SMO_last_state;
 				handle->stateConfVectorPosition = 1;
+				/* Exit action for state 'EnterConfirmation'. */
+				sMO_unsetTimer( (sc_eventid) &(handle->timeEvents.EnterConfirmation_time_event_0_raised) );		
 				break;
 			}
 			case SMO_main_region_on_r1_Running_running_main_SendRequest_r1_CheckKeyPress : {
@@ -1992,7 +1996,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Requ
 /* The reactions of state EnterConfirmation. */
 static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_EnterConfirmation(SMO* handle) {
 	/* The reactions of state EnterConfirmation. */
-	if (bool_true) { 
+	if (handle->iface.menuId == 0) { 
 		/* Default exit sequence for state SendRequest */
 		/* Default exit sequence for region r1 */
 		/* Handle exit of all possible states (of r1) at position 1... */
@@ -2007,6 +2011,8 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Ente
 				/* Default exit sequence for state EnterConfirmation */
 				handle->stateConfVector[1] = SMO_last_state;
 				handle->stateConfVectorPosition = 1;
+				/* Exit action for state 'EnterConfirmation'. */
+				sMO_unsetTimer( (sc_eventid) &(handle->timeEvents.EnterConfirmation_time_event_0_raised) );		
 				break;
 			}
 			case SMO_main_region_on_r1_Running_running_main_SendRequest_r1_CheckKeyPress : {
@@ -2032,10 +2038,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Ente
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
 	}  else {
-		if (bool_true) { 
+		if (handle->timeEvents.EnterConfirmation_time_event_0_raised) { 
 			/* Default exit sequence for state EnterConfirmation */
 			handle->stateConfVector[1] = SMO_last_state;
 			handle->stateConfVectorPosition = 1;
+			/* Exit action for state 'EnterConfirmation'. */
+			sMO_unsetTimer( (sc_eventid) &(handle->timeEvents.EnterConfirmation_time_event_0_raised) );		
 			/* Default enter sequence for state CheckKeyPress */
 			/* Entry action for state 'CheckKeyPress'. */
 			handle->ifaceKEYPAD.lastkey = 0;
@@ -2048,7 +2056,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Ente
 /* The reactions of state CheckKeyPress. */
 static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_CheckKeyPress(SMO* handle) {
 	/* The reactions of state CheckKeyPress. */
-	if (bool_true) { 
+	if (handle->iface.menuId == 0) { 
 		/* Default exit sequence for state SendRequest */
 		/* Default exit sequence for region r1 */
 		/* Handle exit of all possible states (of r1) at position 1... */
@@ -2063,6 +2071,8 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Chec
 				/* Default exit sequence for state EnterConfirmation */
 				handle->stateConfVector[1] = SMO_last_state;
 				handle->stateConfVectorPosition = 1;
+				/* Exit action for state 'EnterConfirmation'. */
+				sMO_unsetTimer( (sc_eventid) &(handle->timeEvents.EnterConfirmation_time_event_0_raised) );		
 				break;
 			}
 			case SMO_main_region_on_r1_Running_running_main_SendRequest_r1_CheckKeyPress : {
@@ -2088,75 +2098,66 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Chec
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
 	}  else {
-		if (handle->ifaceKEYPAD.lastkey == 12 && handle->ifaceKEYPAD.key_pressed_raised) { 
+		if (handle->ifaceKEYPAD.lastkey == 2 && handle->ifaceKEYPAD.key_pressed_raised) { 
 			/* Default exit sequence for state CheckKeyPress */
 			handle->stateConfVector[1] = SMO_last_state;
 			handle->stateConfVectorPosition = 1;
-			/* Default enter sequence for state RequestConfirmation */
-			/* Entry action for state 'RequestConfirmation'. */
+			/* Default enter sequence for state EnterConfirmation */
+			/* Entry action for state 'EnterConfirmation'. */
+			sMO_setTimer( (sc_eventid) &(handle->timeEvents.EnterConfirmation_time_event_0_raised) , 3 * 1000, bool_false);
 			sMOIfaceLCD_clear();
-			sMOIfaceLCD_writeString("Do you want to proceed?");
-			sMOIfaceLCD_writeStringXY("1-NO  2-YES", 0, 1);
-			handle->ifaceCONF.confirmId = 0;
-			handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendRequest_r1_RequestConfirmation;
+			sMOIfaceLCD_writeString("Order Transferring");
+			handle->ifaceCONF.confirmId = handle->ifaceKEYPAD.lastkey;
+			handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendRequest_r1_EnterConfirmation;
 			handle->stateConfVectorPosition = 1;
 		}  else {
-			if (handle->ifaceKEYPAD.lastkey == 2 && handle->ifaceKEYPAD.lastkey == 1 && handle->ifaceKEYPAD.key_pressed_raised) { 
-				/* Default exit sequence for state CheckKeyPress */
-				handle->stateConfVector[1] = SMO_last_state;
-				handle->stateConfVectorPosition = 1;
-				/* Default enter sequence for state EnterConfirmation */
-				/* Entry action for state 'EnterConfirmation'. */
-				handle->ifaceCONF.confirmId = handle->ifaceKEYPAD.lastkey;
-				handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendRequest_r1_EnterConfirmation;
-				handle->stateConfVectorPosition = 1;
-			}  else {
-				if (handle->ifaceKEYPAD.lastkey == 11 && handle->ifaceKEYPAD.key_pressed_raised) { 
-					/* Default exit sequence for state SendRequest */
-					/* Default exit sequence for region r1 */
-					/* Handle exit of all possible states (of r1) at position 1... */
-					switch(handle->stateConfVector[ 1 ]) {
-						case SMO_main_region_on_r1_Running_running_main_SendRequest_r1_RequestConfirmation : {
-							/* Default exit sequence for state RequestConfirmation */
-							handle->stateConfVector[1] = SMO_last_state;
-							handle->stateConfVectorPosition = 1;
-							break;
-						}
-						case SMO_main_region_on_r1_Running_running_main_SendRequest_r1_EnterConfirmation : {
-							/* Default exit sequence for state EnterConfirmation */
-							handle->stateConfVector[1] = SMO_last_state;
-							handle->stateConfVectorPosition = 1;
-							break;
-						}
-						case SMO_main_region_on_r1_Running_running_main_SendRequest_r1_CheckKeyPress : {
-							/* Default exit sequence for state CheckKeyPress */
-							handle->stateConfVector[1] = SMO_last_state;
-							handle->stateConfVectorPosition = 1;
-							break;
-						}
-						case SMO_main_region_on_r1_Running_running_main_SendRequest_r1__final_ : {
-							/* Default exit sequence for final state. */
-							handle->stateConfVector[1] = SMO_last_state;
-							handle->stateConfVectorPosition = 1;
-							break;
-						}
-						default: break;
+			if (handle->ifaceKEYPAD.lastkey == 2 && handle->ifaceKEYPAD.key_pressed_raised) { 
+				/* Default exit sequence for state SendRequest */
+				/* Default exit sequence for region r1 */
+				/* Handle exit of all possible states (of r1) at position 1... */
+				switch(handle->stateConfVector[ 1 ]) {
+					case SMO_main_region_on_r1_Running_running_main_SendRequest_r1_RequestConfirmation : {
+						/* Default exit sequence for state RequestConfirmation */
+						handle->stateConfVector[1] = SMO_last_state;
+						handle->stateConfVectorPosition = 1;
+						break;
 					}
-					handle->ifaceRF.result = bool_false;
-					handle->ifaceRF.retry = 0;
-					/* Default enter sequence for state SendConfirm */
-					/* Default enter sequence for region r1 */
-				}  else {
-					if (handle->ifaceKEYPAD.lastkey == 16 && handle->ifaceKEYPAD.key_pressed_raised) { 
+					case SMO_main_region_on_r1_Running_running_main_SendRequest_r1_EnterConfirmation : {
+						/* Default exit sequence for state EnterConfirmation */
+						handle->stateConfVector[1] = SMO_last_state;
+						handle->stateConfVectorPosition = 1;
+						/* Exit action for state 'EnterConfirmation'. */
+						sMO_unsetTimer( (sc_eventid) &(handle->timeEvents.EnterConfirmation_time_event_0_raised) );		
+						break;
+					}
+					case SMO_main_region_on_r1_Running_running_main_SendRequest_r1_CheckKeyPress : {
 						/* Default exit sequence for state CheckKeyPress */
 						handle->stateConfVector[1] = SMO_last_state;
 						handle->stateConfVectorPosition = 1;
-						handle->iface.menuId = 0;
-						/* Default enter sequence for state null */
-						handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendRequest_r1__final_;
+						break;
+					}
+					case SMO_main_region_on_r1_Running_running_main_SendRequest_r1__final_ : {
+						/* Default exit sequence for final state. */
+						handle->stateConfVector[1] = SMO_last_state;
 						handle->stateConfVectorPosition = 1;
-					} 
+						break;
+					}
+					default: break;
 				}
+				handle->ifaceRF.result = bool_false;
+				handle->ifaceRF.retry = 0;
+				/* Default enter sequence for state SendConfirm */
+				/* Default enter sequence for region r1 */
+			}  else {
+				if (handle->ifaceKEYPAD.lastkey == 2 || handle->ifaceKEYPAD.lastkey == 1 && handle->ifaceKEYPAD.key_pressed_raised) { 
+					/* Default exit sequence for state CheckKeyPress */
+					handle->stateConfVector[1] = SMO_last_state;
+					handle->stateConfVectorPosition = 1;
+					handle->iface.menuId = 0;
+					/* Default enter sequence for state null */
+					handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendRequest_r1__final_;
+					handle->stateConfVectorPosition = 1;
+				} 
 			}
 		}
 	}
@@ -2165,7 +2166,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Chec
 /* The reactions of state null. */
 static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1__final_0(SMO* handle) {
 	/* The reactions of state null. */
-	if (bool_true) { 
+	if (handle->iface.menuId == 0) { 
 		/* Default exit sequence for state SendRequest */
 		/* Default exit sequence for region r1 */
 		/* Handle exit of all possible states (of r1) at position 1... */
@@ -2180,6 +2181,8 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1__fin
 				/* Default exit sequence for state EnterConfirmation */
 				handle->stateConfVector[1] = SMO_last_state;
 				handle->stateConfVectorPosition = 1;
+				/* Exit action for state 'EnterConfirmation'. */
+				sMO_unsetTimer( (sc_eventid) &(handle->timeEvents.EnterConfirmation_time_event_0_raised) );		
 				break;
 			}
 			case SMO_main_region_on_r1_Running_running_main_SendRequest_r1_CheckKeyPress : {
