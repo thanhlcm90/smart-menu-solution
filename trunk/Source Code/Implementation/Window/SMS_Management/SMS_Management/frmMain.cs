@@ -117,7 +117,7 @@ namespace SMS_Management
             
             
             panel1.Enabled = false;
-            label2.Text = tabControl2.SelectedIndex.ToString();
+           
         }
      //load data thuc don cho form mon an
         private void LoadDataThucDonMau() {

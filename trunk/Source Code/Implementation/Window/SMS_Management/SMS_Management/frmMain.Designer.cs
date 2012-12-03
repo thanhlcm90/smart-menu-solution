@@ -61,6 +61,9 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataThucdonGridView1 = new System.Windows.Forms.DataGridView();
@@ -87,7 +90,6 @@
             this.qldaubepGridView = new System.Windows.Forms.DataGridView();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.qlbananGridView = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.goimonGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -387,12 +389,15 @@
             this.tabControl2.Location = new System.Drawing.Point(-4, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(823, 368);
+            this.tabControl2.Size = new System.Drawing.Size(905, 382);
             this.tabControl2.TabIndex = 0;
             this.tabControl2.Click += new System.EventHandler(this.tabControl2_Click);
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button8);
+            this.tabPage6.Controls.Add(this.button7);
+            this.tabPage6.Controls.Add(this.button6);
             this.tabPage6.Controls.Add(this.label4);
             this.tabPage6.Controls.Add(this.label3);
             this.tabPage6.Controls.Add(this.dataThucdonGridView1);
@@ -400,10 +405,37 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(815, 339);
+            this.tabPage6.Size = new System.Drawing.Size(897, 353);
             this.tabPage6.TabIndex = 0;
             this.tabPage6.Text = "Quản lý món ăn";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Image = global::SMS_Management.Properties.Resources.edit;
+            this.button8.Location = new System.Drawing.Point(210, 14);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 6;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Image = global::SMS_Management.Properties.Resources.delete;
+            this.button7.Location = new System.Drawing.Point(119, 14);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 5;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Image = global::SMS_Management.Properties.Resources.add;
+            this.button6.Location = new System.Drawing.Point(27, 14);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 4;
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -454,7 +486,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(815, 339);
+            this.tabPage7.Size = new System.Drawing.Size(897, 353);
             this.tabPage7.TabIndex = 1;
             this.tabPage7.Text = "Quản lý thực đơn";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -558,7 +590,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(815, 339);
+            this.tabPage8.Size = new System.Drawing.Size(897, 353);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "Quản lý nhân viên";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -599,7 +631,7 @@
             this.qlnhanvienGridView.Location = new System.Drawing.Point(0, 47);
             this.qlnhanvienGridView.Name = "qlnhanvienGridView";
             this.qlnhanvienGridView.RowTemplate.Height = 24;
-            this.qlnhanvienGridView.Size = new System.Drawing.Size(812, 296);
+            this.qlnhanvienGridView.Size = new System.Drawing.Size(891, 296);
             this.qlnhanvienGridView.TabIndex = 0;
             // 
             // tabPage9
@@ -611,7 +643,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 25);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(815, 339);
+            this.tabPage9.Size = new System.Drawing.Size(897, 353);
             this.tabPage9.TabIndex = 3;
             this.tabPage9.Text = "Quản lý đầu bếp";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -649,10 +681,10 @@
             // qldaubepGridView
             // 
             this.qldaubepGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.qldaubepGridView.Location = new System.Drawing.Point(0, 43);
+            this.qldaubepGridView.Location = new System.Drawing.Point(0, 65);
             this.qldaubepGridView.Name = "qldaubepGridView";
             this.qldaubepGridView.RowTemplate.Height = 24;
-            this.qldaubepGridView.Size = new System.Drawing.Size(809, 296);
+            this.qldaubepGridView.Size = new System.Drawing.Size(894, 274);
             this.qldaubepGridView.TabIndex = 0;
             // 
             // tabPage10
@@ -661,7 +693,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 25);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(815, 339);
+            this.tabPage10.Size = new System.Drawing.Size(897, 339);
             this.tabPage10.TabIndex = 4;
             this.tabPage10.Text = "Quản lý bàn ăn";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -672,24 +704,14 @@
             this.qlbananGridView.Location = new System.Drawing.Point(0, 71);
             this.qlbananGridView.Name = "qlbananGridView";
             this.qlbananGridView.RowTemplate.Height = 24;
-            this.qlbananGridView.Size = new System.Drawing.Size(809, 265);
+            this.qlbananGridView.Size = new System.Drawing.Size(891, 265);
             this.qlbananGridView.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(961, 171);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 447);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(922, 435);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.comConnection1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -726,7 +748,6 @@
             this.tabPage10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.qlbananGridView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -788,7 +809,6 @@
         private System.Windows.Forms.Button thucdonEDITbt;
         private System.Windows.Forms.Button thucdonDELETEbt;
         private System.Windows.Forms.Button thucdonADDbt;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button nhanvienADDbt;
         private System.Windows.Forms.Button nhanvienEDITbt;
         private System.Windows.Forms.Button nhanvienDELETEbt;
@@ -798,5 +818,8 @@
         private System.Windows.Forms.DataGridView dataThucdonGridView1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
     }
 }
