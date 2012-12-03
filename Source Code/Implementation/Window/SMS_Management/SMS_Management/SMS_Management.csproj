@@ -52,29 +52,23 @@
     <StartupObject>SMS_Management.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\packages\DevExpress.Data.v12.1.dll</HintPath>
+    <Reference Include="DevExpress.Data.v10.1, Version=10.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
     </Reference>
-    <Reference Include="DevExpress.PivotGrid.v12.1.Core, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
-      <HintPath>..\packages\DevExpress.PivotGrid.v12.1.Core.dll</HintPath>
+    <Reference Include="DevExpress.PivotGrid.v10.1.Core, Version=10.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
     </Reference>
-    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\packages\DevExpress.Printing.v12.1.Core.dll</HintPath>
+    <Reference Include="DevExpress.Printing.v10.1.Core, Version=10.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
     </Reference>
-    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\packages\DevExpress.Utils.v12.1.dll</HintPath>
+    <Reference Include="DevExpress.Utils.v10.1, Version=10.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\packages\DevExpress.XtraEditors.v12.1.dll</HintPath>
+    <Reference Include="DevExpress.XtraEditors.v10.1, Version=10.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\packages\DevExpress.XtraGrid.v12.1.dll</HintPath>
+    <Reference Include="DevExpress.XtraGrid.v10.1, Version=10.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
     </Reference>
-    <Reference Include="DevExpress.XtraPivotGrid.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\packages\DevExpress.XtraPivotGrid.v12.1.dll</HintPath>
+    <Reference Include="DevExpress.XtraPivotGrid.v10.1.Core, Version=10.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
     </Reference>
-    <Reference Include="DevExpress.XtraVerticalGrid.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\packages\DevExpress.XtraVerticalGrid.v12.1.dll</HintPath>
+    <Reference Include="DevExpress.XtraPivotGrid.v10.1, Version=10.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v10.1, Version=10.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
@@ -103,6 +97,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietThongTinDauBep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietThongTinDauBep.Designer.cs">
+      <DependentUpon>ChiTietThongTinDauBep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTietThongTinNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietThongTinNhanVien.Designer.cs">
+      <DependentUpon>ChiTietThongTinNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="COMConnection.cs">
       <SubType>UserControl</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -134,6 +140,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChiTietThongTinDauBep.resx">
+      <DependentUpon>ChiTietThongTinDauBep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChiTietThongTinNhanVien.resx">
+      <DependentUpon>ChiTietThongTinNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="COMConnection.resx">
       <DependentUpon>COMConnection.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -161,7 +173,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\BILLING.datasource" />
     <None Include="Properties\DataSources\BILLING_DETAIL.datasource" />
     <None Include="Properties\DataSources\CHEF_INFO.datasource" />
@@ -176,6 +190,7 @@
     <None Include="Properties\DataSources\SMSRepostitory.datasource" />
     <None Include="Properties\DataSources\SMS_DatabaseEntities.datasource" />
     <None Include="Properties\DataSources\SMS_DatabaseEntities1.datasource" />
+    <None Include="Properties\DataSources\SMS_Management.Database.SMS_DatabaseEntities1.datasource" />
     <None Include="Properties\DataSources\SMS_Management.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\SMS_Management.Properties.Settings.datasource" />
     <None Include="Properties\DataSources\STATUS.datasource" />
