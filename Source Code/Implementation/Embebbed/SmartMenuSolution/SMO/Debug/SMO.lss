@@ -3,31 +3,31 @@ SMO.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000194  00800100  000038c4  00003958  2**0
+  0 .data         00000178  00800100  000038c4  00003958  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         000038c4  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000060  00800294  00800294  00003aec  2**0
+  2 .bss          00000060  00800278  00800278  00003ad0  2**0
                   ALLOC
-  3 .stab         00000c84  00000000  00000000  00003aec  2**2
+  3 .stab         00000c84  00000000  00000000  00003ad0  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      000001b6  00000000  00000000  00004770  2**0
+  4 .stabstr      000001b6  00000000  00000000  00004754  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000248  00000000  00000000  00004928  2**3
+  5 .debug_aranges 00000248  00000000  00000000  00004910  2**3
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00003d9a  00000000  00000000  00004b70  2**0
+  6 .debug_info   00003d9a  00000000  00000000  00004b58  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000fe6  00000000  00000000  0000890a  2**0
+  7 .debug_abbrev 00000fe6  00000000  00000000  000088f2  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000019fd  00000000  00000000  000098f0  2**0
+  8 .debug_line   000019fd  00000000  00000000  000098d8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000af4  00000000  00000000  0000b2f0  2**2
+  9 .debug_frame  00000af4  00000000  00000000  0000b2d8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00001d7a  00000000  00000000  0000bde4  2**0
+ 10 .debug_str    00001d7a  00000000  00000000  0000bdcc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000027ec  00000000  00000000  0000db5e  2**0
+ 11 .debug_loc    000027ec  00000000  00000000  0000db46  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000c0  00000000  00000000  0001034a  2**0
+ 12 .debug_ranges 000000c0  00000000  00000000  00010332  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -184,13 +184,13 @@ Disassembly of section .text:
      166:	02 c0       	rjmp	.+4      	; 0x16c <__do_copy_data+0x14>
      168:	07 90       	elpm	r0, Z+
      16a:	0d 92       	st	X+, r0
-     16c:	a4 39       	cpi	r26, 0x94	; 148
+     16c:	a8 37       	cpi	r26, 0x78	; 120
      16e:	b1 07       	cpc	r27, r17
      170:	d9 f7       	brne	.-10     	; 0x168 <__do_copy_data+0x10>
 
 00000172 <__do_clear_bss>:
      172:	12 e0       	ldi	r17, 0x02	; 2
-     174:	a4 e9       	ldi	r26, 0x94	; 148
+     174:	a8 e7       	ldi	r26, 0x78	; 120
      176:	b2 e0       	ldi	r27, 0x02	; 2
      178:	01 c0       	rjmp	.+2      	; 0x17c <.do_clear_bss_start>
 
@@ -198,7 +198,7 @@ Disassembly of section .text:
      17a:	1d 92       	st	X+, r1
 
 0000017c <.do_clear_bss_start>:
-     17c:	a4 3f       	cpi	r26, 0xF4	; 244
+     17c:	a8 3d       	cpi	r26, 0xD8	; 216
      17e:	b1 07       	cpc	r27, r17
      180:	e1 f7       	brne	.-8      	; 0x17a <.do_clear_bss_loop>
      182:	0e 94 ba 03 	call	0x774	; 0x774 <main>
@@ -1016,7 +1016,7 @@ sc_string sMOIfaceRF_getData() {
      52a:	89 81       	ldd	r24, Y+1	; 0x01
      52c:	88 23       	and	r24, r24
      52e:	99 f4       	brne	.+38     	; 0x556 <sMOIfaceRF_getData+0x48>
-     530:	e6 e9       	ldi	r30, 0x96	; 150
+     530:	ea e7       	ldi	r30, 0x7A	; 122
      532:	f2 e0       	ldi	r31, 0x02	; 2
 }
 void sMOIfaceLCD_init() {
@@ -1038,7 +1038,7 @@ sc_string sMOIfaceRF_getData() {
 		
 		//read buffer
 		nrf24l01_read(pipe,bufferin);
-     540:	06 e9       	ldi	r16, 0x96	; 150
+     540:	0a e7       	ldi	r16, 0x7A	; 122
      542:	12 e0       	ldi	r17, 0x02	; 2
      544:	80 e0       	ldi	r24, 0x00	; 0
      546:	b8 01       	movw	r22, r16
@@ -1068,7 +1068,7 @@ sc_boolean sMOIfaceRF_sendMsg(const sc_string msg) {
      566:	cf 93       	push	r28
      568:	df 93       	push	r29
      56a:	9c 01       	movw	r18, r24
-     56c:	c1 ea       	ldi	r28, 0xA1	; 161
+     56c:	c5 e8       	ldi	r28, 0x85	; 133
      56e:	d2 e0       	ldi	r29, 0x02	; 2
      570:	80 e0       	ldi	r24, 0x00	; 0
      572:	90 e0       	ldi	r25, 0x00	; 0
@@ -1126,7 +1126,7 @@ sc_boolean sMOIfaceRF_sendMsg(const sc_string msg) {
      5a8:	0e 94 ea 04 	call	0x9d4	; 0x9d4 <nrf24l01_settxaddr>
 	
 	uint8_t writeret = nrf24l01_write(bufferout);
-     5ac:	81 ea       	ldi	r24, 0xA1	; 161
+     5ac:	85 e8       	ldi	r24, 0x85	; 133
      5ae:	92 e0       	ldi	r25, 0x02	; 2
      5b0:	0e 94 b2 06 	call	0xd64	; 0xd64 <nrf24l01_write>
      5b4:	98 2f       	mov	r25, r24
@@ -1159,7 +1159,7 @@ sc_boolean sMOIfaceRF_sendMsg(const sc_string msg) {
 000005d0 <sMOIfaceRF_sendCheck>:
 
 sc_boolean sMOIfaceRF_sendCheck() {
-     5d0:	e1 ea       	ldi	r30, 0xA1	; 161
+     5d0:	e5 e8       	ldi	r30, 0x85	; 133
      5d2:	f2 e0       	ldi	r31, 0x02	; 2
      5d4:	cf 01       	movw	r24, r30
      5d6:	09 96       	adiw	r24, 0x09	; 9
@@ -1177,7 +1177,7 @@ sc_boolean sMOIfaceRF_sendCheck() {
      5e6:	0e 94 ea 04 	call	0x9d4	; 0x9d4 <nrf24l01_settxaddr>
 	
 	uint8_t writeret = nrf24l01_write(bufferout);
-     5ea:	81 ea       	ldi	r24, 0xA1	; 161
+     5ea:	85 e8       	ldi	r24, 0x85	; 133
      5ec:	92 e0       	ldi	r25, 0x02	; 2
      5ee:	0e 94 b2 06 	call	0xd64	; 0xd64 <nrf24l01_write>
      5f2:	98 2f       	mov	r25, r24
@@ -1227,7 +1227,7 @@ sc_boolean sMOIfaceRF_getCheck() {
      626:	89 81       	ldd	r24, Y+1	; 0x01
      628:	85 30       	cpi	r24, 0x05	; 5
      62a:	e9 f4       	brne	.+58     	; 0x666 <sMOIfaceRF_getCheck+0x5c>
-     62c:	e6 e9       	ldi	r30, 0x96	; 150
+     62c:	ea e7       	ldi	r30, 0x7A	; 122
      62e:	f2 e0       	ldi	r31, 0x02	; 2
 	} else {
 		return false;
@@ -1251,15 +1251,15 @@ sc_boolean sMOIfaceRF_getCheck() {
 			//read buffer
 			nrf24l01_read(pipe,bufferin);
      63e:	85 e0       	ldi	r24, 0x05	; 5
-     640:	66 e9       	ldi	r22, 0x96	; 150
+     640:	6a e7       	ldi	r22, 0x7A	; 122
      642:	72 e0       	ldi	r23, 0x02	; 2
      644:	0e 94 8c 06 	call	0xd18	; 0xd18 <nrf24l01_read>
 			
 			for(uint8_t i=0; i<NRF24L01_PAYLOAD; i++) if (bufferin[i]!=1) return false;
-     648:	80 91 96 02 	lds	r24, 0x0296
+     648:	80 91 7a 02 	lds	r24, 0x027A
      64c:	81 30       	cpi	r24, 0x01	; 1
      64e:	69 f4       	brne	.+26     	; 0x66a <sMOIfaceRF_getCheck+0x60>
-     650:	e7 e9       	ldi	r30, 0x97	; 151
+     650:	eb e7       	ldi	r30, 0x7B	; 123
      652:	f2 e0       	ldi	r31, 0x02	; 2
      654:	81 91       	ld	r24, Z+
      656:	81 30       	cpi	r24, 0x01	; 1
@@ -1303,7 +1303,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
      67c:	af 92       	push	r10
      67e:	ef 92       	push	r14
      680:	82 2f       	mov	r24, r18
-     682:	e1 ea       	ldi	r30, 0xA1	; 161
+     682:	e5 e8       	ldi	r30, 0x85	; 133
      684:	f2 e0       	ldi	r31, 0x02	; 2
      686:	af 01       	movw	r20, r30
      688:	47 5f       	subi	r20, 0xF7	; 247
@@ -1321,7 +1321,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 	//Lenh cho data: 1-goi mon, 2-huy mon, 3-thanh toan, 4-goi boi ban
 	bufferout[0]=cmd+'0'; //Doi cmd tu so sang chu so
      694:	60 5d       	subi	r22, 0xD0	; 208
-     696:	60 93 a1 02 	sts	0x02A1, r22
+     696:	60 93 85 02 	sts	0x0285, r22
 	
 	//Chuyen doi ma ban an hoac nha bep
 	num=id;
@@ -1333,7 +1333,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 		num/=10;
 		bufferout[i+1]=mod+'0';
      6a2:	90 5d       	subi	r25, 0xD0	; 208
-     6a4:	90 93 a3 02 	sts	0x02A3, r25
+     6a4:	90 93 87 02 	sts	0x0287, r25
 	bufferout[0]=cmd+'0'; //Doi cmd tu so sang chu so
 	
 	//Chuyen doi ma ban an hoac nha bep
@@ -1344,7 +1344,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 		num/=10;
 		bufferout[i+1]=mod+'0';
      6ac:	90 5d       	subi	r25, 0xD0	; 208
-     6ae:	90 93 a2 02 	sts	0x02A2, r25
+     6ae:	90 93 86 02 	sts	0x0286, r25
 	
 	//Chuyen doi ma mon an
 	num=dish_id;
@@ -1355,7 +1355,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
      6b4:	0e 94 28 18 	call	0x3050	; 0x3050 <__udivmodqi4>
 		bufferout[3+i]=mod+'0';
      6b8:	90 5d       	subi	r25, 0xD0	; 208
-     6ba:	90 93 a6 02 	sts	0x02A6, r25
+     6ba:	90 93 8a 02 	sts	0x028A, r25
 	}
 	
 	//Chuyen doi ma mon an
@@ -1366,7 +1366,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 		num/=10;
 		bufferout[3+i]=mod+'0';
      6c2:	90 5d       	subi	r25, 0xD0	; 208
-     6c4:	90 93 a5 02 	sts	0x02A5, r25
+     6c4:	90 93 89 02 	sts	0x0289, r25
 	}
 	
 	//Chuyen doi ma mon an
@@ -1377,7 +1377,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 		num/=10;
 		bufferout[3+i]=mod+'0';
      6cc:	90 5d       	subi	r25, 0xD0	; 208
-     6ce:	90 93 a4 02 	sts	0x02A4, r25
+     6ce:	90 93 88 02 	sts	0x0288, r25
 	}
 	
 	//Chuyen doi so luong mon an
@@ -1389,7 +1389,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 		num/=10;
 		bufferout[6+i]=mod+'0';
      6d8:	90 5d       	subi	r25, 0xD0	; 208
-     6da:	90 93 a8 02 	sts	0x02A8, r25
+     6da:	90 93 8c 02 	sts	0x028C, r25
 	}
 	
 	//Chuyen doi so luong mon an
@@ -1400,7 +1400,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 		num/=10;
 		bufferout[6+i]=mod+'0';
      6e2:	90 5d       	subi	r25, 0xD0	; 208
-     6e4:	90 93 a7 02 	sts	0x02A7, r25
+     6e4:	90 93 8b 02 	sts	0x028B, r25
 	}
 	
 	//Set Address for Data
@@ -1410,7 +1410,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
      6ec:	0e 94 ea 04 	call	0x9d4	; 0x9d4 <nrf24l01_settxaddr>
 	
 	uint8_t writeret = nrf24l01_write(bufferout);
-     6f0:	81 ea       	ldi	r24, 0xA1	; 161
+     6f0:	85 e8       	ldi	r24, 0x85	; 133
      6f2:	92 e0       	ldi	r25, 0x02	; 2
      6f4:	0e 94 b2 06 	call	0xd64	; 0xd64 <nrf24l01_write>
      6f8:	98 2f       	mov	r25, r24
@@ -1444,7 +1444,7 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 
 sc_boolean sMOIfaceRF_sendConf(const sc_integer cmd, const sc_integer id) {
      714:	82 2f       	mov	r24, r18
-     716:	e1 ea       	ldi	r30, 0xA1	; 161
+     716:	e5 e8       	ldi	r30, 0x85	; 133
      718:	f2 e0       	ldi	r31, 0x02	; 2
      71a:	af 01       	movw	r20, r30
      71c:	47 5f       	subi	r20, 0xF7	; 247
@@ -1462,7 +1462,7 @@ sc_boolean sMOIfaceRF_sendConf(const sc_integer cmd, const sc_integer id) {
 	//Lenh cho data: 1-goi mon, 2-huy mon, 3-thanh toan, 4-goi boi ban
 	bufferout[0]=cmd+'0'; //Doi cmd tu so sang chu so
      728:	60 5d       	subi	r22, 0xD0	; 208
-     72a:	60 93 a1 02 	sts	0x02A1, r22
+     72a:	60 93 85 02 	sts	0x0285, r22
 	
 	//Chuyen doi ma ban an hoac nha bep
 	num=id;
@@ -1474,7 +1474,7 @@ sc_boolean sMOIfaceRF_sendConf(const sc_integer cmd, const sc_integer id) {
 		num/=10;
 		bufferout[i+1]=mod+'0';
      736:	90 5d       	subi	r25, 0xD0	; 208
-     738:	90 93 a3 02 	sts	0x02A3, r25
+     738:	90 93 87 02 	sts	0x0287, r25
 	bufferout[0]=cmd+'0'; //Doi cmd tu so sang chu so
 	
 	//Chuyen doi ma ban an hoac nha bep
@@ -1485,7 +1485,7 @@ sc_boolean sMOIfaceRF_sendConf(const sc_integer cmd, const sc_integer id) {
 		num/=10;
 		bufferout[i+1]=mod+'0';
      740:	90 5d       	subi	r25, 0xD0	; 208
-     742:	90 93 a2 02 	sts	0x02A2, r25
+     742:	90 93 86 02 	sts	0x0286, r25
 	}
 	
 	//Set Address for Data
@@ -1495,7 +1495,7 @@ sc_boolean sMOIfaceRF_sendConf(const sc_integer cmd, const sc_integer id) {
      74a:	0e 94 ea 04 	call	0x9d4	; 0x9d4 <nrf24l01_settxaddr>
 	
 	uint8_t writeret = nrf24l01_write(bufferout);
-     74e:	81 ea       	ldi	r24, 0xA1	; 161
+     74e:	85 e8       	ldi	r24, 0x85	; 133
      750:	92 e0       	ldi	r25, 0x02	; 2
      752:	0e 94 b2 06 	call	0xd64	; 0xd64 <nrf24l01_write>
 	} else {
@@ -1554,24 +1554,24 @@ int main(void)
      77a:	82 e0       	ldi	r24, 0x02	; 2
      77c:	90 e0       	ldi	r25, 0x00	; 0
      77e:	0e 94 5b 18 	call	0x30b6	; 0x30b6 <malloc>
-     782:	80 93 9f 02 	sts	0x029F, r24
-     786:	90 93 a0 02 	sts	0x02A0, r25
+     782:	80 93 83 02 	sts	0x0283, r24
+     786:	90 93 84 02 	sts	0x0284, r25
 	TimerInit();
      78a:	0e 94 28 17 	call	0x2e50	; 0x2e50 <TimerInit>
 	sMO_init(l);
-     78e:	80 91 9f 02 	lds	r24, 0x029F
-     792:	90 91 a0 02 	lds	r25, 0x02A0
+     78e:	80 91 83 02 	lds	r24, 0x0283
+     792:	90 91 84 02 	lds	r25, 0x0284
      796:	0e 94 c7 07 	call	0xf8e	; 0xf8e <sMO_init>
 	sMO_enter(l);
-     79a:	80 91 9f 02 	lds	r24, 0x029F
-     79e:	90 91 a0 02 	lds	r25, 0x02A0
+     79a:	80 91 83 02 	lds	r24, 0x0283
+     79e:	90 91 84 02 	lds	r25, 0x0284
      7a2:	0e 94 ce 07 	call	0xf9c	; 0xf9c <sMO_enter>
 	
 	while(1)
 	{
 		sMO_runCycle(l);
-     7a6:	80 91 9f 02 	lds	r24, 0x029F
-     7aa:	90 91 a0 02 	lds	r25, 0x02A0
+     7a6:	80 91 83 02 	lds	r24, 0x0283
+     7aa:	90 91 84 02 	lds	r25, 0x0284
      7ae:	0e 94 d1 08 	call	0x11a2	; 0x11a2 <sMO_runCycle>
      7b2:	f9 cf       	rjmp	.-14     	; 0x7a6 <main+0x32>
 
@@ -1603,8 +1603,8 @@ ISR (TIMER0_OVF_vect) {
      7da:	83 e8       	ldi	r24, 0x83	; 131
      7dc:	82 bf       	out	0x32, r24	; 50
 	TimerCheck(l);
-     7de:	80 91 9f 02 	lds	r24, 0x029F
-     7e2:	90 91 a0 02 	lds	r25, 0x02A0
+     7de:	80 91 83 02 	lds	r24, 0x0283
+     7e2:	90 91 84 02 	lds	r25, 0x0284
      7e6:	0e 94 b5 17 	call	0x2f6a	; 0x2f6a <TimerCheck>
      7ea:	ff 91       	pop	r31
      7ec:	ef 91       	pop	r30
@@ -4515,12 +4515,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 					/* Entry action for state 'ShowCode'. */
 					sMOIfaceLCD_clear();
     174c:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-					sMOIfaceLCD_writeString("Please enter Dish ID:");
+					sMOIfaceLCD_writeString("ENTER DISH ID:");
     1750:	82 e2       	ldi	r24, 0x22	; 34
     1752:	92 e0       	ldi	r25, 0x02	; 2
     1754:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 					sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
-    1758:	88 e3       	ldi	r24, 0x38	; 56
+    1758:	81 e3       	ldi	r24, 0x31	; 49
     175a:	92 e0       	ldi	r25, 0x02	; 2
     175c:	40 e0       	ldi	r20, 0x00	; 0
     175e:	50 e0       	ldi	r21, 0x00	; 0
@@ -4571,12 +4571,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 						/* Entry action for state 'ShowAmount'. */
 						sMOIfaceLCD_clear();
     17a8:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-						sMOIfaceLCD_writeString("Please enter amount:");
-    17ac:	8e e3       	ldi	r24, 0x3E	; 62
+						sMOIfaceLCD_writeString("ENTER AMOUNT:");
+    17ac:	87 e3       	ldi	r24, 0x37	; 55
     17ae:	92 e0       	ldi	r25, 0x02	; 2
     17b0:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 						sMOIfaceLCD_writeStringXY("_ _", 0, 1);
-    17b4:	83 e5       	ldi	r24, 0x53	; 83
+    17b4:	85 e4       	ldi	r24, 0x45	; 69
     17b6:	92 e0       	ldi	r25, 0x02	; 2
     17b8:	40 e0       	ldi	r20, 0x00	; 0
     17ba:	50 e0       	ldi	r21, 0x00	; 0
@@ -5426,12 +5426,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 					/* Entry action for state 'ShowAmount'. */
 					sMOIfaceLCD_clear();
     1c6e:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-					sMOIfaceLCD_writeString("Please enter amount:");
-    1c72:	8e e3       	ldi	r24, 0x3E	; 62
+					sMOIfaceLCD_writeString("ENTER AMOUNT:");
+    1c72:	87 e3       	ldi	r24, 0x37	; 55
     1c74:	92 e0       	ldi	r25, 0x02	; 2
     1c76:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 					sMOIfaceLCD_writeStringXY("_ _", 0, 1);
-    1c7a:	83 e5       	ldi	r24, 0x53	; 83
+    1c7a:	85 e4       	ldi	r24, 0x45	; 69
     1c7c:	92 e0       	ldi	r25, 0x02	; 2
     1c7e:	40 e0       	ldi	r20, 0x00	; 0
     1c80:	50 e0       	ldi	r21, 0x00	; 0
@@ -6325,12 +6325,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_MenuA(SMO* handle) 
 		/* Entry action for state 'ShowCode'. */
 		sMOIfaceLCD_clear();
     211c:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-		sMOIfaceLCD_writeString("Please enter Dish ID:");
+		sMOIfaceLCD_writeString("ENTER DISH ID:");
     2120:	82 e2       	ldi	r24, 0x22	; 34
     2122:	92 e0       	ldi	r25, 0x02	; 2
     2124:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 		sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
-    2128:	88 e3       	ldi	r24, 0x38	; 56
+    2128:	81 e3       	ldi	r24, 0x31	; 49
     212a:	92 e0       	ldi	r25, 0x02	; 2
     212c:	40 e0       	ldi	r20, 0x00	; 0
     212e:	50 e0       	ldi	r21, 0x00	; 0
@@ -6541,12 +6541,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendData_r1_Send(SM
 		/* Entry action for state 'ShowCode'. */
 		sMOIfaceLCD_clear();
     2230:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-		sMOIfaceLCD_writeString("Please enter Dish ID:");
+		sMOIfaceLCD_writeString("ENTER DISH ID:");
     2234:	82 e2       	ldi	r24, 0x22	; 34
     2236:	92 e0       	ldi	r25, 0x02	; 2
     2238:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 		sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
-    223c:	88 e3       	ldi	r24, 0x38	; 56
+    223c:	81 e3       	ldi	r24, 0x31	; 49
     223e:	92 e0       	ldi	r25, 0x02	; 2
     2240:	40 e0       	ldi	r20, 0x00	; 0
     2242:	50 e0       	ldi	r21, 0x00	; 0
@@ -6673,12 +6673,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendData_r1_Check(S
 		/* Entry action for state 'ShowCode'. */
 		sMOIfaceLCD_clear();
     22e4:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-		sMOIfaceLCD_writeString("Please enter Dish ID:");
+		sMOIfaceLCD_writeString("ENTER DISH ID:");
     22e8:	82 e2       	ldi	r24, 0x22	; 34
     22ea:	92 e0       	ldi	r25, 0x02	; 2
     22ec:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 		sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
-    22f0:	88 e3       	ldi	r24, 0x38	; 56
+    22f0:	81 e3       	ldi	r24, 0x31	; 49
     22f2:	92 e0       	ldi	r25, 0x02	; 2
     22f4:	40 e0       	ldi	r20, 0x00	; 0
     22f6:	50 e0       	ldi	r21, 0x00	; 0
@@ -6813,12 +6813,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendData_r1__final_
 		/* Entry action for state 'ShowCode'. */
 		sMOIfaceLCD_clear();
     23a4:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-		sMOIfaceLCD_writeString("Please enter Dish ID:");
+		sMOIfaceLCD_writeString("ENTER DISH ID:");
     23a8:	82 e2       	ldi	r24, 0x22	; 34
     23aa:	92 e0       	ldi	r25, 0x02	; 2
     23ac:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 		sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
-    23b0:	88 e3       	ldi	r24, 0x38	; 56
+    23b0:	81 e3       	ldi	r24, 0x31	; 49
     23b2:	92 e0       	ldi	r25, 0x02	; 2
     23b4:	40 e0       	ldi	r20, 0x00	; 0
     23b6:	50 e0       	ldi	r21, 0x00	; 0
@@ -6868,12 +6868,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_MenuB(SMO* handle) 
 		/* Entry action for state 'ShowCode'. */
 		sMOIfaceLCD_clear();
     23f2:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-		sMOIfaceLCD_writeString("Please enter Dish ID:");
+		sMOIfaceLCD_writeString("ENTER DISH ID:");
     23f6:	82 e2       	ldi	r24, 0x22	; 34
     23f8:	92 e0       	ldi	r25, 0x02	; 2
     23fa:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 		sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
-    23fe:	88 e3       	ldi	r24, 0x38	; 56
+    23fe:	81 e3       	ldi	r24, 0x31	; 49
     2400:	92 e0       	ldi	r25, 0x02	; 2
     2402:	40 e0       	ldi	r20, 0x00	; 0
     2404:	50 e0       	ldi	r21, 0x00	; 0
@@ -6921,12 +6921,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_MenuC(SMO* handle) 
 		/* Entry action for state 'RequestConfirmation'. */
 		sMOIfaceLCD_clear();
     243c:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-		sMOIfaceLCD_writeString("Do you want to proceed?");
-    2440:	87 e5       	ldi	r24, 0x57	; 87
+		sMOIfaceLCD_writeString("PROCEED?");
+    2440:	89 e4       	ldi	r24, 0x49	; 73
     2442:	92 e0       	ldi	r25, 0x02	; 2
     2444:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 		sMOIfaceLCD_writeStringXY("1-NO  2-YES", 0, 1);
-    2448:	8f e6       	ldi	r24, 0x6F	; 111
+    2448:	82 e5       	ldi	r24, 0x52	; 82
     244a:	92 e0       	ldi	r25, 0x02	; 2
     244c:	40 e0       	ldi	r20, 0x00	; 0
     244e:	50 e0       	ldi	r21, 0x00	; 0
@@ -6969,12 +6969,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_MenuD(SMO* handle) 
 		/* Entry action for state 'RequestConfirmation'. */
 		sMOIfaceLCD_clear();
     247e:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-		sMOIfaceLCD_writeString("Do you want to proceed?");
-    2482:	87 e5       	ldi	r24, 0x57	; 87
+		sMOIfaceLCD_writeString("PROCEED?");
+    2482:	89 e4       	ldi	r24, 0x49	; 73
     2484:	92 e0       	ldi	r25, 0x02	; 2
     2486:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 		sMOIfaceLCD_writeStringXY("1-NO  2-YES", 0, 1);
-    248a:	8f e6       	ldi	r24, 0x6F	; 111
+    248a:	82 e5       	ldi	r24, 0x52	; 82
     248c:	92 e0       	ldi	r25, 0x02	; 2
     248e:	40 e0       	ldi	r20, 0x00	; 0
     2490:	50 e0       	ldi	r21, 0x00	; 0
@@ -7450,7 +7450,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Chec
 			sMOIfaceLCD_clear();
     270c:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
 			sMOIfaceLCD_writeString("Order Transferring");
-    2710:	8b e7       	ldi	r24, 0x7B	; 123
+    2710:	8e e5       	ldi	r24, 0x5E	; 94
     2712:	92 e0       	ldi	r25, 0x02	; 2
     2714:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 			handle->ifaceCONF.confirmId = handle->ifaceKEYPAD.lastkey;
@@ -7685,12 +7685,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendConfirm_r1_Send
 		/* Entry action for state 'RequestConfirmation'. */
 		sMOIfaceLCD_clear();
     2836:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-		sMOIfaceLCD_writeString("Do you want to proceed?");
-    283a:	87 e5       	ldi	r24, 0x57	; 87
+		sMOIfaceLCD_writeString("PROCEED?");
+    283a:	89 e4       	ldi	r24, 0x49	; 73
     283c:	92 e0       	ldi	r25, 0x02	; 2
     283e:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 		sMOIfaceLCD_writeStringXY("1-NO  2-YES", 0, 1);
-    2842:	8f e6       	ldi	r24, 0x6F	; 111
+    2842:	82 e5       	ldi	r24, 0x52	; 82
     2844:	92 e0       	ldi	r25, 0x02	; 2
     2846:	40 e0       	ldi	r20, 0x00	; 0
     2848:	50 e0       	ldi	r21, 0x00	; 0
@@ -7814,12 +7814,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendConfirm_r1_Chec
 		/* Entry action for state 'RequestConfirmation'. */
 		sMOIfaceLCD_clear();
     28e4:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-		sMOIfaceLCD_writeString("Do you want to proceed?");
-    28e8:	87 e5       	ldi	r24, 0x57	; 87
+		sMOIfaceLCD_writeString("PROCEED?");
+    28e8:	89 e4       	ldi	r24, 0x49	; 73
     28ea:	92 e0       	ldi	r25, 0x02	; 2
     28ec:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 		sMOIfaceLCD_writeStringXY("1-NO  2-YES", 0, 1);
-    28f0:	8f e6       	ldi	r24, 0x6F	; 111
+    28f0:	82 e5       	ldi	r24, 0x52	; 82
     28f2:	92 e0       	ldi	r25, 0x02	; 2
     28f4:	40 e0       	ldi	r20, 0x00	; 0
     28f6:	50 e0       	ldi	r21, 0x00	; 0
@@ -7949,12 +7949,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendConfirm_r1__fin
 		/* Entry action for state 'RequestConfirmation'. */
 		sMOIfaceLCD_clear();
     299a:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <sMOIfaceLCD_clear>
-		sMOIfaceLCD_writeString("Do you want to proceed?");
-    299e:	87 e5       	ldi	r24, 0x57	; 87
+		sMOIfaceLCD_writeString("PROCEED?");
+    299e:	89 e4       	ldi	r24, 0x49	; 73
     29a0:	92 e0       	ldi	r25, 0x02	; 2
     29a2:	0e 94 47 02 	call	0x48e	; 0x48e <sMOIfaceLCD_writeString>
 		sMOIfaceLCD_writeStringXY("1-NO  2-YES", 0, 1);
-    29a6:	8f e6       	ldi	r24, 0x6F	; 111
+    29a6:	82 e5       	ldi	r24, 0x52	; 82
     29a8:	92 e0       	ldi	r25, 0x02	; 2
     29aa:	40 e0       	ldi	r20, 0x00	; 0
     29ac:	50 e0       	ldi	r21, 0x00	; 0
@@ -8967,8 +8967,8 @@ void TimerInit() {
     2e58:	81 e0       	ldi	r24, 0x01	; 1
     2e5a:	87 bf       	out	0x37, r24	; 55
 	tmrCount=0;
-    2e5c:	10 92 95 02 	sts	0x0295, r1
-    2e60:	10 92 94 02 	sts	0x0294, r1
+    2e5c:	10 92 79 02 	sts	0x0279, r1
+    2e60:	10 92 78 02 	sts	0x0278, r1
 	sei();
     2e64:	78 94       	sei
 }
@@ -8989,12 +8989,12 @@ void TimerSet(const sc_eventid evenId,const sc_integer max) {
     2e78:	7b 01       	movw	r14, r22
 	bool check=false;
 	for (int i=0;i<tmrCount;i++) {
-    2e7a:	40 91 94 02 	lds	r20, 0x0294
-    2e7e:	50 91 95 02 	lds	r21, 0x0295
+    2e7a:	40 91 78 02 	lds	r20, 0x0278
+    2e7e:	50 91 79 02 	lds	r21, 0x0279
     2e82:	14 16       	cp	r1, r20
     2e84:	15 06       	cpc	r1, r21
     2e86:	e4 f4       	brge	.+56     	; 0x2ec0 <TimerSet+0x58>
-    2e88:	ea ea       	ldi	r30, 0xAA	; 170
+    2e88:	ee e8       	ldi	r30, 0x8E	; 142
     2e8a:	f2 e0       	ldi	r31, 0x02	; 2
     2e8c:	df 01       	movw	r26, r30
     2e8e:	16 96       	adiw	r26, 0x06	; 6
@@ -9072,7 +9072,7 @@ void TimerSet(const sc_eventid evenId,const sc_integer max) {
     2ecc:	ff 1f       	adc	r31, r31
     2ece:	e4 1b       	sub	r30, r20
     2ed0:	f5 0b       	sbc	r31, r21
-    2ed2:	e6 55       	subi	r30, 0x56	; 86
+    2ed2:	e2 57       	subi	r30, 0x72	; 114
     2ed4:	fd 4f       	sbci	r31, 0xFD	; 253
     2ed6:	d1 83       	std	Z+1, r29	; 0x01
     2ed8:	c0 83       	st	Z, r28
@@ -9088,8 +9088,8 @@ void TimerSet(const sc_eventid evenId,const sc_integer max) {
 		tmrCount++;
     2ee6:	4f 5f       	subi	r20, 0xFF	; 255
     2ee8:	5f 4f       	sbci	r21, 0xFF	; 255
-    2eea:	50 93 95 02 	sts	0x0295, r21
-    2eee:	40 93 94 02 	sts	0x0294, r20
+    2eea:	50 93 79 02 	sts	0x0279, r21
+    2eee:	40 93 78 02 	sts	0x0278, r20
 	}
 }
     2ef2:	df 91       	pop	r29
@@ -9105,14 +9105,14 @@ void TimerSet(const sc_eventid evenId,const sc_integer max) {
 void TimerUnSet(const sc_eventid evenId) {
     2f00:	dc 01       	movw	r26, r24
 	for (int i=0;i<tmrCount;i++) {
-    2f02:	60 91 94 02 	lds	r22, 0x0294
-    2f06:	70 91 95 02 	lds	r23, 0x0295
+    2f02:	60 91 78 02 	lds	r22, 0x0278
+    2f06:	70 91 79 02 	lds	r23, 0x0279
     2f0a:	16 16       	cp	r1, r22
     2f0c:	17 06       	cpc	r1, r23
     2f0e:	64 f5       	brge	.+88     	; 0x2f68 <TimerUnSet+0x68>
 		if (tmrEvent[i].EventId==evenId) {
-    2f10:	80 91 aa 02 	lds	r24, 0x02AA
-    2f14:	90 91 ab 02 	lds	r25, 0x02AB
+    2f10:	80 91 8e 02 	lds	r24, 0x028E
+    2f14:	90 91 8f 02 	lds	r25, 0x028F
     2f18:	8a 17       	cp	r24, r26
     2f1a:	9b 07       	cpc	r25, r27
     2f1c:	e1 f4       	brne	.+56     	; 0x2f56 <TimerUnSet+0x56>
@@ -9154,7 +9154,7 @@ void TimerUnSet(const sc_eventid evenId) {
     2f44:	ff 1f       	adc	r31, r31
     2f46:	e4 1b       	sub	r30, r20
     2f48:	f5 0b       	sbc	r31, r21
-    2f4a:	e6 55       	subi	r30, 0x56	; 86
+    2f4a:	e2 57       	subi	r30, 0x72	; 114
     2f4c:	fd 4f       	sbci	r31, 0xFD	; 253
     2f4e:	13 82       	std	Z+3, r1	; 0x03
     2f50:	12 82       	std	Z+2, r1	; 0x02
@@ -9162,7 +9162,7 @@ void TimerUnSet(const sc_eventid evenId) {
     2f52:	16 82       	std	Z+6, r1	; 0x06
 			return;
     2f54:	08 95       	ret
-    2f56:	21 eb       	ldi	r18, 0xB1	; 177
+    2f56:	25 e9       	ldi	r18, 0x95	; 149
     2f58:	32 e0       	ldi	r19, 0x02	; 2
 		tmrCount++;
 	}
@@ -9196,12 +9196,12 @@ void TimerCheck(SMO* handle) {
     2f78:	df 93       	push	r29
     2f7a:	6c 01       	movw	r12, r24
 	for (int i=0;i<tmrCount;i++) {
-    2f7c:	80 91 94 02 	lds	r24, 0x0294
-    2f80:	90 91 95 02 	lds	r25, 0x0295
+    2f7c:	80 91 78 02 	lds	r24, 0x0278
+    2f80:	90 91 79 02 	lds	r25, 0x0279
     2f84:	18 16       	cp	r1, r24
     2f86:	19 06       	cpc	r1, r25
     2f88:	94 f5       	brge	.+100    	; 0x2fee <TimerCheck+0x84>
-    2f8a:	c0 eb       	ldi	r28, 0xB0	; 176
+    2f8a:	c4 e9       	ldi	r28, 0x94	; 148
     2f8c:	d2 e0       	ldi	r29, 0x02	; 2
     2f8e:	8e 01       	movw	r16, r28
     2f90:	06 50       	subi	r16, 0x06	; 6
@@ -9255,8 +9255,8 @@ void TimerCheck(SMO* handle) {
     2fda:	27 96       	adiw	r28, 0x07	; 7
     2fdc:	09 5f       	subi	r16, 0xF9	; 249
     2fde:	1f 4f       	sbci	r17, 0xFF	; 255
-    2fe0:	80 91 94 02 	lds	r24, 0x0294
-    2fe4:	90 91 95 02 	lds	r25, 0x0295
+    2fe0:	80 91 78 02 	lds	r24, 0x0278
+    2fe4:	90 91 79 02 	lds	r25, 0x0279
     2fe8:	e8 16       	cp	r14, r24
     2fea:	f9 06       	cpc	r15, r25
     2fec:	ac f2       	brlt	.-86     	; 0x2f98 <TimerCheck+0x2e>
@@ -9280,12 +9280,12 @@ void TimerCheck(SMO* handle) {
 
 void TimerClear() {
 	free(tmrEvent);
-    3000:	8a ea       	ldi	r24, 0xAA	; 170
+    3000:	8e e8       	ldi	r24, 0x8E	; 142
     3002:	92 e0       	ldi	r25, 0x02	; 2
     3004:	0e 94 f1 18 	call	0x31e2	; 0x31e2 <free>
 	tmrCount=0;
-    3008:	10 92 95 02 	sts	0x0295, r1
-    300c:	10 92 94 02 	sts	0x0294, r1
+    3008:	10 92 79 02 	sts	0x0279, r1
+    300c:	10 92 78 02 	sts	0x0278, r1
     3010:	08 95       	ret
 
 00003012 <__mulsi3>:
@@ -9401,8 +9401,8 @@ void TimerClear() {
     30c0:	10 f4       	brcc	.+4      	; 0x30c6 <malloc+0x10>
     30c2:	42 e0       	ldi	r20, 0x02	; 2
     30c4:	50 e0       	ldi	r21, 0x00	; 0
-    30c6:	e0 91 f2 02 	lds	r30, 0x02F2
-    30ca:	f0 91 f3 02 	lds	r31, 0x02F3
+    30c6:	e0 91 d6 02 	lds	r30, 0x02D6
+    30ca:	f0 91 d7 02 	lds	r31, 0x02D7
     30ce:	20 e0       	ldi	r18, 0x00	; 0
     30d0:	30 e0       	ldi	r19, 0x00	; 0
     30d2:	a0 e0       	ldi	r26, 0x00	; 0
@@ -9425,8 +9425,8 @@ void TimerClear() {
     30f4:	8e 93       	st	-X, r24
     30f6:	12 97       	sbiw	r26, 0x02	; 2
     30f8:	2c c0       	rjmp	.+88     	; 0x3152 <malloc+0x9c>
-    30fa:	90 93 f3 02 	sts	0x02F3, r25
-    30fe:	80 93 f2 02 	sts	0x02F2, r24
+    30fa:	90 93 d7 02 	sts	0x02D7, r25
+    30fe:	80 93 d6 02 	sts	0x02D6, r24
     3102:	27 c0       	rjmp	.+78     	; 0x3152 <malloc+0x9c>
     3104:	21 15       	cp	r18, r1
     3106:	31 05       	cpc	r19, r1
@@ -9462,8 +9462,8 @@ void TimerClear() {
     3142:	93 83       	std	Z+3, r25	; 0x03
     3144:	82 83       	std	Z+2, r24	; 0x02
     3146:	04 c0       	rjmp	.+8      	; 0x3150 <malloc+0x9a>
-    3148:	90 93 f3 02 	sts	0x02F3, r25
-    314c:	80 93 f2 02 	sts	0x02F2, r24
+    3148:	90 93 d7 02 	sts	0x02D7, r25
+    314c:	80 93 d6 02 	sts	0x02D6, r24
     3150:	fe 01       	movw	r30, r28
     3152:	32 96       	adiw	r30, 0x02	; 2
     3154:	42 c0       	rjmp	.+132    	; 0x31da <malloc+0x124>
@@ -9476,27 +9476,27 @@ void TimerClear() {
     3162:	99 83       	std	Y+1, r25	; 0x01
     3164:	88 83       	st	Y, r24
     3166:	39 c0       	rjmp	.+114    	; 0x31da <malloc+0x124>
-    3168:	80 91 f0 02 	lds	r24, 0x02F0
-    316c:	90 91 f1 02 	lds	r25, 0x02F1
+    3168:	80 91 d4 02 	lds	r24, 0x02D4
+    316c:	90 91 d5 02 	lds	r25, 0x02D5
     3170:	00 97       	sbiw	r24, 0x00	; 0
     3172:	41 f4       	brne	.+16     	; 0x3184 <malloc+0xce>
-    3174:	80 91 90 02 	lds	r24, 0x0290
-    3178:	90 91 91 02 	lds	r25, 0x0291
-    317c:	90 93 f1 02 	sts	0x02F1, r25
-    3180:	80 93 f0 02 	sts	0x02F0, r24
-    3184:	20 91 8e 02 	lds	r18, 0x028E
-    3188:	30 91 8f 02 	lds	r19, 0x028F
+    3174:	80 91 73 02 	lds	r24, 0x0273
+    3178:	90 91 74 02 	lds	r25, 0x0274
+    317c:	90 93 d5 02 	sts	0x02D5, r25
+    3180:	80 93 d4 02 	sts	0x02D4, r24
+    3184:	20 91 71 02 	lds	r18, 0x0271
+    3188:	30 91 72 02 	lds	r19, 0x0272
     318c:	21 15       	cp	r18, r1
     318e:	31 05       	cpc	r19, r1
     3190:	41 f4       	brne	.+16     	; 0x31a2 <malloc+0xec>
     3192:	2d b7       	in	r18, 0x3d	; 61
     3194:	3e b7       	in	r19, 0x3e	; 62
-    3196:	80 91 92 02 	lds	r24, 0x0292
-    319a:	90 91 93 02 	lds	r25, 0x0293
+    3196:	80 91 75 02 	lds	r24, 0x0275
+    319a:	90 91 76 02 	lds	r25, 0x0276
     319e:	28 1b       	sub	r18, r24
     31a0:	39 0b       	sbc	r19, r25
-    31a2:	e0 91 f0 02 	lds	r30, 0x02F0
-    31a6:	f0 91 f1 02 	lds	r31, 0x02F1
+    31a2:	e0 91 d4 02 	lds	r30, 0x02D4
+    31a6:	f0 91 d5 02 	lds	r31, 0x02D5
     31aa:	e2 17       	cp	r30, r18
     31ac:	f3 07       	cpc	r31, r19
     31ae:	98 f4       	brcc	.+38     	; 0x31d6 <malloc+0x120>
@@ -9512,8 +9512,8 @@ void TimerClear() {
     31c2:	48 f0       	brcs	.+18     	; 0x31d6 <malloc+0x120>
     31c4:	8e 0f       	add	r24, r30
     31c6:	9f 1f       	adc	r25, r31
-    31c8:	90 93 f1 02 	sts	0x02F1, r25
-    31cc:	80 93 f0 02 	sts	0x02F0, r24
+    31c8:	90 93 d5 02 	sts	0x02D5, r25
+    31cc:	80 93 d4 02 	sts	0x02D4, r24
     31d0:	41 93       	st	Z+, r20
     31d2:	51 93       	st	Z+, r21
     31d4:	02 c0       	rjmp	.+4      	; 0x31da <malloc+0x124>
@@ -9539,8 +9539,8 @@ void TimerClear() {
     31f8:	1c 92       	st	X, r1
     31fa:	1e 92       	st	-X, r1
     31fc:	12 97       	sbiw	r26, 0x02	; 2
-    31fe:	60 91 f2 02 	lds	r22, 0x02F2
-    3202:	70 91 f3 02 	lds	r23, 0x02F3
+    31fe:	60 91 d6 02 	lds	r22, 0x02D6
+    3202:	70 91 d7 02 	lds	r23, 0x02D7
     3206:	61 15       	cp	r22, r1
     3208:	71 05       	cpc	r23, r1
     320a:	89 f4       	brne	.+34     	; 0x322e <free+0x4c>
@@ -9549,13 +9549,13 @@ void TimerClear() {
     3210:	11 97       	sbiw	r26, 0x01	; 1
     3212:	82 0f       	add	r24, r18
     3214:	93 1f       	adc	r25, r19
-    3216:	20 91 f0 02 	lds	r18, 0x02F0
-    321a:	30 91 f1 02 	lds	r19, 0x02F1
+    3216:	20 91 d4 02 	lds	r18, 0x02D4
+    321a:	30 91 d5 02 	lds	r19, 0x02D5
     321e:	28 17       	cp	r18, r24
     3220:	39 07       	cpc	r19, r25
     3222:	69 f5       	brne	.+90     	; 0x327e <free+0x9c>
-    3224:	b0 93 f1 02 	sts	0x02F1, r27
-    3228:	a0 93 f0 02 	sts	0x02F0, r26
+    3224:	b0 93 d5 02 	sts	0x02D5, r27
+    3228:	a0 93 d4 02 	sts	0x02D4, r26
     322c:	6e c0       	rjmp	.+220    	; 0x330a <free+0x128>
     322e:	fb 01       	movw	r30, r22
     3230:	40 e0       	ldi	r20, 0x00	; 0
@@ -9597,8 +9597,8 @@ void TimerClear() {
     3278:	41 15       	cp	r20, r1
     327a:	51 05       	cpc	r21, r1
     327c:	29 f4       	brne	.+10     	; 0x3288 <free+0xa6>
-    327e:	b0 93 f3 02 	sts	0x02F3, r27
-    3282:	a0 93 f2 02 	sts	0x02F2, r26
+    327e:	b0 93 d7 02 	sts	0x02D7, r27
+    3282:	a0 93 d6 02 	sts	0x02D6, r26
     3286:	41 c0       	rjmp	.+130    	; 0x330a <free+0x128>
     3288:	fa 01       	movw	r30, r20
     328a:	b3 83       	std	Z+3, r27	; 0x03
@@ -9645,20 +9645,20 @@ void TimerClear() {
     32dc:	11 97       	sbiw	r26, 0x01	; 1
     32de:	82 0f       	add	r24, r18
     32e0:	93 1f       	adc	r25, r19
-    32e2:	20 91 f0 02 	lds	r18, 0x02F0
-    32e6:	30 91 f1 02 	lds	r19, 0x02F1
+    32e2:	20 91 d4 02 	lds	r18, 0x02D4
+    32e6:	30 91 d5 02 	lds	r19, 0x02D5
     32ea:	28 17       	cp	r18, r24
     32ec:	39 07       	cpc	r19, r25
     32ee:	69 f4       	brne	.+26     	; 0x330a <free+0x128>
     32f0:	30 97       	sbiw	r30, 0x00	; 0
     32f2:	29 f4       	brne	.+10     	; 0x32fe <free+0x11c>
-    32f4:	10 92 f3 02 	sts	0x02F3, r1
-    32f8:	10 92 f2 02 	sts	0x02F2, r1
+    32f4:	10 92 d7 02 	sts	0x02D7, r1
+    32f8:	10 92 d6 02 	sts	0x02D6, r1
     32fc:	02 c0       	rjmp	.+4      	; 0x3302 <free+0x120>
     32fe:	13 82       	std	Z+3, r1	; 0x03
     3300:	12 82       	std	Z+2, r1	; 0x02
-    3302:	70 93 f1 02 	sts	0x02F1, r23
-    3306:	60 93 f0 02 	sts	0x02F0, r22
+    3302:	70 93 d5 02 	sts	0x02D5, r23
+    3306:	60 93 d4 02 	sts	0x02D4, r22
     330a:	df 91       	pop	r29
     330c:	cf 91       	pop	r28
     330e:	1f 91       	pop	r17

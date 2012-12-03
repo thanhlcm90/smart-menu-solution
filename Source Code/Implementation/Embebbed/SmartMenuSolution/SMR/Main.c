@@ -178,7 +178,7 @@ void sMRIfaceUART_init() {
 	UART_Init(MYUBRR);
 }
 
-void sMRIfaceUART_sendData(const sc_string msg) {
+void sMRIfaceUART_sendMsg(const sc_string msg) {
 	msg[sizeof(msg)-1]=0;
 	uart_puts(msg);
 }
