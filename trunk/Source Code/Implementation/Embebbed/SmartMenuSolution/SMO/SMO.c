@@ -77,7 +77,7 @@ void sMO_enter(SMO* handle)
 	sMOIfaceKEYPAD_init();
 	sMOIfaceRF_init();
 	sMOIfaceLCD_clear();
-	sMOIfaceLCD_writeString("Waitting...");
+	sMOIfaceLCD_writeString("STARTING...");
 	handle->stateConfVector[0] = SMO_main_region_on_r1_Init;
 	handle->stateConfVectorPosition = 0;
 }
@@ -686,7 +686,7 @@ static void sMO_react_main_region_on_r1_Init(SMO* handle) {
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -822,7 +822,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_ShowCo
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -902,7 +902,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_EnterC
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -982,7 +982,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -1016,7 +1016,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 					/* Default enter sequence for state ShowCode */
 					/* Entry action for state 'ShowCode'. */
 					sMOIfaceLCD_clear();
-					sMOIfaceLCD_writeString("Please enter Dish ID:");
+					sMOIfaceLCD_writeString("ENTER DISH ID:");
 					sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
 					handle->ifaceDISH.pos = 0;
 					handle->ifaceDISH.ID = 0;
@@ -1030,7 +1030,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 						/* Default enter sequence for state ShowAmount */
 						/* Entry action for state 'ShowAmount'. */
 						sMOIfaceLCD_clear();
-						sMOIfaceLCD_writeString("Please enter amount:");
+						sMOIfaceLCD_writeString("ENTER AMOUNT:");
 						sMOIfaceLCD_writeStringXY("_ _", 0, 1);
 						handle->ifaceDISH.pos = 0;
 						handle->ifaceDISH.amount = 0;
@@ -1115,7 +1115,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckC
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -1197,7 +1197,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_ShowAm
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -1277,7 +1277,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -1311,7 +1311,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 					/* Default enter sequence for state ShowAmount */
 					/* Entry action for state 'ShowAmount'. */
 					sMOIfaceLCD_clear();
-					sMOIfaceLCD_writeString("Please enter amount:");
+					sMOIfaceLCD_writeString("ENTER AMOUNT:");
 					sMOIfaceLCD_writeStringXY("_ _", 0, 1);
 					handle->ifaceDISH.pos = 0;
 					handle->ifaceDISH.amount = 0;
@@ -1462,7 +1462,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckA
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -1544,7 +1544,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_EnterA
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -1624,7 +1624,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1__final
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -1645,7 +1645,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_MenuA(SMO* handle) 
 		/* Default enter sequence for state ShowCode */
 		/* Entry action for state 'ShowCode'. */
 		sMOIfaceLCD_clear();
-		sMOIfaceLCD_writeString("Please enter Dish ID:");
+		sMOIfaceLCD_writeString("ENTER DISH ID:");
 		sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
 		handle->ifaceDISH.pos = 0;
 		handle->ifaceDISH.ID = 0;
@@ -1736,7 +1736,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendData_r1_Send(SM
 		/* Default enter sequence for state ShowCode */
 		/* Entry action for state 'ShowCode'. */
 		sMOIfaceLCD_clear();
-		sMOIfaceLCD_writeString("Please enter Dish ID:");
+		sMOIfaceLCD_writeString("ENTER DISH ID:");
 		sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
 		handle->ifaceDISH.pos = 0;
 		handle->ifaceDISH.ID = 0;
@@ -1798,7 +1798,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendData_r1_Check(S
 		/* Default enter sequence for state ShowCode */
 		/* Entry action for state 'ShowCode'. */
 		sMOIfaceLCD_clear();
-		sMOIfaceLCD_writeString("Please enter Dish ID:");
+		sMOIfaceLCD_writeString("ENTER DISH ID:");
 		sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
 		handle->ifaceDISH.pos = 0;
 		handle->ifaceDISH.ID = 0;
@@ -1861,7 +1861,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendData_r1__final_
 		/* Default enter sequence for state ShowCode */
 		/* Entry action for state 'ShowCode'. */
 		sMOIfaceLCD_clear();
-		sMOIfaceLCD_writeString("Please enter Dish ID:");
+		sMOIfaceLCD_writeString("ENTER DISH ID:");
 		sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
 		handle->ifaceDISH.pos = 0;
 		handle->ifaceDISH.ID = 0;
@@ -1884,7 +1884,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_MenuB(SMO* handle) 
 		/* Default enter sequence for state ShowCode */
 		/* Entry action for state 'ShowCode'. */
 		sMOIfaceLCD_clear();
-		sMOIfaceLCD_writeString("Please enter Dish ID:");
+		sMOIfaceLCD_writeString("ENTER DISH ID:");
 		sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
 		handle->ifaceDISH.pos = 0;
 		handle->ifaceDISH.ID = 0;
@@ -1906,7 +1906,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_MenuC(SMO* handle) 
 		/* Default enter sequence for state RequestConfirmation */
 		/* Entry action for state 'RequestConfirmation'. */
 		sMOIfaceLCD_clear();
-		sMOIfaceLCD_writeString("Do you want to proceed?");
+		sMOIfaceLCD_writeString("PROCEED?");
 		sMOIfaceLCD_writeStringXY("1-NO  2-YES", 0, 1);
 		handle->ifaceCONF.confirmId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendRequest_r1_RequestConfirmation;
@@ -1927,7 +1927,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_MenuD(SMO* handle) 
 		/* Default enter sequence for state RequestConfirmation */
 		/* Entry action for state 'RequestConfirmation'. */
 		sMOIfaceLCD_clear();
-		sMOIfaceLCD_writeString("Do you want to proceed?");
+		sMOIfaceLCD_writeString("PROCEED?");
 		sMOIfaceLCD_writeStringXY("1-NO  2-YES", 0, 1);
 		handle->ifaceCONF.confirmId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendRequest_r1_RequestConfirmation;
@@ -1975,7 +1975,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Requ
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -2033,7 +2033,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Ente
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -2093,7 +2093,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1_Chec
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -2203,7 +2203,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendRequest_r1__fin
 		/* Entry action for state 'ShowMenu'. */
 		sMOIfaceLCD_clear();
 		sMOIfaceLCD_writeString("A-CALL  B-DEL");
-		sMOIfaceLCD_writeStringXY("C-WT  D-PAY", 0, 1);
+		sMOIfaceLCD_writeStringXY("C-HELP  D-PAY", 0, 1);
 		handle->iface.menuId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
@@ -2245,7 +2245,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendConfirm_r1_Send
 		/* Default enter sequence for state RequestConfirmation */
 		/* Entry action for state 'RequestConfirmation'. */
 		sMOIfaceLCD_clear();
-		sMOIfaceLCD_writeString("Do you want to proceed?");
+		sMOIfaceLCD_writeString("PROCEED?");
 		sMOIfaceLCD_writeStringXY("1-NO  2-YES", 0, 1);
 		handle->ifaceCONF.confirmId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendRequest_r1_RequestConfirmation;
@@ -2307,7 +2307,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendConfirm_r1_Chec
 		/* Default enter sequence for state RequestConfirmation */
 		/* Entry action for state 'RequestConfirmation'. */
 		sMOIfaceLCD_clear();
-		sMOIfaceLCD_writeString("Do you want to proceed?");
+		sMOIfaceLCD_writeString("PROCEED?");
 		sMOIfaceLCD_writeStringXY("1-NO  2-YES", 0, 1);
 		handle->ifaceCONF.confirmId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendRequest_r1_RequestConfirmation;
@@ -2370,7 +2370,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_SendConfirm_r1__fin
 		/* Default enter sequence for state RequestConfirmation */
 		/* Entry action for state 'RequestConfirmation'. */
 		sMOIfaceLCD_clear();
-		sMOIfaceLCD_writeString("Do you want to proceed?");
+		sMOIfaceLCD_writeString("PROCEED?");
 		sMOIfaceLCD_writeStringXY("1-NO  2-YES", 0, 1);
 		handle->ifaceCONF.confirmId = 0;
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendRequest_r1_RequestConfirmation;

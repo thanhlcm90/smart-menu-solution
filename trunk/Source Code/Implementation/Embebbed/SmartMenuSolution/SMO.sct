@@ -10,7 +10,7 @@
           <vertices xsi:type="sgraph:Entry" xmi:id="_EoOowCHiEeKc4uf5EOPUyw">
             <outgoingTransitions xmi:id="_LDDXICHiEeKc4uf5EOPUyw" specification="" target="_XSx54CODEeKYmsoDpEhIGA"/>
           </vertices>
-          <vertices xsi:type="sgraph:State" xmi:id="_XSx54CODEeKYmsoDpEhIGA" specification="entry/&#xD;&#xA;tableId=1;&#xD;&#xA;LCD.Init;&#xD;&#xA;KEYPAD.Init;&#xD;&#xA;RF.Init;&#xD;&#xA;LCD.Clear;&#xD;&#xA;LCD.WriteString(&quot;Waitting...&quot;)" name="Init" incomingTransitions="_LDDXICHiEeKc4uf5EOPUyw">
+          <vertices xsi:type="sgraph:State" xmi:id="_XSx54CODEeKYmsoDpEhIGA" specification="entry/&#xD;&#xA;tableId=1;&#xD;&#xA;LCD.Init;&#xD;&#xA;KEYPAD.Init;&#xD;&#xA;RF.Init;&#xD;&#xA;LCD.Clear;&#xD;&#xA;LCD.WriteString(&quot;STARTING...&quot;)" name="Init" incomingTransitions="_LDDXICHiEeKc4uf5EOPUyw">
             <outgoingTransitions xmi:id="_GfiwwCOEEeKYmsoDpEhIGA" specification="after 3 s" target="_2uL0cCV-EeKRRoQhoIs1Wg"/>
           </vertices>
           <vertices xsi:type="sgraph:State" xmi:id="_2uL0cCV-EeKRRoQhoIs1Wg" name="Running" incomingTransitions="_GfiwwCOEEeKYmsoDpEhIGA">
@@ -31,7 +31,7 @@
               <vertices xsi:type="sgraph:Entry" xmi:id="_Ff_b4CV_EeKRRoQhoIs1Wg">
                 <outgoingTransitions xmi:id="_HevyICWAEeKRRoQhoIs1Wg" specification="" target="_GiWzICHiEeKc4uf5EOPUyw"/>
               </vertices>
-              <vertices xsi:type="sgraph:State" xmi:id="_GiWzICHiEeKc4uf5EOPUyw" specification="entry/&#xD;&#xA;LCD.Clear;&#xD;&#xA;LCD.WriteString( &quot;A-CALL  B-DEL&quot;);&#xD;&#xA;LCD.WriteStringXY(&quot;C-WT  D-PAY&quot;,0,1);&#xD;&#xA;menuId = 0" name="ShowMenu" incomingTransitions="_HevyICWAEeKRRoQhoIs1Wg _uA8fYCauEeKroY5gvVZ65w _wO_C8DbCEeKEPJmPrZGTjQ">
+              <vertices xsi:type="sgraph:State" xmi:id="_GiWzICHiEeKc4uf5EOPUyw" specification="entry/&#xD;&#xA;LCD.Clear;&#xD;&#xA;LCD.WriteString( &quot;A-CALL  B-DEL&quot;);&#xD;&#xA;LCD.WriteStringXY(&quot;C-HELP  D-PAY&quot;,0,1);&#xD;&#xA;menuId = 0" name="ShowMenu" incomingTransitions="_HevyICWAEeKRRoQhoIs1Wg _uA8fYCauEeKroY5gvVZ65w _wO_C8DbCEeKEPJmPrZGTjQ">
                 <outgoingTransitions xmi:id="_MJsSwCWKEeKhus-tfvrdCA" specification="" target="_IFYIwCWKEeKhus-tfvrdCA"/>
               </vertices>
               <vertices xsi:type="sgraph:State" xmi:id="_zgx3ECQ7EeKSaLhmfq2__g" name="EnterData" incomingTransitions="_gWaDsCWKEeKhus-tfvrdCA _aJEOoDLmEeK2R6JJvSj0nw _fZhXIDRQEeKQf5QjpgLZiQ">
@@ -40,7 +40,7 @@
                   <vertices xsi:type="sgraph:Entry" xmi:id="_4u8lECQ7EeKSaLhmfq2__g">
                     <outgoingTransitions xmi:id="__xaiQCQ7EeKSaLhmfq2__g" specification="" target="_6XoaICQ7EeKSaLhmfq2__g"/>
                   </vertices>
-                  <vertices xsi:type="sgraph:State" xmi:id="_6XoaICQ7EeKSaLhmfq2__g" specification="entry/&#xD;&#xA;LCD.Clear;&#xD;&#xA;LCD.WriteString(&quot;Please enter Dish ID:&quot;);&#xD;&#xA;LCD.WriteStringXY(&quot;_ _ _&quot;,0,1);&#xD;&#xA;DISH.pos = 0;&#xD;&#xA;DISH.ID = 0" name="ShowCode" incomingTransitions="__xaiQCQ7EeKSaLhmfq2__g _rzDPsCWWEeKhus-tfvrdCA">
+                  <vertices xsi:type="sgraph:State" xmi:id="_6XoaICQ7EeKSaLhmfq2__g" specification="entry/&#xD;&#xA;LCD.Clear;&#xD;&#xA;LCD.WriteString(&quot;ENTER DISH ID:&quot;);&#xD;&#xA;LCD.WriteStringXY(&quot;_ _ _&quot;,0,1);&#xD;&#xA;DISH.pos = 0;&#xD;&#xA;DISH.ID = 0" name="ShowCode" incomingTransitions="__xaiQCQ7EeKSaLhmfq2__g _rzDPsCWWEeKhus-tfvrdCA">
                     <outgoingTransitions xmi:id="_6zZ8YCWJEeKhus-tfvrdCA" specification="" target="_lXgbgCWJEeKhus-tfvrdCA"/>
                   </vertices>
                   <vertices xsi:type="sgraph:State" xmi:id="_9-R7QCQ8EeKSaLhmfq2__g" specification="entry /&#xD;&#xA;LCD.WriteNumberXY(KEYPAD.lastkey,DISH.pos*2,1,1);&#xD;&#xA;DISH.pos+=1;&#xD;&#xA;DISH.ID=DISH.ID*10+KEYPAD.lastkey" name="EnterCode" incomingTransitions="_uO2PoCWJEeKhus-tfvrdCA _ib3IwCWUEeKhus-tfvrdCA">
@@ -56,7 +56,7 @@
                   <vertices xsi:type="sgraph:State" xmi:id="_UIaRQCWUEeKhus-tfvrdCA" specification="entry/&#xD;&#xA;KEYPAD.lastkey=0" name="CheckCode0" incomingTransitions="_XSrN0CWUEeKhus-tfvrdCA">
                     <outgoingTransitions xmi:id="_ib3IwCWUEeKhus-tfvrdCA" specification="" target="_9-R7QCQ8EeKSaLhmfq2__g"/>
                   </vertices>
-                  <vertices xsi:type="sgraph:State" xmi:id="_pxgEICWVEeKhus-tfvrdCA" specification="entry/&#xD;&#xA;LCD.Clear;&#xD;&#xA;LCD.WriteString(&quot;Please enter amount:&quot;);&#xD;&#xA;LCD.WriteStringXY(&quot;_ _&quot;,0,1);&#xD;&#xA;DISH.pos = 0;&#xD;&#xA;DISH.amount = 0" name="ShowAmount" incomingTransitions="_UdiFUCWXEeKhus-tfvrdCA _IrPtkCWYEeKhus-tfvrdCA">
+                  <vertices xsi:type="sgraph:State" xmi:id="_pxgEICWVEeKhus-tfvrdCA" specification="entry/&#xD;&#xA;LCD.Clear;&#xD;&#xA;LCD.WriteString(&quot;ENTER AMOUNT:&quot;);&#xD;&#xA;LCD.WriteStringXY(&quot;_ _&quot;,0,1);&#xD;&#xA;DISH.pos = 0;&#xD;&#xA;DISH.amount = 0" name="ShowAmount" incomingTransitions="_UdiFUCWXEeKhus-tfvrdCA _IrPtkCWYEeKhus-tfvrdCA">
                     <outgoingTransitions xmi:id="_1ThD4CWXEeKhus-tfvrdCA" specification="" target="_rWNtQCWXEeKhus-tfvrdCA"/>
                   </vertices>
                   <vertices xsi:type="sgraph:State" xmi:id="_rWNtQCWXEeKhus-tfvrdCA" specification="entry/&#xD;&#xA;KEYPAD.lastkey=0" name="CheckKeyPress2" incomingTransitions="_1ThD4CWXEeKhus-tfvrdCA _GRnjwCWYEeKhus-tfvrdCA">
@@ -114,7 +114,7 @@
               <vertices xsi:type="sgraph:State" xmi:id="_Vi3loDRREeKQf5QjpgLZiQ" name="SendRequest" incomingTransitions="_k5E6oDRREeKQf5QjpgLZiQ _lWEYoDRREeKQf5QjpgLZiQ _wfuKcDa-EeKEPJmPrZGTjQ">
                 <outgoingTransitions xmi:id="_wO_C8DbCEeKEPJmPrZGTjQ" specification="[menuId==0]" target="_GiWzICHiEeKc4uf5EOPUyw"/>
                 <regions xmi:id="_Vi7QADRREeKQf5QjpgLZiQ" name="r1">
-                  <vertices xsi:type="sgraph:State" xmi:id="_2sTEoDRREeKQf5QjpgLZiQ" specification="entry/&#xD;&#xA;LCD.Clear;&#xD;&#xA;LCD.WriteString(&quot;Do you want to proceed?&quot;);&#xD;&#xA;LCD.WriteStringXY(&quot;1-NO  2-YES&quot;,0,1);&#xD;&#xA;CONF.confirmId=0" name="RequestConfirmation" incomingTransitions="_9KpoIDRREeKQf5QjpgLZiQ">
+                  <vertices xsi:type="sgraph:State" xmi:id="_2sTEoDRREeKQf5QjpgLZiQ" specification="entry/&#xD;&#xA;LCD.Clear;&#xD;&#xA;LCD.WriteString(&quot;PROCEED?&quot;);&#xD;&#xA;LCD.WriteStringXY(&quot;1-NO  2-YES&quot;,0,1);&#xD;&#xA;CONF.confirmId=0" name="RequestConfirmation" incomingTransitions="_9KpoIDRREeKQf5QjpgLZiQ">
                     <outgoingTransitions xmi:id="_p9N28DUiEeKf8b5r-C1cbw" specification="" target="_sawQYDUiEeKf8b5r-C1cbw"/>
                   </vertices>
                   <vertices xsi:type="sgraph:Entry" xmi:id="_5vdToDRREeKQf5QjpgLZiQ">
@@ -496,7 +496,7 @@
                           <styles xsi:type="notation:ShapeStyle" xmi:id="_zhFZECQ7EeKSaLhmfq2__g" fontName="Verdana" fillColor="15981773" lineColor="12632256"/>
                           <styles xsi:type="notation:FontStyle" xmi:id="_zhFZESQ7EeKSaLhmfq2__g"/>
                           <styles xsi:type="notation:BooleanValueStyle" xmi:id="_zhGAISQ7EeKSaLhmfq2__g"/>
-                          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_zhFZEiQ7EeKSaLhmfq2__g" x="-42" y="294" width="881" height="745"/>
+                          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_zhFZEiQ7EeKSaLhmfq2__g" x="-42" y="294" width="918" height="745"/>
                         </children>
                         <children xmi:id="_XtOc0CWJEeKhus-tfvrdCA" type="State" element="_Xs9XECWJEeKhus-tfvrdCA">
                           <children xsi:type="notation:DecorationNode" xmi:id="_XtOc1CWJEeKhus-tfvrdCA" type="StateName">
@@ -603,7 +603,7 @@
                           <styles xsi:type="notation:ShapeStyle" xmi:id="_KhS6cTLkEeK2R6JJvSj0nw" fontName="Verdana" fillColor="15981773" lineColor="12632256"/>
                           <styles xsi:type="notation:FontStyle" xmi:id="_KhS6cjLkEeK2R6JJvSj0nw"/>
                           <styles xsi:type="notation:BooleanValueStyle" xmi:id="_KhThgTLkEeK2R6JJvSj0nw"/>
-                          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_KhS6czLkEeK2R6JJvSj0nw" x="-41" y="1092" width="868" height="282"/>
+                          <layoutConstraint xsi:type="notation:Bounds" xmi:id="_KhS6czLkEeK2R6JJvSj0nw" x="-41" y="1092" width="917" height="282"/>
                         </children>
                         <children xmi:id="_X_o_gDRQEeKQf5QjpgLZiQ" type="State" element="_X-l2oDRQEeKQf5QjpgLZiQ">
                           <children xsi:type="notation:DecorationNode" xmi:id="_X_rbwDRQEeKQf5QjpgLZiQ" type="StateName">
@@ -957,7 +957,7 @@
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_MJzngSWKEeKhus-tfvrdCA" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_MJ0OkCWKEeKhus-tfvrdCA" fontName="Verdana"/>
       <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_MJzngiWKEeKhus-tfvrdCA" points="[14, 6, -214, 2]$[229, -22, 1, -26]"/>
-      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_MKEtQCWKEeKhus-tfvrdCA" id="(0.9539473684210527,0.18404907975460122)"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_MKEtQCWKEeKhus-tfvrdCA" id="(0.9506578947368421,0.27607361963190186)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_MKEtQSWKEeKhus-tfvrdCA" id="(0.08148148148148149,0.37333333333333335)"/>
     </edges>
     <edges xmi:id="_OlbVYCWKEeKhus-tfvrdCA" type="Transition" element="_OlVOwCWKEeKhus-tfvrdCA" source="_IFjH4CWKEeKhus-tfvrdCA" target="_XtOc0CWJEeKhus-tfvrdCA">
@@ -980,7 +980,7 @@
       <styles xsi:type="notation:FontStyle" xmi:id="_gWfjQyWKEeKhus-tfvrdCA" fontName="Verdana"/>
       <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_gWfjQiWKEeKhus-tfvrdCA" points="[-11, 19, 45, -67]$[-53, 79, 3, -7]"/>
       <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_gWpUQCWKEeKhus-tfvrdCA" id="(0.35333333333333333,0.9242424242424242)"/>
-      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_gWp7UCWKEeKhus-tfvrdCA" id="(0.5107832009080591,0.02334152334152334)"/>
+      <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_gWp7UCWKEeKhus-tfvrdCA" id="(0.4869281045751634,0.0026845637583892616)"/>
     </edges>
     <edges xmi:id="_5_OQ8CWKEeKhus-tfvrdCA" type="Transition" element="_5_GVICWKEeKhus-tfvrdCA" source="_9-bFMCQ8EeKSaLhmfq2__g" target="_lXsowCWJEeKhus-tfvrdCA">
       <children xsi:type="notation:DecorationNode" xmi:id="_5_OQ9CWKEeKhus-tfvrdCA" type="TransitionExpression">
@@ -1141,7 +1141,7 @@
       <styles xsi:type="notation:ConnectorStyle" xmi:id="_uBbAgSauEeKroY5gvVZ65w" lineColor="4210752"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_uBbnkCauEeKroY5gvVZ65w" fontName="Verdana"/>
       <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_uBbAgiauEeKroY5gvVZ65w" points="[-1, -5, 35, 113]$[-33, -100, 3, 18]"/>
-      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_uCfXgCauEeKroY5gvVZ65w" id="(0.2690124858115778,0.0174496644295302)"/>
+      <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_uCfXgCauEeKroY5gvVZ65w" id="(0.2570806100217865,0.005369127516778523)"/>
       <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_uCfXgSauEeKroY5gvVZ65w" id="(0.5789473684210527,0.8466257668711656)"/>
     </edges>
     <edges xmi:id="_Kzz1oDFWEeKezuvQAmo6sQ" type="Transition" element="_KzlzMDFWEeKezuvQAmo6sQ" source="_2KIPsCV_EeKRRoQhoIs1Wg" target="_2KIPsCV_EeKRRoQhoIs1Wg">

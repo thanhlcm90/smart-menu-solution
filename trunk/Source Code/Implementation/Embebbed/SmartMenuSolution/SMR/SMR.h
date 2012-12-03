@@ -15,7 +15,6 @@ typedef enum {
 	SMR_main_region_on ,
 	SMR_main_region_on_r1_Init ,
 	SMR_main_region_on_r1_running ,
-	SMR_main_region_on_r1_running_RF_GetReady ,
 	SMR_main_region_on_r1_running_RF_GetData ,
 	SMR_main_region_on_r1_running_RF__final_ ,
 	SMR_main_region_on_r1_running_RF_SendSuccessful ,
