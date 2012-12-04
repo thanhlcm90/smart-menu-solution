@@ -41,6 +41,25 @@ namespace SMS_Management
                 throw ex;
             }
         }
+
+        public WAITER_INFO GetWaterName(Guid ID)
+        {
+            try
+            {
+
+                WAITER_INFO alo = (from p in Context.WAITER_INFO
+                                  where p.Id == ID
+                          select p).SingleOrDefault();
+
+
+               
+                return alo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //Thêm 1 nhân viên mới
         public Boolean InsertWaiter(WAITER_INFO lst)
         {
@@ -75,15 +94,14 @@ namespace SMS_Management
             }
         }
         //Xoa nhan vien
-        public Boolean DeleteWaiter(List<Guid> IDs)
+        public Boolean DeleteWaiter(Guid IDs)
         {
             try
             {
-                List<WAITER_INFO> query = (from p in Context.WAITER_INFO where IDs.Contains(p.Id) select p).ToList();
-                foreach (WAITER_INFO dt in query)
-                {
-                    Context.WAITER_INFO.DeleteObject(dt);
-                }
+               WAITER_INFO query =( from p in Context.WAITER_INFO where p.Id == IDs select p).SingleOrDefault();
+
+               Context.WAITER_INFO.DeleteObject(query);
+                
                 Context.SaveChanges();
                 return true;
             }
@@ -143,15 +161,14 @@ namespace SMS_Management
             }
         }
         //Xóa loại món ăn khỏi danh sách
-        public Boolean DeleteDishType(List<Guid> IDs)
+        public Boolean DeleteDishType(Guid IDs)
         {
             try
             {
-                List<DISH_TYPE> query = (from p in Context.DISH_TYPE where IDs.Contains(p.Id) select p).ToList();
-                foreach (DISH_TYPE dt in query)
-                {
-                    Context.DISH_TYPE.DeleteObject(dt);
-                }
+                DISH_TYPE query = (from p in Context.DISH_TYPE where p.Id==IDs select p).SingleOrDefault();
+
+                Context.DISH_TYPE.DeleteObject(query);
+                
                 Context.SaveChanges();
                 return true;
             }
@@ -215,15 +232,14 @@ namespace SMS_Management
             }
         }
         //Xoa nhan vien
-        public Boolean DeleteChef(List<Guid> IDs)
+        public Boolean DeleteChef(Guid IDs)
         {
             try
             {
-                List<CHEF_INFO> query = (from p in Context.CHEF_INFO where IDs.Contains(p.Id) select p).ToList();
-                foreach (CHEF_INFO dt in query)
-                {
-                    Context.CHEF_INFO.DeleteObject(dt);
-                }
+                CHEF_INFO query = (from p in Context.CHEF_INFO where p.Id == IDs select p).SingleOrDefault();
+
+                Context.CHEF_INFO.DeleteObject(query);
+              
                 Context.SaveChanges();
                 return true;
             }
@@ -253,7 +269,42 @@ namespace SMS_Management
                 throw ex;
             }
         }
+        public List<string> GetWaiterNameList()
+        {
+            try
+            {
 
+                var alo = from p in Context.WAITER_INFO
+                          
+                          select p.NAME;
+
+
+                List<string> y = alo.ToList();
+                return y;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public Guid GetWaiterNameID(string name)
+        {
+            try
+            {
+
+                Guid alo = (from p in Context.WAITER_INFO
+                          where p.NAME==name
+                          select p.Id).SingleOrDefault();
+
+
+
+                return alo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
         public List<TABLES_INFO> GetTableInfo()
@@ -273,6 +324,36 @@ namespace SMS_Management
                 throw ex;
             }
         }
-
+        public Boolean InsertTable(TABLES_INFO lst)
+        {
+            try
+            {
+                lst.Id = Guid.NewGuid();
+                Context.TABLES_INFO.AddObject(lst);
+                Context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public Boolean UpdateTable(TABLES_INFO lst)
+        {
+            try
+            {
+                TABLES_INFO query = (from p in Context.TABLES_INFO where p.Id == lst.Id select p).SingleOrDefault();
+                query.NAME = lst.NAME;
+                query.CODE = lst.CODE;
+                query.WAITER_ID = lst.WAITER_ID;
+                
+                Context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

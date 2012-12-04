@@ -349,7 +349,7 @@ namespace SMS_Management
                 SMSRepostitory rep = new SMSRepostitory();
                 List<Guid> lst = new List<Guid>();
                 lst.Add(PKEY);
-                rep.DeleteDishType(lst);
+                rep.DeleteDishType(PKEY);
                 LoadData();
             }
         }

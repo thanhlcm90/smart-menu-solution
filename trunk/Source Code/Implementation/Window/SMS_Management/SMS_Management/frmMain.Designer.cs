@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            //this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
-            //this.colSELL_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-            //this.colMONEY = new DevExpress.XtraGrid.Columns.GridColumn();
-            //this.colTABLE_ID = new DevExpress.XtraGrid.Columns.GridColumn();
-            //this.colCHEF_ID = new DevExpress.XtraGrid.Columns.GridColumn();
-            //this.colBILLING_DETAILS = new DevExpress.XtraGrid.Columns.GridColumn();
-            //this.colTABLES_INFO = new DevExpress.XtraGrid.Columns.GridColumn();
-            //this.colCHEF_INFO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.comConnection1 = new SMS_Management.COMConnection();
             this.goimonGridView = new System.Windows.Forms.DataGridView();
             this.TABLE_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +81,19 @@
             this.daubepADDbt = new System.Windows.Forms.Button();
             this.qldaubepGridView = new System.Windows.Forms.DataGridView();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bananSAVEbt = new System.Windows.Forms.Button();
+            this.bananCANCELbt = new System.Windows.Forms.Button();
+            this.bananEDITbt = new System.Windows.Forms.Button();
+            this.bananDELETEbt = new System.Windows.Forms.Button();
+            this.bananADDbt = new System.Windows.Forms.Button();
             this.qlbananGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.goimonGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -112,48 +117,9 @@
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qldaubepGridView)).BeginInit();
             this.tabPage10.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qlbananGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // colId
-            // 
-            //this.colId.FieldName = "Id";
-            //this.colId.Name = "colId";
-            //// 
-            //// colSELL_DATE
-            //// 
-            //this.colSELL_DATE.FieldName = "SELL_DATE";
-            //this.colSELL_DATE.Name = "colSELL_DATE";
-            //// 
-            //// colMONEY
-            //// 
-            //this.colMONEY.FieldName = "MONEY";
-            //this.colMONEY.Name = "colMONEY";
-            //// 
-            //// colTABLE_ID
-            //// 
-            //this.colTABLE_ID.FieldName = "TABLE_ID";
-            //this.colTABLE_ID.Name = "colTABLE_ID";
-            //// 
-            //// colCHEF_ID
-            //// 
-            //this.colCHEF_ID.FieldName = "CHEF_ID";
-            //this.colCHEF_ID.Name = "colCHEF_ID";
-            //// 
-            //// colBILLING_DETAILS
-            //// 
-            //this.colBILLING_DETAILS.FieldName = "BILLING_DETAILS";
-            //this.colBILLING_DETAILS.Name = "colBILLING_DETAILS";
-            //// 
-            //// colTABLES_INFO
-            //// 
-            //this.colTABLES_INFO.FieldName = "TABLES_INFO";
-            //this.colTABLES_INFO.Name = "colTABLES_INFO";
-            //// 
-            //// colCHEF_INFO
-            //// 
-            //this.colCHEF_INFO.FieldName = "CHEF_INFO";
-            //this.colCHEF_INFO.Name = "colCHEF_INFO";
             // 
             // comConnection1
             // 
@@ -495,7 +461,7 @@
             // 
             this.thucdonSAVEbt.BackgroundImage = global::SMS_Management.Properties.Resources.save;
             this.thucdonSAVEbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.thucdonSAVEbt.Location = new System.Drawing.Point(353, 14);
+            this.thucdonSAVEbt.Location = new System.Drawing.Point(335, 52);
             this.thucdonSAVEbt.Name = "thucdonSAVEbt";
             this.thucdonSAVEbt.Size = new System.Drawing.Size(75, 23);
             this.thucdonSAVEbt.TabIndex = 6;
@@ -506,7 +472,7 @@
             // 
             this.thucdonCANCELbt.BackgroundImage = global::SMS_Management.Properties.Resources.cancel;
             this.thucdonCANCELbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.thucdonCANCELbt.Location = new System.Drawing.Point(272, 14);
+            this.thucdonCANCELbt.Location = new System.Drawing.Point(335, 15);
             this.thucdonCANCELbt.Name = "thucdonCANCELbt";
             this.thucdonCANCELbt.Size = new System.Drawing.Size(75, 23);
             this.thucdonCANCELbt.TabIndex = 5;
@@ -552,7 +518,7 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Location = new System.Drawing.Point(7, 47);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(353, 35);
+            this.panel1.Size = new System.Drawing.Size(322, 35);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -689,6 +655,12 @@
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this.panel2);
+            this.tabPage10.Controls.Add(this.bananSAVEbt);
+            this.tabPage10.Controls.Add(this.bananCANCELbt);
+            this.tabPage10.Controls.Add(this.bananEDITbt);
+            this.tabPage10.Controls.Add(this.bananDELETEbt);
+            this.tabPage10.Controls.Add(this.bananADDbt);
             this.tabPage10.Controls.Add(this.qlbananGridView);
             this.tabPage10.Location = new System.Drawing.Point(4, 25);
             this.tabPage10.Name = "tabPage10";
@@ -698,6 +670,126 @@
             this.tabPage10.Text = "Quản lý bàn ăn";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(19, 41);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(558, 24);
+            this.panel2.TabIndex = 6;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(192, 1);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(47, 22);
+            this.textBox3.TabIndex = 5;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(70, 1);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(71, 22);
+            this.textBox2.TabIndex = 4;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(377, 0);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(181, 24);
+            this.comboBox1.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(148, 6);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 17);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Mã số";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(245, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 17);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Nhân viên phục vụ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(115, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 17);
+            this.label5.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tên bàn";
+            // 
+            // bananSAVEbt
+            // 
+            this.bananSAVEbt.Image = global::SMS_Management.Properties.Resources.save;
+            this.bananSAVEbt.Location = new System.Drawing.Point(583, 42);
+            this.bananSAVEbt.Name = "bananSAVEbt";
+            this.bananSAVEbt.Size = new System.Drawing.Size(75, 23);
+            this.bananSAVEbt.TabIndex = 5;
+            this.bananSAVEbt.UseVisualStyleBackColor = true;
+            this.bananSAVEbt.Click += new System.EventHandler(this.bananSAVEbt_Click);
+            // 
+            // bananCANCELbt
+            // 
+            this.bananCANCELbt.Image = global::SMS_Management.Properties.Resources.cancel;
+            this.bananCANCELbt.Location = new System.Drawing.Point(583, 12);
+            this.bananCANCELbt.Name = "bananCANCELbt";
+            this.bananCANCELbt.Size = new System.Drawing.Size(75, 23);
+            this.bananCANCELbt.TabIndex = 4;
+            this.bananCANCELbt.UseVisualStyleBackColor = true;
+            this.bananCANCELbt.Click += new System.EventHandler(this.bananCANCELbt_Click);
+            // 
+            // bananEDITbt
+            // 
+            this.bananEDITbt.Image = global::SMS_Management.Properties.Resources.edit;
+            this.bananEDITbt.Location = new System.Drawing.Point(200, 12);
+            this.bananEDITbt.Name = "bananEDITbt";
+            this.bananEDITbt.Size = new System.Drawing.Size(75, 23);
+            this.bananEDITbt.TabIndex = 3;
+            this.bananEDITbt.UseVisualStyleBackColor = true;
+            this.bananEDITbt.Click += new System.EventHandler(this.bananEDITbt_Click);
+            // 
+            // bananDELETEbt
+            // 
+            this.bananDELETEbt.Image = global::SMS_Management.Properties.Resources.delete;
+            this.bananDELETEbt.Location = new System.Drawing.Point(109, 12);
+            this.bananDELETEbt.Name = "bananDELETEbt";
+            this.bananDELETEbt.Size = new System.Drawing.Size(75, 23);
+            this.bananDELETEbt.TabIndex = 2;
+            this.bananDELETEbt.UseVisualStyleBackColor = true;
+            // 
+            // bananADDbt
+            // 
+            this.bananADDbt.Image = global::SMS_Management.Properties.Resources.add;
+            this.bananADDbt.Location = new System.Drawing.Point(19, 12);
+            this.bananADDbt.Name = "bananADDbt";
+            this.bananADDbt.Size = new System.Drawing.Size(75, 23);
+            this.bananADDbt.TabIndex = 1;
+            this.bananADDbt.UseVisualStyleBackColor = true;
+            this.bananADDbt.Click += new System.EventHandler(this.bananADDbt_Click);
+            // 
             // qlbananGridView
             // 
             this.qlbananGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -706,6 +798,7 @@
             this.qlbananGridView.RowTemplate.Height = 24;
             this.qlbananGridView.Size = new System.Drawing.Size(891, 265);
             this.qlbananGridView.TabIndex = 0;
+            this.qlbananGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.qlbananGridView_CellClick);
             // 
             // frmMain
             // 
@@ -746,6 +839,8 @@
             this.tabPage9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.qldaubepGridView)).EndInit();
             this.tabPage10.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qlbananGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -821,5 +916,18 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button bananSAVEbt;
+        private System.Windows.Forms.Button bananCANCELbt;
+        private System.Windows.Forms.Button bananEDITbt;
+        private System.Windows.Forms.Button bananDELETEbt;
+        private System.Windows.Forms.Button bananADDbt;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
