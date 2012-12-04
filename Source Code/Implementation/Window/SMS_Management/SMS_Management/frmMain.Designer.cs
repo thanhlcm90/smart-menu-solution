@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSELL_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMONEY = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTABLE_ID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCHEF_ID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colBILLING_DETAILS = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTABLES_INFO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colCHEF_INFO = new DevExpress.XtraGrid.Columns.GridColumn();
+            //this.colId = new DevExpress.XtraGrid.Columns.GridColumn();
+            //this.colSELL_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+            //this.colMONEY = new DevExpress.XtraGrid.Columns.GridColumn();
+            //this.colTABLE_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            //this.colCHEF_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            //this.colBILLING_DETAILS = new DevExpress.XtraGrid.Columns.GridColumn();
+            //this.colTABLES_INFO = new DevExpress.XtraGrid.Columns.GridColumn();
+            //this.colCHEF_INFO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.comConnection1 = new SMS_Management.COMConnection();
             this.goimonGridView = new System.Windows.Forms.DataGridView();
             this.TABLE_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,43 +117,43 @@
             // 
             // colId
             // 
-            this.colId.FieldName = "Id";
-            this.colId.Name = "colId";
-            // 
-            // colSELL_DATE
-            // 
-            this.colSELL_DATE.FieldName = "SELL_DATE";
-            this.colSELL_DATE.Name = "colSELL_DATE";
-            // 
-            // colMONEY
-            // 
-            this.colMONEY.FieldName = "MONEY";
-            this.colMONEY.Name = "colMONEY";
-            // 
-            // colTABLE_ID
-            // 
-            this.colTABLE_ID.FieldName = "TABLE_ID";
-            this.colTABLE_ID.Name = "colTABLE_ID";
-            // 
-            // colCHEF_ID
-            // 
-            this.colCHEF_ID.FieldName = "CHEF_ID";
-            this.colCHEF_ID.Name = "colCHEF_ID";
-            // 
-            // colBILLING_DETAILS
-            // 
-            this.colBILLING_DETAILS.FieldName = "BILLING_DETAILS";
-            this.colBILLING_DETAILS.Name = "colBILLING_DETAILS";
-            // 
-            // colTABLES_INFO
-            // 
-            this.colTABLES_INFO.FieldName = "TABLES_INFO";
-            this.colTABLES_INFO.Name = "colTABLES_INFO";
-            // 
-            // colCHEF_INFO
-            // 
-            this.colCHEF_INFO.FieldName = "CHEF_INFO";
-            this.colCHEF_INFO.Name = "colCHEF_INFO";
+            //this.colId.FieldName = "Id";
+            //this.colId.Name = "colId";
+            //// 
+            //// colSELL_DATE
+            //// 
+            //this.colSELL_DATE.FieldName = "SELL_DATE";
+            //this.colSELL_DATE.Name = "colSELL_DATE";
+            //// 
+            //// colMONEY
+            //// 
+            //this.colMONEY.FieldName = "MONEY";
+            //this.colMONEY.Name = "colMONEY";
+            //// 
+            //// colTABLE_ID
+            //// 
+            //this.colTABLE_ID.FieldName = "TABLE_ID";
+            //this.colTABLE_ID.Name = "colTABLE_ID";
+            //// 
+            //// colCHEF_ID
+            //// 
+            //this.colCHEF_ID.FieldName = "CHEF_ID";
+            //this.colCHEF_ID.Name = "colCHEF_ID";
+            //// 
+            //// colBILLING_DETAILS
+            //// 
+            //this.colBILLING_DETAILS.FieldName = "BILLING_DETAILS";
+            //this.colBILLING_DETAILS.Name = "colBILLING_DETAILS";
+            //// 
+            //// colTABLES_INFO
+            //// 
+            //this.colTABLES_INFO.FieldName = "TABLES_INFO";
+            //this.colTABLES_INFO.Name = "colTABLES_INFO";
+            //// 
+            //// colCHEF_INFO
+            //// 
+            //this.colCHEF_INFO.FieldName = "CHEF_INFO";
+            //this.colCHEF_INFO.Name = "colCHEF_INFO";
             // 
             // comConnection1
             // 
@@ -753,21 +753,21 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.Columns.GridColumn colId;
-        private DevExpress.XtraGrid.Columns.GridColumn colSELL_DATE;
-        private DevExpress.XtraGrid.Columns.GridColumn colMONEY;
-        private DevExpress.XtraGrid.Columns.GridColumn colTABLE_ID;
-        private DevExpress.XtraGrid.Columns.GridColumn colCHEF_ID;
-        private DevExpress.XtraGrid.Columns.GridColumn colBILLING_DETAILS;
-        private DevExpress.XtraGrid.Columns.GridColumn colTABLES_INFO;
-        private DevExpress.XtraGrid.Columns.GridColumn colCHEF_INFO;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        //private DevExpress.XtraGrid.Columns.GridColumn colId;
+        //private DevExpress.XtraGrid.Columns.GridColumn colSELL_DATE;
+        //private DevExpress.XtraGrid.Columns.GridColumn colMONEY;
+        //private DevExpress.XtraGrid.Columns.GridColumn colTABLE_ID;
+        //private DevExpress.XtraGrid.Columns.GridColumn colCHEF_ID;
+        //private DevExpress.XtraGrid.Columns.GridColumn colBILLING_DETAILS;
+        //private DevExpress.XtraGrid.Columns.GridColumn colTABLES_INFO;
+        //private DevExpress.XtraGrid.Columns.GridColumn colCHEF_INFO;
+        //private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        //private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        //private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        //private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        //private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        //private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        //private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private COMConnection comConnection1;
         private System.Windows.Forms.DataGridView goimonGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn TABLE_NAME;

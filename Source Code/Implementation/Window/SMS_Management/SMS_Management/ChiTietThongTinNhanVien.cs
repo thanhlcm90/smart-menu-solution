@@ -28,6 +28,7 @@ namespace SMS_Management
                 textBox2.Text = birthday.ToString();
                 textBox3.Text = phone.ToString();
                 textBox4.Text = adress.ToString();
+                //string a = this.ParentForm.Name;
             }
 
 
@@ -65,6 +66,11 @@ namespace SMS_Management
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ChiTietThongTinNhanVien_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
