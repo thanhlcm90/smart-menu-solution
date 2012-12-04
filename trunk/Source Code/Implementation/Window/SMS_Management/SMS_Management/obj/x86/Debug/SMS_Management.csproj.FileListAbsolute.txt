@@ -46,3 +46,28 @@ C:\Users\khoi\Desktop\ssss\smart-menu-solutionsss\Source Code\Implementation\Win
 C:\Users\khoi\Desktop\ssss\smart-menu-solutionsss\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.ChiTietThongTinDauBep.resources
 C:\Users\khoi\Desktop\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.ChiTietThongTinDauBep.resources
 C:\Users\khoi\Desktop\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.ChiTietThongTinNhanVien.resources
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\SMS_Management.exe.config
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.exe
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.pdb
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.ChiTietThongTinDauBep.resources
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.ChiTietThongTinNhanVien.resources
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.COMConnection.resources
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.FormBase.resources
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.frmDishType.resources
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.Properties.Resources.resources
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.frmMain.resources
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.exe.licenses
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\Database\SMS_Database.mdf
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\Database\SMS_Database_log.ldf
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\COMConnection.resx
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\COMConnection.cs
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\COMConnection.Designer.cs
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\SMS_Management.exe
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\SMS_Management.pdb
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\EntityFramework.dll
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\System.Data.SqlServerCe.dll
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\System.Data.SqlServerCe.Entity.dll
+D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\EntityFramework.xml

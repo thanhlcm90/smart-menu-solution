@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
+//using DevExpress.XtraEditors;
 using SMS_Management.DataObject;
 using SMS_Management.Database;
 
@@ -242,9 +242,18 @@ namespace SMS_Management
 
         private void nhanvienADD_Click(object sender, EventArgs e)
         {
-          //  BindDataNhanVien();
-            ChiTietThongTinNhanVien show = new ChiTietThongTinNhanVien(null, null, null, null, PKEY, FormStateType.New);
-            show.Show();
+         ////  BindDataNhanVien();
+         //   ChiTietThongTinNhanVien show = new ChiTietThongTinNhanVien(null, null, null, null, PKEY, FormStateType.New);
+         //   show.Show();
+
+            using (ChiTietThongTinNhanVien chitietthongtinnhanvien = new ChiTietThongTinNhanVien(null, null, null, null, PKEY, FormStateType.New))
+            {
+                if (chitietthongtinnhanvien.ShowDialog(this.ParentForm) == DialogResult.OK)
+                {
+
+                    LoadDataNhanVien();
+                }
+            }
           
         }
 
