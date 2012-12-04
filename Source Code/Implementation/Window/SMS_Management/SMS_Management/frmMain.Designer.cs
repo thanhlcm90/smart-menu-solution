@@ -148,7 +148,7 @@
             this.goimonGridView.Location = new System.Drawing.Point(16, 83);
             this.goimonGridView.Margin = new System.Windows.Forms.Padding(4);
             this.goimonGridView.Name = "goimonGridView";
-            this.goimonGridView.Size = new System.Drawing.Size(618, 288);
+            this.goimonGridView.Size = new System.Drawing.Size(663, 288);
             this.goimonGridView.TabIndex = 2;
             // 
             // TABLE_NAME
@@ -779,6 +779,7 @@
             this.bananDELETEbt.Size = new System.Drawing.Size(75, 23);
             this.bananDELETEbt.TabIndex = 2;
             this.bananDELETEbt.UseVisualStyleBackColor = true;
+            this.bananDELETEbt.Click += new System.EventHandler(this.bananDELETEbt_Click);
             // 
             // bananADDbt
             // 
