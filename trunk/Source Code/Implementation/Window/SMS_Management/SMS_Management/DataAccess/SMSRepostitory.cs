@@ -355,5 +355,21 @@ namespace SMS_Management
                 throw ex;
             }
         }
+        public Boolean DeleteTable(Guid IDs)
+        {
+            try
+            {
+                TABLES_INFO query = (from p in Context.TABLES_INFO where p.Id == IDs select p).SingleOrDefault();
+
+                Context.TABLES_INFO.DeleteObject(query);
+
+                Context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

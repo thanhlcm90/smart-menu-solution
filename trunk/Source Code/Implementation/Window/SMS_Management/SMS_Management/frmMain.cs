@@ -16,6 +16,7 @@ namespace SMS_Management
         delegate void SetDataSourceCallback(object lst);
         private Guid PKEY,PKEY1;
         string name, birthday, phone, diachi;
+        SMSRepostitory rep = new SMSRepostitory();
         public frmMain()
         {
             InitializeComponent();
@@ -124,7 +125,7 @@ namespace SMS_Management
         private void LoadDataThucDonMau() {
 
             List<DISH_TYPE> lst;
-            SMSRepostitory rep = new SMSRepostitory();
+            
             lst = rep.GetDishType();
             dataThucdonGridView1.DataSource = lst;
         }
@@ -132,7 +133,7 @@ namespace SMS_Management
         {
 
             List<DISH> lst;
-            SMSRepostitory rep = new SMSRepostitory();
+            
             lst = rep.GetDishInfo(BindDataThucDonMau());
             qlmonanGridView.DataSource = lst;
            
@@ -156,7 +157,7 @@ namespace SMS_Management
         private void LoadDataThucDon()
         {
             List<DISH_TYPE> lst;
-            SMSRepostitory rep = new SMSRepostitory();
+            
             lst = rep.GetDishType();
 
 
@@ -172,7 +173,7 @@ namespace SMS_Management
 
         private void thucdonSAVE_Click(object sender, EventArgs e)
         {
-            SMSRepostitory rep = new SMSRepostitory();
+            
             DISH_TYPE dt = new DISH_TYPE();
             if (FormState == FormStateType.New)
             {
@@ -205,7 +206,7 @@ namespace SMS_Management
             if (PKEY == null) { MessageBox.Show("Bạn chưa chọn đối tượng nào", "Cảnh báo"); }
             if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                SMSRepostitory rep = new SMSRepostitory();
+                
               
                 rep.DeleteDishType(PKEY);
                 LoadDataThucDon();
@@ -221,7 +222,7 @@ namespace SMS_Management
         public void LoadDataNhanVien()
         {
             List<WAITER_INFO> lst;
-            SMSRepostitory rep = new SMSRepostitory();
+            
             lst = rep.GetWaterInfo();
 
 
@@ -263,7 +264,7 @@ namespace SMS_Management
             if (PKEY == null) { MessageBox.Show("Bạn chưa chọn đối tượng nào", "Cảnh báo"); }
             if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                SMSRepostitory rep = new SMSRepostitory();
+                
                 //List<Guid> lst = new List<Guid>();
                 //lst.Add(PKEY);
                 rep.DeleteWaiter(PKEY);
@@ -300,7 +301,7 @@ namespace SMS_Management
          void LoadDataDauBep()
         {
             List<CHEF_INFO> lst;
-            SMSRepostitory rep = new SMSRepostitory();
+            
             lst = rep.GetChefInfo();
 
 
@@ -330,7 +331,7 @@ namespace SMS_Management
             if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
                 BindDataDauBep();
-                SMSRepostitory rep = new SMSRepostitory();
+                
                
                
                 rep.DeleteChef(PKEY);
@@ -357,7 +358,7 @@ namespace SMS_Management
         public void LoadDataTable()
         {
             List<TABLES_INFO> lst;
-            SMSRepostitory rep = new SMSRepostitory();
+            
             lst = rep.GetTableInfo();
 
 
@@ -372,7 +373,7 @@ namespace SMS_Management
             // birthday = qlnhanvienGridView.SelectedRows[0].Cells["BIRTHDAY"].ToString("MMMM dd, yyyy") + ".");
             phone = qlbananGridView.SelectedRows[0].Cells["CODE"].Value.ToString();
             PKEY1 = new Guid(qlbananGridView.SelectedRows[0].Cells["WAITER_ID"].Value.ToString());
-            SMSRepostitory rep = new SMSRepostitory();
+            
             WAITER_INFO nameW = rep.GetWaterName(PKEY1);
             diachi = nameW.NAME.ToString();
             
@@ -399,7 +400,7 @@ namespace SMS_Management
            FormState = FormStateType.New;
             textBox2.Text = "";
             textBox3.Text ="";
-            SMSRepostitory rep = new SMSRepostitory();
+            
             List<string> waitername = rep.GetWaiterNameList();
             comboBox1.DataSource = waitername;
             panel2.Enabled = true;
@@ -426,7 +427,7 @@ namespace SMS_Management
 
         private void bananSAVEbt_Click(object sender, EventArgs e)
         {
-            SMSRepostitory rep = new SMSRepostitory();
+            
             TABLES_INFO dt = new TABLES_INFO();
             if (FormState == FormStateType.New)
             {
@@ -443,15 +444,25 @@ namespace SMS_Management
                 dt.NAME = textBox1.Text.Trim();
                 dt.CODE = Convert.ToInt32(textBox3.Text);
                 dt.WAITER_ID = rep.GetWaiterNameID(comboBox1.SelectedText);
-
-
-
-
-                 rep.UpdateTable(dt);
+                rep.UpdateTable(dt);
             }
             FormState = FormStateType.Normal;
 
             LoadDataTable();
+        }
+
+        private void bananDELETEbt_Click(object sender, EventArgs e)
+        {
+            if (PKEY == null) { MessageBox.Show("Bạn chưa chọn đối tượng nào", "Cảnh báo"); }
+            if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                BindDataTable();
+                
+
+
+                rep.DeleteTable(PKEY);
+                LoadDataTable();
+            }
         }
         
 
