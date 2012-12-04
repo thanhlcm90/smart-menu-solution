@@ -25,10 +25,10 @@ namespace SMS_Management
             if (name != null)
             {
                 textBox1.Text = name.ToString();
-                textBox2.Text = birthday.ToString();
+              //  textBox2.Text = birthday.ToString();
                 textBox3.Text = phone.ToString();
                 textBox4.Text = adress.ToString();
-                //string a = this.ParentForm.Name;
+               
             }
 
 

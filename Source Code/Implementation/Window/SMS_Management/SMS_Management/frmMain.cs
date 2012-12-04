@@ -113,9 +113,10 @@ namespace SMS_Management
             else if (tabControl2.SelectedIndex == 1) { LoadDataThucDon(); }
             else if (tabControl2.SelectedIndex == 2) { LoadDataNhanVien(); }
             else if (tabControl2.SelectedIndex == 3) { LoadDataDauBep(); }
-            else if (tabControl2.SelectedIndex == 4) { LoadDataTable(); }
-            
-            
+            else if (tabControl2.SelectedIndex == 4) { LoadDataTable();
+            }
+
+            panel2.Enabled = false;
             panel1.Enabled = false;
            
         }
@@ -205,9 +206,8 @@ namespace SMS_Management
             if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
                 SMSRepostitory rep = new SMSRepostitory();
-                List<Guid> lst = new List<Guid>();
-                lst.Add(PKEY);
-                rep.DeleteDishType(lst);
+              
+                rep.DeleteDishType(PKEY);
                 LoadDataThucDon();
             }
         }
@@ -233,7 +233,7 @@ namespace SMS_Management
             if (qlnhanvienGridView.SelectedRows.Count == 0) return;
             PKEY = new Guid(qlnhanvienGridView.SelectedRows[0].Cells["Id"].Value.ToString());
             name = qlnhanvienGridView.SelectedRows[0].Cells["NAME"].Value.ToString();
-            birthday = qlnhanvienGridView.SelectedRows[0].Cells["BIRTHDAY"].Value.ToString();
+           // birthday = qlnhanvienGridView.SelectedRows[0].Cells["BIRTHDAY"].ToString("MMMM dd, yyyy") + ".");
             phone = qlnhanvienGridView.SelectedRows[0].Cells["PHONE"].Value.ToString();
            // diachi = qlnhanvienGridView.SelectedRows[0].Cells["ADDRESS"].Value.ToString();
             diachi="alo";
@@ -258,13 +258,15 @@ namespace SMS_Management
         }
 
         private void nhanvienDELETE_click(object sender, EventArgs e)
-        {  if (PKEY == null) { MessageBox.Show("Bạn chưa chọn đối tượng nào", "Cảnh báo"); }
+        {
+            BindDataNhanVien();
+            if (PKEY == null) { MessageBox.Show("Bạn chưa chọn đối tượng nào", "Cảnh báo"); }
             if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
                 SMSRepostitory rep = new SMSRepostitory();
-                List<Guid> lst = new List<Guid>();
-                lst.Add(PKEY);
-                rep.DeleteWaiter(lst);
+                //List<Guid> lst = new List<Guid>();
+                //lst.Add(PKEY);
+                rep.DeleteWaiter(PKEY);
                 LoadDataNhanVien();
             }
 
@@ -272,9 +274,17 @@ namespace SMS_Management
 
         private void nhanvienEDIT_click(object sender, EventArgs e)
         {
-            BindDataNhanVien();
-            ChiTietThongTinNhanVien show = new ChiTietThongTinNhanVien(name, birthday, phone, diachi, PKEY, FormStateType.Edit);
-            show.Show();
+            //BindDataNhanVien();
+            //ChiTietThongTinNhanVien show = new ChiTietThongTinNhanVien(name, birthday, phone, diachi, PKEY, FormStateType.Edit);
+            //show.Show();
+            using (ChiTietThongTinNhanVien chitietthongtinnhanvien = new ChiTietThongTinNhanVien(name, birthday, phone, diachi, PKEY, FormStateType.Edit))
+            {
+                if (chitietthongtinnhanvien.ShowDialog(this.ParentForm) == DialogResult.OK)
+                {
+
+                    LoadDataNhanVien();
+                }
+            }
         }
         //tab dau bep
         private void BindDataDauBep()
@@ -282,7 +292,7 @@ namespace SMS_Management
             if (qldaubepGridView.SelectedRows.Count == 0) return;
             PKEY = new Guid(qldaubepGridView.SelectedRows[0].Cells["Id"].Value.ToString());
             name = qldaubepGridView.SelectedRows[0].Cells["NAME"].Value.ToString();
-            birthday = qldaubepGridView.SelectedRows[0].Cells["BIRTHDAY"].Value.ToString();
+           // birthday = qldaubepGridView.SelectedRows[0].Cells["BIRTHDAY"].Value.ToString();
             phone = qldaubepGridView.SelectedRows[0].Cells["PHONE"].Value.ToString();
             // diachi = qlnhanvienGridView.SelectedRows[0].Cells["ADDRESS"].Value.ToString();
             diachi = "alo";
@@ -300,8 +310,17 @@ namespace SMS_Management
 
         private void daubepADDbt_Click(object sender, EventArgs e)
         {
-            ChiTietThongTinDauBep show = new ChiTietThongTinDauBep(null, null, null, null, PKEY, FormStateType.New);
-            show.Show();
+            //ChiTietThongTinDauBep show = new ChiTietThongTinDauBep(null, null, null, null, PKEY, FormStateType.New);
+            //show.Show();
+            using (ChiTietThongTinDauBep ChiTietThongTinDauBep = new ChiTietThongTinDauBep(null, null, null, null, PKEY, FormStateType.New))
+            {
+                if (ChiTietThongTinDauBep.ShowDialog(this.ParentForm) == DialogResult.OK)
+                {
+
+                    LoadDataDauBep();
+                }
+            }
+           
 
         }
 
@@ -310,10 +329,11 @@ namespace SMS_Management
             if (PKEY == null) { MessageBox.Show("Bạn chưa chọn đối tượng nào", "Cảnh báo"); }
             if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
+                BindDataDauBep();
                 SMSRepostitory rep = new SMSRepostitory();
-                List<Guid> lst = new List<Guid>();
-                lst.Add(PKEY);
-                rep.DeleteChef(lst);
+               
+               
+                rep.DeleteChef(PKEY);
                 LoadDataDauBep();
             }
         }
@@ -321,8 +341,16 @@ namespace SMS_Management
         private void daubepEDITbt_Click(object sender, EventArgs e)
         {
             BindDataDauBep();
-            ChiTietThongTinDauBep show = new ChiTietThongTinDauBep(name, birthday, phone, diachi, PKEY, FormStateType.Edit);
-            show.Show();
+            //ChiTietThongTinDauBep show = new ChiTietThongTinDauBep(name, birthday, phone, diachi, PKEY, FormStateType.Edit);
+            //show.Show();
+            using (ChiTietThongTinDauBep ChiTietThongTinDauBep = new ChiTietThongTinDauBep(name, birthday, phone, diachi, PKEY, FormStateType.Edit))
+            {
+                if (ChiTietThongTinDauBep.ShowDialog(this.ParentForm) == DialogResult.OK)
+                {
+
+                    LoadDataDauBep();
+                }
+            }
         }
 
         //tab ban an
@@ -335,11 +363,97 @@ namespace SMS_Management
 
             qlbananGridView.DataSource = lst;
         }
+    
+        private void BindDataTable()
+        {
+            if (qlbananGridView.SelectedRows.Count == 0) return;
+            PKEY = new Guid(qlbananGridView.SelectedRows[0].Cells["Id"].Value.ToString());
+            name = qlbananGridView.SelectedRows[0].Cells["NAME"].Value.ToString();
+            // birthday = qlnhanvienGridView.SelectedRows[0].Cells["BIRTHDAY"].ToString("MMMM dd, yyyy") + ".");
+            phone = qlbananGridView.SelectedRows[0].Cells["CODE"].Value.ToString();
+            PKEY1 = new Guid(qlbananGridView.SelectedRows[0].Cells["WAITER_ID"].Value.ToString());
+            SMSRepostitory rep = new SMSRepostitory();
+            WAITER_INFO nameW = rep.GetWaterName(PKEY1);
+            diachi = nameW.NAME.ToString();
+            
+           // diachi = qlbananGridView.SelectedRows[0].Cells["WAITER_ID"].Value.ToString();
+          
+            // diachi = "alo";
+        }
 
         private void dataThucdonGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             LoadDataMonAn();
         }
+
+        private void qlbananGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BindDataTable();
+            textBox2.Text = name.ToString();
+            textBox3.Text = phone.ToString();
+            comboBox1.Text = diachi.ToString();
+        }
+
+        private void bananADDbt_Click(object sender, EventArgs e)
+        {
+           FormState = FormStateType.New;
+            textBox2.Text = "";
+            textBox3.Text ="";
+            SMSRepostitory rep = new SMSRepostitory();
+            List<string> waitername = rep.GetWaiterNameList();
+            comboBox1.DataSource = waitername;
+            panel2.Enabled = true;
+
+        }
+
+        private void bananCANCELbt_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
+            textBox3.Text = "";
+            comboBox1.Text = "";
+            panel2.Enabled = false;
+        }
+
+        private void bananEDITbt_Click(object sender, EventArgs e)
+        {
+            FormState = FormStateType.Edit;
+            panel2.Enabled = true;
+            BindDataTable();
+            textBox2.Text = name.ToString();
+            textBox3.Text = phone.ToString();
+            comboBox1.Text = diachi.ToString();
+        }
+
+        private void bananSAVEbt_Click(object sender, EventArgs e)
+        {
+            SMSRepostitory rep = new SMSRepostitory();
+            TABLES_INFO dt = new TABLES_INFO();
+            if (FormState == FormStateType.New)
+            {
+                dt.NAME = textBox2.Text.Trim();
+                dt.CODE = Convert.ToInt32(textBox3.Text);
+
+                dt.WAITER_ID = rep.GetWaiterNameID(comboBox1.SelectedValue.ToString());
+
+                rep.InsertTable(dt);
+            }
+            else if (FormState == FormStateType.Edit)
+            {
+                dt.Id = PKEY;
+                dt.NAME = textBox1.Text.Trim();
+                dt.CODE = Convert.ToInt32(textBox3.Text);
+                dt.WAITER_ID = rep.GetWaiterNameID(comboBox1.SelectedText);
+
+
+
+
+                 rep.UpdateTable(dt);
+            }
+            FormState = FormStateType.Normal;
+
+            LoadDataTable();
+        }
+        
 
     
     }
