@@ -27,6 +27,7 @@ This state machine makes use of operations declared in the state machines interf
 	- sMRIfaceUART_init
 	- sMRIfaceUART_sendMsg
 	- sMRIfaceUART_sendTemp
+	- sMRIfaceUART_getData
 	- sMRIfaceRF_init
 	- sMRIfaceRF_sendData
 	- sMRIfaceRF_sendMsg
@@ -55,6 +56,7 @@ extern void sMRIfaceKEYPAD_init();
 extern void sMRIfaceUART_init();
 extern void sMRIfaceUART_sendMsg(const sc_string msg);
 extern void sMRIfaceUART_sendTemp();
+extern sc_string sMRIfaceUART_getData();
 
 extern void sMRIfaceRF_init();
 extern sc_boolean sMRIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const sc_integer dish_id, const sc_integer amount);

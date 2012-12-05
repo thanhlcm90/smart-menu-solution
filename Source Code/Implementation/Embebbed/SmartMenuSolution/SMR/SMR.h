@@ -15,16 +15,10 @@ typedef enum {
 	SMR_main_region_on ,
 	SMR_main_region_on_r1_Init ,
 	SMR_main_region_on_r1_running ,
-	SMR_main_region_on_r1_running_RF_GetData ,
-	SMR_main_region_on_r1_running_RF__final_ ,
-	SMR_main_region_on_r1_running_RF_SendSuccessful ,
-	SMR_main_region_on_r1_running_RF_DataReceicved ,
-	SMR_main_region_on_r1_running_keypad_CheckKey ,
-	SMR_main_region_on_r1_running_keypad_CheckKeyDown ,
-	SMR_main_region_on_r1_running_UART_ShowMsg ,
-	SMR_main_region_on_r1_running_UART_ShowNumber ,
-	SMR_main_region_on_r1_running_UART_SendUART ,
-	SMR_main_region_on_r1_running_UART_CheckKey ,
+	SMR_main_region_on_r1_running_main_ShowMsg ,
+	SMR_main_region_on_r1_running_main_CheckData ,
+	SMR_main_region_on_r1_running_main_DataReceived ,
+	SMR_main_region_on_r1_running_main_SendCheck ,
 	SMR_last_state
 } SMRStates;
 
@@ -80,7 +74,7 @@ typedef struct {
 
 
 //! the maximum number of orthogonal states defines the dimension of the state configuration vector.
-#define SMR_MAX_ORTHOGONAL_STATES 3
+#define SMR_MAX_ORTHOGONAL_STATES 1
 
 /*! Type definition of the data structure for the SMR state machine.
 This data structure has to be allocated by the client code. */

@@ -48,6 +48,7 @@ void TimerUnSet(const sc_eventid evenId) {
 		if (tmrEvent[i].EventId==evenId) {
 			tmrEvent[i].count=0;
 			tmrEvent[i].enabled=false;
+			*(sc_boolean*)evenId=bool_false;
 			return;
 		}
 	}

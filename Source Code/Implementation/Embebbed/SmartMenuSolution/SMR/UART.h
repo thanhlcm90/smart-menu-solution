@@ -20,7 +20,7 @@
 void UART_Init( unsigned int ubrr );
 void uart_putc(unsigned char chr);
 void uart_puts(const char* s);
-void uart_getc(SMR* handle,unsigned char chr);
+unsigned char* uart_gets();
 
 
 #endif /* UART_H_ */
