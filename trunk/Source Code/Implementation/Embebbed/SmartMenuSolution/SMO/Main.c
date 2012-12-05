@@ -171,34 +171,6 @@ sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 	}
 }
 
-sc_boolean sMOIfaceRF_sendConf(const sc_integer cmd, const sc_integer id) {
-	
-	unsigned char num;
-	unsigned char mod;
-	//clear buffer
-	for(uint8_t i=0; i<sizeof(bufferout); i++) bufferout[i] = 0;
-	
-	//Lenh cho data: 1-goi mon, 2-huy mon, 3-thanh toan, 4-goi boi ban
-	bufferout[0]=cmd+'0'; //Doi cmd tu so sang chu so
-	
-	//Chuyen doi ma ban an hoac nha bep
-	num=id;
-	for (int i=1;i>=0;i--) {
-		mod=num % 10;
-		num/=10;
-		bufferout[i+1]=mod+'0';
-	}
-	
-	//Set Address for Data
-	nrf24l01_settxaddr(nrf24l01_addrtx);
-	
-	uint8_t writeret = nrf24l01_write(bufferout);
-	if(writeret == 1) {
-		return true;
-	} else {
-		return false;
-	}
-}
 
 void sMO_setTimer(const sc_eventid evid, const sc_integer time_ms, const sc_boolean periodic){
 	TimerSet(evid,time_ms);

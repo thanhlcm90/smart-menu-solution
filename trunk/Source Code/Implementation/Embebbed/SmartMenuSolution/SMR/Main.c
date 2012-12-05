@@ -1,9 +1,9 @@
 /*
- * Main.c
- *
- * Created: 11/18/2012 2:11:27 PM
- *  Author: Minh Thanh
- */ 
+* Main.c
+*
+* Created: 11/18/2012 2:11:27 PM
+*  Author: Minh Thanh
+*/
 #define F_CPU 8000000UL
 
 #include <avr/io.h>
@@ -177,9 +177,9 @@ sc_boolean sMRIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const 
 void sMRIfaceUART_init() {
 	UART_Init(MYUBRR);
 }
+char temp[9];
 
 void sMRIfaceUART_sendMsg(const sc_string msg) {
-	msg[sizeof(msg)-1]=0;
 	uart_puts(msg);
 }
 
@@ -194,7 +194,7 @@ void sMRIfaceRF_init() {
 	nrf24l01_init();
 }
 
-char temp[9];
+
 
 void sMRIface_convertNumber(const sc_integer num, const sc_integer pos) {
 	temp[pos-1]=num+'0';
@@ -202,8 +202,11 @@ void sMRIface_convertNumber(const sc_integer num, const sc_integer pos) {
 
 void sMRIfaceUART_sendTemp() {
 	temp[sizeof(temp)-1]='\0';
-	LCDWriteStringXY(0,1,temp);
 	uart_puts(temp);
+}
+
+sc_string sMRIfaceUART_getData() {
+	return uart_gets();
 }
 
 
@@ -234,9 +237,4 @@ int main(void)
 ISR (TIMER0_OVF_vect) {
 	TCNT0=131;
 	TimerCheck(l);
-}
-
-
-ISR (USART1__RX_vect) {
-	uart_getc(l,UDR1);
 }
