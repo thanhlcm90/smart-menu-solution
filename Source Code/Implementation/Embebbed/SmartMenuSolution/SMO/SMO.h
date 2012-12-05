@@ -34,8 +34,22 @@ typedef enum {
 	SMO_main_region_on_r1_Running_running_main_SendData_r1_Send ,
 	SMO_main_region_on_r1_Running_running_main_SendData_r1_Check ,
 	SMO_main_region_on_r1_Running_running_main_SendData_r1__final_ ,
-	SMO_main_region_on_r1_Running_running_main_SendData_r1_SendFail ,
+	SMO_main_region_on_r1_Running_running_main_SendData_r1_SendFail1 ,
 	SMO_main_region_on_r1_Running_running_main_SendData_r1_ResetResult ,
+	SMO_main_region_on_r1_Running_running_main_MenuB ,
+	SMO_main_region_on_r1_Running_running_main_MenuC ,
+	SMO_main_region_on_r1_Running_running_main_MenuD ,
+	SMO_main_region_on_r1_Running_running_main_ConfirmRequest ,
+	SMO_main_region_on_r1_Running_running_main_ConfirmRequest_r1_RequestConfirmation ,
+	SMO_main_region_on_r1_Running_running_main_ConfirmRequest_r1_Confirm ,
+	SMO_main_region_on_r1_Running_running_main_ConfirmRequest_r1_CheckKeyPress ,
+	SMO_main_region_on_r1_Running_running_main_ConfirmRequest_r1__final_ ,
+	SMO_main_region_on_r1_Running_running_main_SendRequest ,
+	SMO_main_region_on_r1_Running_running_main_SendRequest_r1_Send ,
+	SMO_main_region_on_r1_Running_running_main_SendRequest_r1_Check ,
+	SMO_main_region_on_r1_Running_running_main_SendRequest_r1__final_ ,
+	SMO_main_region_on_r1_Running_running_main_SendRequest_r1_SendFail2 ,
+	SMO_main_region_on_r1_Running_running_main_SendRequest_r1_ResetResult ,
 	SMO_last_state
 } SMOStates;
 
@@ -80,6 +94,7 @@ typedef struct {
 	sc_boolean  lightOn;
 	sc_integer  menuId;
 	sc_integer  tableId;
+	sc_integer  confirmId;
 	sc_boolean switchOff_raised;
 	sc_boolean switchOn_raised;
 } SMOIface;
@@ -87,7 +102,9 @@ typedef struct {
 //! Type definition of the data structure for the SMOTimeEvents interface scope.
 typedef struct {
 	sc_boolean Init_time_event_0_raised;
-	sc_boolean SendFail_time_event_0_raised;
+	sc_boolean SendFail1_time_event_0_raised;
+	sc_boolean Confirm_time_event_0_raised;
+	sc_boolean SendFail2_time_event_0_raised;
 } SMOTimeEvents;
 
 
@@ -202,6 +219,10 @@ extern void sMOIface_set_menuId(SMO* handle, sc_integer value);
 extern sc_integer sMOIface_get_tableId(SMO* handle);
 /*! Sets the value of the variable 'tableId' that is defined in the default interface scope. */ 
 extern void sMOIface_set_tableId(SMO* handle, sc_integer value);
+/*! Gets the value of the variable 'confirmId' that is defined in the default interface scope. */ 
+extern sc_integer sMOIface_get_confirmId(SMO* handle);
+/*! Sets the value of the variable 'confirmId' that is defined in the default interface scope. */ 
+extern void sMOIface_set_confirmId(SMO* handle, sc_integer value);
 /*! Raises the in event 'switchOff' that is defined in the default interface scope. */ 
 extern void sMOIface_raise_switchOff(SMO* handle);
 
