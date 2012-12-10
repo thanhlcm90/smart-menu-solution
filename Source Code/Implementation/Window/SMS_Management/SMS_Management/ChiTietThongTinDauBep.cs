@@ -31,7 +31,7 @@ namespace SMS_Management
      
         private void button2_Click(object sender, EventArgs e)
         {
-            SMSRepostitory rep = new SMSRepostitory();
+            SMSRepostitory rep = new SMSRepostitory();;
             CHEF_INFO dt = new CHEF_INFO();
             if (formstate == FormBase.FormStateType.New )
             {

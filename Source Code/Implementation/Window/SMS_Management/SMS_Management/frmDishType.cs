@@ -284,7 +284,7 @@ namespace SMS_Management
         private void LoadData()
         {
             List<DISH_TYPE> lst;
-            SMSRepostitory rep = new SMSRepostitory();
+            SMSRepostitory rep = new SMSRepostitory();;
             lst = rep.GetDishType();
             grdData.DataSource = lst;
         }
@@ -316,7 +316,7 @@ namespace SMS_Management
 
         private void toolSave_Click(object sender, EventArgs e)
         {
-            SMSRepostitory rep = new SMSRepostitory();
+            SMSRepostitory rep = new SMSRepostitory();;
             DISH_TYPE dt = new DISH_TYPE();
             if (FormState == FormStateType.New)
             {
@@ -346,7 +346,7 @@ namespace SMS_Management
             if (PKEY == null) { MessageBox.Show("Bạn chưa chọn đối tượng nào", "Cảnh báo"); }
             if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                SMSRepostitory rep = new SMSRepostitory();
+                SMSRepostitory rep = new SMSRepostitory();;
                 List<Guid> lst = new List<Guid>();
                 lst.Add(PKEY);
                 rep.DeleteDishType(PKEY);

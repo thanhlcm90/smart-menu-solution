@@ -53,32 +53,18 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataThucdonGridView1 = new System.Windows.Forms.DataGridView();
             this.qlmonanGridView = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.thucdonSAVEbt = new System.Windows.Forms.Button();
-            this.thucdonCANCELbt = new System.Windows.Forms.Button();
-            this.thucdonEDITbt = new System.Windows.Forms.Button();
-            this.thucdonDELETEbt = new System.Windows.Forms.Button();
-            this.thucdonADDbt = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.qlthucdonGridView = new System.Windows.Forms.DataGridView();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.nhanvienEDITbt = new System.Windows.Forms.Button();
-            this.nhanvienDELETEbt = new System.Windows.Forms.Button();
-            this.nhanvienADDbt = new System.Windows.Forms.Button();
             this.qlnhanvienGridView = new System.Windows.Forms.DataGridView();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.daubepEDITbt = new System.Windows.Forms.Button();
-            this.daubepDELETEbt = new System.Windows.Forms.Button();
-            this.daubepADDbt = new System.Windows.Forms.Button();
             this.qldaubepGridView = new System.Windows.Forms.DataGridView();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -89,12 +75,26 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.qlbananGridView = new System.Windows.Forms.DataGridView();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.thucdonSAVEbt = new System.Windows.Forms.Button();
+            this.thucdonCANCELbt = new System.Windows.Forms.Button();
+            this.thucdonEDITbt = new System.Windows.Forms.Button();
+            this.thucdonDELETEbt = new System.Windows.Forms.Button();
+            this.thucdonADDbt = new System.Windows.Forms.Button();
+            this.nhanvienEDITbt = new System.Windows.Forms.Button();
+            this.nhanvienDELETEbt = new System.Windows.Forms.Button();
+            this.nhanvienADDbt = new System.Windows.Forms.Button();
+            this.daubepEDITbt = new System.Windows.Forms.Button();
+            this.daubepDELETEbt = new System.Windows.Forms.Button();
+            this.daubepADDbt = new System.Windows.Forms.Button();
             this.bananSAVEbt = new System.Windows.Forms.Button();
             this.bananCANCELbt = new System.Windows.Forms.Button();
             this.bananEDITbt = new System.Windows.Forms.Button();
             this.bananDELETEbt = new System.Windows.Forms.Button();
             this.bananADDbt = new System.Windows.Forms.Button();
-            this.qlbananGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.goimonGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -145,10 +145,10 @@
             this.WAITER_NAME,
             this.CHEF_NAME,
             this.STATUS});
-            this.goimonGridView.Location = new System.Drawing.Point(16, 83);
+            this.goimonGridView.Location = new System.Drawing.Point(21, 73);
             this.goimonGridView.Margin = new System.Windows.Forms.Padding(4);
             this.goimonGridView.Name = "goimonGridView";
-            this.goimonGridView.Size = new System.Drawing.Size(663, 288);
+            this.goimonGridView.Size = new System.Drawing.Size(796, 288);
             this.goimonGridView.TabIndex = 2;
             // 
             // TABLE_NAME
@@ -273,6 +273,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Xem chi tiết";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabPage2
             // 
@@ -376,33 +377,6 @@
             this.tabPage6.Text = "Quản lý món ăn";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // button8
-            // 
-            this.button8.Image = global::SMS_Management.Properties.Resources.edit;
-            this.button8.Location = new System.Drawing.Point(210, 14);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 6;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Image = global::SMS_Management.Properties.Resources.delete;
-            this.button7.Location = new System.Drawing.Point(119, 14);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 5;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Image = global::SMS_Management.Properties.Resources.add;
-            this.button6.Location = new System.Drawing.Point(27, 14);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 4;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -457,61 +431,6 @@
             this.tabPage7.Text = "Quản lý thực đơn";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // thucdonSAVEbt
-            // 
-            this.thucdonSAVEbt.BackgroundImage = global::SMS_Management.Properties.Resources.save;
-            this.thucdonSAVEbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.thucdonSAVEbt.Location = new System.Drawing.Point(335, 52);
-            this.thucdonSAVEbt.Name = "thucdonSAVEbt";
-            this.thucdonSAVEbt.Size = new System.Drawing.Size(75, 23);
-            this.thucdonSAVEbt.TabIndex = 6;
-            this.thucdonSAVEbt.UseVisualStyleBackColor = true;
-            this.thucdonSAVEbt.Click += new System.EventHandler(this.thucdonSAVE_Click);
-            // 
-            // thucdonCANCELbt
-            // 
-            this.thucdonCANCELbt.BackgroundImage = global::SMS_Management.Properties.Resources.cancel;
-            this.thucdonCANCELbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.thucdonCANCELbt.Location = new System.Drawing.Point(335, 15);
-            this.thucdonCANCELbt.Name = "thucdonCANCELbt";
-            this.thucdonCANCELbt.Size = new System.Drawing.Size(75, 23);
-            this.thucdonCANCELbt.TabIndex = 5;
-            this.thucdonCANCELbt.UseVisualStyleBackColor = true;
-            // 
-            // thucdonEDITbt
-            // 
-            this.thucdonEDITbt.BackgroundImage = global::SMS_Management.Properties.Resources.edit;
-            this.thucdonEDITbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.thucdonEDITbt.Location = new System.Drawing.Point(191, 14);
-            this.thucdonEDITbt.Name = "thucdonEDITbt";
-            this.thucdonEDITbt.Size = new System.Drawing.Size(75, 23);
-            this.thucdonEDITbt.TabIndex = 4;
-            this.thucdonEDITbt.UseVisualStyleBackColor = true;
-            this.thucdonEDITbt.Click += new System.EventHandler(this.thucdonEDIT_Click);
-            // 
-            // thucdonDELETEbt
-            // 
-            this.thucdonDELETEbt.BackgroundImage = global::SMS_Management.Properties.Resources.delete;
-            this.thucdonDELETEbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.thucdonDELETEbt.Location = new System.Drawing.Point(110, 14);
-            this.thucdonDELETEbt.Name = "thucdonDELETEbt";
-            this.thucdonDELETEbt.Size = new System.Drawing.Size(75, 23);
-            this.thucdonDELETEbt.TabIndex = 3;
-            this.thucdonDELETEbt.UseVisualStyleBackColor = true;
-            this.thucdonDELETEbt.Click += new System.EventHandler(this.thucdonDELETE_Click);
-            // 
-            // thucdonADDbt
-            // 
-            this.thucdonADDbt.BackgroundImage = global::SMS_Management.Properties.Resources.add;
-            this.thucdonADDbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.thucdonADDbt.Location = new System.Drawing.Point(29, 14);
-            this.thucdonADDbt.Name = "thucdonADDbt";
-            this.thucdonADDbt.Size = new System.Drawing.Size(75, 23);
-            this.thucdonADDbt.TabIndex = 2;
-            this.thucdonADDbt.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.thucdonADDbt.UseVisualStyleBackColor = true;
-            this.thucdonADDbt.Click += new System.EventHandler(this.thucdonADD_Click);
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
@@ -561,36 +480,6 @@
             this.tabPage8.Text = "Quản lý nhân viên";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // nhanvienEDITbt
-            // 
-            this.nhanvienEDITbt.Image = global::SMS_Management.Properties.Resources.edit;
-            this.nhanvienEDITbt.Location = new System.Drawing.Point(239, 13);
-            this.nhanvienEDITbt.Name = "nhanvienEDITbt";
-            this.nhanvienEDITbt.Size = new System.Drawing.Size(75, 23);
-            this.nhanvienEDITbt.TabIndex = 3;
-            this.nhanvienEDITbt.UseVisualStyleBackColor = true;
-            this.nhanvienEDITbt.Click += new System.EventHandler(this.nhanvienEDIT_click);
-            // 
-            // nhanvienDELETEbt
-            // 
-            this.nhanvienDELETEbt.Image = global::SMS_Management.Properties.Resources.delete;
-            this.nhanvienDELETEbt.Location = new System.Drawing.Point(134, 13);
-            this.nhanvienDELETEbt.Name = "nhanvienDELETEbt";
-            this.nhanvienDELETEbt.Size = new System.Drawing.Size(75, 23);
-            this.nhanvienDELETEbt.TabIndex = 2;
-            this.nhanvienDELETEbt.UseVisualStyleBackColor = true;
-            this.nhanvienDELETEbt.Click += new System.EventHandler(this.nhanvienDELETE_click);
-            // 
-            // nhanvienADDbt
-            // 
-            this.nhanvienADDbt.Image = global::SMS_Management.Properties.Resources.add;
-            this.nhanvienADDbt.Location = new System.Drawing.Point(29, 14);
-            this.nhanvienADDbt.Name = "nhanvienADDbt";
-            this.nhanvienADDbt.Size = new System.Drawing.Size(75, 23);
-            this.nhanvienADDbt.TabIndex = 1;
-            this.nhanvienADDbt.UseVisualStyleBackColor = true;
-            this.nhanvienADDbt.Click += new System.EventHandler(this.nhanvienADD_Click);
-            // 
             // qlnhanvienGridView
             // 
             this.qlnhanvienGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -614,36 +503,6 @@
             this.tabPage9.Text = "Quản lý đầu bếp";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // daubepEDITbt
-            // 
-            this.daubepEDITbt.Image = global::SMS_Management.Properties.Resources.edit;
-            this.daubepEDITbt.Location = new System.Drawing.Point(247, 14);
-            this.daubepEDITbt.Name = "daubepEDITbt";
-            this.daubepEDITbt.Size = new System.Drawing.Size(75, 23);
-            this.daubepEDITbt.TabIndex = 3;
-            this.daubepEDITbt.UseVisualStyleBackColor = true;
-            this.daubepEDITbt.Click += new System.EventHandler(this.daubepEDITbt_Click);
-            // 
-            // daubepDELETEbt
-            // 
-            this.daubepDELETEbt.Image = global::SMS_Management.Properties.Resources.delete;
-            this.daubepDELETEbt.Location = new System.Drawing.Point(135, 14);
-            this.daubepDELETEbt.Name = "daubepDELETEbt";
-            this.daubepDELETEbt.Size = new System.Drawing.Size(75, 23);
-            this.daubepDELETEbt.TabIndex = 2;
-            this.daubepDELETEbt.UseVisualStyleBackColor = true;
-            this.daubepDELETEbt.Click += new System.EventHandler(this.daubepDELETEbt_Click);
-            // 
-            // daubepADDbt
-            // 
-            this.daubepADDbt.Image = global::SMS_Management.Properties.Resources.add;
-            this.daubepADDbt.Location = new System.Drawing.Point(35, 14);
-            this.daubepADDbt.Name = "daubepADDbt";
-            this.daubepADDbt.Size = new System.Drawing.Size(75, 23);
-            this.daubepADDbt.TabIndex = 1;
-            this.daubepADDbt.UseVisualStyleBackColor = true;
-            this.daubepADDbt.Click += new System.EventHandler(this.daubepADDbt_Click);
-            // 
             // qldaubepGridView
             // 
             this.qldaubepGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -656,12 +515,12 @@
             // tabPage10
             // 
             this.tabPage10.Controls.Add(this.panel2);
+            this.tabPage10.Controls.Add(this.qlbananGridView);
             this.tabPage10.Controls.Add(this.bananSAVEbt);
             this.tabPage10.Controls.Add(this.bananCANCELbt);
             this.tabPage10.Controls.Add(this.bananEDITbt);
             this.tabPage10.Controls.Add(this.bananDELETEbt);
             this.tabPage10.Controls.Add(this.bananADDbt);
-            this.tabPage10.Controls.Add(this.qlbananGridView);
             this.tabPage10.Location = new System.Drawing.Point(4, 25);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
@@ -741,6 +600,158 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên bàn";
             // 
+            // qlbananGridView
+            // 
+            this.qlbananGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.qlbananGridView.Location = new System.Drawing.Point(0, 71);
+            this.qlbananGridView.Name = "qlbananGridView";
+            this.qlbananGridView.RowTemplate.Height = 24;
+            this.qlbananGridView.Size = new System.Drawing.Size(891, 265);
+            this.qlbananGridView.TabIndex = 0;
+            this.qlbananGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.qlbananGridView_CellClick);
+            // 
+            // button8
+            // 
+            this.button8.Image = global::SMS_Management.Properties.Resources.edit;
+            this.button8.Location = new System.Drawing.Point(210, 14);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 6;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Image = global::SMS_Management.Properties.Resources.delete;
+            this.button7.Location = new System.Drawing.Point(119, 14);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 5;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Image = global::SMS_Management.Properties.Resources.add;
+            this.button6.Location = new System.Drawing.Point(27, 14);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 4;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // thucdonSAVEbt
+            // 
+            this.thucdonSAVEbt.BackgroundImage = global::SMS_Management.Properties.Resources.save;
+            this.thucdonSAVEbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.thucdonSAVEbt.Location = new System.Drawing.Point(335, 52);
+            this.thucdonSAVEbt.Name = "thucdonSAVEbt";
+            this.thucdonSAVEbt.Size = new System.Drawing.Size(75, 23);
+            this.thucdonSAVEbt.TabIndex = 6;
+            this.thucdonSAVEbt.UseVisualStyleBackColor = true;
+            this.thucdonSAVEbt.Click += new System.EventHandler(this.thucdonSAVE_Click);
+            // 
+            // thucdonCANCELbt
+            // 
+            this.thucdonCANCELbt.BackgroundImage = global::SMS_Management.Properties.Resources.cancel;
+            this.thucdonCANCELbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.thucdonCANCELbt.Location = new System.Drawing.Point(335, 15);
+            this.thucdonCANCELbt.Name = "thucdonCANCELbt";
+            this.thucdonCANCELbt.Size = new System.Drawing.Size(75, 23);
+            this.thucdonCANCELbt.TabIndex = 5;
+            this.thucdonCANCELbt.UseVisualStyleBackColor = true;
+            // 
+            // thucdonEDITbt
+            // 
+            this.thucdonEDITbt.BackgroundImage = global::SMS_Management.Properties.Resources.edit;
+            this.thucdonEDITbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.thucdonEDITbt.Location = new System.Drawing.Point(191, 14);
+            this.thucdonEDITbt.Name = "thucdonEDITbt";
+            this.thucdonEDITbt.Size = new System.Drawing.Size(75, 23);
+            this.thucdonEDITbt.TabIndex = 4;
+            this.thucdonEDITbt.UseVisualStyleBackColor = true;
+            this.thucdonEDITbt.Click += new System.EventHandler(this.thucdonEDIT_Click);
+            // 
+            // thucdonDELETEbt
+            // 
+            this.thucdonDELETEbt.BackgroundImage = global::SMS_Management.Properties.Resources.delete;
+            this.thucdonDELETEbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.thucdonDELETEbt.Location = new System.Drawing.Point(110, 14);
+            this.thucdonDELETEbt.Name = "thucdonDELETEbt";
+            this.thucdonDELETEbt.Size = new System.Drawing.Size(75, 23);
+            this.thucdonDELETEbt.TabIndex = 3;
+            this.thucdonDELETEbt.UseVisualStyleBackColor = true;
+            this.thucdonDELETEbt.Click += new System.EventHandler(this.thucdonDELETE_Click);
+            // 
+            // thucdonADDbt
+            // 
+            this.thucdonADDbt.BackgroundImage = global::SMS_Management.Properties.Resources.add;
+            this.thucdonADDbt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.thucdonADDbt.Location = new System.Drawing.Point(29, 14);
+            this.thucdonADDbt.Name = "thucdonADDbt";
+            this.thucdonADDbt.Size = new System.Drawing.Size(75, 23);
+            this.thucdonADDbt.TabIndex = 2;
+            this.thucdonADDbt.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.thucdonADDbt.UseVisualStyleBackColor = true;
+            this.thucdonADDbt.Click += new System.EventHandler(this.thucdonADD_Click);
+            // 
+            // nhanvienEDITbt
+            // 
+            this.nhanvienEDITbt.Image = global::SMS_Management.Properties.Resources.edit;
+            this.nhanvienEDITbt.Location = new System.Drawing.Point(239, 13);
+            this.nhanvienEDITbt.Name = "nhanvienEDITbt";
+            this.nhanvienEDITbt.Size = new System.Drawing.Size(75, 23);
+            this.nhanvienEDITbt.TabIndex = 3;
+            this.nhanvienEDITbt.UseVisualStyleBackColor = true;
+            this.nhanvienEDITbt.Click += new System.EventHandler(this.nhanvienEDIT_click);
+            // 
+            // nhanvienDELETEbt
+            // 
+            this.nhanvienDELETEbt.Image = global::SMS_Management.Properties.Resources.delete;
+            this.nhanvienDELETEbt.Location = new System.Drawing.Point(134, 13);
+            this.nhanvienDELETEbt.Name = "nhanvienDELETEbt";
+            this.nhanvienDELETEbt.Size = new System.Drawing.Size(75, 23);
+            this.nhanvienDELETEbt.TabIndex = 2;
+            this.nhanvienDELETEbt.UseVisualStyleBackColor = true;
+            this.nhanvienDELETEbt.Click += new System.EventHandler(this.nhanvienDELETE_click);
+            // 
+            // nhanvienADDbt
+            // 
+            this.nhanvienADDbt.Image = global::SMS_Management.Properties.Resources.add;
+            this.nhanvienADDbt.Location = new System.Drawing.Point(29, 14);
+            this.nhanvienADDbt.Name = "nhanvienADDbt";
+            this.nhanvienADDbt.Size = new System.Drawing.Size(75, 23);
+            this.nhanvienADDbt.TabIndex = 1;
+            this.nhanvienADDbt.UseVisualStyleBackColor = true;
+            this.nhanvienADDbt.Click += new System.EventHandler(this.nhanvienADD_Click);
+            // 
+            // daubepEDITbt
+            // 
+            this.daubepEDITbt.Image = global::SMS_Management.Properties.Resources.edit;
+            this.daubepEDITbt.Location = new System.Drawing.Point(247, 14);
+            this.daubepEDITbt.Name = "daubepEDITbt";
+            this.daubepEDITbt.Size = new System.Drawing.Size(75, 23);
+            this.daubepEDITbt.TabIndex = 3;
+            this.daubepEDITbt.UseVisualStyleBackColor = true;
+            this.daubepEDITbt.Click += new System.EventHandler(this.daubepEDITbt_Click);
+            // 
+            // daubepDELETEbt
+            // 
+            this.daubepDELETEbt.Image = global::SMS_Management.Properties.Resources.delete;
+            this.daubepDELETEbt.Location = new System.Drawing.Point(135, 14);
+            this.daubepDELETEbt.Name = "daubepDELETEbt";
+            this.daubepDELETEbt.Size = new System.Drawing.Size(75, 23);
+            this.daubepDELETEbt.TabIndex = 2;
+            this.daubepDELETEbt.UseVisualStyleBackColor = true;
+            this.daubepDELETEbt.Click += new System.EventHandler(this.daubepDELETEbt_Click);
+            // 
+            // daubepADDbt
+            // 
+            this.daubepADDbt.Image = global::SMS_Management.Properties.Resources.add;
+            this.daubepADDbt.Location = new System.Drawing.Point(35, 14);
+            this.daubepADDbt.Name = "daubepADDbt";
+            this.daubepADDbt.Size = new System.Drawing.Size(75, 23);
+            this.daubepADDbt.TabIndex = 1;
+            this.daubepADDbt.UseVisualStyleBackColor = true;
+            this.daubepADDbt.Click += new System.EventHandler(this.daubepADDbt_Click);
+            // 
             // bananSAVEbt
             // 
             this.bananSAVEbt.Image = global::SMS_Management.Properties.Resources.save;
@@ -790,16 +801,6 @@
             this.bananADDbt.TabIndex = 1;
             this.bananADDbt.UseVisualStyleBackColor = true;
             this.bananADDbt.Click += new System.EventHandler(this.bananADDbt_Click);
-            // 
-            // qlbananGridView
-            // 
-            this.qlbananGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.qlbananGridView.Location = new System.Drawing.Point(0, 71);
-            this.qlbananGridView.Name = "qlbananGridView";
-            this.qlbananGridView.RowTemplate.Height = 24;
-            this.qlbananGridView.Size = new System.Drawing.Size(891, 265);
-            this.qlbananGridView.TabIndex = 0;
-            this.qlbananGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.qlbananGridView_CellClick);
             // 
             // frmMain
             // 

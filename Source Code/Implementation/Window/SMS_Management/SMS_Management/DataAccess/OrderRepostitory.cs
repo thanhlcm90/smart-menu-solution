@@ -72,6 +72,42 @@ namespace SMS_Management
                 throw ex;
             }
         }
+        public ORDER  GetOrderedByID(Guid id)
+        {
+            try
+            {
+                ORDER lst = (from p in Context.ORDER where p.Id == id select p).SingleOrDefault();
+                return lst;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public TABLES_INFO GetTableIDhaveName(string tbName)
+        {
+            try
+            {
+                TABLES_INFO lst = (from p in Context.TABLES_INFO where p.NAME == tbName select p).SingleOrDefault();
+                return lst;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<ORDER> GetOrderedByTableID(Guid id)
+        {
+            try
+            {
+                List<ORDER> lst = (from p in Context.ORDER where p.TABLE_ID == id select p).ToList();
+                return lst;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         //Inserted ordered dishes
         public Boolean InsertOrdered(ORDER lst)

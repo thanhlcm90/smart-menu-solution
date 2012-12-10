@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+
 using System.Windows.Forms;
 //using DevExpress.XtraEditors;
 using SMS_Management.DataObject;
@@ -17,6 +14,8 @@ namespace SMS_Management
         private Guid PKEY,PKEY1;
         string name, birthday, phone, diachi;
         SMSRepostitory rep = new SMSRepostitory();
+        OrderDTO item = new OrderDTO();
+        List<OrderDTO> lstor = new List<OrderDTO>();
         public frmMain()
         {
             InitializeComponent();
@@ -62,13 +61,15 @@ namespace SMS_Management
 
         private void comConnection1_DataReceived(string data)
         {
-            OrderRepostitory rep = new OrderRepostitory();
+            OrderRepostitory repO = new OrderRepostitory();
             if (data.Length != 8)
             {
             }
             else
             {
-                OrderDTO item = rep.GetFromCode(data);
+                item = repO.GetFromCode(data);
+                ORDER newOD = new ORDER { TABLE_ID = rep.GetTableID(item.TABLE_NAME.ToString()), STATUS = 1, ADD_TIME = System.DateTime.Now };
+                repO.InsertOrdered(newOD);
                 if (item != null)
                 {
                     List<OrderDTO> lst = (List<OrderDTO>)goimonGridView.DataSource;
@@ -81,6 +82,7 @@ namespace SMS_Management
                     else
                     {
                         lst.Add(item);
+                        lstor = lst;
                         SetDatasource(lst);
                     }
                     comConnection1.SendData(item.DISH_NAME);
@@ -124,17 +126,12 @@ namespace SMS_Management
      //load data thuc don cho form mon an
         private void LoadDataThucDonMau() {
 
-            List<DISH_TYPE> lst;
-            
-            lst = rep.GetDishType();
-            dataThucdonGridView1.DataSource = lst;
+            dataThucdonGridView1.DataSource = rep.GetDishType();
         }
         private void LoadDataMonAn()
         {
 
-            List<DISH> lst;
-            
-            lst = rep.GetDishInfo(BindDataThucDonMau());
+            var lst = rep.GetDishInfo(BindDataThucDonMau());
             qlmonanGridView.DataSource = lst;
            
         }
@@ -156,9 +153,7 @@ namespace SMS_Management
         }
         private void LoadDataThucDon()
         {
-            List<DISH_TYPE> lst;
-            
-            lst = rep.GetDishType();
+            List<DISH_TYPE> lst = rep.GetDishType();
 
 
             qlthucdonGridView.DataSource = lst;
@@ -221,12 +216,7 @@ namespace SMS_Management
         //tab cấu hình nhan vien
         public void LoadDataNhanVien()
         {
-            List<WAITER_INFO> lst;
-            
-            lst = rep.GetWaterInfo();
-
-
-            qlnhanvienGridView.DataSource = lst;
+            qlnhanvienGridView.DataSource = rep.GetWaterInfo();
         }
        
         private void BindDataNhanVien()
@@ -300,12 +290,7 @@ namespace SMS_Management
         }
          void LoadDataDauBep()
         {
-            List<CHEF_INFO> lst;
-            
-            lst = rep.GetChefInfo();
-
-
-            qldaubepGridView.DataSource = lst;
+            qldaubepGridView.DataSource = rep.GetChefInfo();
         }
 
 
@@ -357,12 +342,7 @@ namespace SMS_Management
         //tab ban an
         public void LoadDataTable()
         {
-            List<TABLES_INFO> lst;
-            
-            lst = rep.GetTableInfo();
-
-
-            qlbananGridView.DataSource = lst;
+            qlbananGridView.DataSource = rep.GetTableInfo();
         }
     
         private void BindDataTable()
@@ -380,6 +360,17 @@ namespace SMS_Management
            // diachi = qlbananGridView.SelectedRows[0].Cells["WAITER_ID"].Value.ToString();
           
             // diachi = "alo";
+        }
+        string orid, orDishID, orST, orAm, orChefID, ODID;
+        private void BindDataTableOrder()
+        {
+            if (goimonGridView.SelectedRows.Count == 0) return;
+           // PKEY = new Guid(goimonGridView.SelectedRows[0].Cells["Id"].Value.ToString());
+            name = goimonGridView.SelectedRows[0].Cells["TABLE_NAME"].Value.ToString();
+           // phone = goimonGridView.SelectedRows[0].Cells["CODE"].Value.ToString();
+
+            PKEY1 = rep.GetTableID(name);
+
         }
 
         private void dataThucdonGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -462,6 +453,21 @@ namespace SMS_Management
 
                 rep.DeleteTable(PKEY);
                 LoadDataTable();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BindDataTableOrder();
+            
+          
+            using (ChiTietOrderBanAn ChiTietOrderBanAn = new ChiTietOrderBanAn(PKEY1))
+            {
+                if (ChiTietOrderBanAn.ShowDialog(this.ParentForm) == DialogResult.OK)
+                {
+
+                    LoadDataNhanVien();
+                }
             }
         }
         

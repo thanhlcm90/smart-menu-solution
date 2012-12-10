@@ -306,6 +306,25 @@ namespace SMS_Management
             }
         }
 
+        public Guid GetTableID(string name)
+        {
+            try
+            {
+
+                Guid alo = (from p in Context.TABLES_INFO
+                            where p.NAME == name
+                            select p.Id).SingleOrDefault();
+
+
+
+                return alo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         public List<TABLES_INFO> GetTableInfo()
         {
