@@ -79,12 +79,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietOrderBanAn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChiTietOrderBanAn.Designer.cs">
-      <DependentUpon>ChiTietOrderBanAn.cs</DependentUpon>
-    </Compile>
     <Compile Include="ChiTietThongTinDauBep.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,9 +122,6 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChiTietOrderBanAn.resx">
-      <DependentUpon>ChiTietOrderBanAn.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ChiTietThongTinDauBep.resx">
       <DependentUpon>ChiTietThongTinDauBep.cs</DependentUpon>
     </EmbeddedResource>
