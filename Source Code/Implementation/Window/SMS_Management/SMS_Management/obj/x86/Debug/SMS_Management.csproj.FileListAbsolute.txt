@@ -72,3 +72,7 @@ D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Managemen
 D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\System.Data.SqlServerCe.Entity.dll
 D:\Đồ Án\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\EntityFramework.xml
 C:\Users\khoi\Desktop\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.ChiTietOrderBanAn.resources
+D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Debug\SMS_Management.exe.config
+D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.exe
+D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\SMS_Management.pdb
+D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Debug\ResolveAssemblyReference.cache
