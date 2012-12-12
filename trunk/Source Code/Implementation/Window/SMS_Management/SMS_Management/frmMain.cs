@@ -85,7 +85,6 @@ namespace SMS_Management
                         lstor = lst;
                         SetDatasource(lst);
                     }
-                    comConnection1.SendData(item.DISH_NAME);
                 }
                 else
                 {

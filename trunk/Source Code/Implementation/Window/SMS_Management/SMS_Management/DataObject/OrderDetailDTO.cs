@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SMS_Management.DataObject
 {
-    class OrderDTO
+    class OrderDetailDTO
     {
         private string table_name;
         private int request_count;

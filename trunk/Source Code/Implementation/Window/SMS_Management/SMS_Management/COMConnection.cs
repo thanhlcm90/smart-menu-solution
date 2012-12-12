@@ -20,7 +20,7 @@ namespace SMS_Management
         // Create the serial port with basic settings
         private SerialPort port;
 
-        private string portName="COM4";
+        private string portName="COM5";
         private int baudRate=9600;
         private Parity parity=Parity.None ;
         private int dataBits=8;
