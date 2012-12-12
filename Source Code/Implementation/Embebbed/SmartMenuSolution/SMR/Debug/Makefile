@@ -35,14 +35,12 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../keypad.c \
 ../lcd.c \
 ../Main.c \
 ../rf.c \
 ../SMR.c \
 ../spi.c \
-../TimerEvent.c \
-../UART.c
+../TimerEvent.c
 
 
 PREPROCESSING_SRCS += 
@@ -52,47 +50,39 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-keypad.o \
 lcd.o \
 Main.o \
 rf.o \
 SMR.o \
 spi.o \
-TimerEvent.o \
-UART.o
+TimerEvent.o
 
 
 OBJS_AS_ARGS +=  \
-keypad.o \
 lcd.o \
 Main.o \
 rf.o \
 SMR.o \
 spi.o \
-TimerEvent.o \
-UART.o
+TimerEvent.o
 
 
 C_DEPS +=  \
-keypad.d \
 lcd.d \
 Main.d \
 rf.d \
 SMR.d \
 spi.d \
-TimerEvent.d \
-UART.d
+TimerEvent.d
 
 
 C_DEPS_AS_ARGS +=  \
-keypad.d \
 lcd.d \
 Main.d \
 rf.d \
 SMR.d \
 spi.d \
-TimerEvent.d \
-UART.d
+TimerEvent.d
 
 
 OUTPUT_FILE_PATH +=SMR.elf
@@ -117,14 +107,10 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 
 
 
-
-
-
-
 ./%.o: .././%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
-	$(QUOTE)D:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega128a   -o"$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega128a   -o"$@" "$<" 
 	@echo Finished building: $<
 
 
@@ -152,12 +138,12 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR/GNU Linker : (AVR_8_bit_GNU_Toolchain_3.4.0_663) 4.6.2
-	$(QUOTE)D:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="SMR.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group  -mmcu=atmega128a  
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="SMR.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group  -mmcu=atmega128a  
 	@echo Finished building target: $@
-	"D:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "SMR.elf" "SMR.hex"
-	"D:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "SMR.elf" "SMR.eep" || exit 0
-	"D:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-objdump.exe" -h -S "SMR.elf" > "SMR.lss"
-	"D:\Program Files\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-size.exe" "SMR.elf"
+	"C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "SMR.elf" "SMR.hex"
+	"C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "SMR.elf" "SMR.eep" || exit 0
+	"C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-objdump.exe" -h -S "SMR.elf" > "SMR.lss"
+	"C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.0.65\AVRToolchain\bin\avr-size.exe" "SMR.elf"
 	
 
 

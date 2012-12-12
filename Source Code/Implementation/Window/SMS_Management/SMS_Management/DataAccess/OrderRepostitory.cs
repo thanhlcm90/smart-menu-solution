@@ -27,40 +27,40 @@ namespace SMS_Management
         public OrderDTO GetFromCode(string RcvCode)
         {
             //Received Code AXXYYYZZ
-            //if (RcvCode.Length == 8)
-            //{
-            //    // Get command code A
-            //    int A = Convert.ToInt32(RcvCode.Substring(0, 1));
+            if (RcvCode.Length == 8)
+            {
+                // Get command code A
+                int A = Convert.ToInt32(RcvCode.Substring(0, 1));
 
-            //    // Get table code XX
-            //    int XX = Convert.ToInt32(RcvCode.Substring(1, 2));
+                // Get table code XX
+                int XX = Convert.ToInt32(RcvCode.Substring(1, 2));
 
-            //    // Get dish code YYY
-            //    int YYY = Convert.ToInt32(RcvCode.Substring(3, 3));
+                // Get dish code YYY
+                int YYY = Convert.ToInt32(RcvCode.Substring(3, 3));
 
-            //    // Get quantity ZZ
-            //    int ZZ = Convert.ToInt32(RcvCode.Substring(6, 2));
+                // Get quantity ZZ
+                int ZZ = Convert.ToInt32(RcvCode.Substring(6, 2));
 
-            //    OrderDTO query;
-            //    query = (from p in Context.TABLES_INFO
-            //             from n in Context.DISH
-            //             where p.CODE == XX && n.CODE == YYY
-            //             select new OrderDTO()
-            //             {
-            //                 TABLE_NAME = p.NAME,
-            //                 DISH_NAME = n.NAME_VN,
-            //                 DISH_AMOUNT = ZZ,
-            //                 WAITER_NAME = p.WAITER_INFO.NAME,
-            //                 STATUS = "Đang làm"
-            //             }).SingleOrDefault();
-            //    return query;
-            //}
-            //return null;
+                OrderDTO query;
+                query = (from p in Context.TABLES_INFO
+                         from n in Context.DISH
+                         where p.CODE == XX && n.CODE == YYY
+                         select new OrderDTO()
+                         {
+                             TABLE_NAME = p.NAME,
+                             DISH_NAME = n.NAME_VN,
+                             DISH_AMOUNT = ZZ,
+                             WAITER_NAME = p.WAITER_INFO.NAME,
+                             STATUS = "Đang làm"
+                         }).SingleOrDefault();
+                return query;
+            }
+            return null;
         }
 
 
         //List ordered dishes
-        public List<ORDER> GetOrdered()
+        public List<ORDER > GetOrdered()
         {
             try
             {

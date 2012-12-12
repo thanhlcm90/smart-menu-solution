@@ -42,7 +42,6 @@
             // 
             // button2
             // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button2.Location = new System.Drawing.Point(271, 196);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);

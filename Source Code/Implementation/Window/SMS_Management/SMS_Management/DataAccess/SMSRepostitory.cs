@@ -248,9 +248,23 @@ namespace SMS_Management
                 throw ex;
             }
         }
+        public Boolean Inserttest()
+        {
+            try
+            {
+                BILLING test = new BILLING { Id = Guid.NewGuid(), SELL_DATE = System.DateTime.Now, MONEY = 500, TABLE_ID = GetTableID("Bàn 1"), CHEF_ID = GetTableID("Bàn 1") };
 
+                Context.BILLING.AddObject(test);
+                Context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-
+         
         //lay danh sach mon an
         public List<DISH> GetDishInfo(Guid IDs)
         {

@@ -25,10 +25,9 @@ namespace SMS_Management
             if (name != null)
             {
                 textBox1.Text = name.ToString();
-              //  textBox2.Text = birthday.ToString();
+                textBox2.Text = birthday.ToString();
                 textBox3.Text = phone.ToString();
                 textBox4.Text = adress.ToString();
-               
             }
 
 
@@ -36,7 +35,7 @@ namespace SMS_Management
      
         private void button2_Click(object sender, EventArgs e)
         {
-            SMSRepostitory rep = new SMSRepostitory();;
+            SMSRepostitory rep = new SMSRepostitory();
             WAITER_INFO dt = new WAITER_INFO();
             if (formstate == FormBase.FormStateType.New )
             {
@@ -66,11 +65,6 @@ namespace SMS_Management
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void ChiTietThongTinNhanVien_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
