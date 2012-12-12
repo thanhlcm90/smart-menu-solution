@@ -10,6 +10,7 @@ namespace SMS_Management
 {
     public partial class frmMain : FormBase
     {
+        OrderRepostitory repOO = new OrderRepostitory();
         delegate void SetDataSourceCallback(object lst);
         private Guid PKEY,PKEY1;
         string name, birthday, phone, diachi;
@@ -85,6 +86,7 @@ namespace SMS_Management
                         lstor = lst;
                         SetDatasource(lst);
                     }
+                    comConnection1.SendData(item.DISH_NAME);
                 }
                 else
                 {
@@ -468,6 +470,13 @@ namespace SMS_Management
                     LoadDataNhanVien();
                 }
             }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            rep.Inserttest();
+
+
         }
         
 

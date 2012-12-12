@@ -64,12 +64,6 @@
     <Compile Include="custom_char.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="keypad.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="keypad.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="lcd.c">
       <SubType>compile</SubType>
     </Compile>
@@ -110,12 +104,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="TimerEvent.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="UART.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="UART.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

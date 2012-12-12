@@ -1,4 +1,6 @@
 D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Release\SMS_Management.exe.config
+D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Release\SMS_Database.mdf
+D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Release\SMS_Database_log.LDF
 D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Release\SMS_Management.exe
 D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Release\SMS_Management.pdb
 D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Release\EntityFramework.dll
@@ -13,12 +15,3 @@ D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Win
 D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Release\GenerateResource.write.1.tlog
 D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Release\SMS_Management.exe
 D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Release\SMS_Management.pdb
-D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Release\COMConnection.resx
-D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Release\COMConnection.cs
-D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Release\COMConnection.Designer.cs
-D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Release\SMS_Management.ChiTietThongTinDauBep.resources
-D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Release\SMS_Management.ChiTietThongTinNhanVien.resources
-D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Release\SMS_Management.COMConnection.resources
-D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\obj\x86\Release\SMS_Management.frmMain.resources
-D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Release\Database\SMS_Database.mdf
-D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\bin\Release\Database\SMS_Database_log.ldf

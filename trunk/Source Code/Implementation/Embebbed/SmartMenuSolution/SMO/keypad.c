@@ -13,18 +13,14 @@
 #define KEYPAD_PIN PINF
 
 uint8_t scan_code[4]={0x0E,0x0D,0x0B,0x07};
-uint8_t ascii_code[4][4]={7,8,9,13,
-						  4,5,6,14,
-						  1,2,3,15,
-						  11,10,12,16};
 //uint8_t ascii_code[4][4]={1,2,3,13,
 						  //4,5,6,14,
 						  //7,8,9,15,
 						  //11,10,12,16};
-//uint8_t ascii_code[4][4]={16,15,14,13,
-						  //12,9,6,3,
-						  //10,8,5,2,
-						  //11,7,4,1};
+uint8_t ascii_code[4][4]={16,15,14,13,
+						  12,9,6,3,
+						  10,8,5,2,
+						  11,7,4,1};
 
 uint8_t KEYPAD_Check() {
 	uint8_t i,j,keyin;

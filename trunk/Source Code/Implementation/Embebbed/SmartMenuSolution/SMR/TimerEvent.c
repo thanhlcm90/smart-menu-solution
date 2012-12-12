@@ -7,14 +7,13 @@
 
 
 #include "TimerEvent.h"
-#include <stdlib.h>
+
 TimeEvent tmrEvent[10];
 int tmrCount=0;
 
 void TimerInit() {
 	TCCR0 = 0b011; //CS02=0, CS01=1, CS00=0, chon Prescaler=64
 	//Xung chip la 8MHZ -> 1 xung mat 1us/8 = 0.125 us
-	//Xung chip la 16MHZ -> 1 xung mat 1us/18 = 0.0625 us
 	//Prescaler=64, kich 256 lan moi tang 1 lan trong bo dem Timer-> Ton 8us
 	//Vay, de Timer ngat moi 1ms, ta can: 1000/8=125 lan dem.
 	//Ma Timer ngat khi bo dem toi 255, ta can set gia tri ban dau cho bo dem la: 255-125+1=131
@@ -49,7 +48,6 @@ void TimerUnSet(const sc_eventid evenId) {
 		if (tmrEvent[i].EventId==evenId) {
 			tmrEvent[i].count=0;
 			tmrEvent[i].enabled=false;
-			*(sc_boolean*)evenId=bool_false;
 			return;
 		}
 	}
@@ -61,7 +59,7 @@ void TimerCheck(SMR* handle) {
 			tmrEvent[i].count++;
 			if (tmrEvent[i].count==tmrEvent[i].max) {
 				tmrEvent[i].count=0;
-				tmrEvent[i].enabled=false;		
+				tmrEvent[i].enabled=false;
 				sMR_raiseTimeEvent(handle,tmrEvent[i].EventId);
 			}
 		}
@@ -71,11 +69,4 @@ void TimerCheck(SMR* handle) {
 void TimerClear() {
 	free(tmrEvent);
 	tmrCount=0;
-}
-
-void print(int i) {
-	char buf[5];
-	for (int i=0;i<5;i++) buf[i]=0;
-	itoa(i,buf,10);
-	uart_puts(buf);
 }
