@@ -1861,6 +1861,30 @@ namespace SMS_Management.Database
         private global::System.Guid _ORDER_ID;
         partial void OnORDER_IDChanging(global::System.Guid value);
         partial void OnORDER_IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String COMMENT
+        {
+            get
+            {
+                return _COMMENT;
+            }
+            set
+            {
+                OnCOMMENTChanging(value);
+                ReportPropertyChanging("COMMENT");
+                _COMMENT = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("COMMENT");
+                OnCOMMENTChanged();
+            }
+        }
+        private global::System.String _COMMENT;
+        partial void OnCOMMENTChanging(global::System.String value);
+        partial void OnCOMMENTChanged();
 
         #endregion
     

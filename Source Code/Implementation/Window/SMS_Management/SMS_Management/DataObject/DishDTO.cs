@@ -42,6 +42,11 @@ namespace SMS_Management.DataObject
             get { return material; }
             set { material = value; }
         }
+        public string COMMENT
+        {
+            get { return comment ; }
+            set { comment = value; }
+        }
         public int AMOUNT
         {
             get { return amount; }
