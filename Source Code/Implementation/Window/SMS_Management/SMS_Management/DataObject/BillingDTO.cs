@@ -15,7 +15,7 @@ namespace SMS_Management.DataObject
         private string chef_name;
         private DateTime? sell_date;
         private string status;
-
+        private decimal money;
 
         public Guid ID
         {
@@ -56,6 +56,11 @@ namespace SMS_Management.DataObject
         {
             get { return status; }
             set { status = value; }
+        }
+        public decimal MONEY
+        {
+            get { return money; }
+            set { money = value; }
         }
     }
 }

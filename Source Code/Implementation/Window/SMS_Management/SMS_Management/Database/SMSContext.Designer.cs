@@ -30,7 +30,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("SMS_Management", "ORDERORDER_DETAIL", "ORDER", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.ORDER), "ORDER_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.ORDER_DETAIL), true)]
 [assembly: EdmRelationshipAttribute("SMS_Management", "CHEF_INFOORDER_DETAIL", "CHEF_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SMS_Management.Database.CHEF_INFO), "ORDER_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.ORDER_DETAIL), true)]
 [assembly: EdmRelationshipAttribute("SMS_Management", "DISHORDER_DETAIL", "DISH", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMS_Management.Database.DISH), "ORDER_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.ORDER_DETAIL), true)]
-[assembly: EdmRelationshipAttribute("SMS_Management", "CHEF_INFOBILLING_DETAIL", "CHEF_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SMS_Management.Database.CHEF_INFO), "BILLING_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.BILLING_DETAIL))]
+[assembly: EdmRelationshipAttribute("SMS_Management", "CHEF_INFOBILLING_DETAIL", "CHEF_INFO", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(SMS_Management.Database.CHEF_INFO), "BILLING_DETAIL", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMS_Management.Database.BILLING_DETAIL), true)]
 
 #endregion
 
@@ -1067,9 +1067,7 @@ namespace SMS_Management.Database
         /// <param name="nAME_VN">Initial value of the NAME_VN property.</param>
         /// <param name="dISHTYPE_ID">Initial value of the DISHTYPE_ID property.</param>
         /// <param name="pRICE">Initial value of the PRICE property.</param>
-        /// <param name="mATERIAL">Initial value of the MATERIAL property.</param>
-        /// <param name="aREA">Initial value of the AREA property.</param>
-        public static DISH CreateDISH(global::System.Guid id, global::System.Int32 cODE, global::System.String nAME_VN, global::System.Guid dISHTYPE_ID, global::System.Decimal pRICE, global::System.String mATERIAL, global::System.String aREA)
+        public static DISH CreateDISH(global::System.Guid id, global::System.Int32 cODE, global::System.String nAME_VN, global::System.Guid dISHTYPE_ID, global::System.Decimal pRICE)
         {
             DISH dISH = new DISH();
             dISH.Id = id;
@@ -1077,8 +1075,6 @@ namespace SMS_Management.Database
             dISH.NAME_VN = nAME_VN;
             dISH.DISHTYPE_ID = dISHTYPE_ID;
             dISH.PRICE = pRICE;
-            dISH.MATERIAL = mATERIAL;
-            dISH.AREA = aREA;
             return dISH;
         }
 
@@ -1235,7 +1231,7 @@ namespace SMS_Management.Database
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String MATERIAL
         {
@@ -1247,7 +1243,7 @@ namespace SMS_Management.Database
             {
                 OnMATERIALChanging(value);
                 ReportPropertyChanging("MATERIAL");
-                _MATERIAL = StructuralObject.SetValidValue(value, false);
+                _MATERIAL = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("MATERIAL");
                 OnMATERIALChanged();
             }
@@ -1259,7 +1255,7 @@ namespace SMS_Management.Database
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String AREA
         {
@@ -1271,7 +1267,7 @@ namespace SMS_Management.Database
             {
                 OnAREAChanging(value);
                 ReportPropertyChanging("AREA");
-                _AREA = StructuralObject.SetValidValue(value, false);
+                _AREA = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("AREA");
                 OnAREAChanged();
             }
