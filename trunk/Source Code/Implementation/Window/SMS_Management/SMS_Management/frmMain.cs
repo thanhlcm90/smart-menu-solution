@@ -14,7 +14,9 @@ namespace SMS_Management
         delegate void SetgrvOrderDataSourceCallback(object lst);
         delegate void SetgrvProccessingDataSourceCallback(object lst);
         delegate void SetgrvProccessFinishDataSourceCallback(object lst);
+        delegate void SetgrvBillingDataSourceCallback(object lst);
         private Guid PKEY,PKEY1;
+        private bool data_recieve = false;
         string name, birthday, phone, diachi;
         SMSRepostitory rep = new SMSRepostitory();
         List<OrderDTO> lstor = new List<OrderDTO>();
@@ -25,9 +27,9 @@ namespace SMS_Management
         private void tabControl1_Click(object sender, EventArgs e)
         {
             if (tabControl1.SelectedIndex == 0) {refreshgrvOrder(); }
-            else if (tabControl1.SelectedIndex == 1) { refreshgrvProccessing(); refreshgrvProccessFinish(); }
+            else if (tabControl1.SelectedIndex == 1) { refreshgrvProccessing(); refreshgrvProccessFinish();  }
             else if (tabControl1.SelectedIndex == 2) { }
-            else if (tabControl1.SelectedIndex == 3) { }
+            else if (tabControl1.SelectedIndex == 3) { refreshgrvBilling(); }
             else if (tabControl1.SelectedIndex == 4) { LoadDataThucDonMau(); }
 
         }
@@ -37,6 +39,7 @@ namespace SMS_Management
             grvOrder.AutoGenerateColumns = false;
             grvProccessing.AutoGenerateColumns = false;
             grvProccessFinish.AutoGenerateColumns = false;
+            grvBilling.AutoGenerateColumns = false;
             refreshgrvOrder();
         }
 
@@ -94,11 +97,29 @@ namespace SMS_Management
                 this.grvProccessFinish.DataSource = lst;
             }
         }
+        private void SetgrvBillingDataSource(object lst)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.grvBilling.InvokeRequired)
+            {
+                SetgrvBillingDataSourceCallback d = new SetgrvBillingDataSourceCallback(SetgrvBillingDataSource);
+                this.Invoke(d, new object[] { lst });
+            }
+            else
+            {
+                this.grvBilling.DataSource = null;
+                this.grvBilling.DataSource = lst;
+            }
+        }
+
         private void refreshgrvOrder()
         {
             OrderRepostitory repO = new OrderRepostitory();
             List<OrderDTO> lst = repO.GetOrderList();
             SetgrvOrderDataSource(lst);
+            data_recieve = false;
         }
 
         private void refreshgrvProccessing()
@@ -106,6 +127,7 @@ namespace SMS_Management
             ProccessRepostitory repO = new ProccessRepostitory();
             List<ProccessingDTO> lst = repO.GetProccessingList();
             SetgrvProccessingDataSource(lst);
+            data_recieve = false;
         }
 
         private void refreshgrvProccessFinish()
@@ -113,6 +135,15 @@ namespace SMS_Management
             ProccessRepostitory repO = new ProccessRepostitory();
             List<ProccessingDTO> lst = repO.GetProccessingFinishCancelList();
             SetgrvProccessFinishDataSource(lst);
+            data_recieve = false;
+        }
+
+        private void refreshgrvBilling()
+        {
+            PayRepostitory repO = new PayRepostitory();
+            List<BillingDTO> lst = repO.GetPayment();
+            SetgrvBillingDataSource(lst);
+            data_recieve = false;
         }
 
         private void comConnection1_DataReceived(string data)
@@ -147,6 +178,7 @@ namespace SMS_Management
                     refreshgrvProccessFinish();
                 }
             }
+            data_recieve = true;
         }      
 
         private void tabControl2_Click(object sender, EventArgs e)
@@ -600,7 +632,32 @@ namespace SMS_Management
 
         private void button13_Click(object sender, EventArgs e)
         {
+            PayRepostitory repP = new PayRepostitory();
+            foreach (DataGridViewRow row in grvBilling.SelectedRows)
+            {
+                repP.pay(Guid.Parse(row.Cells["grvBilling_ID"].Value.ToString()));
+            }
+            refreshgrvBilling();
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            PayRepostitory repP = new PayRepostitory();
+            foreach (DataGridViewRow row in grvOrder.SelectedRows)
+            {
+                if (!repP.CheckPay(Guid.Parse(row.Cells["grvOrder_ID"].Value.ToString())))
+                {
+                    if (MessageBox.Show(row.Cells["grvOrder_TABLE_NAME"].Value.ToString() + " chưa hoàn thành xong các món ăn. Bạn có muốn thanh toán không?", "Cảnh báo!",MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        repP.SendToPayment(Guid.Parse(row.Cells["grvOrder_ID"].Value.ToString()));
+                    }
+                }
+                else
+                {
+                    repP.SendToPayment(Guid.Parse(row.Cells["grvOrder_ID"].Value.ToString()));
+                }
+            }
+            refreshgrvOrder();
         }
     
     }

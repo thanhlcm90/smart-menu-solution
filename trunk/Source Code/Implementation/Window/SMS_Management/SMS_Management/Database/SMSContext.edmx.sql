@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 12/13/2012 22:19:00
+-- Date Created: 12/13/2012 23:16:46
 -- Generated from EDMX file: D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\Database\SMSContext.edmx
 -- --------------------------------------------------
 
@@ -114,8 +114,8 @@ CREATE TABLE [dbo].[DISH] (
     [NAME_EN] nvarchar(255)  NULL,
     [DISHTYPE_ID] uniqueidentifier  NOT NULL,
     [PRICE] decimal(18,0)  NOT NULL,
-    [MATERIAL] nvarchar(255)  NOT NULL,
-    [AREA] nvarchar(255)  NOT NULL
+    [MATERIAL] nvarchar(255)  NULL,
+    [AREA] nvarchar(255)  NULL
 );
 GO
 
@@ -175,8 +175,7 @@ CREATE TABLE [dbo].[BILLING_DETAIL] (
     [AMOUNT] int  NOT NULL,
     [DISH_ID] uniqueidentifier  NOT NULL,
     [BILL_ID] uniqueidentifier  NOT NULL,
-    [CHEF_ID] uniqueidentifier  NULL,
-    [CHEF_INFO_Id] uniqueidentifier  NULL
+    [CHEF_ID] uniqueidentifier  NULL
 );
 GO
 
@@ -310,10 +309,10 @@ ON [dbo].[TABLES_INFO]
     ([WAITER_ID]);
 GO
 
--- Creating foreign key on [DISH_ID] in table 'BILLING_DETAIL'
+-- Creating foreign key on [BILL_ID] in table 'BILLING_DETAIL'
 ALTER TABLE [dbo].[BILLING_DETAIL]
 ADD CONSTRAINT [FK_BILLINGBILLING_DETAIL]
-    FOREIGN KEY ([DISH_ID])
+    FOREIGN KEY ([BILL_ID])
     REFERENCES [dbo].[BILLING]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -321,7 +320,7 @@ ADD CONSTRAINT [FK_BILLINGBILLING_DETAIL]
 -- Creating non-clustered index for FOREIGN KEY 'FK_BILLINGBILLING_DETAIL'
 CREATE INDEX [IX_FK_BILLINGBILLING_DETAIL]
 ON [dbo].[BILLING_DETAIL]
-    ([DISH_ID]);
+    ([BILL_ID]);
 GO
 
 -- Creating foreign key on [TABLE_ID] in table 'BILLING'
@@ -436,10 +435,10 @@ ON [dbo].[ORDER_DETAIL]
     ([DISH_ID]);
 GO
 
--- Creating foreign key on [CHEF_INFO_Id] in table 'BILLING_DETAIL'
+-- Creating foreign key on [CHEF_ID] in table 'BILLING_DETAIL'
 ALTER TABLE [dbo].[BILLING_DETAIL]
 ADD CONSTRAINT [FK_CHEF_INFOBILLING_DETAIL]
-    FOREIGN KEY ([CHEF_INFO_Id])
+    FOREIGN KEY ([CHEF_ID])
     REFERENCES [dbo].[CHEF_INFO]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -447,7 +446,7 @@ ADD CONSTRAINT [FK_CHEF_INFOBILLING_DETAIL]
 -- Creating non-clustered index for FOREIGN KEY 'FK_CHEF_INFOBILLING_DETAIL'
 CREATE INDEX [IX_FK_CHEF_INFOBILLING_DETAIL]
 ON [dbo].[BILLING_DETAIL]
-    ([CHEF_INFO_Id]);
+    ([CHEF_ID]);
 GO
 
 -- --------------------------------------------------

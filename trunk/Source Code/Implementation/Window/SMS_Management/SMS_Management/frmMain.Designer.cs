@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.comConnection1 = new SMS_Management.COMConnection();
             this.grvOrder = new System.Windows.Forms.DataGridView();
@@ -121,15 +122,16 @@
             this.grvOrder_STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvOrder_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvBilling = new System.Windows.Forms.DataGridView();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.grvBilling_TABLE_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvBilling_REQUEST_COUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvBilling_MONEY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvBilling_WAITER_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvBilling_CHEF_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvBilling_SELL_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvBilling_STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvBilling_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grvOrder)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -257,6 +259,7 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "Thanh toán";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -1140,6 +1143,7 @@
             this.grvBilling.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.grvBilling_TABLE_NAME,
             this.grvBilling_REQUEST_COUNT,
+            this.grvBilling_MONEY,
             this.grvBilling_WAITER_NAME,
             this.grvBilling_CHEF_NAME,
             this.grvBilling_SELL_DATE,
@@ -1150,64 +1154,6 @@
             this.grvBilling.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grvBilling.Size = new System.Drawing.Size(992, 423);
             this.grvBilling.TabIndex = 3;
-            // 
-            // grvBilling_TABLE_NAME
-            // 
-            this.grvBilling_TABLE_NAME.DataPropertyName = "TABLE_NAME";
-            this.grvBilling_TABLE_NAME.HeaderText = "Bàn số";
-            this.grvBilling_TABLE_NAME.Name = "grvBilling_TABLE_NAME";
-            this.grvBilling_TABLE_NAME.ReadOnly = true;
-            this.grvBilling_TABLE_NAME.Width = 70;
-            // 
-            // grvBilling_REQUEST_COUNT
-            // 
-            this.grvBilling_REQUEST_COUNT.DataPropertyName = "REQUEST_COUNT";
-            this.grvBilling_REQUEST_COUNT.HeaderText = "Số lượng món yêu cầu";
-            this.grvBilling_REQUEST_COUNT.Name = "grvBilling_REQUEST_COUNT";
-            this.grvBilling_REQUEST_COUNT.ReadOnly = true;
-            this.grvBilling_REQUEST_COUNT.Width = 150;
-            // 
-            // grvBilling_WAITER_NAME
-            // 
-            this.grvBilling_WAITER_NAME.DataPropertyName = "WAITER_NAME";
-            this.grvBilling_WAITER_NAME.HeaderText = "Nhân viên";
-            this.grvBilling_WAITER_NAME.Name = "grvBilling_WAITER_NAME";
-            this.grvBilling_WAITER_NAME.ReadOnly = true;
-            this.grvBilling_WAITER_NAME.Width = 150;
-            // 
-            // grvBilling_CHEF_NAME
-            // 
-            this.grvBilling_CHEF_NAME.DataPropertyName = "CHEF_NAME";
-            this.grvBilling_CHEF_NAME.HeaderText = "Đầu bếp";
-            this.grvBilling_CHEF_NAME.Name = "grvBilling_CHEF_NAME";
-            this.grvBilling_CHEF_NAME.ReadOnly = true;
-            this.grvBilling_CHEF_NAME.Width = 150;
-            // 
-            // grvBilling_SELL_DATE
-            // 
-            this.grvBilling_SELL_DATE.DataPropertyName = "SELL_DATE";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy hh:mm";
-            dataGridViewCellStyle2.NullValue = null;
-            this.grvBilling_SELL_DATE.DefaultCellStyle = dataGridViewCellStyle2;
-            this.grvBilling_SELL_DATE.HeaderText = "Giờ thanh toán";
-            this.grvBilling_SELL_DATE.Name = "grvBilling_SELL_DATE";
-            this.grvBilling_SELL_DATE.Width = 120;
-            // 
-            // grvBilling_STATUS
-            // 
-            this.grvBilling_STATUS.DataPropertyName = "STATUS";
-            this.grvBilling_STATUS.HeaderText = "Trạng thái";
-            this.grvBilling_STATUS.Name = "grvBilling_STATUS";
-            this.grvBilling_STATUS.ReadOnly = true;
-            this.grvBilling_STATUS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.grvBilling_STATUS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // grvBilling_ID
-            // 
-            this.grvBilling_ID.DataPropertyName = "ID";
-            this.grvBilling_ID.HeaderText = "ID";
-            this.grvBilling_ID.Name = "grvBilling_ID";
-            this.grvBilling_ID.Visible = false;
             // 
             // button13
             // 
@@ -1229,6 +1175,73 @@
             this.button14.TabIndex = 5;
             this.button14.Text = "In hóa đơn";
             this.button14.UseVisualStyleBackColor = true;
+            // 
+            // grvBilling_TABLE_NAME
+            // 
+            this.grvBilling_TABLE_NAME.DataPropertyName = "TABLE_NAME";
+            this.grvBilling_TABLE_NAME.HeaderText = "Bàn số";
+            this.grvBilling_TABLE_NAME.Name = "grvBilling_TABLE_NAME";
+            this.grvBilling_TABLE_NAME.ReadOnly = true;
+            this.grvBilling_TABLE_NAME.Width = 70;
+            // 
+            // grvBilling_REQUEST_COUNT
+            // 
+            this.grvBilling_REQUEST_COUNT.DataPropertyName = "REQUEST_COUNT";
+            this.grvBilling_REQUEST_COUNT.HeaderText = "Số lượng món yêu cầu";
+            this.grvBilling_REQUEST_COUNT.Name = "grvBilling_REQUEST_COUNT";
+            this.grvBilling_REQUEST_COUNT.ReadOnly = true;
+            this.grvBilling_REQUEST_COUNT.Width = 150;
+            // 
+            // grvBilling_MONEY
+            // 
+            this.grvBilling_MONEY.DataPropertyName = "MONEY";
+            dataGridViewCellStyle2.Format = "###,###,###,##0";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.grvBilling_MONEY.DefaultCellStyle = dataGridViewCellStyle2;
+            this.grvBilling_MONEY.HeaderText = "Tổng tiền";
+            this.grvBilling_MONEY.Name = "grvBilling_MONEY";
+            // 
+            // grvBilling_WAITER_NAME
+            // 
+            this.grvBilling_WAITER_NAME.DataPropertyName = "WAITER_NAME";
+            this.grvBilling_WAITER_NAME.HeaderText = "Nhân viên";
+            this.grvBilling_WAITER_NAME.Name = "grvBilling_WAITER_NAME";
+            this.grvBilling_WAITER_NAME.ReadOnly = true;
+            this.grvBilling_WAITER_NAME.Width = 150;
+            // 
+            // grvBilling_CHEF_NAME
+            // 
+            this.grvBilling_CHEF_NAME.DataPropertyName = "CHEF_NAME";
+            this.grvBilling_CHEF_NAME.HeaderText = "Đầu bếp";
+            this.grvBilling_CHEF_NAME.Name = "grvBilling_CHEF_NAME";
+            this.grvBilling_CHEF_NAME.ReadOnly = true;
+            this.grvBilling_CHEF_NAME.Width = 150;
+            // 
+            // grvBilling_SELL_DATE
+            // 
+            this.grvBilling_SELL_DATE.DataPropertyName = "SELL_DATE";
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy hh:mm";
+            dataGridViewCellStyle3.NullValue = null;
+            this.grvBilling_SELL_DATE.DefaultCellStyle = dataGridViewCellStyle3;
+            this.grvBilling_SELL_DATE.HeaderText = "Giờ thanh toán";
+            this.grvBilling_SELL_DATE.Name = "grvBilling_SELL_DATE";
+            this.grvBilling_SELL_DATE.Width = 120;
+            // 
+            // grvBilling_STATUS
+            // 
+            this.grvBilling_STATUS.DataPropertyName = "STATUS";
+            this.grvBilling_STATUS.HeaderText = "Trạng thái";
+            this.grvBilling_STATUS.Name = "grvBilling_STATUS";
+            this.grvBilling_STATUS.ReadOnly = true;
+            this.grvBilling_STATUS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.grvBilling_STATUS.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // grvBilling_ID
+            // 
+            this.grvBilling_ID.DataPropertyName = "ID";
+            this.grvBilling_ID.HeaderText = "ID";
+            this.grvBilling_ID.Name = "grvBilling_ID";
+            this.grvBilling_ID.Visible = false;
             // 
             // frmMain
             // 
@@ -1388,6 +1401,7 @@
         private System.Windows.Forms.DataGridView grvBilling;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvBilling_TABLE_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvBilling_REQUEST_COUNT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grvBilling_MONEY;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvBilling_WAITER_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvBilling_CHEF_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvBilling_SELL_DATE;

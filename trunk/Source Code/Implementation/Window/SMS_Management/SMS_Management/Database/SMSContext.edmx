@@ -89,8 +89,8 @@
     <Property Name="NAME_EN" Type="nvarchar" Nullable="true" MaxLength="255" />
     <Property Name="DISHTYPE_ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PRICE" Type="decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="MATERIAL" Type="nvarchar" Nullable="false" MaxLength="255" />
-    <Property Name="AREA" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="MATERIAL" Type="nvarchar" Nullable="true" MaxLength="255" />
+    <Property Name="AREA" Type="nvarchar" Nullable="true" MaxLength="255" />
   </EntityType>
   <EntityType Name="DISH_TYPE">
     <Key>
@@ -151,7 +151,6 @@
     <Property Name="DISH_ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="BILL_ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CHEF_ID" Type="uniqueidentifier" Nullable="true" />
-    <Property Name="CHEF_INFO_Id" Type="uniqueidentifier" Nullable="true" />
   </EntityType>
   <EntityType Name="ORDER">
     <Key>
@@ -217,7 +216,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="BILLING_DETAIL">
-        <PropertyRef Name="DISH_ID" />
+        <PropertyRef Name="BILL_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -327,7 +326,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="BILLING_DETAIL">
-        <PropertyRef Name="CHEF_INFO_Id" />
+        <PropertyRef Name="CHEF_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -426,8 +425,8 @@
           <NavigationProperty Name="BILLING_DETAIL" Relationship="SMS_Management.DISHBILLING_DETAIL" FromRole="DISH" ToRole="BILLING_DETAIL" />
           <NavigationProperty Name="PROCESSINGs" Relationship="SMS_Management.DISHPROCESSING" FromRole="DISH" ToRole="PROCESSING" />
           <NavigationProperty Name="ORDER_DETAIL" Relationship="SMS_Management.DISHORDER_DETAIL" FromRole="DISH" ToRole="ORDER_DETAIL" />
-          <Property Type="String" Name="MATERIAL" Nullable="false" FixedLength="false" MaxLength="255" Unicode="true" />
-          <Property Type="String" Name="AREA" Nullable="false" FixedLength="false" MaxLength="255" Unicode="true" />
+          <Property Type="String" Name="MATERIAL" Nullable="true" FixedLength="false" MaxLength="255" Unicode="true" />
+          <Property Type="String" Name="AREA" Nullable="true" FixedLength="false" MaxLength="255" Unicode="true" />
         </EntityType>
         <EntityType Name="DISH_TYPE">
           <Key>
@@ -547,7 +546,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="BILLING_DETAIL">
-              <PropertyRef Name="DISH_ID" />
+              <PropertyRef Name="BILL_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -677,6 +676,14 @@
         <Association Name="CHEF_INFOBILLING_DETAIL">
           <End Type="SMS_Management.CHEF_INFO" Role="CHEF_INFO" Multiplicity="0..1" />
           <End Type="SMS_Management.BILLING_DETAIL" Role="BILLING_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHEF_INFO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BILLING_DETAIL">
+              <PropertyRef Name="CHEF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -797,15 +804,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="CHEF_INFOBILLING_DETAIL" TypeName="SMS_Management.CHEF_INFOBILLING_DETAIL" StoreEntitySet="BILLING_DETAIL">
-      <EndProperty Name="CHEF_INFO">
-        <ScalarProperty Name="Id" ColumnName="CHEF_INFO_Id" />
-      </EndProperty>
-      <EndProperty Name="BILLING_DETAIL">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-      <Condition ColumnName="CHEF_INFO_Id" IsNull="false" />
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
