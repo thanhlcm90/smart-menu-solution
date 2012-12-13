@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/04/2012 18:12:22
+-- Date Created: 12/13/2012 22:19:00
 -- Generated from EDMX file: D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\Database\SMSContext.edmx
 -- --------------------------------------------------
 
@@ -35,9 +35,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_DISHBILLING_DETAIL]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[BILLING_DETAIL] DROP CONSTRAINT [FK_DISHBILLING_DETAIL];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CHEF_INFOBILLING]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[BILLING] DROP CONSTRAINT [FK_CHEF_INFOBILLING];
-GO
 IF OBJECT_ID(N'[dbo].[FK_CHEF_INFOPROCESSING]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PROCESSING] DROP CONSTRAINT [FK_CHEF_INFOPROCESSING];
 GO
@@ -55,6 +52,9 @@ IF OBJECT_ID(N'[dbo].[FK_CHEF_INFOORDER_DETAIL]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_DISHORDER_DETAIL]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ORDER_DETAIL] DROP CONSTRAINT [FK_DISHORDER_DETAIL];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CHEF_INFOBILLING_DETAIL]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BILLING_DETAIL] DROP CONSTRAINT [FK_CHEF_INFOBILLING_DETAIL];
 GO
 
 -- --------------------------------------------------
@@ -99,10 +99,10 @@ GO
 -- Creating table 'CHEF_INFO'
 CREATE TABLE [dbo].[CHEF_INFO] (
     [Id] uniqueidentifier  NOT NULL,
-    [NAME] nvarchar(50)  NOT NULL,
+    [NAME] nvarchar(255)  NOT NULL,
     [BIRTHDAY] datetime  NULL,
     [PHONE] nchar(15)  NULL,
-    [ADDRESS] nvarchar(250)  NULL
+    [ADDRESS] nvarchar(255)  NULL
 );
 GO
 
@@ -110,17 +110,19 @@ GO
 CREATE TABLE [dbo].[DISH] (
     [Id] uniqueidentifier  NOT NULL,
     [CODE] int  NOT NULL,
-    [NAME_VN] nvarchar(250)  NOT NULL,
-    [NAME_EN] nvarchar(250)  NULL,
+    [NAME_VN] nvarchar(255)  NOT NULL,
+    [NAME_EN] nvarchar(255)  NULL,
     [DISHTYPE_ID] uniqueidentifier  NOT NULL,
-    [PRICE] decimal(18,0)  NOT NULL
+    [PRICE] decimal(18,0)  NOT NULL,
+    [MATERIAL] nvarchar(255)  NOT NULL,
+    [AREA] nvarchar(255)  NOT NULL
 );
 GO
 
 -- Creating table 'DISH_TYPE'
 CREATE TABLE [dbo].[DISH_TYPE] (
     [Id] uniqueidentifier  NOT NULL,
-    [NAME] nvarchar(250)  NOT NULL
+    [NAME] nvarchar(255)  NOT NULL
 );
 GO
 
@@ -130,10 +132,11 @@ CREATE TABLE [dbo].[PROCESSING] (
     [DISH_ID] uniqueidentifier  NOT NULL,
     [PRIORITY] int  NOT NULL,
     [AMOUNT] int  NOT NULL,
-    [STATUS] smallint  NOT NULL,
-    [COMMENT] nvarchar(250)  NULL,
+    [STATUS] nvarchar(255)  NOT NULL,
+    [COMMENT] nvarchar(255)  NULL,
     [TALBLE_ID] uniqueidentifier  NOT NULL,
-    [CHEF_ID] uniqueidentifier  NOT NULL
+    [CHEF_ID] uniqueidentifier  NULL,
+    [ORDERDTL_ID] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -149,10 +152,10 @@ GO
 -- Creating table 'WAITER_INFO'
 CREATE TABLE [dbo].[WAITER_INFO] (
     [Id] uniqueidentifier  NOT NULL,
-    [NAME] nvarchar(50)  NOT NULL,
+    [NAME] nvarchar(255)  NOT NULL,
     [BIRTHDAY] datetime  NULL,
     [PHONE] nchar(15)  NULL,
-    [ADDRESS] nvarchar(250)  NULL
+    [ADDRESS] nvarchar(255)  NULL
 );
 GO
 
@@ -162,7 +165,7 @@ CREATE TABLE [dbo].[BILLING] (
     [SELL_DATE] datetime  NOT NULL,
     [MONEY] decimal(18,0)  NOT NULL,
     [TABLE_ID] uniqueidentifier  NOT NULL,
-    [CHEF_ID] uniqueidentifier  NULL
+    [STATUS] nvarchar(255)  NULL
 );
 GO
 
@@ -170,9 +173,10 @@ GO
 CREATE TABLE [dbo].[BILLING_DETAIL] (
     [Id] uniqueidentifier  NOT NULL,
     [AMOUNT] int  NOT NULL,
-    [COMMENT] nvarchar(250)  NULL,
     [DISH_ID] uniqueidentifier  NOT NULL,
-    [BILL_ID] uniqueidentifier  NOT NULL
+    [BILL_ID] uniqueidentifier  NOT NULL,
+    [CHEF_ID] uniqueidentifier  NULL,
+    [CHEF_INFO_Id] uniqueidentifier  NULL
 );
 GO
 
@@ -180,7 +184,7 @@ GO
 CREATE TABLE [dbo].[ORDER] (
     [Id] uniqueidentifier  NOT NULL,
     [TABLE_ID] uniqueidentifier  NOT NULL,
-    [STATUS] smallint  NULL,
+    [STATUS] nvarchar(255)  NULL,
     [ADD_TIME] datetime  NULL
 );
 GO
@@ -189,8 +193,8 @@ GO
 CREATE TABLE [dbo].[ORDER_DETAIL] (
     [Id] uniqueidentifier  NOT NULL,
     [DISH_ID] uniqueidentifier  NOT NULL,
-    [STATUS] nchar(10)  NULL,
-    [AMOUNT] smallint  NULL,
+    [STATUS] nvarchar(255)  NULL,
+    [AMOUNT] int  NOT NULL,
     [CHEF_ID] uniqueidentifier  NULL,
     [ORDER_ID] uniqueidentifier  NOT NULL
 );
@@ -348,20 +352,6 @@ ON [dbo].[BILLING_DETAIL]
     ([DISH_ID]);
 GO
 
--- Creating foreign key on [CHEF_ID] in table 'BILLING'
-ALTER TABLE [dbo].[BILLING]
-ADD CONSTRAINT [FK_CHEF_INFOBILLING]
-    FOREIGN KEY ([CHEF_ID])
-    REFERENCES [dbo].[CHEF_INFO]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_CHEF_INFOBILLING'
-CREATE INDEX [IX_FK_CHEF_INFOBILLING]
-ON [dbo].[BILLING]
-    ([CHEF_ID]);
-GO
-
 -- Creating foreign key on [CHEF_ID] in table 'PROCESSING'
 ALTER TABLE [dbo].[PROCESSING]
 ADD CONSTRAINT [FK_CHEF_INFOPROCESSING]
@@ -444,6 +434,20 @@ ADD CONSTRAINT [FK_DISHORDER_DETAIL]
 CREATE INDEX [IX_FK_DISHORDER_DETAIL]
 ON [dbo].[ORDER_DETAIL]
     ([DISH_ID]);
+GO
+
+-- Creating foreign key on [CHEF_INFO_Id] in table 'BILLING_DETAIL'
+ALTER TABLE [dbo].[BILLING_DETAIL]
+ADD CONSTRAINT [FK_CHEF_INFOBILLING_DETAIL]
+    FOREIGN KEY ([CHEF_INFO_Id])
+    REFERENCES [dbo].[CHEF_INFO]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CHEF_INFOBILLING_DETAIL'
+CREATE INDEX [IX_FK_CHEF_INFOBILLING_DETAIL]
+ON [dbo].[BILLING_DETAIL]
+    ([CHEF_INFO_Id]);
 GO
 
 -- --------------------------------------------------

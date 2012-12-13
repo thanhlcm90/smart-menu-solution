@@ -5,16 +5,15 @@ using System.Text;
 
 namespace SMS_Management.DataObject
 {
-    class OrderDTO
+    class BillingDTO
     {
         private Guid id;
         private Guid table_id;
         private string table_name;
         private int request_count;
-        private int proccessing_count;
         private string waiter_name;
         private string chef_name;
-        private DateTime? add_time;
+        private DateTime? sell_date;
         private string status;
 
 
@@ -28,8 +27,9 @@ namespace SMS_Management.DataObject
             get { return table_id; }
             set { table_id = value; }
         }
-        public string TABLE_NAME {
-            get {return table_name;}
+        public string TABLE_NAME
+        {
+            get { return table_name; }
             set { table_name = value; }
         }
         public int REQUEST_COUNT
@@ -37,25 +37,24 @@ namespace SMS_Management.DataObject
             get { return request_count; }
             set { request_count = value; }
         }
-        public int PROCCESSING_COUNT
+        public string WAITER_NAME
         {
-            get { return proccessing_count; }
-            set { proccessing_count = value; }
-        }
-        public string WAITER_NAME{
-            get {return waiter_name;}
+            get { return waiter_name; }
             set { waiter_name = value; }
         }
-        public string CHEF_NAME{
-            get {return chef_name;}
+        public string CHEF_NAME
+        {
+            get { return chef_name; }
             set { chef_name = value; }
         }
-        public DateTime? ADD_TIME{
-            get {return add_time;}
-            set { add_time = value; }
+        public DateTime? SELL_DATE
+        {
+            get { return sell_date; }
+            set { sell_date = value; }
         }
-        public string STATUS{
-            get {return status;}
+        public string STATUS
+        {
+            get { return status; }
             set { status = value; }
         }
     }
