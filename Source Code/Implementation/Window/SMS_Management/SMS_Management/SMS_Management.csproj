@@ -100,11 +100,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Common.cs" />
+    <Compile Include="DataAccess\DishRepostitory.cs" />
     <Compile Include="DataAccess\PayRepostitory.cs" />
     <Compile Include="DataAccess\OrderRepostitory.cs" />
     <Compile Include="DataAccess\RepostitoryBase.cs" />
     <Compile Include="DataObject\ChefDTO.cs" />
     <Compile Include="DataObject\BillingDTO.cs" />
+    <Compile Include="DataObject\DishDTO.cs" />
     <Compile Include="DataObject\ProccessingDTO.cs" />
     <Compile Include="DataObject\OrderDetailDTO.cs">
       <SubType>Code</SubType>
@@ -113,6 +115,12 @@
     <Compile Include="DataAccess\ProccessRepostitory.cs" />
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDishDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDishDetail.Designer.cs">
+      <DependentUpon>frmDishDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDishType.cs">
       <SubType>Form</SubType>
@@ -143,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDishDetail.resx">
+      <DependentUpon>frmDishDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDishType.resx">
       <DependentUpon>frmDishType.cs</DependentUpon>

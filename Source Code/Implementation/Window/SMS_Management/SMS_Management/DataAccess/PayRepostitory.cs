@@ -65,10 +65,6 @@ namespace SMS_Management
             bill.MONEY = money;
             Context.ORDER.DeleteObject(order);
             Context.SaveChanges();
-            //for (int i = 0; i < orderdtl.Count; i++)
-            //{
-            //}
-            //Context.SaveChanges();
             return true;
         }
         public List<BillingDTO> GetPayment()
