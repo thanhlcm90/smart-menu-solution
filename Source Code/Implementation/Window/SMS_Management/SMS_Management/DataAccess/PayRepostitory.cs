@@ -14,9 +14,11 @@ namespace SMS_Management
             try
             {
                 //Lấy dữ liệu order detail
-                int c = (from p in Context.ORDER_DETAIL
-                            where p.ORDER_ID == order_id && p.STATUS != "Hoàn thành"
-                            select p).Count();
+                List<Guid > s = (from p in Context.ORDER_DETAIL
+                            where p.ORDER_ID == order_id
+                            select p.Id ).ToList();
+                int c = (from p in Context.PROCESSING
+                         where s.Contains(p.ORDERDTL_ID) && p.STATUS != "Đã bàn giao" select p).Count();
                 return (c == 0);
             }
             catch (Exception ex)
@@ -36,10 +38,12 @@ namespace SMS_Management
             
             //Lấy dữ liệu order detail
             List<ORDER_DETAIL> orderdtl;
+            List<Guid> lstId;
             orderdtl = (from p in Context.ORDER_DETAIL
                         where p.ORDER_ID == order_id
                         select p).ToList();
             if (orderdtl.Count == 0) return false;
+            lstId = (from p in orderdtl select p.Id).ToList();
 
             decimal money = 0;
             BILLING bill = new BILLING();
@@ -60,11 +64,22 @@ namespace SMS_Management
                 money += (orderdtl[i].AMOUNT * orderdtl[i].DISH.PRICE);
 
                 Context.BILLING_DETAIL.AddObject(billdtl);
+                //Xóa bảng ORDER_DETAIL
                 Context.ORDER_DETAIL.DeleteObject(orderdtl[i]);
             }
             bill.MONEY = money;
+            //Xóa bảng ORDER
             Context.ORDER.DeleteObject(order);
-            Context.SaveChanges();
+            
+            //Xóa bảng PROCCESSING
+            List<PROCESSING> lstProccess = (from p in Context.PROCESSING
+                                            where lstId.Contains(p.ORDERDTL_ID)
+                                            select p).ToList();
+            for (int i = 0; i < lstProccess.Count; i++)
+            {
+                Context.PROCESSING.DeleteObject(lstProccess[i]);
+            }
+                Context.SaveChanges();
             return true;
         }
         public List<BillingDTO> GetPayment()

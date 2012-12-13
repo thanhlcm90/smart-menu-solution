@@ -16,6 +16,7 @@ namespace SMS_Management
             {
                 List<DishDTO> lst;
                 lst = (from p in Context.ORDER_DETAIL
+                       where p.ORDER_ID == order_id
                        select new DishDTO()
                        {
                            ID = p.Id,
