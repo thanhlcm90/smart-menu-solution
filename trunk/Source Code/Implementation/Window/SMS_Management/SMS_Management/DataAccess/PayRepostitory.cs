@@ -73,6 +73,7 @@ namespace SMS_Management
             {
                 List<BillingDTO> lst;
                 lst = (from p in Context.BILLING.ToList()
+                       orderby p.SELL_DATE descending 
                        where p.STATUS=="Chờ thanh toán"
                        select new BillingDTO()
                        {

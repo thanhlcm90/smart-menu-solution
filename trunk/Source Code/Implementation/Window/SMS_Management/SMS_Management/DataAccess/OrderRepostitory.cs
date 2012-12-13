@@ -53,6 +53,7 @@ namespace SMS_Management
             {
                 List<OrderDTO> lst;
                 lst = (from p in Context.ORDER.ToList()
+                       orderby p.ADD_TIME descending 
                         select new OrderDTO()
                         {
                             ID=p.Id,

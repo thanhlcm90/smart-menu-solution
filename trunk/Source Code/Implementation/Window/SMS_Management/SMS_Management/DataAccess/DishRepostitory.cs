@@ -25,7 +25,8 @@ namespace SMS_Management
                            MATERIAL=p.DISH.MATERIAL,
                            AMOUNT=p.AMOUNT,
                            PRICE=p.DISH.PRICE,
-                           MONEY=p.AMOUNT*p.DISH.PRICE
+                           MONEY=p.AMOUNT*p.DISH.PRICE,
+                           COMMENT=p.COMMENT
                        }).ToList();
                 return lst;
             }
@@ -41,6 +42,8 @@ namespace SMS_Management
                                      select p).SingleOrDefault();
 
             if (order_id == null) return false;
+            orderdtl.COMMENT = comment;
+            Context.SaveChanges();
             return true;
         }
     }

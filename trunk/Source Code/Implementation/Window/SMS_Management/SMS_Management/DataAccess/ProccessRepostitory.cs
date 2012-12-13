@@ -43,6 +43,7 @@ namespace SMS_Management
                     proccess.DISH_ID = orderdtl[i].DISH_ID;
                     proccess.TALBLE_ID = order.TABLE_ID;
                     proccess.ORDERDTL_ID = orderdtl[i].Id;
+                    proccess.COMMENT = orderdtl[i].COMMENT;
                     if (i + c < 10)
                     {
                         proccess.PRIORITY = i + c + 1;

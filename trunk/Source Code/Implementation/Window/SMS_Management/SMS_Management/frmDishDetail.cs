@@ -27,8 +27,13 @@ namespace SMS_Management
         }
         private void frmDishDetail_Load(object sender, EventArgs e)
         {
+            refresh();
+        }
+
+        private void refresh()
+        {
             DishRepostitory rep = new DishRepostitory();
-            List<DishDTO> lst= rep.GetDishList(order_id);
+            List<DishDTO> lst = rep.GetDishList(order_id);
             grvDISH.DataSource = lst;
         }
 
@@ -46,7 +51,10 @@ namespace SMS_Management
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (PKEY == null) return;
+            DishRepostitory rep = new DishRepostitory();
+            rep.SaveComment(PKEY, txtCOMMENT.Text);
+            refresh();
         }
 
 

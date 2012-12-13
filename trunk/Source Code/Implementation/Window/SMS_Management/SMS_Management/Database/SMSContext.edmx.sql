@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 12/13/2012 23:16:46
+-- Date Created: 12/14/2012 00:59:15
 -- Generated from EDMX file: D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\Database\SMSContext.edmx
 -- --------------------------------------------------
 
@@ -195,7 +195,8 @@ CREATE TABLE [dbo].[ORDER_DETAIL] (
     [STATUS] nvarchar(255)  NULL,
     [AMOUNT] int  NOT NULL,
     [CHEF_ID] uniqueidentifier  NULL,
-    [ORDER_ID] uniqueidentifier  NOT NULL
+    [ORDER_ID] uniqueidentifier  NOT NULL,
+    [COMMENT] nvarchar(255)  NULL
 );
 GO
 

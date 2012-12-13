@@ -171,6 +171,7 @@
     <Property Name="AMOUNT" Type="int" Nullable="false" />
     <Property Name="CHEF_ID" Type="uniqueidentifier" Nullable="true" />
     <Property Name="ORDER_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="COMMENT" Type="nvarchar" Nullable="true" MaxLength="255" />
   </EntityType>
   <Association Name="DISH_TYPEDISH">
     <End Role="DISH_TYPE" Type="SMS_Management.Store.DISH_TYPE" Multiplicity="1" />
@@ -634,6 +635,7 @@
           <NavigationProperty Name="ORDER" Relationship="SMS_Management.ORDERORDER_DETAIL" FromRole="ORDER_DETAIL" ToRole="ORDER" />
           <NavigationProperty Name="CHEF_INFO" Relationship="SMS_Management.CHEF_INFOORDER_DETAIL" FromRole="ORDER_DETAIL" ToRole="CHEF_INFO" />
           <NavigationProperty Name="DISH" Relationship="SMS_Management.DISHORDER_DETAIL" FromRole="ORDER_DETAIL" ToRole="DISH" />
+          <Property Type="String" Name="COMMENT" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="ORDERORDER_DETAIL">
           <End Type="SMS_Management.ORDER" Role="ORDER" Multiplicity="1" >
@@ -801,6 +803,7 @@
           <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
           <ScalarProperty Name="CHEF_ID" ColumnName="CHEF_ID" />
           <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+          <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
