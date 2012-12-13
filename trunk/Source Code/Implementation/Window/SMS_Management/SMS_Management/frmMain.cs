@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-//using DevExpress.XtraEditors;
 using SMS_Management.DataObject;
 using SMS_Management.Database;
 using System.Drawing;
@@ -433,17 +432,6 @@ namespace SMS_Management
           
             // diachi = "alo";
         }
-        string orid, orDishID, orST, orAm, orChefID, ODID;
-        private void BindDataTableOrder()
-        {
-            if (grvOrder.SelectedRows.Count == 0) return;
-           // PKEY = new Guid(goimonGridView.SelectedRows[0].Cells["Id"].Value.ToString());
-            name = grvOrder.SelectedRows[0].Cells["TABLE_NAME"].Value.ToString();
-           // phone = goimonGridView.SelectedRows[0].Cells["CODE"].Value.ToString();
-
-            PKEY1 = rep.GetTableID(name);
-
-        }
 
         private void dataThucdonGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -530,17 +518,17 @@ namespace SMS_Management
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BindDataTableOrder();
-            
-          
-            //using (ChiTietOrderBanAn ChiTietOrderBanAn = new ChiTietOrderBanAn(PKEY1))
-            //{
-            //    if (ChiTietOrderBanAn.ShowDialog(this.ParentForm) == DialogResult.OK)
-            //    {
-
-            //        LoadDataNhanVien();
-            //    }
-            //}
+            if (grvOrder.CurrentRow==null) return;
+            {
+                Guid id=Guid.Parse(grvOrder.CurrentRow.Cells["grvOrder_ID"].Value.ToString());
+                string table_name = grvOrder.CurrentRow.Cells["grvOrder_TABLE_NAME"].Value.ToString();
+                string chef_name = grvOrder.CurrentRow.Cells["grvOrder_CHEF_NAME"].Value.ToString();
+                string waiter_name = grvOrder.CurrentRow.Cells["grvOrder_WAITER_NAME"].Value.ToString();
+                string request_count = grvOrder.CurrentRow.Cells["grvOrder_REQUEST_COUNT"].Value.ToString();
+                string add_time = grvOrder.CurrentRow.Cells["grvOrder_ADD_TIME"].Value.ToString();
+                frmDishDetail frm = new frmDishDetail(id,table_name,chef_name,waiter_name,add_time,request_count );
+                frm.ShowDialog();
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)

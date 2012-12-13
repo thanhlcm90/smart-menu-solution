@@ -175,6 +175,7 @@ namespace SMS_Management
             this.grdData.ShowEditingIcon = false;
             this.grdData.Size = new System.Drawing.Size(350, 247);
             this.grdData.TabIndex = 2;
+            this.grdData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdData_CellContentClick);
             this.grdData.SelectionChanged += new System.EventHandler(this.grdData_SelectionChanged);
             // 
             // Id
@@ -352,6 +353,11 @@ namespace SMS_Management
                 rep.DeleteDishType(PKEY);
                 LoadData();
             }
+        }
+
+        private void grdData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
     }
