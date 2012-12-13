@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Windows.Forms;
 //using DevExpress.XtraEditors;
 using SMS_Management.DataObject;
 using SMS_Management.Database;
+using System.Drawing;
 
 namespace SMS_Management
 {
     public partial class frmMain : FormBase
     {
         OrderRepostitory repOO = new OrderRepostitory();
-        delegate void SetDataSourceCallback(object lst);
+        delegate void SetgrvOrderDataSourceCallback(object lst);
+        delegate void SetgrvProccessingDataSourceCallback(object lst);
+        delegate void SetgrvProccessFinishDataSourceCallback(object lst);
         private Guid PKEY,PKEY1;
         string name, birthday, phone, diachi;
         SMSRepostitory rep = new SMSRepostitory();
-        OrderDTO item = new OrderDTO();
         List<OrderDTO> lstor = new List<OrderDTO>();
         public frmMain()
         {
@@ -23,8 +24,8 @@ namespace SMS_Management
         }
         private void tabControl1_Click(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 0) { }
-            else if (tabControl1.SelectedIndex == 1) { }
+            if (tabControl1.SelectedIndex == 0) {refreshgrvOrder(); }
+            else if (tabControl1.SelectedIndex == 1) { refreshgrvProccessing(); refreshgrvProccessFinish(); }
             else if (tabControl1.SelectedIndex == 2) { }
             else if (tabControl1.SelectedIndex == 3) { }
             else if (tabControl1.SelectedIndex == 4) { LoadDataThucDonMau(); }
@@ -33,9 +34,10 @@ namespace SMS_Management
         private void frmMain_Load(object sender, EventArgs e)
         {
             comConnection1.PortOpen();
-            OrderRepostitory rep = new OrderRepostitory();
-            OrderDTO item = rep.GetFromCode("10110101");
-            goimonGridView.AutoGenerateColumns = false;
+            grvOrder.AutoGenerateColumns = false;
+            grvProccessing.AutoGenerateColumns = false;
+            grvProccessFinish.AutoGenerateColumns = false;
+            refreshgrvOrder();
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -43,72 +45,109 @@ namespace SMS_Management
             
         }
 
-        private void SetDatasource(object lst)
+        private void SetgrvOrderDataSource(object lst)
         {
             // InvokeRequired required compares the thread ID of the
             // calling thread to the thread ID of the creating thread.
             // If these threads are different, it returns true.
-            if (this.goimonGridView.InvokeRequired)
+            if (this.grvOrder.InvokeRequired)
             {
-                SetDataSourceCallback d = new SetDataSourceCallback(SetDatasource);
+                SetgrvOrderDataSourceCallback d = new SetgrvOrderDataSourceCallback(SetgrvOrderDataSource);
                 this.Invoke(d, new object[] { lst });
             }
             else
             {
-                this.goimonGridView.DataSource = null;
-                this.goimonGridView.DataSource = lst;
+                this.grvOrder.DataSource = null;
+                this.grvOrder.DataSource = lst;
             }
+        }
+        private void SetgrvProccessingDataSource(object lst)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.grvProccessing.InvokeRequired)
+            {
+                SetgrvProccessingDataSourceCallback d = new SetgrvProccessingDataSourceCallback(SetgrvProccessingDataSource);
+                this.Invoke(d, new object[] { lst });
+            }
+            else
+            {
+                this.grvProccessing.DataSource = null;
+                this.grvProccessing.DataSource = lst;
+            }
+        }
+
+        private void SetgrvProccessFinishDataSource(object lst)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.grvProccessFinish.InvokeRequired)
+            {
+                SetgrvProccessFinishDataSourceCallback d = new SetgrvProccessFinishDataSourceCallback(SetgrvProccessFinishDataSource);
+                this.Invoke(d, new object[] { lst });
+            }
+            else
+            {
+                this.grvProccessFinish.DataSource = null;
+                this.grvProccessFinish.DataSource = lst;
+            }
+        }
+        private void refreshgrvOrder()
+        {
+            OrderRepostitory repO = new OrderRepostitory();
+            List<OrderDTO> lst = repO.GetOrderList();
+            SetgrvOrderDataSource(lst);
+        }
+
+        private void refreshgrvProccessing()
+        {
+            ProccessRepostitory repO = new ProccessRepostitory();
+            List<ProccessingDTO> lst = repO.GetProccessingList();
+            SetgrvProccessingDataSource(lst);
+        }
+
+        private void refreshgrvProccessFinish()
+        {
+            ProccessRepostitory repO = new ProccessRepostitory();
+            List<ProccessingDTO> lst = repO.GetProccessingFinishCancelList();
+            SetgrvProccessFinishDataSource(lst);
         }
 
         private void comConnection1_DataReceived(string data)
         {
-            OrderRepostitory repO = new OrderRepostitory();
-            if (data.Length != 8)
+            if (data.Length == 8)
             {
-            }
-            else
-            {
-                item = repO.GetFromCode(data);
-                ORDER newOD = new ORDER { TABLE_ID = rep.GetTableID(item.TABLE_NAME.ToString()), STATUS = 1, ADD_TIME = System.DateTime.Now };
-                repO.InsertOrdered(newOD);
+                //Lấy thông tin món ăn vừa order
+                OrderRepostitory repO = new OrderRepostitory();
+                OrderDetailDTO item;
+                item = repO.GetOrderDetailFromCode(data);
                 if (item != null)
                 {
-                    List<OrderDTO> lst = (List<OrderDTO>)goimonGridView.DataSource;
-                    if (lst == null)
-                    {
-                        lst = new List<OrderDTO>();
-                        lst.Add(item);
-                        SetDatasource(lst);
-                    }
-                    else
-                    {
-                        lst.Add(item);
-                        lstor = lst;
-                        SetDatasource(lst);
-                    }
-                    comConnection1.SendData(item.DISH_NAME);
-                }
-                else
-                {
-                    comConnection1.SendData("not_found");
+                    repO.InsertOrdered(item);
+                    refreshgrvOrder();
                 }
             }
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            comConnection1.SendData("123");
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            comConnection1.SendData("234");
-        }
-        
-
-
-        
-
+            else if (data.Length == 2)
+            {
+                int p = int.Parse(data[1].ToString());
+                ProccessRepostitory repP = new ProccessRepostitory();
+                //Finish
+                if (data[0] == '5')
+                {
+                    repP.FinishProcessing(p);
+                    refreshgrvProccessing();
+                    refreshgrvProccessFinish();
+                }
+                else if (data[0] == '6')
+                {
+                    repP.CancelProcessing(p);
+                    refreshgrvProccessing();
+                    refreshgrvProccessFinish();
+                }
+            }
+        }      
 
         private void tabControl2_Click(object sender, EventArgs e)
         {
@@ -365,9 +404,9 @@ namespace SMS_Management
         string orid, orDishID, orST, orAm, orChefID, ODID;
         private void BindDataTableOrder()
         {
-            if (goimonGridView.SelectedRows.Count == 0) return;
+            if (grvOrder.SelectedRows.Count == 0) return;
            // PKEY = new Guid(goimonGridView.SelectedRows[0].Cells["Id"].Value.ToString());
-            name = goimonGridView.SelectedRows[0].Cells["TABLE_NAME"].Value.ToString();
+            name = grvOrder.SelectedRows[0].Cells["TABLE_NAME"].Value.ToString();
            // phone = goimonGridView.SelectedRows[0].Cells["CODE"].Value.ToString();
 
             PKEY1 = rep.GetTableID(name);
@@ -462,24 +501,107 @@ namespace SMS_Management
             BindDataTableOrder();
             
           
-            using (ChiTietOrderBanAn ChiTietOrderBanAn = new ChiTietOrderBanAn(PKEY1))
-            {
-                if (ChiTietOrderBanAn.ShowDialog(this.ParentForm) == DialogResult.OK)
-                {
+            //using (ChiTietOrderBanAn ChiTietOrderBanAn = new ChiTietOrderBanAn(PKEY1))
+            //{
+            //    if (ChiTietOrderBanAn.ShowDialog(this.ParentForm) == DialogResult.OK)
+            //    {
 
-                    LoadDataNhanVien();
-                }
+            //        LoadDataNhanVien();
+            //    }
+            //}
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string str="";
+            if (InputBox("Test", "Nhập đoạn mã yêu cầu", ref str) == DialogResult.OK)
+            {
+                comConnection1_DataReceived(str);
             }
+        }
+
+        public static DialogResult InputBox(string title, string promptText, ref string value)
+        {
+            Form form = new Form();
+            Label label = new Label();
+            TextBox textBox = new TextBox();
+            Button buttonOk = new Button();
+            Button buttonCancel = new Button();
+
+            form.Text = title;
+            label.Text = promptText;
+            textBox.Text = value;
+
+            buttonOk.Text = "OK";
+            buttonCancel.Text = "Cancel";
+            buttonOk.DialogResult = DialogResult.OK;
+            buttonCancel.DialogResult = DialogResult.Cancel;
+
+            label.SetBounds(9, 20, 372, 13);
+            textBox.SetBounds(12, 36, 372, 20);
+            buttonOk.SetBounds(228, 72, 75, 23);
+            buttonCancel.SetBounds(309, 72, 75, 23);
+
+            label.AutoSize = true;
+            textBox.Anchor = textBox.Anchor | AnchorStyles.Right;
+            buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+
+            form.ClientSize = new Size(396, 107);
+            form.Controls.AddRange(new Control[] { label, textBox, buttonOk, buttonCancel });
+            form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
+            form.FormBorderStyle = FormBorderStyle.FixedDialog;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.MinimizeBox = false;
+            form.MaximizeBox = false;
+            form.AcceptButton = buttonOk;
+            form.CancelButton = buttonCancel;
+
+            DialogResult dialogResult = form.ShowDialog();
+            value = textBox.Text;
+            return dialogResult;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProccessRepostitory repP = new ProccessRepostitory();
+            foreach (DataGridViewRow row in grvOrder.SelectedRows)
+            {
+                repP.SendToChicken(Guid.Parse(row.Cells["grvOrder_ID"].Value.ToString()));
+            }
+            refreshgrvOrder();
+            //
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            ProccessRepostitory repP = new ProccessRepostitory();
+            foreach (DataGridViewRow row in grvProccessFinish.SelectedRows)
+            {
+                repP.ConfirmFinishProcessing(Guid.Parse(row.Cells["grvProccessFinish_ID"].Value.ToString()));
+            }
+            refreshgrvProccessFinish();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            ProccessRepostitory repP = new ProccessRepostitory();
+            foreach (DataGridViewRow row in grvProccessFinish.SelectedRows)
+            {
+                repP.ConfirmCancelProcessing(Guid.Parse(row.Cells["grvProccessFinish_ID"].Value.ToString()));
+            }
+            refreshgrvProccessFinish();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            button9_Click(sender, e);
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            rep.Inserttest();
-
 
         }
-        
-
     
     }
 }

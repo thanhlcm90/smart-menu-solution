@@ -18,5 +18,6 @@ namespace SMS_Management
             Application.Run(new frmMain ());
           //  Application.Run(new Form1());
         }
+
     }
 }

@@ -40,17 +40,13 @@
       <End Role="DISH" EntitySet="DISH" />
       <End Role="BILLING_DETAIL" EntitySet="BILLING_DETAIL" />
     </AssociationSet>
-    <AssociationSet Name="CHEF_INFOBILLING" Association="SMS_Management.Store.CHEF_INFOBILLING">
-      <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
-      <End Role="BILLING" EntitySet="BILLING" />
-    </AssociationSet>
     <AssociationSet Name="CHEF_INFOPROCESSING" Association="SMS_Management.Store.CHEF_INFOPROCESSING">
       <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
       <End Role="PROCESSING" EntitySet="PROCESSING" />
     </AssociationSet>
     <AssociationSet Name="TABLES_INFOORDERED" Association="SMS_Management.Store.TABLES_INFOORDERED">
       <End Role="TABLES_INFO" EntitySet="TABLES_INFO" />
-      <End Role="ORDERED" EntitySet="ORDER" />
+      <End Role="ORDER" EntitySet="ORDER" />
     </AssociationSet>
     <AssociationSet Name="DISHPROCESSING" Association="SMS_Management.Store.DISHPROCESSING">
       <End Role="DISH" EntitySet="DISH" />
@@ -68,16 +64,20 @@
       <End Role="DISH" EntitySet="DISH" />
       <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
     </AssociationSet>
+    <AssociationSet Name="CHEF_INFOBILLING_DETAIL" Association="SMS_Management.Store.CHEF_INFOBILLING_DETAIL">
+      <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
+      <End Role="BILLING_DETAIL" EntitySet="BILLING_DETAIL" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CHEF_INFO">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="BIRTHDAY" Type="datetime" Nullable="true" />
     <Property Name="PHONE" Type="nchar" Nullable="true" MaxLength="15" />
-    <Property Name="ADDRESS" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="ADDRESS" Type="nvarchar" Nullable="true" MaxLength="255" />
   </EntityType>
   <EntityType Name="DISH">
     <Key>
@@ -85,17 +85,19 @@
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CODE" Type="int" Nullable="false" />
-    <Property Name="NAME_VN" Type="nvarchar" Nullable="false" MaxLength="250" />
-    <Property Name="NAME_EN" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="NAME_VN" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="NAME_EN" Type="nvarchar" Nullable="true" MaxLength="255" />
     <Property Name="DISHTYPE_ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PRICE" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MATERIAL" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="AREA" Type="nvarchar" Nullable="false" MaxLength="255" />
   </EntityType>
   <EntityType Name="DISH_TYPE">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="255" />
   </EntityType>
   <EntityType Name="PROCESSING">
     <Key>
@@ -105,10 +107,11 @@
     <Property Name="DISH_ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PRIORITY" Type="int" Nullable="false" />
     <Property Name="AMOUNT" Type="int" Nullable="false" />
-    <Property Name="STATUS" Type="smallint" Nullable="false" />
-    <Property Name="COMMENT" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="STATUS" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="COMMENT" Type="nvarchar" Nullable="true" MaxLength="255" />
     <Property Name="TALBLE_ID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CHEF_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CHEF_ID" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="ORDERDTL_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="TABLES_INFO">
     <Key>
@@ -124,10 +127,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NAME" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="BIRTHDAY" Type="datetime" Nullable="true" />
     <Property Name="PHONE" Type="nchar" Nullable="true" MaxLength="15" />
-    <Property Name="ADDRESS" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="ADDRESS" Type="nvarchar" Nullable="true" MaxLength="255" />
   </EntityType>
   <EntityType Name="BILLING">
     <Key>
@@ -137,7 +140,7 @@
     <Property Name="SELL_DATE" Type="datetime" Nullable="false" />
     <Property Name="MONEY" Type="decimal" Nullable="false" Precision="18" Scale="0" />
     <Property Name="TABLE_ID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="CHEF_ID" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="STATUS" Type="nvarchar" Nullable="true" MaxLength="255" />
   </EntityType>
   <EntityType Name="BILLING_DETAIL">
     <Key>
@@ -145,9 +148,10 @@
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="AMOUNT" Type="int" Nullable="false" />
-    <Property Name="COMMENT" Type="nvarchar" Nullable="true" MaxLength="250" />
     <Property Name="DISH_ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="BILL_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CHEF_ID" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="CHEF_INFO_Id" Type="uniqueidentifier" Nullable="true" />
   </EntityType>
   <EntityType Name="ORDER">
     <Key>
@@ -155,7 +159,7 @@
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="TABLE_ID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="STATUS" Type="smallint" Nullable="true" />
+    <Property Name="STATUS" Type="nvarchar" Nullable="true" MaxLength="255" />
     <Property Name="ADD_TIME" Type="datetime" Nullable="true" />
   </EntityType>
   <EntityType Name="ORDER_DETAIL">
@@ -164,8 +168,8 @@
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="DISH_ID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="STATUS" Type="nchar" Nullable="true" MaxLength="10" />
-    <Property Name="AMOUNT" Type="smallint" Nullable="true" />
+    <Property Name="STATUS" Type="nvarchar" Nullable="true" MaxLength="255" />
+    <Property Name="AMOUNT" Type="int" Nullable="false" />
     <Property Name="CHEF_ID" Type="uniqueidentifier" Nullable="true" />
     <Property Name="ORDER_ID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
@@ -241,20 +245,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="CHEF_INFOBILLING">
-    <End Role="CHEF_INFO" Type="SMS_Management.Store.CHEF_INFO" Multiplicity="0..1" />
-    <End Role="BILLING" Type="SMS_Management.Store.BILLING" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CHEF_INFO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="BILLING">
-        <PropertyRef Name="CHEF_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="CHEF_INFOPROCESSING">
-    <End Role="CHEF_INFO" Type="SMS_Management.Store.CHEF_INFO" Multiplicity="1" />
+    <End Role="CHEF_INFO" Type="SMS_Management.Store.CHEF_INFO" Multiplicity="0..1" />
     <End Role="PROCESSING" Type="SMS_Management.Store.PROCESSING" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CHEF_INFO">
@@ -267,12 +259,12 @@
   </Association>
   <Association Name="TABLES_INFOORDERED">
     <End Role="TABLES_INFO" Type="SMS_Management.Store.TABLES_INFO" Multiplicity="1" />
-    <End Role="ORDERED" Type="SMS_Management.Store.ORDER" Multiplicity="*" />
+    <End Role="ORDER" Type="SMS_Management.Store.ORDER" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TABLES_INFO">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="ORDERED">
+      <Dependent Role="ORDER">
         <PropertyRef Name="TABLE_ID" />
       </Dependent>
     </ReferentialConstraint>
@@ -327,6 +319,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="CHEF_INFOBILLING_DETAIL">
+    <End Role="CHEF_INFO" Type="SMS_Management.Store.CHEF_INFO" Multiplicity="0..1" />
+    <End Role="BILLING_DETAIL" Type="SMS_Management.Store.BILLING_DETAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHEF_INFO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BILLING_DETAIL">
+        <PropertyRef Name="CHEF_INFO_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -364,10 +368,6 @@
             <End Role="DISH" EntitySet="DISH" />
             <End Role="BILLING_DETAIL" EntitySet="BILLING_DETAIL" />
           </AssociationSet>
-          <AssociationSet Name="CHEF_INFOBILLING" Association="SMS_Management.CHEF_INFOBILLING">
-            <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
-            <End Role="BILLING" EntitySet="BILLING" />
-          </AssociationSet>
           <AssociationSet Name="CHEF_INFOPROCESSING" Association="SMS_Management.CHEF_INFOPROCESSING">
             <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
             <End Role="PROCESSING" EntitySet="PROCESSING" />
@@ -375,7 +375,7 @@
           <EntitySet Name="ORDER" EntityType="SMS_Management.ORDER" />
           <AssociationSet Name="TABLES_INFOORDERED" Association="SMS_Management.TABLES_INFOORDERED">
             <End EntitySet="TABLES_INFO" Role="TABLES_INFO" />
-            <End EntitySet="ORDER" Role="ORDERED" />
+            <End EntitySet="ORDER" Role="ORDER" />
           </AssociationSet>
           <AssociationSet Name="DISHPROCESSING" Association="SMS_Management.DISHPROCESSING">
             <End Role="DISH" EntitySet="DISH" />
@@ -394,19 +394,23 @@
             <End Role="DISH" EntitySet="DISH" />
             <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
           </AssociationSet>
+          <AssociationSet Name="CHEF_INFOBILLING_DETAIL" Association="SMS_Management.CHEF_INFOBILLING_DETAIL">
+            <End Role="CHEF_INFO" EntitySet="CHEF_INFO" />
+            <End Role="BILLING_DETAIL" EntitySet="BILLING_DETAIL" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="CHEF_INFO">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="String" Name="NAME" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="BIRTHDAY" Precision="3" />
           <Property Type="String" Name="PHONE" MaxLength="15" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="ADDRESS" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BILLING" Relationship="SMS_Management.CHEF_INFOBILLING" FromRole="CHEF_INFO" ToRole="BILLING" />
+          <Property Type="String" Name="ADDRESS" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PROCESSING" Relationship="SMS_Management.CHEF_INFOPROCESSING" FromRole="CHEF_INFO" ToRole="PROCESSING" />
           <NavigationProperty Name="ORDER_DETAIL" Relationship="SMS_Management.CHEF_INFOORDER_DETAIL" FromRole="CHEF_INFO" ToRole="ORDER_DETAIL" />
+          <NavigationProperty Name="BILLING_DETAIL" Relationship="SMS_Management.CHEF_INFOBILLING_DETAIL" FromRole="CHEF_INFO" ToRole="BILLING_DETAIL" />
         </EntityType>
         <EntityType Name="DISH">
           <Key>
@@ -414,21 +418,23 @@
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" />
           <Property Type="Int32" Name="CODE" Nullable="false" />
-          <Property Type="String" Name="NAME_VN" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="NAME_EN" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_VN" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME_EN" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="DISHTYPE_ID" Nullable="false" />
           <Property Type="Decimal" Name="PRICE" Nullable="false" Precision="18" Scale="0" />
           <NavigationProperty Name="DISH_TYPE" Relationship="SMS_Management.DISH_TYPEDISH" FromRole="DISH" ToRole="DISH_TYPE" />
           <NavigationProperty Name="BILLING_DETAIL" Relationship="SMS_Management.DISHBILLING_DETAIL" FromRole="DISH" ToRole="BILLING_DETAIL" />
           <NavigationProperty Name="PROCESSINGs" Relationship="SMS_Management.DISHPROCESSING" FromRole="DISH" ToRole="PROCESSING" />
           <NavigationProperty Name="ORDER_DETAIL" Relationship="SMS_Management.DISHORDER_DETAIL" FromRole="DISH" ToRole="ORDER_DETAIL" />
+          <Property Type="String" Name="MATERIAL" Nullable="false" FixedLength="false" MaxLength="255" Unicode="true" />
+          <Property Type="String" Name="AREA" Nullable="false" FixedLength="false" MaxLength="255" Unicode="true" />
         </EntityType>
         <EntityType Name="DISH_TYPE">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="String" Name="NAME" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DISH" Relationship="SMS_Management.DISH_TYPEDISH" FromRole="DISH_TYPE" ToRole="DISH" />
         </EntityType>
         <EntityType Name="PROCESSING">
@@ -439,13 +445,14 @@
           <Property Type="Guid" Name="DISH_ID" Nullable="false" />
           <Property Type="Int32" Name="PRIORITY" Nullable="false" />
           <Property Type="Int32" Name="AMOUNT" Nullable="false" />
-          <Property Type="Int16" Name="STATUS" Nullable="false" />
-          <Property Type="String" Name="COMMENT" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="STATUS" Nullable="false" FixedLength="false" MaxLength="255" Unicode="true" />
+          <Property Type="String" Name="COMMENT" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="TALBLE_ID" Nullable="false" />
-          <Property Type="Guid" Name="CHEF_ID" Nullable="false" />
+          <Property Type="Guid" Name="CHEF_ID" Nullable="true" />
           <NavigationProperty Name="TABLES_INFO" Relationship="SMS_Management.TABLES_INFOPROCESSING" FromRole="PROCESSING" ToRole="TABLES_INFO" />
           <NavigationProperty Name="CHEF_INFO" Relationship="SMS_Management.CHEF_INFOPROCESSING" FromRole="PROCESSING" ToRole="CHEF_INFO" />
           <NavigationProperty Name="DISH" Relationship="SMS_Management.DISHPROCESSING" FromRole="PROCESSING" ToRole="DISH" />
+          <Property Type="Guid" Name="ORDERDTL_ID" Nullable="false" />
         </EntityType>
         <Association Name="DISH_TYPEDISH">
           <End Type="SMS_Management.DISH_TYPE" Role="DISH_TYPE" Multiplicity="1" />
@@ -469,7 +476,7 @@
           <NavigationProperty Name="PROCESSING" Relationship="SMS_Management.TABLES_INFOPROCESSING" FromRole="TABLES_INFO" ToRole="PROCESSING" />
           <NavigationProperty Name="WAITER_INFO" Relationship="SMS_Management.WAITER_INFOTABLES_INFO" FromRole="TABLES_INFO" ToRole="WAITER_INFO" />
           <NavigationProperty Name="BILLING" Relationship="SMS_Management.TABLES_INFOBILLING" FromRole="TABLES_INFO" ToRole="BILLING" />
-          <NavigationProperty Name="ORDEREDs" Relationship="SMS_Management.TABLES_INFOORDERED" FromRole="TABLES_INFO" ToRole="ORDERED" />
+          <NavigationProperty Name="ORDEREDs" Relationship="SMS_Management.TABLES_INFOORDERED" FromRole="TABLES_INFO" ToRole="ORDER" />
           <Property Type="String" Name="NAME" Nullable="false" FixedLength="false" MaxLength="255" Unicode="true" />
         </EntityType>
         <Association Name="TABLES_INFOPROCESSING">
@@ -489,10 +496,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="String" Name="NAME" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NAME" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="BIRTHDAY" Precision="3" />
           <Property Type="String" Name="PHONE" MaxLength="15" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="ADDRESS" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ADDRESS" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TABLES_INFO" Relationship="SMS_Management.WAITER_INFOTABLES_INFO" FromRole="WAITER_INFO" ToRole="TABLES_INFO" />
         </EntityType>
         <Association Name="WAITER_INFOTABLES_INFO">
@@ -515,10 +522,9 @@
           <Property Type="DateTime" Name="SELL_DATE" Nullable="false" />
           <Property Type="Decimal" Name="MONEY" Nullable="false" Precision="18" Scale="0" />
           <Property Type="Guid" Name="TABLE_ID" Nullable="false" />
-          <Property Type="Guid" Name="CHEF_ID" />
           <NavigationProperty Name="BILLING_DETAIL" Relationship="SMS_Management.BILLINGBILLING_DETAIL" FromRole="BILLING" ToRole="BILLING_DETAIL" />
           <NavigationProperty Name="TABLES_INFO" Relationship="SMS_Management.TABLES_INFOBILLING" FromRole="BILLING" ToRole="TABLES_INFO" />
-          <NavigationProperty Name="CHEF_INFO" Relationship="SMS_Management.CHEF_INFOBILLING" FromRole="BILLING" ToRole="CHEF_INFO" />
+          <Property Type="String" Name="STATUS" Nullable="true" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="BILLING_DETAIL">
           <Key>
@@ -526,11 +532,12 @@
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" />
           <Property Type="Int32" Name="AMOUNT" Nullable="false" />
-          <Property Type="String" Name="COMMENT" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Type="Guid" Name="DISH_ID" Nullable="false" />
           <Property Type="Guid" Name="BILL_ID" Nullable="false" />
           <NavigationProperty Name="BILLING" Relationship="SMS_Management.BILLINGBILLING_DETAIL" FromRole="BILLING_DETAIL" ToRole="BILLING" />
           <NavigationProperty Name="DISH" Relationship="SMS_Management.DISHBILLING_DETAIL" FromRole="BILLING_DETAIL" ToRole="DISH" />
+          <Property Type="Guid" Name="CHEF_ID" Nullable="true" />
+          <NavigationProperty Name="CHEF_INFO" Relationship="SMS_Management.CHEF_INFOBILLING_DETAIL" FromRole="BILLING_DETAIL" ToRole="CHEF_INFO" />
         </EntityType>
         <Association Name="BILLINGBILLING_DETAIL">
           <End Type="SMS_Management.BILLING" Role="BILLING" Multiplicity="1" />
@@ -568,20 +575,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CHEF_INFOBILLING">
-          <End Type="SMS_Management.CHEF_INFO" Role="CHEF_INFO" Multiplicity="0..1" />
-          <End Type="SMS_Management.BILLING" Role="BILLING" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CHEF_INFO">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BILLING">
-              <PropertyRef Name="CHEF_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="CHEF_INFOPROCESSING">
-          <End Type="SMS_Management.CHEF_INFO" Role="CHEF_INFO" Multiplicity="1" />
+          <End Type="SMS_Management.CHEF_INFO" Role="CHEF_INFO" Multiplicity="0..1" />
           <End Type="SMS_Management.PROCESSING" Role="PROCESSING" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CHEF_INFO">
@@ -598,19 +593,19 @@
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" />
           <Property Type="Guid" Name="TABLE_ID" Nullable="false" />
-          <Property Type="Int16" Name="STATUS" Nullable="true" />
-          <NavigationProperty Name="TABLES_INFO" Relationship="SMS_Management.TABLES_INFOORDERED" FromRole="ORDERED" ToRole="TABLES_INFO" />
+          <Property Type="String" Name="STATUS" Nullable="true" FixedLength="false" MaxLength="255" Unicode="true" />
+          <NavigationProperty Name="TABLES_INFO" Relationship="SMS_Management.TABLES_INFOORDERED" FromRole="ORDER" ToRole="TABLES_INFO" />
           <NavigationProperty Name="ORDER_DETAIL" Relationship="SMS_Management.ORDERORDER_DETAIL" FromRole="ORDER" ToRole="ORDER_DETAIL" />
           <Property Type="DateTime" Name="ADD_TIME" Nullable="true" />
         </EntityType>
         <Association Name="TABLES_INFOORDERED">
           <End Type="SMS_Management.TABLES_INFO" Multiplicity="1" Role="TABLES_INFO" />
-          <End Type="SMS_Management.ORDER" Multiplicity="*" Role="ORDERED" />
+          <End Type="SMS_Management.ORDER" Multiplicity="*" Role="ORDER" />
           <ReferentialConstraint>
             <Principal Role="TABLES_INFO">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ORDERED">
+            <Dependent Role="ORDER">
               <PropertyRef Name="TABLE_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -633,8 +628,8 @@
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" />
           <Property Type="Guid" Name="DISH_ID" Nullable="false" />
-          <Property Type="String" Name="STATUS" Nullable="true" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="Int16" Name="AMOUNT" Nullable="true" />
+          <Property Type="String" Name="STATUS" Nullable="true" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AMOUNT" Nullable="false" />
           <Property Type="Guid" Name="CHEF_ID" Nullable="true" />
           <Property Type="Guid" Name="ORDER_ID" Nullable="false" />
           <NavigationProperty Name="ORDER" Relationship="SMS_Management.ORDERORDER_DETAIL" FromRole="ORDER_DETAIL" ToRole="ORDER" />
@@ -679,6 +674,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="CHEF_INFOBILLING_DETAIL">
+          <End Type="SMS_Management.CHEF_INFO" Role="CHEF_INFO" Multiplicity="0..1" />
+          <End Type="SMS_Management.BILLING_DETAIL" Role="BILLING_DETAIL" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -705,6 +704,8 @@
           <ScalarProperty Name="NAME_EN" ColumnName="NAME_EN" />
           <ScalarProperty Name="DISHTYPE_ID" ColumnName="DISHTYPE_ID" />
           <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="MATERIAL" ColumnName="MATERIAL" />
+          <ScalarProperty Name="AREA" ColumnName="AREA" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -727,6 +728,7 @@
           <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
           <ScalarProperty Name="TALBLE_ID" ColumnName="TALBLE_ID" />
           <ScalarProperty Name="CHEF_ID" ColumnName="CHEF_ID" />
+          <ScalarProperty Name="ORDERDTL_ID" ColumnName="ORDERDTL_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -758,7 +760,7 @@
           <ScalarProperty Name="SELL_DATE" ColumnName="SELL_DATE" />
           <ScalarProperty Name="MONEY" ColumnName="MONEY" />
           <ScalarProperty Name="TABLE_ID" ColumnName="TABLE_ID" />
-          <ScalarProperty Name="CHEF_ID" ColumnName="CHEF_ID" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -767,9 +769,9 @@
         <MappingFragment StoreEntitySet="BILLING_DETAIL">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
-          <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
           <ScalarProperty Name="DISH_ID" ColumnName="DISH_ID" />
           <ScalarProperty Name="BILL_ID" ColumnName="BILL_ID" />
+          <ScalarProperty Name="CHEF_ID" ColumnName="CHEF_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -795,6 +797,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="CHEF_INFOBILLING_DETAIL" TypeName="SMS_Management.CHEF_INFOBILLING_DETAIL" StoreEntitySet="BILLING_DETAIL">
+      <EndProperty Name="CHEF_INFO">
+        <ScalarProperty Name="Id" ColumnName="CHEF_INFO_Id" />
+      </EndProperty>
+      <EndProperty Name="BILLING_DETAIL">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="CHEF_INFO_Id" IsNull="false" />
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -816,12 +827,12 @@
     <Diagrams>
       <Diagram Name="SMSContext" ZoomLevel="72">
         <EntityTypeShape EntityType="SMS_Management.CHEF_INFO" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333326" />
-        <EntityTypeShape EntityType="SMS_Management.DISH" Width="1.5" PointX="2.625" PointY="4.75" Height="2.9417936197916665" />
+        <EntityTypeShape EntityType="SMS_Management.DISH" Width="1.5" PointX="2.625" PointY="4.75" Height="3.3263964843749996" />
         <EntityTypeShape EntityType="SMS_Management.DISH_TYPE" Width="1.5" PointX="4.625" PointY="4.75" Height="1.5956835937499996" />
-        <EntityTypeShape EntityType="SMS_Management.PROCESSING" Width="1.5" PointX="6.75" PointY="0.75" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="SMS_Management.PROCESSING" Width="1.5" PointX="6.75" PointY="0.75" Height="3.1340950520833331" />
         <AssociationConnector Association="SMS_Management.DISH_TYPEDISH">
-          <ConnectorPoint PointX="4.625" PointY="5.6271696549479167" />
-          <ConnectorPoint PointX="4.125" PointY="5.6271696549479167" />
+          <ConnectorPoint PointX="4.625" PointY="5.547841796875" />
+          <ConnectorPoint PointX="4.125" PointY="5.547841796875" />
         </AssociationConnector>
         <EntityTypeShape EntityType="SMS_Management.TABLES_INFO" Width="1.5" PointX="6.75" PointY="4.625" Height="2.5571907552083335" />
         <AssociationConnector Association="SMS_Management.TABLES_INFOPROCESSING">
@@ -833,34 +844,28 @@
           <ConnectorPoint PointX="8.75" PointY="5.5237939453125" />
           <ConnectorPoint PointX="8.25" PointY="5.5237939453125" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="SMS_Management.BILLING" Width="1.5" PointX="0.625" PointY="0.75" Height="1.9802864583333282" />
-        <EntityTypeShape EntityType="SMS_Management.BILLING_DETAIL" Width="1.5" PointX="2.625" PointY="0.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="SMS_Management.BILLING" Width="1.5" PointX="0.625" PointY="0.75" Height="2.172587890625" />
+        <EntityTypeShape EntityType="SMS_Management.BILLING_DETAIL" Width="1.5" PointX="2.625" PointY="0.75" Height="2.172587890625" />
         <AssociationConnector Association="SMS_Management.BILLINGBILLING_DETAIL">
-          <ConnectorPoint PointX="2.125" PointY="1.8362939453125" />
-          <ConnectorPoint PointX="2.625" PointY="1.8362939453125" />
+          <ConnectorPoint PointX="2.125" PointY="1.8362939453124998" />
+          <ConnectorPoint PointX="2.625" PointY="1.8362939453124998" />
         </AssociationConnector>
         <AssociationConnector Association="SMS_Management.TABLES_INFOBILLING">
           <ConnectorPoint PointX="6.75" PointY="4.65625" />
           <ConnectorPoint PointX="4.302083333333333" PointY="4.6562499999999991" />
           <ConnectorPoint PointX="4.135416666666667" PointY="4.65625" />
-          <ConnectorPoint PointX="3.4583333333333335" PointY="4.6562499999999991" />
-          <ConnectorPoint PointX="3.2916666666666665" PointY="4.65625" />
+          <ConnectorPoint PointX="3.4270808333333336" PointY="4.6562499999999991" />
+          <ConnectorPoint PointX="3.2604141666666666" PointY="4.65625" />
           <ConnectorPoint PointX="1.375" PointY="4.65625" />
-          <ConnectorPoint PointX="1.375" PointY="3.3071907552083331" />
+          <ConnectorPoint PointX="1.375" PointY="2.922587890625" />
         </AssociationConnector>
         <AssociationConnector Association="SMS_Management.DISHBILLING_DETAIL">
-          <ConnectorPoint PointX="3.375" PointY="4.75" />
-          <ConnectorPoint PointX="3.375" PointY="3.1148893229166661" />
-        </AssociationConnector>
-        <AssociationConnector Association="SMS_Management.CHEF_INFOBILLING">
-          <ConnectorPoint PointX="4.75" PointY="3.2422900390624996" />
-          <ConnectorPoint PointX="3.4583333333333335" PointY="3.2422900390624991" />
-          <ConnectorPoint PointX="3.2916666666666665" PointY="3.2422900390624996" />
-          <ConnectorPoint PointX="2.125" PointY="3.2422900390624996" />
+          <ConnectorPoint PointX="3.3437475" PointY="4.75" />
+          <ConnectorPoint PointX="3.3437475" PointY="2.922587890625" />
         </AssociationConnector>
         <AssociationConnector Association="SMS_Management.CHEF_INFOPROCESSING">
-          <ConnectorPoint PointX="6.25" PointY="1.9324446614583333" />
-          <ConnectorPoint PointX="6.75" PointY="1.9324446614583333" />
+          <ConnectorPoint PointX="6.25" PointY="2.0285953776041667" />
+          <ConnectorPoint PointX="6.75" PointY="2.0285953776041667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="SMS_Management.ORDER" Width="1.5" PointX="10.25" PointY="0.75" Height="2.172587890625" />
         <AssociationConnector Association="SMS_Management.TABLES_INFOORDERED">
@@ -871,9 +876,9 @@
         <AssociationConnector Association="SMS_Management.DISHPROCESSING">
           <ConnectorPoint PointX="4.125" PointY="4.75" />
           <ConnectorPoint PointX="4.5" PointY="4.375" />
-          <ConnectorPoint PointX="4.5" PointY="4.2590950520833335" />
-          <ConnectorPoint PointX="6.375" PointY="4.2590950520833335" />
-          <ConnectorPoint PointX="6.75" PointY="3.8840950520833335" />
+          <ConnectorPoint PointX="4.5" PointY="4.451396484375" />
+          <ConnectorPoint PointX="6.375" PointY="4.451396484375" />
+          <ConnectorPoint PointX="6.75" PointY="4.076396484375" />
         </AssociationConnector>
         <EntityTypeShape EntityType="SMS_Management.ORDER_DETAIL" Width="1.5" PointX="12.625" PointY="0.75" Height="2.172587890625" />
         <AssociationConnector Association="SMS_Management.ORDERORDER_DETAIL">
@@ -881,15 +886,19 @@
           <ConnectorPoint PointX="12.625" PointY="1.8362939453125" />
         </AssociationConnector>
         <AssociationConnector Association="SMS_Management.CHEF_INFOORDER_DETAIL">
-          <ConnectorPoint PointX="6.25" PointY="0.75115284615384614" />
-          <ConnectorPoint PointX="6.6261528461538459" PointY="0.37500000000000022" />
-          <ConnectorPoint PointX="12.25" PointY="0.37500000000000022" />
+          <ConnectorPoint PointX="6.25" PointY="0.75115284615384659" />
+          <ConnectorPoint PointX="6.6261528461538468" PointY="0.375" />
+          <ConnectorPoint PointX="12.25" PointY="0.375" />
           <ConnectorPoint PointX="12.625" PointY="0.75" />
         </AssociationConnector>
         <AssociationConnector Association="SMS_Management.DISHORDER_DETAIL">
-          <ConnectorPoint PointX="4.125" PointY="7.4682421875000005" />
-          <ConnectorPoint PointX="13.375" PointY="7.4682421875000005" />
+          <ConnectorPoint PointX="4.125" PointY="7.6605436197916665" />
+          <ConnectorPoint PointX="13.375" PointY="7.6605436197916665" />
           <ConnectorPoint PointX="13.375" PointY="3.4994921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="SMS_Management.CHEF_INFOBILLING_DETAIL">
+          <ConnectorPoint PointX="4.75" PointY="2.0285953776041667" />
+          <ConnectorPoint PointX="4.125" PointY="2.0285953776041667" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>

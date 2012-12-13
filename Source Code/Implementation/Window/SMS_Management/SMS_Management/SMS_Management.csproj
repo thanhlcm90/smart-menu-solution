@@ -100,8 +100,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Common.cs" />
-    <Compile Include="DataObject\OrderDTO.cs" />
+    <Compile Include="DataAccess\PayRepostitory.cs" />
     <Compile Include="DataAccess\OrderRepostitory.cs" />
+    <Compile Include="DataAccess\RepostitoryBase.cs" />
+    <Compile Include="DataObject\ChefDTO.cs" />
+    <Compile Include="DataObject\BillingDTO.cs" />
+    <Compile Include="DataObject\ProccessingDTO.cs" />
+    <Compile Include="DataObject\OrderDetailDTO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataObject\OrderDTO.cs" />
+    <Compile Include="DataAccess\ProccessRepostitory.cs" />
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
