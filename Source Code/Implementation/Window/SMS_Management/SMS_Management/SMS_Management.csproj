@@ -104,6 +104,7 @@
     <Compile Include="DataAccess\PayRepostitory.cs" />
     <Compile Include="DataAccess\OrderRepostitory.cs" />
     <Compile Include="DataAccess\RepostitoryBase.cs" />
+    <Compile Include="DataAccess\StatisticsRepository.cs" />
     <Compile Include="DataObject\ChefDTO.cs" />
     <Compile Include="DataObject\BillingDTO.cs" />
     <Compile Include="DataObject\DishDTO.cs" />
@@ -113,6 +114,7 @@
     </Compile>
     <Compile Include="DataObject\OrderDTO.cs" />
     <Compile Include="DataAccess\ProccessRepostitory.cs" />
+    <Compile Include="DataObject\StatisticsDayDTO.cs" />
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
     </Compile>

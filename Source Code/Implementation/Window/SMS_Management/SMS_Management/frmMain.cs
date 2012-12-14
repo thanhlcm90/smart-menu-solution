@@ -16,8 +16,10 @@ namespace SMS_Management
         delegate void SetgrvBillingDataSourceCallback(object lst);
         private Guid PKEY,PKEY1;
         private bool data_recieve = false;
-        string name, birthday, phone, diachi;
+        DateTime birthday;
+        string name, phone, diachi;
         SMSRepostitory rep = new SMSRepostitory();
+        StatisticsRepository StaRep = new StatisticsRepository();
         List<OrderDTO> lstor = new List<OrderDTO>();
         public frmMain()
         {
@@ -40,6 +42,7 @@ namespace SMS_Management
             grvProccessFinish.AutoGenerateColumns = false;
             grvBilling.AutoGenerateColumns = false;
             refreshgrvOrder();
+            panel3.Enabled = false;
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -292,30 +295,24 @@ namespace SMS_Management
        
         private void BindDataNhanVien()
         {
+            
             if (qlnhanvienGridView.SelectedRows.Count == 0) return;
             PKEY = new Guid(qlnhanvienGridView.SelectedRows[0].Cells["Id"].Value.ToString());
             name = qlnhanvienGridView.SelectedRows[0].Cells["NAME"].Value.ToString();
-           // birthday = qlnhanvienGridView.SelectedRows[0].Cells["BIRTHDAY"].ToString("MMMM dd, yyyy") + ".");
+            birthday = DateTime.Parse(qlnhanvienGridView.SelectedRows[0].Cells["BIRTHDAY"].Value.ToString());
             phone = qlnhanvienGridView.SelectedRows[0].Cells["PHONE"].Value.ToString();
-           // diachi = qlnhanvienGridView.SelectedRows[0].Cells["ADDRESS"].Value.ToString();
-            diachi="alo";
+            diachi = qlnhanvienGridView.SelectedRows[0].Cells["ADDRESS"].Value.ToString();
         }
 
 
         private void nhanvienADD_Click(object sender, EventArgs e)
         {
-         ////  BindDataNhanVien();
-         //   ChiTietThongTinNhanVien show = new ChiTietThongTinNhanVien(null, null, null, null, PKEY, FormStateType.New);
-         //   show.Show();
-
-            using (ChiTietThongTinNhanVien chitietthongtinnhanvien = new ChiTietThongTinNhanVien(null, null, null, null, PKEY, FormStateType.New))
-            {
-                if (chitietthongtinnhanvien.ShowDialog(this.ParentForm) == DialogResult.OK)
-                {
-
-                    LoadDataNhanVien();
-                }
-            }
+            panel4.Enabled = true;
+            FormState = FormStateType.New;
+            textBox9.Text = "";
+            dateTimePicker2.Text = "";
+            textBox8.Text = "";
+            textBox6.Text = "";
           
         }
 
@@ -336,17 +333,16 @@ namespace SMS_Management
 
         private void nhanvienEDIT_click(object sender, EventArgs e)
         {
-            //BindDataNhanVien();
-            //ChiTietThongTinNhanVien show = new ChiTietThongTinNhanVien(name, birthday, phone, diachi, PKEY, FormStateType.Edit);
-            //show.Show();
-            using (ChiTietThongTinNhanVien chitietthongtinnhanvien = new ChiTietThongTinNhanVien(name, birthday, phone, diachi, PKEY, FormStateType.Edit))
-            {
-                if (chitietthongtinnhanvien.ShowDialog(this.ParentForm) == DialogResult.OK)
-                {
+            BindDataNhanVien();
 
-                    LoadDataNhanVien();
-                }
-            }
+            
+            panel4.Enabled = true;
+            FormState = FormStateType.Edit;
+            textBox9.Text = name;
+            dateTimePicker2.Value = birthday;
+            textBox8.Text = phone;
+            textBox6.Text = diachi;
+           
         }
         //tab dau bep
         private void BindDataDauBep()
@@ -354,10 +350,10 @@ namespace SMS_Management
             if (qldaubepGridView.SelectedRows.Count == 0) return;
             PKEY = new Guid(qldaubepGridView.SelectedRows[0].Cells["Id"].Value.ToString());
             name = qldaubepGridView.SelectedRows[0].Cells["NAME"].Value.ToString();
-           // birthday = qldaubepGridView.SelectedRows[0].Cells["BIRTHDAY"].Value.ToString();
+            birthday = DateTime.Parse(qldaubepGridView.SelectedRows[0].Cells["BIRTHDAY"].Value.ToString());
             phone = qldaubepGridView.SelectedRows[0].Cells["PHONE"].Value.ToString();
-            // diachi = qlnhanvienGridView.SelectedRows[0].Cells["ADDRESS"].Value.ToString();
-            diachi = "alo";
+            diachi = qldaubepGridView.SelectedRows[0].Cells["ADDRESS"].Value.ToString();
+           
         }
          void LoadDataDauBep()
         {
@@ -367,18 +363,12 @@ namespace SMS_Management
 
         private void daubepADDbt_Click(object sender, EventArgs e)
         {
-            //ChiTietThongTinDauBep show = new ChiTietThongTinDauBep(null, null, null, null, PKEY, FormStateType.New);
-            //show.Show();
-            using (ChiTietThongTinDauBep ChiTietThongTinDauBep = new ChiTietThongTinDauBep(null, null, null, null, PKEY, FormStateType.New))
-            {
-                if (ChiTietThongTinDauBep.ShowDialog(this.ParentForm) == DialogResult.OK)
-                {
-
-                    LoadDataDauBep();
-                }
-            }
-           
-
+            panel3.Enabled = true;
+            FormState = FormStateType.New;
+            textBox7.Text = "";
+            dateTimePicker1.Text = "";
+            textBox5.Text = "";
+            textBox4.Text = "";
         }
 
         private void daubepDELETEbt_Click(object sender, EventArgs e)
@@ -398,16 +388,23 @@ namespace SMS_Management
         private void daubepEDITbt_Click(object sender, EventArgs e)
         {
             BindDataDauBep();
-            //ChiTietThongTinDauBep show = new ChiTietThongTinDauBep(name, birthday, phone, diachi, PKEY, FormStateType.Edit);
-            //show.Show();
-            using (ChiTietThongTinDauBep ChiTietThongTinDauBep = new ChiTietThongTinDauBep(name, birthday, phone, diachi, PKEY, FormStateType.Edit))
-            {
-                if (ChiTietThongTinDauBep.ShowDialog(this.ParentForm) == DialogResult.OK)
-                {
+            panel3.Enabled = true;
+            FormState = FormStateType.Edit;
+            textBox7.Text = name;
+            dateTimePicker1.Value = birthday;
+            textBox5.Text = phone;
+            textBox4.Text = diachi;
 
-                    LoadDataDauBep();
-                }
-            }
+            ////ChiTietThongTinDauBep show = new ChiTietThongTinDauBep(name, birthday, phone, diachi, PKEY, FormStateType.Edit);
+            ////show.Show();
+            //using (ChiTietThongTinDauBep ChiTietThongTinDauBep = new ChiTietThongTinDauBep(name, birthday, phone, diachi, PKEY, FormStateType.Edit))
+            //{
+            //    if (ChiTietThongTinDauBep.ShowDialog(this.ParentForm) == DialogResult.OK)
+            //    {
+
+            //        LoadDataDauBep();
+            //    }
+            //}
         }
 
         //tab ban an
@@ -646,6 +643,86 @@ namespace SMS_Management
                 }
             }
             refreshgrvOrder();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            BindDataDauBep();
+            SMSRepostitory rep = new SMSRepostitory();
+            CHEF_INFO dt = new CHEF_INFO();
+            if (FormState == FormBase.FormStateType.New)
+            {
+                dt.NAME = textBox7.Text.Trim();
+                dt.BIRTHDAY = dateTimePicker1.Value;
+                dt.ADDRESS = textBox4.Text.Trim();
+                dt.PHONE = textBox5.Text.Trim();
+
+
+                rep.InsertCheft(dt);
+            }
+            else if (FormState == FormBase.FormStateType.Edit)
+            {
+                dt.Id = PKEY;
+                dt.NAME = textBox7.Text.Trim();
+                dt.BIRTHDAY = dateTimePicker1.Value;
+                dt.ADDRESS = textBox4.Text.Trim();
+                dt.PHONE = textBox5.Text.Trim();
+                rep.UpdateChef(dt);
+            }
+            FormState = FormBase.FormStateType.Normal;
+            LoadDataDauBep();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            panel3.Enabled = false;
+            FormState = FormBase.FormStateType.Normal;
+            textBox7.Text = "";
+            textBox5.Text = "";
+            textBox4.Text = "";
+        }
+
+        private void qldaubepGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BindDataDauBep();
+            textBox7.Text = name;
+            dateTimePicker1.Value = birthday;
+            textBox5.Text = phone;
+            textBox4.Text = diachi;
+
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            BindDataNhanVien();
+            SMSRepostitory rep = new SMSRepostitory();
+            WAITER_INFO dt = new WAITER_INFO();
+            if (FormState == FormBase.FormStateType.New)
+            {
+                dt.NAME = textBox9.Text.Trim();
+                dt.BIRTHDAY = dateTimePicker2.Value;
+                dt.ADDRESS = textBox8.Text.Trim();
+                dt.PHONE = textBox6.Text.Trim();
+
+
+                rep.InsertWaiter(dt);
+            }
+            else if (FormState == FormBase.FormStateType.Edit)
+            {
+                dt.Id = PKEY;
+                dt.NAME = textBox9.Text.Trim();
+                dt.BIRTHDAY = dateTimePicker2.Value;
+                dt.ADDRESS = textBox8.Text.Trim();
+                dt.PHONE = textBox6.Text.Trim();
+                rep.UpdateWaiter(dt);
+            }
+            FormState = FormBase.FormStateType.Normal;
+           LoadDataNhanVien();
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            thongkeGridView1.DataSource = StaRep.getStatisticsbyDay();
         }
     
     }
