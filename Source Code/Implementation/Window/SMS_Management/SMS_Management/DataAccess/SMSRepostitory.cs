@@ -345,6 +345,22 @@ namespace SMS_Management
         }
         //them moi 1 ban
         public Boolean InsertTable(TABLES_INFO lst)
+        {
+            try
+            {
+                TABLES_INFO query = (from p in Context.TABLES_INFO where p.Id == lst.Id select p).SingleOrDefault();
+                query.NAME = lst.NAME;
+                query.CODE = lst.CODE;
+                query.WAITER_ID = lst.WAITER_ID;
+
+                Context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
             //cap nhat 1 ban
         public Boolean UpdateTable(TABLES_INFO lst)
         {
