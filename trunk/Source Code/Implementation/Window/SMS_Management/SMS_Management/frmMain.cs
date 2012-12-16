@@ -803,6 +803,35 @@ namespace SMS_Management
            // LoadDataThucDonMau();
             LoadDataMonAn();
         }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            panel5.Enabled = false;
+            textBox10.Text = "";
+            textBox11.Text = "";
+            textBox12.Text = "";
+            textBox13.Text = "";
+            FormState = FormBase.FormStateType.Normal;
+
+        }
+
+        private void thucdonCANCELbt_Click(object sender, EventArgs e)
+        {
+            panel1.Enabled = false;
+            FormState = FormBase.FormStateType.Normal;
+            textBox1.Text = "";
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+
+            panel4.Enabled = false;
+            FormState = FormBase.FormStateType.Normal;
+            textBox9.Text = "";
+            dateTimePicker2.Text = "";
+            textBox8.Text = "";
+            textBox6.Text = "";
+        }
     
     }
 }

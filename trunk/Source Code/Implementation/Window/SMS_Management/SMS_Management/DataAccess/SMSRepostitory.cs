@@ -267,6 +267,7 @@ namespace SMS_Management
                 throw ex;
             }
         }
+        //lay danh sach ten nhan vien
         public List<string> GetWaiterNameList()
         {
             try
@@ -285,6 +286,7 @@ namespace SMS_Management
                 throw ex;
             }
         }
+        //timf ID nhan vien khi biet ten
         public Guid GetWaiterNameID(string name)
         {
             try
@@ -303,7 +305,7 @@ namespace SMS_Management
                 throw ex;
             }
         }
-
+        //tim ID ban` an khi biet ten
         public Guid GetTableID(string name)
         {
             try
@@ -323,7 +325,7 @@ namespace SMS_Management
             }
         }
 
-
+        //lay danh sach thong tin ban an
         public List<TABLES_INFO> GetTableInfo()
         {
             try
@@ -341,20 +343,9 @@ namespace SMS_Management
                 throw ex;
             }
         }
+        //them moi 1 ban
         public Boolean InsertTable(TABLES_INFO lst)
-        {
-            try
-            {
-                lst.Id = Guid.NewGuid();
-                Context.TABLES_INFO.AddObject(lst);
-                Context.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+            //cap nhat 1 ban
         public Boolean UpdateTable(TABLES_INFO lst)
         {
             try
@@ -372,6 +363,7 @@ namespace SMS_Management
                 throw ex;
             }
         }
+        //xoa 1 ban an
         public Boolean DeleteTable(Guid IDs)
         {
             try
