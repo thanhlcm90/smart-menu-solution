@@ -832,6 +832,11 @@ namespace SMS_Management
             textBox8.Text = "";
             textBox6.Text = "";
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     
     }
 }
