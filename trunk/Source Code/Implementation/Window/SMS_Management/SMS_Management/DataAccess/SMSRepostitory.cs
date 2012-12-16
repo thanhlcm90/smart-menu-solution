@@ -348,10 +348,12 @@ namespace SMS_Management
         {
             try
             {
-                TABLES_INFO query = (from p in Context.TABLES_INFO where p.Id == lst.Id select p).SingleOrDefault();
-                query.NAME = lst.NAME;
-                query.CODE = lst.CODE;
-                query.WAITER_ID = lst.WAITER_ID;
+                lst.Id = Guid.NewGuid();
+                lst.NAME = lst.NAME;
+                lst.CODE = lst.CODE;
+                lst.WAITER_ID = lst.WAITER_ID;
+                Context.TABLES_INFO.AddObject(lst);
+                Context.SaveChanges();
 
                 Context.SaveChanges();
                 return true;
