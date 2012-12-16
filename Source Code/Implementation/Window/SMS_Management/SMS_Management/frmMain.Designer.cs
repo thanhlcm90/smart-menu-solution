@@ -94,6 +94,17 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -158,17 +169,6 @@
             this.bananEDITbt = new System.Windows.Forms.Button();
             this.bananDELETEbt = new System.Windows.Forms.Button();
             this.bananADDbt = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grvOrder)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -182,6 +182,7 @@
             this.tabPage5.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataThucdonGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qlmonanGridView)).BeginInit();
             this.tabPage7.SuspendLayout();
@@ -196,7 +197,6 @@
             this.tabPage10.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qlbananGridView)).BeginInit();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // comConnection1
@@ -864,6 +864,108 @@
             this.tabPage6.Text = "Quản lý món ăn";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.button23);
+            this.panel5.Controls.Add(this.button24);
+            this.panel5.Controls.Add(this.label20);
+            this.panel5.Controls.Add(this.textBox11);
+            this.panel5.Controls.Add(this.textBox13);
+            this.panel5.Controls.Add(this.textBox10);
+            this.panel5.Controls.Add(this.label21);
+            this.panel5.Controls.Add(this.label19);
+            this.panel5.Controls.Add(this.textBox12);
+            this.panel5.Controls.Add(this.label18);
+            this.panel5.Location = new System.Drawing.Point(181, 60);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(465, 82);
+            this.panel5.TabIndex = 15;
+            // 
+            // button23
+            // 
+            this.button23.BackgroundImage = global::SMS_Management.Properties.Resources.cancel;
+            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button23.Location = new System.Drawing.Point(374, 51);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(75, 23);
+            this.button23.TabIndex = 16;
+            this.button23.UseVisualStyleBackColor = true;
+            // 
+            // button24
+            // 
+            this.button24.BackgroundImage = global::SMS_Management.Properties.Resources.save;
+            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button24.Location = new System.Drawing.Point(374, 12);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(75, 23);
+            this.button24.TabIndex = 17;
+            this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(195, 19);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(55, 17);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Tên TA";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(87, 52);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 22);
+            this.textBox11.TabIndex = 12;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(255, 52);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(100, 22);
+            this.textBox13.TabIndex = 14;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(87, 15);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 22);
+            this.textBox10.TabIndex = 11;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(195, 51);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(57, 17);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "Đơn giá";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(4, 54);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(55, 17);
+            this.label19.TabIndex = 8;
+            this.label19.Text = "Tên TV";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(255, 16);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(100, 22);
+            this.textBox12.TabIndex = 13;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(4, 18);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(78, 17);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "Mã món ăn";
+            // 
             // button8
             // 
             this.button8.Image = global::SMS_Management.Properties.Resources.edit;
@@ -873,6 +975,7 @@
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 6;
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -883,6 +986,7 @@
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 5;
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -933,6 +1037,7 @@
             this.qlmonanGridView.RowTemplate.Height = 24;
             this.qlmonanGridView.Size = new System.Drawing.Size(465, 168);
             this.qlmonanGridView.TabIndex = 0;
+            this.qlmonanGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.qlmonanGridView_CellClick);
             // 
             // tabPage7
             // 
@@ -1529,107 +1634,6 @@
             this.bananADDbt.UseVisualStyleBackColor = true;
             this.bananADDbt.Click += new System.EventHandler(this.bananADDbt_Click);
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(4, 18);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(78, 17);
-            this.label18.TabIndex = 7;
-            this.label18.Text = "Mã món ăn";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(4, 54);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(55, 17);
-            this.label19.TabIndex = 8;
-            this.label19.Text = "Tên TV";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(195, 19);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(55, 17);
-            this.label20.TabIndex = 9;
-            this.label20.Text = "Tên TA";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(195, 51);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(57, 17);
-            this.label21.TabIndex = 10;
-            this.label21.Text = "Đơn giá";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(87, 15);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 22);
-            this.textBox10.TabIndex = 11;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(87, 52);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 22);
-            this.textBox11.TabIndex = 12;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(255, 16);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 22);
-            this.textBox12.TabIndex = 13;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(255, 52);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 22);
-            this.textBox13.TabIndex = 14;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.button23);
-            this.panel5.Controls.Add(this.button24);
-            this.panel5.Controls.Add(this.label20);
-            this.panel5.Controls.Add(this.textBox11);
-            this.panel5.Controls.Add(this.textBox13);
-            this.panel5.Controls.Add(this.textBox10);
-            this.panel5.Controls.Add(this.label21);
-            this.panel5.Controls.Add(this.label19);
-            this.panel5.Controls.Add(this.textBox12);
-            this.panel5.Controls.Add(this.label18);
-            this.panel5.Location = new System.Drawing.Point(181, 60);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(465, 82);
-            this.panel5.TabIndex = 15;
-            // 
-            // button23
-            // 
-            this.button23.BackgroundImage = global::SMS_Management.Properties.Resources.cancel;
-            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button23.Location = new System.Drawing.Point(374, 51);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(75, 23);
-            this.button23.TabIndex = 16;
-            this.button23.UseVisualStyleBackColor = true;
-            // 
-            // button24
-            // 
-            this.button24.BackgroundImage = global::SMS_Management.Properties.Resources.save;
-            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button24.Location = new System.Drawing.Point(374, 12);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(75, 23);
-            this.button24.TabIndex = 17;
-            this.button24.UseVisualStyleBackColor = true;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1660,6 +1664,8 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataThucdonGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qlmonanGridView)).EndInit();
             this.tabPage7.ResumeLayout(false);
@@ -1678,8 +1684,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qlbananGridView)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }

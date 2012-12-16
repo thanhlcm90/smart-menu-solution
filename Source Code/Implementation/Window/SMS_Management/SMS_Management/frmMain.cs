@@ -17,7 +17,9 @@ namespace SMS_Management
         private Guid PKEY,PKEY1;
         private bool data_recieve = false;
         DateTime birthday;
-        string name, phone, diachi;
+        string name, phone, diachi,name_vn,name_en;
+        int code;
+        decimal price;
         SMSRepostitory rep = new SMSRepostitory();
         StatisticsRepository StaRep = new StatisticsRepository();
         List<OrderDTO> lstor = new List<OrderDTO>();
@@ -43,6 +45,8 @@ namespace SMS_Management
             grvBilling.AutoGenerateColumns = false;
             refreshgrvOrder();
             panel3.Enabled = false;
+            panel4.Enabled = false;
+            panel5.Enabled = false;
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -377,9 +381,6 @@ namespace SMS_Management
             if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
                 BindDataDauBep();
-                
-               
-               
                 rep.DeleteChef(PKEY);
                 LoadDataDauBep();
             }
@@ -395,16 +396,6 @@ namespace SMS_Management
             textBox5.Text = phone;
             textBox4.Text = diachi;
 
-            ////ChiTietThongTinDauBep show = new ChiTietThongTinDauBep(name, birthday, phone, diachi, PKEY, FormStateType.Edit);
-            ////show.Show();
-            //using (ChiTietThongTinDauBep ChiTietThongTinDauBep = new ChiTietThongTinDauBep(name, birthday, phone, diachi, PKEY, FormStateType.Edit))
-            //{
-            //    if (ChiTietThongTinDauBep.ShowDialog(this.ParentForm) == DialogResult.OK)
-            //    {
-
-            //        LoadDataDauBep();
-            //    }
-            //}
         }
 
         //tab ban an
@@ -418,16 +409,14 @@ namespace SMS_Management
             if (qlbananGridView.SelectedRows.Count == 0) return;
             PKEY = new Guid(qlbananGridView.SelectedRows[0].Cells["Id"].Value.ToString());
             name = qlbananGridView.SelectedRows[0].Cells["NAME"].Value.ToString();
-            // birthday = qlnhanvienGridView.SelectedRows[0].Cells["BIRTHDAY"].ToString("MMMM dd, yyyy") + ".");
+          
             phone = qlbananGridView.SelectedRows[0].Cells["CODE"].Value.ToString();
             PKEY1 = new Guid(qlbananGridView.SelectedRows[0].Cells["WAITER_ID"].Value.ToString());
             
             WAITER_INFO nameW = rep.GetWaterName(PKEY1);
             diachi = nameW.NAME.ToString();
             
-           // diachi = qlbananGridView.SelectedRows[0].Cells["WAITER_ID"].Value.ToString();
-          
-            // diachi = "alo";
+        
         }
 
         private void dataThucdonGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -727,7 +716,92 @@ namespace SMS_Management
 
         private void button6_Click(object sender, EventArgs e)
         {
+            panel5.Enabled = true;
+            textBox10.Text = "";
+            textBox11.Text = "";
+            textBox12.Text = "";
+            textBox13.Text = "";
+            FormState = FormBase.FormStateType.New;
 
+        }
+        private void BindDataMonAn()
+        {
+            if (qlmonanGridView.SelectedRows.Count == 0) return;
+            PKEY = new Guid(qlmonanGridView.SelectedRows[0].Cells["Id"].Value.ToString());
+            name = qlmonanGridView.SelectedRows[0].Cells["NAME_VN"].Value.ToString();
+            code = int.Parse(qlmonanGridView.SelectedRows[0].Cells["CODE"].Value.ToString());
+            price = decimal.Parse(qlmonanGridView.SelectedRows[0].Cells["PRICE"].Value.ToString());
+            name_vn = qlmonanGridView.SelectedRows[0].Cells["NAME_VN"].Value.ToString();
+            name_en = qlmonanGridView.SelectedRows[0].Cells["NAME_EN"].Value.ToString();
+            if (qlmonanGridView.SelectedRows.Count == 0)
+            {
+                PKEY1 = new Guid(dataThucdonGridView1.SelectedRows[0].Cells["id"].Value.ToString());
+            }
+            else
+            PKEY1 = new Guid(qlmonanGridView.SelectedRows[0].Cells["DISHTYPE_ID"].Value.ToString());
+               
+               
+               
+               
+        }
+        private void qlmonanGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BindDataMonAn();
+            textBox10.Text = code.ToString();
+            textBox11.Text = name_vn.ToString();
+            textBox12.Text = name_en.ToString();
+            textBox13.Text = price.ToString();
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            BindDataMonAn();
+            if (PKEY == null) { MessageBox.Show("Bạn chưa chọn đối tượng nào", "Cảnh báo"); }
+            if (MessageBox.Show("Bạn có chắc muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                rep.DeleteDish(PKEY);
+               // LoadDataThucDonMau();
+                LoadDataMonAn();
+            }
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            BindDataMonAn();
+            panel5.Enabled = true;
+            FormState = FormBase.FormStateType.Edit;
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            BindDataMonAn();
+            SMSRepostitory rep = new SMSRepostitory();
+            DISH dt = new DISH();
+            if (FormState == FormBase.FormStateType.New)
+            {
+                dt.CODE = int.Parse(textBox10.Text);
+                dt.NAME_VN = textBox11.Text;
+                dt.NAME_EN = textBox12.Text;
+                dt.PRICE = decimal.Parse(textBox13.Text);
+                dt.DISHTYPE_ID = PKEY1;
+
+                rep.InsertDish(dt);
+            }
+            else if (FormState == FormBase.FormStateType.Edit)
+            {
+                dt.Id = PKEY;
+                dt.CODE = int.Parse(textBox10.Text);
+                dt.NAME_VN = textBox11.Text;
+                dt.NAME_EN = textBox12.Text;
+                dt.PRICE = decimal.Parse(textBox13.Text);
+                dt.DISHTYPE_ID = PKEY1;
+                rep.UpdateDish(dt);
+            }
+            FormState = FormBase.FormStateType.Normal;
+           // LoadDataThucDonMau();
+            LoadDataMonAn();
         }
     
     }
