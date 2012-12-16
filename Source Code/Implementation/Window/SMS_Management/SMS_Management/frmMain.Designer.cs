@@ -890,6 +890,7 @@
             this.button23.Size = new System.Drawing.Size(75, 23);
             this.button23.TabIndex = 16;
             this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
             // button24
             // 
@@ -1079,6 +1080,7 @@
             this.thucdonCANCELbt.Size = new System.Drawing.Size(75, 23);
             this.thucdonCANCELbt.TabIndex = 5;
             this.thucdonCANCELbt.UseVisualStyleBackColor = true;
+            this.thucdonCANCELbt.Click += new System.EventHandler(this.thucdonCANCELbt_Click);
             // 
             // thucdonEDITbt
             // 
@@ -1213,6 +1215,7 @@
             this.button18.TabIndex = 26;
             this.button18.Text = "Hủy";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // textBox6
             // 
