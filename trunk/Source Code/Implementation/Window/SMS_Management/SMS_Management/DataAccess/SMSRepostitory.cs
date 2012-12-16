@@ -388,5 +388,61 @@ namespace SMS_Management
                 throw ex;
             }
         }
+
+
+  
+        //Cập nhập loại món ăn vào danh sách
+        public Boolean UpdateDish(DISH lst)
+        {
+            try
+            {
+                DISH query = (from p in Context.DISH where p.Id == lst.Id select p).SingleOrDefault();
+                query.NAME_VN = lst.NAME_VN;
+                query.NAME_EN = lst.NAME_EN;
+                query.CODE = lst.CODE;
+                query.DISHTYPE_ID = lst.DISHTYPE_ID;
+                query.PRICE = lst.PRICE;
+                Context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //Thêm loại món ăn vào danh sách
+        public Boolean InsertDish(DISH lst)
+        {
+            try
+            {
+                lst.Id = Guid.NewGuid();
+                Context.DISH.AddObject(lst);
+                Context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //Xóa loại món ăn khỏi danh sách
+        public Boolean DeleteDish(Guid IDs)
+        {
+            try
+            {
+                DISH query = (from p in Context.DISH where p.Id == IDs select p).SingleOrDefault();
+
+                Context.DISH.DeleteObject(query);
+
+                Context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
 }
