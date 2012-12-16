@@ -724,6 +724,11 @@ namespace SMS_Management
         {
             thongkeGridView1.DataSource = StaRep.getStatisticsbyDay();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
     
     }
 }

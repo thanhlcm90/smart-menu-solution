@@ -158,6 +158,17 @@
             this.bananEDITbt = new System.Windows.Forms.Button();
             this.bananDELETEbt = new System.Windows.Forms.Button();
             this.bananADDbt = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grvOrder)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -185,6 +196,7 @@
             this.tabPage10.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qlbananGridView)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // comConnection1
@@ -835,6 +847,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.panel5);
             this.tabPage6.Controls.Add(this.button8);
             this.tabPage6.Controls.Add(this.button7);
             this.tabPage6.Controls.Add(this.button6);
@@ -880,11 +893,12 @@
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 4;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 44);
+            this.label4.Location = new System.Drawing.Point(208, 145);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(222, 17);
             this.label4.TabIndex = 3;
@@ -893,7 +907,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(499, 44);
+            this.label3.Location = new System.Drawing.Point(7, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 17);
             this.label3.TabIndex = 2;
@@ -902,22 +916,22 @@
             // dataThucdonGridView1
             // 
             this.dataThucdonGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataThucdonGridView1.Location = new System.Drawing.Point(501, 66);
+            this.dataThucdonGridView1.Location = new System.Drawing.Point(7, 79);
             this.dataThucdonGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataThucdonGridView1.Name = "dataThucdonGridView1";
             this.dataThucdonGridView1.RowTemplate.Height = 24;
-            this.dataThucdonGridView1.Size = new System.Drawing.Size(148, 266);
+            this.dataThucdonGridView1.Size = new System.Drawing.Size(148, 253);
             this.dataThucdonGridView1.TabIndex = 1;
             this.dataThucdonGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataThucdonGridView1_CellClick);
             // 
             // qlmonanGridView
             // 
             this.qlmonanGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.qlmonanGridView.Location = new System.Drawing.Point(24, 66);
+            this.qlmonanGridView.Location = new System.Drawing.Point(181, 163);
             this.qlmonanGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.qlmonanGridView.Name = "qlmonanGridView";
             this.qlmonanGridView.RowTemplate.Height = 24;
-            this.qlmonanGridView.Size = new System.Drawing.Size(428, 270);
+            this.qlmonanGridView.Size = new System.Drawing.Size(465, 168);
             this.qlmonanGridView.TabIndex = 0;
             // 
             // tabPage7
@@ -1032,7 +1046,7 @@
             this.qlthucdonGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.qlthucdonGridView.Name = "qlthucdonGridView";
             this.qlthucdonGridView.RowTemplate.Height = 24;
-            this.qlthucdonGridView.Size = new System.Drawing.Size(700, 249);
+            this.qlthucdonGridView.Size = new System.Drawing.Size(641, 249);
             this.qlthucdonGridView.TabIndex = 0;
             this.qlthucdonGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.qlthucdonGridView_CellClick);
             // 
@@ -1078,7 +1092,7 @@
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(402, 28);
+            this.button17.Location = new System.Drawing.Point(402, 72);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(75, 23);
             this.button17.TabIndex = 27;
@@ -1088,7 +1102,7 @@
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(402, 83);
+            this.button18.Location = new System.Drawing.Point(402, 25);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(75, 23);
             this.button18.TabIndex = 26;
@@ -1192,7 +1206,7 @@
             this.qlnhanvienGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.qlnhanvienGridView.Name = "qlnhanvienGridView";
             this.qlnhanvienGridView.RowTemplate.Height = 24;
-            this.qlnhanvienGridView.Size = new System.Drawing.Size(891, 152);
+            this.qlnhanvienGridView.Size = new System.Drawing.Size(548, 152);
             this.qlnhanvienGridView.TabIndex = 0;
             // 
             // tabPage9
@@ -1237,7 +1251,7 @@
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(402, 28);
+            this.button15.Location = new System.Drawing.Point(404, 82);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(75, 23);
             this.button15.TabIndex = 27;
@@ -1247,7 +1261,7 @@
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(402, 83);
+            this.button16.Location = new System.Drawing.Point(404, 38);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(75, 23);
             this.button16.TabIndex = 26;
@@ -1352,7 +1366,7 @@
             this.qldaubepGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.qldaubepGridView.Name = "qldaubepGridView";
             this.qldaubepGridView.RowTemplate.Height = 24;
-            this.qldaubepGridView.Size = new System.Drawing.Size(893, 120);
+            this.qldaubepGridView.Size = new System.Drawing.Size(541, 120);
             this.qldaubepGridView.TabIndex = 0;
             this.qldaubepGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.qldaubepGridView_CellClick);
             // 
@@ -1452,11 +1466,11 @@
             // qlbananGridView
             // 
             this.qlbananGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.qlbananGridView.Location = new System.Drawing.Point(0, 71);
+            this.qlbananGridView.Location = new System.Drawing.Point(0, 85);
             this.qlbananGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.qlbananGridView.Name = "qlbananGridView";
             this.qlbananGridView.RowTemplate.Height = 24;
-            this.qlbananGridView.Size = new System.Drawing.Size(891, 265);
+            this.qlbananGridView.Size = new System.Drawing.Size(658, 251);
             this.qlbananGridView.TabIndex = 0;
             this.qlbananGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.qlbananGridView_CellClick);
             // 
@@ -1515,6 +1529,107 @@
             this.bananADDbt.UseVisualStyleBackColor = true;
             this.bananADDbt.Click += new System.EventHandler(this.bananADDbt_Click);
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(4, 18);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(78, 17);
+            this.label18.TabIndex = 7;
+            this.label18.Text = "Mã món ăn";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(4, 54);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(55, 17);
+            this.label19.TabIndex = 8;
+            this.label19.Text = "Tên TV";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(195, 19);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(55, 17);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Tên TA";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(195, 51);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(57, 17);
+            this.label21.TabIndex = 10;
+            this.label21.Text = "Đơn giá";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(87, 15);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 22);
+            this.textBox10.TabIndex = 11;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(87, 52);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 22);
+            this.textBox11.TabIndex = 12;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(255, 16);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(100, 22);
+            this.textBox12.TabIndex = 13;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(255, 52);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(100, 22);
+            this.textBox13.TabIndex = 14;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.button23);
+            this.panel5.Controls.Add(this.button24);
+            this.panel5.Controls.Add(this.label20);
+            this.panel5.Controls.Add(this.textBox11);
+            this.panel5.Controls.Add(this.textBox13);
+            this.panel5.Controls.Add(this.textBox10);
+            this.panel5.Controls.Add(this.label21);
+            this.panel5.Controls.Add(this.label19);
+            this.panel5.Controls.Add(this.textBox12);
+            this.panel5.Controls.Add(this.label18);
+            this.panel5.Location = new System.Drawing.Point(181, 60);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(465, 82);
+            this.panel5.TabIndex = 15;
+            // 
+            // button23
+            // 
+            this.button23.BackgroundImage = global::SMS_Management.Properties.Resources.cancel;
+            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button23.Location = new System.Drawing.Point(374, 51);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(75, 23);
+            this.button23.TabIndex = 16;
+            this.button23.UseVisualStyleBackColor = true;
+            // 
+            // button24
+            // 
+            this.button24.BackgroundImage = global::SMS_Management.Properties.Resources.save;
+            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button24.Location = new System.Drawing.Point(374, 12);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(75, 23);
+            this.button24.TabIndex = 17;
+            this.button24.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1563,6 +1678,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qlbananGridView)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1710,5 +1827,16 @@
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.Label label18;
     }
 }
