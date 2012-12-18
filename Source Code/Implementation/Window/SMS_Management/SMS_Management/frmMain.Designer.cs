@@ -169,6 +169,7 @@
             this.bananEDITbt = new System.Windows.Forms.Button();
             this.bananDELETEbt = new System.Windows.Forms.Button();
             this.bananADDbt = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grvOrder)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -321,6 +322,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button25);
             this.tabPage1.Controls.Add(this.button9);
             this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.grvOrder);
@@ -1638,6 +1640,16 @@
             this.bananADDbt.UseVisualStyleBackColor = true;
             this.bananADDbt.Click += new System.EventHandler(this.bananADDbt_Click);
             // 
+            // button25
+            // 
+            this.button25.Location = new System.Drawing.Point(668, 19);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(170, 23);
+            this.button25.TabIndex = 7;
+            this.button25.Text = "téc bút tông";
+            this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1846,5 +1858,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button25;
     }
 }

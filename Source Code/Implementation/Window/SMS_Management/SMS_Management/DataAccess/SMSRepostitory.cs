@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SMS_Management.Database;
-
+using SMS_Management.DataObject;
 namespace SMS_Management
 {
     public class SMSRepostitory
@@ -113,17 +113,18 @@ namespace SMS_Management
        
         
         //Lấy danh sách các loại món ăn
-        public List<DISH_TYPE> GetDishType()
+        public List<DishTypeDTO> GetDishType()
         {
             try
             {
-           
-                var alo = from p in Context.DISH_TYPE
-                          select p;
+
+                List<DishTypeDTO> dis; 
+                dis = (from p in Context.DISH_TYPE 
+                          select new DishTypeDTO(){name= p.NAME}).ToList();
 
 
-                List<DISH_TYPE> y = alo.ToList();
-                return y;
+
+                return dis;
             }
             catch (Exception ex)
             {
