@@ -837,6 +837,12 @@ namespace SMS_Management
         {
 
         }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            OtionDishType form = new OtionDishType();
+            form.Show();
+        }
     
     }
 }
