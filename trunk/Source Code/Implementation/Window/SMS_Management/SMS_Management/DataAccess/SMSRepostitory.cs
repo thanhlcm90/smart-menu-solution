@@ -119,8 +119,8 @@ namespace SMS_Management
             {
 
                 List<DishTypeDTO> dis; 
-                dis = (from p in Context.DISH_TYPE 
-                          select new DishTypeDTO(){name= p.NAME}).ToList();
+                dis = (from p in Context.DISH_TYPE
+                       select new DishTypeDTO() { name = p.NAME, pkey = p.Id }).ToList();
 
 
 

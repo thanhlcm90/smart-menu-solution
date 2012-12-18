@@ -231,10 +231,10 @@ namespace SMS_Management
         }
         private void LoadDataThucDon()
         {
-            List<DISH_TYPE> lst = rep.GetDishType();
+           // List<DISH_TYPE> lst = rep.GetDishType();
 
 
-            qlthucdonGridView.DataSource = lst;
+           // qlthucdonGridView.DataSource = lst;
         }
    
 
