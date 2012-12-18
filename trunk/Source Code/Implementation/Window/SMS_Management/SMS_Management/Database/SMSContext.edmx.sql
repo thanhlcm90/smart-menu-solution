@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 12/14/2012 00:59:15
+-- Date Created: 12/18/2012 22:52:47
 -- Generated from EDMX file: D:\My Documents\Hoc tap\Do an\smart-menu-solution\Source Code\Implementation\Window\SMS_Management\SMS_Management\Database\SMSContext.edmx
 -- --------------------------------------------------
 
@@ -101,7 +101,7 @@ CREATE TABLE [dbo].[CHEF_INFO] (
     [Id] uniqueidentifier  NOT NULL,
     [NAME] nvarchar(255)  NOT NULL,
     [BIRTHDAY] datetime  NULL,
-    [PHONE] nchar(15)  NULL,
+    [PHONE] nvarchar(15)  NULL,
     [ADDRESS] nvarchar(255)  NULL
 );
 GO
@@ -154,7 +154,7 @@ CREATE TABLE [dbo].[WAITER_INFO] (
     [Id] uniqueidentifier  NOT NULL,
     [NAME] nvarchar(255)  NOT NULL,
     [BIRTHDAY] datetime  NULL,
-    [PHONE] nchar(15)  NULL,
+    [PHONE] nvarchar(15)  NULL,
     [ADDRESS] nvarchar(255)  NULL
 );
 GO

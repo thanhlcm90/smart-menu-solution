@@ -88,7 +88,7 @@ namespace SMS_Management
                            STATUS = p.STATUS,
                            AMOUNT = p.AMOUNT,
                            COMMENT=p.COMMENT,
-                           PRIORITY=p.PRIORITY 
+                           PRIORITY=p.PRIORITY-1 
                        }).ToList();
                 return lst;
             }
@@ -171,9 +171,9 @@ namespace SMS_Management
 
         public bool FinishProcessing(int priority)
         {
-            PROCESSING processing = (from p in Context.PROCESSING where p.PRIORITY == priority && p.STATUS == "Đang làm" select p).SingleOrDefault();
+            PROCESSING processing = (from p in Context.PROCESSING where p.PRIORITY-1 == priority && p.STATUS == "Đang làm" select p).SingleOrDefault();
             if (processing == null) return false;
-            List<PROCESSING> lst = (from p in Context.PROCESSING where p.PRIORITY > priority select p).ToList();
+            List<PROCESSING> lst = (from p in Context.PROCESSING where p.PRIORITY-1 > priority select p).ToList();
             for (int i = 0; i < lst.Count; i++)
             {
                 lst[i].PRIORITY--;
@@ -186,9 +186,9 @@ namespace SMS_Management
 
         public bool CancelProcessing(int priority)
         {
-            PROCESSING processing = (from p in Context.PROCESSING where p.PRIORITY == priority && p.STATUS == "Đang làm" select p).SingleOrDefault();
+            PROCESSING processing = (from p in Context.PROCESSING where p.PRIORITY-1 == priority && p.STATUS == "Đang làm" select p).SingleOrDefault();
             if (processing == null) return false;
-            List<PROCESSING> lst = (from p in Context.PROCESSING where p.PRIORITY > priority select p).ToList();
+            List<PROCESSING> lst = (from p in Context.PROCESSING where p.PRIORITY-1 > priority select p).ToList();
             for (int i = 0; i < lst.Count; i++)
             {
                 lst[i].PRIORITY--;

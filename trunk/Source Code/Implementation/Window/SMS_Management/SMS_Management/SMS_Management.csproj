@@ -77,6 +77,12 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2012.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.GridView, Version=2012.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.RadDock, Version=2012.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2012.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2012.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikCommon, Version=2012.2.608.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChiTietThongTinDauBep.cs">
@@ -108,7 +114,6 @@
     <Compile Include="DataObject\ChefDTO.cs" />
     <Compile Include="DataObject\BillingDTO.cs" />
     <Compile Include="DataObject\DishDTO.cs" />
-    <Compile Include="DataObject\DishTypeDTO.cs" />
     <Compile Include="DataObject\ProccessingDTO.cs" />
     <Compile Include="DataObject\OrderDetailDTO.cs">
       <SubType>Code</SubType>
@@ -119,6 +124,12 @@
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmBilling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBilling.Designer.cs">
+      <DependentUpon>frmBilling.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDishDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,11 +139,23 @@
     <Compile Include="frmDishType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OtionDishType.cs">
+    <Compile Include="frmKitchen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OtionDishType.Designer.cs">
-      <DependentUpon>OtionDishType.cs</DependentUpon>
+    <Compile Include="frmKitchen.Designer.cs">
+      <DependentUpon>frmKitchen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain2.Designer.cs">
+      <DependentUpon>frmMain2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrder.Designer.cs">
+      <DependentUpon>frmOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,15 +184,25 @@
     <EmbeddedResource Include="FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBilling.resx">
+      <DependentUpon>frmBilling.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDishDetail.resx">
       <DependentUpon>frmDishDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDishType.resx">
       <DependentUpon>frmDishType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OtionDishType.resx">
-      <DependentUpon>OtionDishType.cs</DependentUpon>
+    <EmbeddedResource Include="frmKitchen.resx">
+      <DependentUpon>frmKitchen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMain2.resx">
+      <DependentUpon>frmMain2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrder.resx">
+      <DependentUpon>frmOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -231,6 +264,7 @@
       <DependentUpon>SMS_Database.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\waiter.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\delete.png" />
