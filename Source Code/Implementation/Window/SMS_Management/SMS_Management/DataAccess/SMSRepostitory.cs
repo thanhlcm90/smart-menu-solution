@@ -113,24 +113,24 @@ namespace SMS_Management
        
         
         //Lấy danh sách các loại món ăn
-        public List<DishTypeDTO> GetDishType()
-        {
-            try
-            {
+        //public List<DishTypeDTO> GetDishType()
+        //{
+        //    try
+        //    {
 
-                List<DishTypeDTO> dis; 
-                dis = (from p in Context.DISH_TYPE
-                       select new DishTypeDTO() { name = p.NAME, pkey = p.Id }).ToList();
+        //        List<DishTypeDTO> dis; 
+        //        dis = (from p in Context.DISH_TYPE
+        //               select new DishTypeDTO() { name = p.NAME, pkey = p.Id }).ToList();
 
 
 
-                return dis;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //        return dis;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         //Cập nhập loại món ăn vào danh sách
         public Boolean UpdateDishType(DISH_TYPE lst)
         {

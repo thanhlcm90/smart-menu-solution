@@ -204,7 +204,7 @@ namespace SMS_Management
      //load data thuc don cho form mon an
         private void LoadDataThucDonMau() {
 
-            dataThucdonGridView1.DataSource = rep.GetDishType();
+            //dataThucdonGridView1.DataSource = rep.GetDishType();
         }
         private void LoadDataMonAn()
         {
@@ -799,8 +799,8 @@ namespace SMS_Management
 
         private void button25_Click(object sender, EventArgs e)
         {
-            OtionDishType form = new OtionDishType();
-            form.Show();
+            //OtionDishType form = new OtionDishType();
+            //form.Show();
         }
     
     }
