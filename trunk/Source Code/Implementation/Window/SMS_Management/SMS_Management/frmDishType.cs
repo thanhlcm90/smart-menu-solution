@@ -284,10 +284,10 @@ namespace SMS_Management
         //Lấy dữ liệu từ Database và đưa vào lưới dữ liệu
         private void LoadData()
         {
-            List<DISH_TYPE> lst;
-            SMSRepostitory rep = new SMSRepostitory();;
-            lst = rep.GetDishType();
-            grdData.DataSource = lst;
+            //List<DISH_TYPE> lst;
+            //SMSRepostitory rep = new SMSRepostitory();;
+            //lst = rep.GetDishType();
+            //grdData.DataSource = lst;
         }
 
         private void frmDishType_Load(object sender, EventArgs e)
