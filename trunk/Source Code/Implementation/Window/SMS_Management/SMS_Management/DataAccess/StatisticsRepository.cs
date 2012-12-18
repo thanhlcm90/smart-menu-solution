@@ -15,22 +15,23 @@ namespace SMS_Management
             try
             {
                 List<StatisticsDayDTO> lst;
-                lst = (from a in Context.BILLING.ToList()
-                       group a by a.SELL_DATE into listg
-                     
-
-                       select new StatisticsDayDTO() {Sell_date=listg.Key ,
-                                                         SumTable = listg.Count(),
-                                                        
-                                                    //  Total = (from b in Context.BILLING where b.SELL_DATE == listg.Key select b.MONEY).Sum(),
-
-                          
-                       
-                       
-                       
-                       
-                       
-                                                     }).ToList();
+                lst = (from a in Context.BILLING
+                       let k = new { 
+                           iDay = a.SELL_DATE.ToString("dd/MM/yyyy")
+                       }
+                       group a by k into listg
+                       select new StatisticsDayDTO()
+                       {
+                           Sell_date = listg.Key.iDay,
+                           Total = listg.Sum(k => k.MONEY),
+                           SumTable=listg.Count()
+                       }).ToList();
+                for (int i = 0; i < lst.Count; i++)
+                {
+                    lst[i].SumDish = (from p in Context.BILLING_DETAIL 
+                                      where p.BILLING.SELL_DATE.ToString("dd/MM/yyyy") == lst[i].Sell_date 
+                                      select p.AMOUNT).Sum();
+                }
                 return lst;
             }
             catch (Exception ex)
