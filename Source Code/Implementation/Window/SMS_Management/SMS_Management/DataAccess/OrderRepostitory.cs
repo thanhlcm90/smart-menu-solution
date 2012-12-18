@@ -47,6 +47,15 @@ namespace SMS_Management
             }
             return null;
         }
+
+        public string GetTableName(short table_code)
+        {
+            string strName = (from p in Context.TABLES_INFO
+                              where p.CODE == table_code
+                              select p.NAME).SingleOrDefault();
+            return strName;
+        }
+
         public List<OrderDTO> GetOrderList()
         {
             try
@@ -80,13 +89,14 @@ namespace SMS_Management
         }
 
         //Inserted ordered dishes
-        public Boolean InsertOrdered(OrderDetailDTO lst)
+        public Boolean InsertOrdered(List<OrderDetailDTO> lst, short table_code)
         {
             try
             {
+
                 ORDER order;
                 OrderDTO query = (from p in Context.ORDER
-                                  where p.TABLES_INFO.CODE == lst.TABLE_CODE
+                                  where p.TABLES_INFO.CODE == table_code
                                   select new OrderDTO()
                                   {
                                      ID=p.Id,
@@ -98,22 +108,25 @@ namespace SMS_Management
                     query = new OrderDTO();
                     order.Id = Guid.NewGuid();
                     query.ID = order.Id;
-                    Guid table_id = (from p in Context.TABLES_INFO where p.CODE == lst.TABLE_CODE select p.Id).SingleOrDefault();
+                    Guid table_id = (from p in Context.TABLES_INFO where p.CODE == table_code select p.Id).SingleOrDefault();
                     order.TABLE_ID = table_id;
                     order.ADD_TIME = DateTime.Now;
                     order.STATUS = "Chờ xác nhận";
                     query.STATUS = order.STATUS;
                     Context.ORDER.AddObject(order);
                 }
-                ORDER_DETAIL orderdtl= new ORDER_DETAIL();
-                orderdtl.Id = Guid.NewGuid();
-                orderdtl.AMOUNT = lst.AMOUNT;
-                ChefDTO chef = GetChefFree();
-                if (chef!=null) orderdtl.CHEF_ID= chef.ID;
-                orderdtl.DISH_ID=lst.DISH_ID;
-                orderdtl.ORDER_ID=query.ID;
-                orderdtl.STATUS="Chờ làm";
-                Context.ORDER_DETAIL.AddObject(orderdtl);
+                foreach (OrderDetailDTO item in lst)
+                {
+                    ORDER_DETAIL orderdtl = new ORDER_DETAIL();
+                    orderdtl.Id  = Guid.NewGuid();
+                    ChefDTO chef = GetChefFree();
+                    if (chef != null) orderdtl.CHEF_ID = chef.ID;
+                    orderdtl.AMOUNT = item.AMOUNT;
+                    orderdtl.DISH_ID = item.DISH_ID;
+                    orderdtl.ORDER_ID = query.ID;
+                    orderdtl.STATUS = "Chờ làm";
+                    Context.ORDER_DETAIL.AddObject(orderdtl);
+                }
                 Context.SaveChanges();
                 if (query.STATUS == "Đang làm")
                 {
@@ -127,7 +140,35 @@ namespace SMS_Management
                 throw ex;
             }
         }
-            
+
+        //Cancel ordered dishes
+        public Boolean CancelOrdered(OrderDetailDTO lst)
+        {
+            try
+            {
+                ORDER_DETAIL query = (from p in Context.ORDER_DETAIL
+                                  where p.ORDER.TABLES_INFO.CODE == lst.TABLE_CODE &&
+                                  p.DISH_ID==lst.DISH_ID &&
+                                  p.STATUS!="Đang làm"
+                                  select p).SingleOrDefault();
+                if (query == null) return false;
+                if (query.AMOUNT <= lst.AMOUNT)
+                {
+                    Context.ORDER_DETAIL.DeleteObject(query);
+                }
+                else if (query.AMOUNT > lst.AMOUNT)
+                {
+                    query.AMOUNT -= lst.AMOUNT;
+                }
+                Context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         private ChefDTO GetChefFree() 
         {
             List<ChefDTO> lst=(from p in Context.CHEF_INFO 

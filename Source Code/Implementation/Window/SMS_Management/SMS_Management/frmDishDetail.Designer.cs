@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTABLE_NAME = new System.Windows.Forms.TextBox();
             this.txtWAITER_NAME = new System.Windows.Forms.TextBox();
@@ -55,6 +55,7 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COMMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grvDISH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,7 +63,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(27, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bàn số:";
             // 
@@ -87,7 +88,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(27, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Người phục vụ:";
             // 
@@ -104,7 +105,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(27, 81);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 13);
+            this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tổng sổ món:";
             // 
@@ -121,7 +122,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(338, 29);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Giờ vào:";
             // 
@@ -138,7 +139,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(338, 55);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Đầu bếp:";
             // 
@@ -154,7 +155,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(27, 107);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 13);
+            this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 12;
             this.label7.Text = "Ghi chú";
             // 
@@ -223,8 +224,8 @@
             // PRICE
             // 
             this.PRICE.DataPropertyName = "PRICE";
-            dataGridViewCellStyle4.Format = "###,###,###,##0";
-            this.PRICE.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Format = "###,###,###,##0";
+            this.PRICE.DefaultCellStyle = dataGridViewCellStyle7;
             this.PRICE.HeaderText = "Đơn giá";
             this.PRICE.Name = "PRICE";
             this.PRICE.ReadOnly = true;
@@ -233,8 +234,8 @@
             // AMOUNT
             // 
             this.AMOUNT.DataPropertyName = "AMOUNT";
-            dataGridViewCellStyle5.NullValue = null;
-            this.AMOUNT.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.NullValue = null;
+            this.AMOUNT.DefaultCellStyle = dataGridViewCellStyle8;
             this.AMOUNT.HeaderText = "Số lượng";
             this.AMOUNT.Name = "AMOUNT";
             this.AMOUNT.Width = 70;
@@ -242,8 +243,8 @@
             // MONEY
             // 
             this.MONEY.DataPropertyName = "MONEY";
-            dataGridViewCellStyle6.Format = "###,###,###,##0";
-            this.MONEY.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Format = "###,###,###,##0";
+            this.MONEY.DefaultCellStyle = dataGridViewCellStyle9;
             this.MONEY.HeaderText = "Thành tiền";
             this.MONEY.Name = "MONEY";
             this.MONEY.ReadOnly = true;
@@ -284,9 +285,15 @@
             this.Controls.Add(this.txtTABLE_NAME);
             this.Controls.Add(this.label1);
             this.Name = "frmDishDetail";
-            this.Text = "frmDishDetail";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Thông tin chi tiết bàn ăn";
             this.Load += new System.EventHandler(this.frmDishDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grvDISH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

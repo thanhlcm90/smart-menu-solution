@@ -30,6 +30,10 @@ namespace SMS_Management
             Edit
         }
 
+        public virtual void RefreshData()
+        { 
+        }
+
     }
 
 }

@@ -68,7 +68,7 @@ namespace SMS_Management
             this.toolDelete});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(350, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(592, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -137,7 +137,7 @@ namespace SMS_Management
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(350, 70);
+            this.groupBox1.Size = new System.Drawing.Size(592, 70);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin loại món ăn";
@@ -173,7 +173,7 @@ namespace SMS_Management
             this.grdData.Name = "grdData";
             this.grdData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdData.ShowEditingIcon = false;
-            this.grdData.Size = new System.Drawing.Size(350, 247);
+            this.grdData.Size = new System.Drawing.Size(592, 270);
             this.grdData.TabIndex = 2;
             this.grdData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdData_CellContentClick);
             this.grdData.SelectionChanged += new System.EventHandler(this.grdData_SelectionChanged);
@@ -199,7 +199,7 @@ namespace SMS_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 342);
+            this.ClientSize = new System.Drawing.Size(592, 365);
             this.Controls.Add(this.grdData);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);

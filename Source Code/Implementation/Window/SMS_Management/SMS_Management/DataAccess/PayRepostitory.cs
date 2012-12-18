@@ -27,6 +27,17 @@ namespace SMS_Management
             }
         }
 
+        public bool SendToPayment(short table_code)
+        {
+            // Lấy dữ liệu order
+            Guid order_id = (from p in Context.ORDER
+                               where p.STATUS == "Đang làm"
+                               where p.TABLES_INFO.CODE == table_code
+                               select p.Id ).SingleOrDefault();
+            if (order_id == null) return false;
+            return SendToPayment(order_id);
+        }
+
         public bool SendToPayment(Guid order_id)
         {
             // Lấy dữ liệu order

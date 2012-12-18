@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace SMS_Management
 {
-    public partial class frmDishDetail : Form
+    public partial class frmDishDetail : Telerik.WinControls.UI.RadForm
     {
         private Guid  order_id;
         private Guid PKEY;
