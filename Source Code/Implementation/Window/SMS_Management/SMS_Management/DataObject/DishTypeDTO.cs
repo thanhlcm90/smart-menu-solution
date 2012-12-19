@@ -7,7 +7,7 @@ namespace SMS_Management.DataObject
 {
     class DishTypeDTO
     {
-      public  string name { get; set; }
-      public Guid pkey { get; set; }
+      public  string NAME { get; set; }
+      public Guid ID { get; set; }
     }
 }

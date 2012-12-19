@@ -103,18 +103,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietThongTinDauBep.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChiTietThongTinDauBep.Designer.cs">
-      <DependentUpon>ChiTietThongTinDauBep.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ChiTietThongTinNhanVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChiTietThongTinNhanVien.Designer.cs">
-      <DependentUpon>ChiTietThongTinNhanVien.cs</DependentUpon>
-    </Compile>
     <Compile Include="COMConnection.cs">
       <SubType>UserControl</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -124,14 +112,19 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Common.cs" />
+    <Compile Include="DataAccess\ChefRepostitory.cs" />
     <Compile Include="DataAccess\DishRepostitory.cs" />
+    <Compile Include="DataAccess\DishTypeRepostitory.cs" />
     <Compile Include="DataAccess\PayRepostitory.cs" />
     <Compile Include="DataAccess\OrderRepostitory.cs" />
     <Compile Include="DataAccess\RepostitoryBase.cs" />
     <Compile Include="DataAccess\StatisticsRepository.cs" />
+    <Compile Include="DataAccess\TableRepostitory.cs" />
+    <Compile Include="DataAccess\WaiterRepostitory.cs" />
     <Compile Include="DataObject\ChefDTO.cs" />
     <Compile Include="DataObject\BillingDTO.cs" />
     <Compile Include="DataObject\DishDTO.cs" />
+    <Compile Include="DataObject\DishTypeDTO.cs" />
     <Compile Include="DataObject\ProccessingDTO.cs" />
     <Compile Include="DataObject\OrderDetailDTO.cs">
       <SubType>Code</SubType>
@@ -139,6 +132,8 @@
     <Compile Include="DataObject\OrderDTO.cs" />
     <Compile Include="DataAccess\ProccessRepostitory.cs" />
     <Compile Include="DataObject\StatisticsDayDTO.cs" />
+    <Compile Include="DataObject\TableDTO.cs" />
+    <Compile Include="DataObject\WaiterDTO.cs" />
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +164,36 @@
     <Compile Include="frmMain2.Designer.cs">
       <DependentUpon>frmMain2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOptionChef.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptionChef.Designer.cs">
+      <DependentUpon>frmOptionChef.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptionDish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptionDish.Designer.cs">
+      <DependentUpon>frmOptionDish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptionDishType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptionDishType.Designer.cs">
+      <DependentUpon>frmOptionDishType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptionTableInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptionTableInfo.Designer.cs">
+      <DependentUpon>frmOptionTableInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptionWaiter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptionWaiter.Designer.cs">
+      <DependentUpon>frmOptionWaiter.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,12 +214,6 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChiTietThongTinDauBep.resx">
-      <DependentUpon>ChiTietThongTinDauBep.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChiTietThongTinNhanVien.resx">
-      <DependentUpon>ChiTietThongTinNhanVien.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="COMConnection.resx">
       <DependentUpon>COMConnection.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -216,6 +235,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain2.resx">
       <DependentUpon>frmMain2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptionChef.resx">
+      <DependentUpon>frmOptionChef.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptionDish.resx">
+      <DependentUpon>frmOptionDish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptionDishType.resx">
+      <DependentUpon>frmOptionDishType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptionTableInfo.resx">
+      <DependentUpon>frmOptionTableInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptionWaiter.resx">
+      <DependentUpon>frmOptionWaiter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
@@ -276,35 +310,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\SMS_Database.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Database\SMS_Database_log.ldf">
       <DependentUpon>SMS_Database.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\chef hat.jpg" />
-    <None Include="Resources\KitchenIcon.png" />
-    <None Include="Resources\user_manage.png" />
-    <None Include="Resources\staff-icon.jpg" />
-    <None Include="Resources\note-icon.png" />
-    <None Include="Resources\iconFood.png" />
-    <None Include="Resources\PlateIcon.jpeg" />
-    <None Include="Resources\byYearIcon.png" />
-    <None Include="Resources\byMonthIcon.png" />
-    <None Include="Resources\byDayIcon1.jpg" />
-    <None Include="Resources\byDayIcon.jpg" />
-    <None Include="Resources\notification_remove.png" />
-    <None Include="Resources\notification_done.png" />
-    <None Include="Resources\PaymentIcon.png" />
-    <None Include="Resources\ChefIcon.png" />
-    <None Include="Resources\ViewDetailIcon.png" />
-    <None Include="Resources\PrintIcon.png" />
-    <None Include="Resources\1132554975722960032.png" />
-    <None Include="Resources\print.png" />
-    <None Include="Resources\print_icon.png" />
-    <None Include="Resources\document2.png" />
-    <None Include="Resources\document1.png" />
-    <None Include="Resources\document.png" />
     <None Include="Resources\waiter.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\cancel.png" />
@@ -348,7 +359,10 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
-    </PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
