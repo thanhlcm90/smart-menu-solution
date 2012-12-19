@@ -29,6 +29,7 @@ typedef enum {
 	SMO_main_region_on_r1_Running_running_main_EnterData_r1_EnterAmount ,
 	SMO_main_region_on_r1_Running_running_main_EnterData_r1__final_ ,
 	SMO_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering ,
+	SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit ,
 	SMO_main_region_on_r1_Running_running_main_MenuA ,
 	SMO_main_region_on_r1_Running_running_main_CheckKeyPress ,
 	SMO_main_region_on_r1_Running_running_main_SendData ,
