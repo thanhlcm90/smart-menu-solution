@@ -35,13 +35,6 @@
             this.splitPanel2 = new Telerik.WinControls.UI.SplitPanel();
             this.radGroupBox2 = new Telerik.WinControls.UI.RadGroupBox();
             this.grvProccessFinish = new System.Windows.Forms.DataGridView();
-            this.grvProccessFinish_TABLE_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvProccessFinish_DISH_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvProccessFinish_AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvProccessFinish_CHEF_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvProccessFinish_STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvProccessFinish_COMMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grvProccessFinish_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvProccessing_PRIORITY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvProccessing_TABLE_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvProccessing_DISH_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +43,13 @@
             this.grvProccessing_STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvProccessing_COMMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grvProccessing_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvProccessFinish_TABLE_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvProccessFinish_DISH_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvProccessFinish_AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvProccessFinish_CHEF_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvProccessFinish_STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvProccessFinish_COMMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grvProccessFinish_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.radSplitContainer1)).BeginInit();
             this.radSplitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitPanel1)).BeginInit();
@@ -104,13 +104,13 @@
             this.radGroupBox1.HeaderImageIndex = -1;
             this.radGroupBox1.HeaderImageKey = "";
             this.radGroupBox1.HeaderMargin = new System.Windows.Forms.Padding(0);
-            this.radGroupBox1.HeaderText = "Danh sách món ăn đang làm và chờ làm";
+            this.radGroupBox1.HeaderText = "Dishes: DOING and WAITING";
             this.radGroupBox1.Location = new System.Drawing.Point(0, 0);
             this.radGroupBox1.Name = "radGroupBox1";
             this.radGroupBox1.Padding = new System.Windows.Forms.Padding(2, 18, 2, 2);
             this.radGroupBox1.Size = new System.Drawing.Size(363, 534);
             this.radGroupBox1.TabIndex = 3;
-            this.radGroupBox1.Text = "Danh sách món ăn đang làm và chờ làm";
+            this.radGroupBox1.Text = "Dishes: DOING and WAITING";
             // 
             // grvProccessing
             // 
@@ -161,13 +161,13 @@
             this.radGroupBox2.HeaderImageIndex = -1;
             this.radGroupBox2.HeaderImageKey = "";
             this.radGroupBox2.HeaderMargin = new System.Windows.Forms.Padding(0);
-            this.radGroupBox2.HeaderText = "Danh sách món ăn đã hoàn thành và từ chối";
+            this.radGroupBox2.HeaderText = "Dishes: FINISH and CANCEL";
             this.radGroupBox2.Location = new System.Drawing.Point(0, 0);
             this.radGroupBox2.Name = "radGroupBox2";
             this.radGroupBox2.Padding = new System.Windows.Forms.Padding(2, 18, 2, 2);
             this.radGroupBox2.Size = new System.Drawing.Size(363, 534);
             this.radGroupBox2.TabIndex = 0;
-            this.radGroupBox2.Text = "Danh sách món ăn đã hoàn thành và từ chối";
+            this.radGroupBox2.Text = "Dishes: FINISH and CANCEL";
             // 
             // grvProccessFinish
             // 
@@ -193,101 +193,51 @@
             this.grvProccessFinish.Size = new System.Drawing.Size(359, 514);
             this.grvProccessFinish.TabIndex = 5;
             // 
-            // grvProccessFinish_TABLE_NAME
-            // 
-            this.grvProccessFinish_TABLE_NAME.DataPropertyName = "TABLE_NAME";
-            this.grvProccessFinish_TABLE_NAME.HeaderText = "Bàn số";
-            this.grvProccessFinish_TABLE_NAME.Name = "grvProccessFinish_TABLE_NAME";
-            this.grvProccessFinish_TABLE_NAME.ReadOnly = true;
-            // 
-            // grvProccessFinish_DISH_NAME
-            // 
-            this.grvProccessFinish_DISH_NAME.DataPropertyName = "DISH_NAME";
-            this.grvProccessFinish_DISH_NAME.HeaderText = "Món yêu cầu";
-            this.grvProccessFinish_DISH_NAME.Name = "grvProccessFinish_DISH_NAME";
-            this.grvProccessFinish_DISH_NAME.ReadOnly = true;
-            // 
-            // grvProccessFinish_AMOUNT
-            // 
-            this.grvProccessFinish_AMOUNT.DataPropertyName = "AMOUNT";
-            this.grvProccessFinish_AMOUNT.HeaderText = "Số lượng";
-            this.grvProccessFinish_AMOUNT.Name = "grvProccessFinish_AMOUNT";
-            this.grvProccessFinish_AMOUNT.ReadOnly = true;
-            // 
-            // grvProccessFinish_CHEF_NAME
-            // 
-            this.grvProccessFinish_CHEF_NAME.DataPropertyName = "CHEF_NAME";
-            this.grvProccessFinish_CHEF_NAME.HeaderText = "Đầu bếp";
-            this.grvProccessFinish_CHEF_NAME.Name = "grvProccessFinish_CHEF_NAME";
-            this.grvProccessFinish_CHEF_NAME.ReadOnly = true;
-            // 
-            // grvProccessFinish_STATUS
-            // 
-            this.grvProccessFinish_STATUS.DataPropertyName = "STATUS";
-            this.grvProccessFinish_STATUS.HeaderText = "Trạng thái";
-            this.grvProccessFinish_STATUS.Name = "grvProccessFinish_STATUS";
-            this.grvProccessFinish_STATUS.ReadOnly = true;
-            // 
-            // grvProccessFinish_COMMENT
-            // 
-            this.grvProccessFinish_COMMENT.DataPropertyName = "COMMENT";
-            this.grvProccessFinish_COMMENT.HeaderText = "Ghi chú";
-            this.grvProccessFinish_COMMENT.Name = "grvProccessFinish_COMMENT";
-            this.grvProccessFinish_COMMENT.ReadOnly = true;
-            // 
-            // grvProccessFinish_ID
-            // 
-            this.grvProccessFinish_ID.DataPropertyName = "ID";
-            this.grvProccessFinish_ID.HeaderText = "ID";
-            this.grvProccessFinish_ID.Name = "grvProccessFinish_ID";
-            this.grvProccessFinish_ID.ReadOnly = true;
-            this.grvProccessFinish_ID.Visible = false;
-            // 
             // grvProccessing_PRIORITY
             // 
             this.grvProccessing_PRIORITY.DataPropertyName = "PRIORITY";
-            this.grvProccessing_PRIORITY.HeaderText = "Thứ tự";
+            this.grvProccessing_PRIORITY.HeaderText = "No.";
             this.grvProccessing_PRIORITY.Name = "grvProccessing_PRIORITY";
             // 
             // grvProccessing_TABLE_NAME
             // 
             this.grvProccessing_TABLE_NAME.DataPropertyName = "TABLE_NAME";
-            this.grvProccessing_TABLE_NAME.HeaderText = "Bàn số";
+            this.grvProccessing_TABLE_NAME.HeaderText = "Table No.";
             this.grvProccessing_TABLE_NAME.Name = "grvProccessing_TABLE_NAME";
             this.grvProccessing_TABLE_NAME.ReadOnly = true;
             // 
             // grvProccessing_DISH_NAME
             // 
             this.grvProccessing_DISH_NAME.DataPropertyName = "DISH_NAME";
-            this.grvProccessing_DISH_NAME.HeaderText = "Món yêu cầu";
+            this.grvProccessing_DISH_NAME.HeaderText = "Dishes Name";
             this.grvProccessing_DISH_NAME.Name = "grvProccessing_DISH_NAME";
             this.grvProccessing_DISH_NAME.ReadOnly = true;
             // 
             // grvProccessing_AMOUNT
             // 
             this.grvProccessing_AMOUNT.DataPropertyName = "AMOUNT";
-            this.grvProccessing_AMOUNT.HeaderText = "Số lượng";
+            this.grvProccessing_AMOUNT.HeaderText = "Amount";
             this.grvProccessing_AMOUNT.Name = "grvProccessing_AMOUNT";
             this.grvProccessing_AMOUNT.ReadOnly = true;
             // 
             // grvProccessing_CHEF_NAME
             // 
             this.grvProccessing_CHEF_NAME.DataPropertyName = "CHEF_NAME";
-            this.grvProccessing_CHEF_NAME.HeaderText = "Đầu bếp";
+            this.grvProccessing_CHEF_NAME.HeaderText = "Chef Name";
             this.grvProccessing_CHEF_NAME.Name = "grvProccessing_CHEF_NAME";
             this.grvProccessing_CHEF_NAME.ReadOnly = true;
             // 
             // grvProccessing_STATUS
             // 
             this.grvProccessing_STATUS.DataPropertyName = "STATUS";
-            this.grvProccessing_STATUS.HeaderText = "Trạng thái";
+            this.grvProccessing_STATUS.HeaderText = "Status";
             this.grvProccessing_STATUS.Name = "grvProccessing_STATUS";
             this.grvProccessing_STATUS.ReadOnly = true;
             // 
             // grvProccessing_COMMENT
             // 
             this.grvProccessing_COMMENT.DataPropertyName = "COMMENT";
-            this.grvProccessing_COMMENT.HeaderText = "Ghi chú";
+            this.grvProccessing_COMMENT.HeaderText = "Note";
             this.grvProccessing_COMMENT.Name = "grvProccessing_COMMENT";
             this.grvProccessing_COMMENT.ReadOnly = true;
             // 
@@ -299,6 +249,56 @@
             this.grvProccessing_ID.ReadOnly = true;
             this.grvProccessing_ID.Visible = false;
             // 
+            // grvProccessFinish_TABLE_NAME
+            // 
+            this.grvProccessFinish_TABLE_NAME.DataPropertyName = "TABLE_NAME";
+            this.grvProccessFinish_TABLE_NAME.HeaderText = "Table No.";
+            this.grvProccessFinish_TABLE_NAME.Name = "grvProccessFinish_TABLE_NAME";
+            this.grvProccessFinish_TABLE_NAME.ReadOnly = true;
+            // 
+            // grvProccessFinish_DISH_NAME
+            // 
+            this.grvProccessFinish_DISH_NAME.DataPropertyName = "DISH_NAME";
+            this.grvProccessFinish_DISH_NAME.HeaderText = "Dishes Name";
+            this.grvProccessFinish_DISH_NAME.Name = "grvProccessFinish_DISH_NAME";
+            this.grvProccessFinish_DISH_NAME.ReadOnly = true;
+            // 
+            // grvProccessFinish_AMOUNT
+            // 
+            this.grvProccessFinish_AMOUNT.DataPropertyName = "AMOUNT";
+            this.grvProccessFinish_AMOUNT.HeaderText = "Amount";
+            this.grvProccessFinish_AMOUNT.Name = "grvProccessFinish_AMOUNT";
+            this.grvProccessFinish_AMOUNT.ReadOnly = true;
+            // 
+            // grvProccessFinish_CHEF_NAME
+            // 
+            this.grvProccessFinish_CHEF_NAME.DataPropertyName = "CHEF_NAME";
+            this.grvProccessFinish_CHEF_NAME.HeaderText = "Chef Name";
+            this.grvProccessFinish_CHEF_NAME.Name = "grvProccessFinish_CHEF_NAME";
+            this.grvProccessFinish_CHEF_NAME.ReadOnly = true;
+            // 
+            // grvProccessFinish_STATUS
+            // 
+            this.grvProccessFinish_STATUS.DataPropertyName = "STATUS";
+            this.grvProccessFinish_STATUS.HeaderText = "Status";
+            this.grvProccessFinish_STATUS.Name = "grvProccessFinish_STATUS";
+            this.grvProccessFinish_STATUS.ReadOnly = true;
+            // 
+            // grvProccessFinish_COMMENT
+            // 
+            this.grvProccessFinish_COMMENT.DataPropertyName = "COMMENT";
+            this.grvProccessFinish_COMMENT.HeaderText = "Note";
+            this.grvProccessFinish_COMMENT.Name = "grvProccessFinish_COMMENT";
+            this.grvProccessFinish_COMMENT.ReadOnly = true;
+            // 
+            // grvProccessFinish_ID
+            // 
+            this.grvProccessFinish_ID.DataPropertyName = "ID";
+            this.grvProccessFinish_ID.HeaderText = "ID";
+            this.grvProccessFinish_ID.Name = "grvProccessFinish_ID";
+            this.grvProccessFinish_ID.ReadOnly = true;
+            this.grvProccessFinish_ID.Visible = false;
+            // 
             // frmKitchen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,7 +306,7 @@
             this.ClientSize = new System.Drawing.Size(729, 534);
             this.Controls.Add(this.radSplitContainer1);
             this.Name = "frmKitchen";
-            this.Text = "Nhà bếp";
+            this.Text = "Kitchen";
             this.Load += new System.EventHandler(this.frmKitchen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radSplitContainer1)).EndInit();
             this.radSplitContainer1.ResumeLayout(false);
@@ -333,13 +333,6 @@
         public System.Windows.Forms.DataGridView grvProccessing;
         private Telerik.WinControls.UI.RadGroupBox radGroupBox2;
         public System.Windows.Forms.DataGridView grvProccessFinish;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_TABLE_NAME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_DISH_NAME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_AMOUNT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_CHEF_NAME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_STATUS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_COMMENT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessing_PRIORITY;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessing_TABLE_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessing_DISH_NAME;
@@ -348,6 +341,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessing_STATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessing_COMMENT;
         private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessing_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_TABLE_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_DISH_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_AMOUNT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_CHEF_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_STATUS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_COMMENT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grvProccessFinish_ID;
 
     }
 }
