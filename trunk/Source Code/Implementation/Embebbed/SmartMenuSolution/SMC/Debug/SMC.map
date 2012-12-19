@@ -159,50 +159,48 @@ LOAD d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x2382
+.text           0x00000000     0x24e8
  *(.vectors)
  .vectors       0x00000000       0x8c d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51/crtm128a.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
  *(.progmem.gcc*)
- .progmem.gcc_sw_table
-                0x0000008c       0x26 SMC.o
  *(.progmem*)
-                0x000000b2                . = ALIGN (0x2)
-                0x000000b2                __trampolines_start = .
+                0x0000008c                . = ALIGN (0x2)
+                0x0000008c                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x000000b2        0x0 linker stubs
+ .trampolines   0x0000008c        0x0 linker stubs
  *(.trampolines*)
-                0x000000b2                __trampolines_end = .
+                0x0000008c                __trampolines_end = .
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x000000b2                __ctors_start = .
+                0x0000008c                __ctors_start = .
  *(.ctors)
-                0x000000b2                __ctors_end = .
-                0x000000b2                __dtors_start = .
+                0x0000008c                __ctors_end = .
+                0x0000008c                __dtors_start = .
  *(.dtors)
-                0x000000b2                __dtors_end = .
+                0x0000008c                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x000000b2        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51/crtm128a.o
-                0x000000b2                __init
+ .init0         0x0000008c        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51/crtm128a.o
+                0x0000008c                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x000000b2        0xc d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51/crtm128a.o
+ .init2         0x0000008c        0xc d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51/crtm128a.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x000000be       0x1a d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
-                0x000000be                __do_copy_data
- .init4         0x000000d8       0x10 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
-                0x000000d8                __do_clear_bss
+ .init4         0x00000098       0x1a d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
+                0x00000098                __do_copy_data
+ .init4         0x000000b2       0x10 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
+                0x000000b2                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -213,208 +211,212 @@ LOAD d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000000e8        0x8 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51/crtm128a.o
+ .init9         0x000000c2        0x8 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51/crtm128a.o
  *(.init9)
  *(.text)
- .text          0x000000f0        0x4 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51/crtm128a.o
-                0x000000f0                __vector_22
-                0x000000f0                __vector_28
-                0x000000f0                __vector_1
-                0x000000f0                __vector_32
-                0x000000f0                __vector_34
-                0x000000f0                __vector_24
-                0x000000f0                __vector_12
-                0x000000f0                __bad_interrupt
-                0x000000f0                __vector_6
-                0x000000f0                __vector_31
-                0x000000f0                __vector_3
-                0x000000f0                __vector_23
-                0x000000f0                __vector_30
-                0x000000f0                __vector_25
-                0x000000f0                __vector_11
-                0x000000f0                __vector_13
-                0x000000f0                __vector_17
-                0x000000f0                __vector_19
-                0x000000f0                __vector_7
-                0x000000f0                __vector_27
-                0x000000f0                __vector_5
-                0x000000f0                __vector_33
-                0x000000f0                __vector_4
-                0x000000f0                __vector_9
-                0x000000f0                __vector_2
-                0x000000f0                __vector_21
-                0x000000f0                __vector_15
-                0x000000f0                __vector_29
-                0x000000f0                __vector_8
-                0x000000f0                __vector_26
-                0x000000f0                __vector_14
-                0x000000f0                __vector_10
-                0x000000f0                __vector_18
-                0x000000f0                __vector_20
- .text          0x000000f4       0xe2 keypad.o
-                0x000000f4                KEYPAD_Check
-                0x000001c8                KEYPAD_Init
- .text          0x000001d6      0x20a lcd.o
-                0x000001d6                LCDBusyLoop
-                0x000001e4                LCDByte
-                0x0000021c                LCDWriteString
-                0x0000027a                LCDWriteInt
-                0x00000346                LCDGotoXY
-                0x0000036a                LCDInit
- .text          0x000003e0      0x3e6 Main.o
-                0x000003e0                sMCIfaceKEYPAD_checkpress
-                0x000003ee                sMCIfaceKEYPAD_init
-                0x000003f4                sMCIfaceLCD_writeString
-                0x000003fa                sMCIfaceLCD_writeStringXY
-                0x00000418                sMCIfaceLCD_writeNumberXY
-                0x0000045a                sMCIfaceLCD_clear
-                0x0000046c                sMCIfaceLCD_init
-                0x00000474                sMCIfaceRF_getData
-                0x000004e0                sMCIfaceRF_sendMsg
-                0x0000054a                sMCIfaceRF_sendCheck
-                0x00000584                sMCIfaceRF_getCheck
-                0x000005f6                sMCIfaceRF_sendData
-                0x0000068e                sMCIfaceRF_sendReq
-                0x000006d2                sMC_setTimer
-                0x000006d8                sMC_unsetTimer
-                0x000006de                sMCIfaceRF_init
-                0x000006e4                main
-                0x0000076a                __vector_16
- .text          0x000007c6      0x77e rf.o
-                0x000007c6                nrf24l01_readregister
-                0x000007d8                nrf24l01_readregisters
-                0x00000816                nrf24l01_writeregister
-                0x00000830                nrf24l01_writeregisters
-                0x0000086e                nrf24l01_revaddress
-                0x00000890                nrf24l01_setrxaddr
-                0x0000098a                nrf24l01_settxaddr
-                0x000009e0                nrf24l01_flushRXfifo
-                0x000009ec                nrf24l01_flushTXfifo
-                0x000009f8                nrf24l01_setRX
-                0x00000a3c                nrf24l01_setTX
-                0x00000a72                nrf24l01_getstatus
-                0x00000a7e                nrf24l01_printinfo
-                0x00000caa                nrf24l01_readready
-                0x00000cce                nrf24l01_read
-                0x00000d1a                nrf24l01_write
-                0x00000d90                nrf24l01_setpalevel
-                0x00000da2                nrf24l01_setdatarate
-                0x00000db4                nrf24l01_setcrclength
-                0x00000dc6                nrf24l01_init
- .text          0x00000f44      0x95a SMC.o
-                0x00000f44                sMC_init
-                0x00000f52                sMC_enter
-                0x00000f78                sMC_exit
-                0x000010ac                sMC_runCycle
-                0x00001596                sMC_raiseTimeEvent
-                0x000015b0                sMC_isActive
-                0x0000170a                sMCIfaceKEYPAD_raise_key_pressed
-                0x00001712                sMCIfaceKEYPAD_get_key
-                0x0000171e                sMCIfaceKEYPAD_set_key
-                0x0000172a                sMCIfaceKEYPAD_get_lastkey
-                0x00001736                sMCIfaceKEYPAD_set_lastkey
-                0x00001742                sMCIfaceKEYPAD_get_key_down
-                0x00001748                sMCIfaceKEYPAD_set_key_down
-                0x0000174e                sMCIfaceUART_raise_dataRecieved
-                0x00001756                sMCIfaceUART_get_data
-                0x0000175e                sMCIfaceUART_set_data
-                0x00001766                sMCIfaceUART_get_lastdata
-                0x0000176e                sMCIfaceUART_set_lastdata
-                0x00001776                sMCIfaceRF_raise_dataRecieved
-                0x0000177e                sMCIfaceRF_get_data
-                0x00001786                sMCIfaceRF_set_data
-                0x0000178e                sMCIfaceRF_get_lastdata
-                0x00001796                sMCIfaceRF_set_lastdata
-                0x0000179e                sMCIfaceRF_get_result
-                0x000017a4                sMCIfaceRF_set_result
-                0x000017aa                sMCIfaceRF_get_retry
-                0x000017b6                sMCIfaceRF_set_retry
-                0x000017c2                sMCIfaceRF_get_iD
-                0x000017ce                sMCIfaceRF_set_iD
-                0x000017da                sMCIfaceDISH_get_iD
-                0x000017e6                sMCIfaceDISH_set_iD
-                0x000017f2                sMCIfaceDISH_get_amount
-                0x000017fe                sMCIfaceDISH_set_amount
-                0x0000180a                sMCIfaceDISH_get_pos
-                0x00001816                sMCIfaceDISH_set_pos
-                0x00001822                sMCIface_raise_switchOff
-                0x0000182a                sMCIface_raise_switchOn
-                0x00001832                sMCIface_get_lightOn
-                0x00001838                sMCIface_set_lightOn
-                0x0000183e                sMCIface_get_menuId
-                0x0000184a                sMCIface_set_menuId
-                0x00001856                sMCIface_get_tableId
-                0x00001862                sMCIface_set_tableId
-                0x0000186e                sMCIface_get_requestId
-                0x0000187a                sMCIface_set_requestId
-                0x00001886                sMCIface_get_listId
-                0x00001892                sMCIface_set_listId
- .text          0x0000189e       0x20 spi.o
-                0x0000189e                spi_init
-                0x000018b4                spi_writereadbyte
- .text          0x000018be      0x1c4 TimerEvent.o
-                0x000018be                TimerInit
-                0x000018d6                TimerSet
-                0x0000196e                TimerUnSet
-                0x000019da                TimerCheck
-                0x00001a70                TimerClear
- .text          0x00001a82       0x8c UART.o
-                0x00001a82                UART_Init
-                0x00001a9a                uart_putc
-                0x00001aaa                uart_puts
-                0x00001ace                uart_getc
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodqi4.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_divmodhi4.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodhi4.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(strnlen_P.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(strnlen.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
- .text          0x00001b0e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(ultoa_invert.o)
-                0x00001b0e                . = ALIGN (0x2)
+ .text          0x000000ca        0x4 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51/crtm128a.o
+                0x000000ca                __vector_22
+                0x000000ca                __vector_28
+                0x000000ca                __vector_1
+                0x000000ca                __vector_32
+                0x000000ca                __vector_34
+                0x000000ca                __vector_24
+                0x000000ca                __vector_12
+                0x000000ca                __bad_interrupt
+                0x000000ca                __vector_6
+                0x000000ca                __vector_31
+                0x000000ca                __vector_3
+                0x000000ca                __vector_23
+                0x000000ca                __vector_30
+                0x000000ca                __vector_25
+                0x000000ca                __vector_11
+                0x000000ca                __vector_13
+                0x000000ca                __vector_17
+                0x000000ca                __vector_19
+                0x000000ca                __vector_7
+                0x000000ca                __vector_27
+                0x000000ca                __vector_5
+                0x000000ca                __vector_33
+                0x000000ca                __vector_4
+                0x000000ca                __vector_9
+                0x000000ca                __vector_2
+                0x000000ca                __vector_21
+                0x000000ca                __vector_15
+                0x000000ca                __vector_29
+                0x000000ca                __vector_8
+                0x000000ca                __vector_26
+                0x000000ca                __vector_14
+                0x000000ca                __vector_10
+                0x000000ca                __vector_18
+                0x000000ca                __vector_20
+ .text          0x000000ce       0xe2 keypad.o
+                0x000000ce                KEYPAD_Check
+                0x000001a2                KEYPAD_Init
+ .text          0x000001b0      0x20a lcd.o
+                0x000001b0                LCDBusyLoop
+                0x000001be                LCDByte
+                0x000001f6                LCDWriteString
+                0x00000254                LCDWriteInt
+                0x00000320                LCDGotoXY
+                0x00000344                LCDInit
+ .text          0x000003ba      0x3e6 Main.o
+                0x000003ba                sMCIfaceKEYPAD_checkpress
+                0x000003c8                sMCIfaceKEYPAD_init
+                0x000003ce                sMCIfaceLCD_writeString
+                0x000003d4                sMCIfaceLCD_writeStringXY
+                0x000003f2                sMCIfaceLCD_writeNumberXY
+                0x00000434                sMCIfaceLCD_clear
+                0x00000446                sMCIfaceLCD_init
+                0x0000044e                sMCIfaceRF_getData
+                0x000004ba                sMCIfaceRF_sendMsg
+                0x00000524                sMCIfaceRF_sendCheck
+                0x0000055e                sMCIfaceRF_getCheck
+                0x000005d0                sMCIfaceRF_sendData
+                0x00000668                sMCIfaceRF_sendReq
+                0x000006ac                sMC_setTimer
+                0x000006b2                sMC_unsetTimer
+                0x000006b8                sMCIfaceRF_init
+                0x000006be                main
+                0x00000744                __vector_16
+ .text          0x000007a0      0x77e rf.o
+                0x000007a0                nrf24l01_readregister
+                0x000007b2                nrf24l01_readregisters
+                0x000007f0                nrf24l01_writeregister
+                0x0000080a                nrf24l01_writeregisters
+                0x00000848                nrf24l01_revaddress
+                0x0000086a                nrf24l01_setrxaddr
+                0x00000964                nrf24l01_settxaddr
+                0x000009ba                nrf24l01_flushRXfifo
+                0x000009c6                nrf24l01_flushTXfifo
+                0x000009d2                nrf24l01_setRX
+                0x00000a16                nrf24l01_setTX
+                0x00000a4c                nrf24l01_getstatus
+                0x00000a58                nrf24l01_printinfo
+                0x00000c84                nrf24l01_readready
+                0x00000ca8                nrf24l01_read
+                0x00000cf4                nrf24l01_write
+                0x00000d6a                nrf24l01_setpalevel
+                0x00000d7c                nrf24l01_setdatarate
+                0x00000d8e                nrf24l01_setcrclength
+                0x00000da0                nrf24l01_init
+ .text          0x00000f1e      0xae6 SMC.o
+                0x00000f1e                sMC_init
+                0x00000f2c                sMC_enter
+                0x00000f52                sMC_exit
+                0x0000105e                sMC_runCycle
+                0x000016f4                sMC_raiseTimeEvent
+                0x0000170e                sMC_isActive
+                0x00001840                sMCIfaceKEYPAD_raise_key_pressed
+                0x00001848                sMCIfaceKEYPAD_get_key
+                0x00001854                sMCIfaceKEYPAD_set_key
+                0x00001860                sMCIfaceKEYPAD_get_lastkey
+                0x0000186c                sMCIfaceKEYPAD_set_lastkey
+                0x00001878                sMCIfaceKEYPAD_get_key_down
+                0x0000187e                sMCIfaceKEYPAD_set_key_down
+                0x00001884                sMCIfaceUART_raise_dataRecieved
+                0x0000188c                sMCIfaceUART_get_data
+                0x00001894                sMCIfaceUART_set_data
+                0x0000189c                sMCIfaceUART_get_lastdata
+                0x000018a4                sMCIfaceUART_set_lastdata
+                0x000018ac                sMCIfaceRF_raise_dataRecieved
+                0x000018b4                sMCIfaceRF_get_data
+                0x000018bc                sMCIfaceRF_set_data
+                0x000018c4                sMCIfaceRF_get_lastdata
+                0x000018cc                sMCIfaceRF_set_lastdata
+                0x000018d4                sMCIfaceRF_get_result
+                0x000018da                sMCIfaceRF_set_result
+                0x000018e0                sMCIfaceRF_get_resultCheck
+                0x000018e6                sMCIfaceRF_set_resultCheck
+                0x000018ec                sMCIfaceRF_get_retry
+                0x000018f8                sMCIfaceRF_set_retry
+                0x00001904                sMCIfaceRF_get_retryCheck
+                0x00001910                sMCIfaceRF_set_retryCheck
+                0x0000191c                sMCIfaceRF_get_iD
+                0x00001928                sMCIfaceRF_set_iD
+                0x00001934                sMCIfaceDISH_get_iD
+                0x00001940                sMCIfaceDISH_set_iD
+                0x0000194c                sMCIfaceDISH_get_amount
+                0x00001958                sMCIfaceDISH_set_amount
+                0x00001964                sMCIfaceDISH_get_pos
+                0x00001970                sMCIfaceDISH_set_pos
+                0x0000197c                sMCIface_raise_switchOff
+                0x00001988                sMCIface_raise_switchOn
+                0x00001994                sMCIface_get_lightOn
+                0x0000199a                sMCIface_set_lightOn
+                0x000019a0                sMCIface_get_menuId
+                0x000019ac                sMCIface_set_menuId
+                0x000019b8                sMCIface_get_tableId
+                0x000019c4                sMCIface_set_tableId
+                0x000019d0                sMCIface_get_requestId
+                0x000019dc                sMCIface_set_requestId
+                0x000019e8                sMCIface_get_listId
+                0x000019f6                sMCIface_set_listId
+ .text          0x00001a04       0x20 spi.o
+                0x00001a04                spi_init
+                0x00001a1a                spi_writereadbyte
+ .text          0x00001a24      0x1c4 TimerEvent.o
+                0x00001a24                TimerInit
+                0x00001a3c                TimerSet
+                0x00001ad4                TimerUnSet
+                0x00001b40                TimerCheck
+                0x00001bd6                TimerClear
+ .text          0x00001be8       0x8c UART.o
+                0x00001be8                UART_Init
+                0x00001c00                uart_putc
+                0x00001c10                uart_puts
+                0x00001c34                uart_getc
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodqi4.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_divmodhi4.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodhi4.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(strnlen_P.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(strnlen.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
+ .text          0x00001c74        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(ultoa_invert.o)
+                0x00001c74                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00001b0e       0x18 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodqi4.o)
-                0x00001b0e                __udivmodqi4
- .text.libgcc   0x00001b26       0x26 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_divmodhi4.o)
-                0x00001b26                _div
-                0x00001b26                __divmodhi4
- .text.libgcc   0x00001b4c        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
- .text.libgcc   0x00001b4c        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
- .text.libgcc   0x00001b4c        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00001b4c       0x28 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodhi4.o)
-                0x00001b4c                __udivmodhi4
+ .text.libgcc   0x00001c74       0x18 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodqi4.o)
+                0x00001c74                __udivmodqi4
+ .text.libgcc   0x00001c8c       0x26 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_divmodhi4.o)
+                0x00001c8c                _div
+                0x00001c8c                __divmodhi4
+ .text.libgcc   0x00001cb2        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
+ .text.libgcc   0x00001cb2        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00001cb2        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00001cb2       0x28 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodhi4.o)
+                0x00001cb2                __udivmodhi4
  .text.avr-libc
-                0x00001b74      0x25e d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
-                0x00001b74                malloc
-                0x00001ca0                free
+                0x00001cda      0x25e d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
+                0x00001cda                malloc
+                0x00001e06                free
  .text.avr-libc
-                0x00001dd2       0x5e d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
-                0x00001dd2                sprintf
+                0x00001f38       0x5e d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
+                0x00001f38                sprintf
  .text.avr-libc
-                0x00001e30      0x40e d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
-                0x00001e30                vfprintf
+                0x00001f96      0x40e d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+                0x00001f96                vfprintf
  .text.avr-libc
-                0x0000223e       0x16 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(strnlen_P.o)
-                0x0000223e                strnlen_P
+                0x000023a4       0x16 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(strnlen_P.o)
+                0x000023a4                strnlen_P
  .text.avr-libc
-                0x00002254       0x16 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(strnlen.o)
-                0x00002254                strnlen
+                0x000023ba       0x16 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(strnlen.o)
+                0x000023ba                strnlen
  .text.avr-libc
-                0x0000226a       0x58 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
-                0x0000226a                fputc
+                0x000023d0       0x58 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
+                0x000023d0                fputc
  .text.avr-libc
-                0x000022c2       0xbc d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(ultoa_invert.o)
-                0x000022c2                __ultoa_invert
-                0x0000237e                . = ALIGN (0x2)
+                0x00002428       0xbc d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(ultoa_invert.o)
+                0x00002428                __ultoa_invert
+                0x000024e4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000237e        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
-                0x0000237e                _exit
-                0x0000237e                exit
+ .fini9         0x000024e4        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
+                0x000024e4                _exit
+                0x000024e4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -433,11 +435,11 @@ LOAD d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000237e        0x4 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
+ .fini0         0x000024e4        0x4 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x00002382                _etext = .
+                0x000024e8                _etext = .
 
-.data           0x00800100      0x10c load address 0x00002382
+.data           0x00800100      0x10c load address 0x000024e8
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51/crtm128a.o
@@ -518,8 +520,8 @@ LOAD d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
                 0x0080028c                __brkval
                 0x0080028e                __flp
                 0x00800290                PROVIDE (__bss_end, .)
-                0x00002382                __data_load_start = LOADADDR (.data)
-                0x0000248e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000024e8                __data_load_start = LOADADDR (.data)
+                0x000025f4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800290        0x0
                 0x00800290                PROVIDE (__noinit_start, .)
@@ -627,86 +629,86 @@ LOAD d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x3e25
+.debug_info     0x00000000     0x3edf
  *(.debug_info)
  .debug_info    0x00000000      0x1bc keypad.o
  .debug_info    0x000001bc      0x32d lcd.o
  .debug_info    0x000004e9      0x75b Main.o
  .debug_info    0x00000c44      0x753 rf.o
- .debug_info    0x00001397     0x114b SMC.o
- .debug_info    0x000024e2       0xa6 spi.o
- .debug_info    0x00002588      0x586 TimerEvent.o
- .debug_info    0x00002b0e      0x4ed UART.o
- .debug_info    0x00002ffb       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodqi4.o)
- .debug_info    0x000030d9       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_divmodhi4.o)
- .debug_info    0x000031b7       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
- .debug_info    0x00003295       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
- .debug_info    0x00003373       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
- .debug_info    0x00003451       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodhi4.o)
- .debug_info    0x0000352f      0x296 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
- .debug_info    0x000037c5      0x1b7 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
- .debug_info    0x0000397c      0x342 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
- .debug_info    0x00003cbe      0x167 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
+ .debug_info    0x00001397     0x11f1 SMC.o
+ .debug_info    0x00002588       0xa6 spi.o
+ .debug_info    0x0000262e      0x590 TimerEvent.o
+ .debug_info    0x00002bbe      0x4f7 UART.o
+ .debug_info    0x000030b5       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodqi4.o)
+ .debug_info    0x00003193       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_divmodhi4.o)
+ .debug_info    0x00003271       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
+ .debug_info    0x0000334f       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
+ .debug_info    0x0000342d       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
+ .debug_info    0x0000350b       0xde d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodhi4.o)
+ .debug_info    0x000035e9      0x296 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
+ .debug_info    0x0000387f      0x1b7 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .debug_info    0x00003a36      0x342 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+ .debug_info    0x00003d78      0x167 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000     0x112a
+.debug_abbrev   0x00000000     0x1152
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x130 keypad.o
  .debug_abbrev  0x00000130      0x1bb lcd.o
  .debug_abbrev  0x000002eb      0x272 Main.o
  .debug_abbrev  0x0000055d      0x230 rf.o
- .debug_abbrev  0x0000078d      0x1d7 SMC.o
- .debug_abbrev  0x00000964       0x70 spi.o
- .debug_abbrev  0x000009d4      0x161 TimerEvent.o
- .debug_abbrev  0x00000b35      0x151 UART.o
- .debug_abbrev  0x00000c86       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodqi4.o)
- .debug_abbrev  0x00000c9a       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_divmodhi4.o)
- .debug_abbrev  0x00000cae       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
- .debug_abbrev  0x00000cc2       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
- .debug_abbrev  0x00000cd6       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
- .debug_abbrev  0x00000cea       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodhi4.o)
- .debug_abbrev  0x00000cfe       0xf5 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
- .debug_abbrev  0x00000df3       0xfd d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
- .debug_abbrev  0x00000ef0      0x161 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
- .debug_abbrev  0x00001051       0xd9 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
+ .debug_abbrev  0x0000078d      0x1ff SMC.o
+ .debug_abbrev  0x0000098c       0x70 spi.o
+ .debug_abbrev  0x000009fc      0x161 TimerEvent.o
+ .debug_abbrev  0x00000b5d      0x151 UART.o
+ .debug_abbrev  0x00000cae       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodqi4.o)
+ .debug_abbrev  0x00000cc2       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_divmodhi4.o)
+ .debug_abbrev  0x00000cd6       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
+ .debug_abbrev  0x00000cea       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
+ .debug_abbrev  0x00000cfe       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
+ .debug_abbrev  0x00000d12       0x14 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodhi4.o)
+ .debug_abbrev  0x00000d26       0xf5 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
+ .debug_abbrev  0x00000e1b       0xfd d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .debug_abbrev  0x00000f18      0x161 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+ .debug_abbrev  0x00001079       0xd9 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
 
-.debug_line     0x00000000     0x180c
+.debug_line     0x00000000     0x1852
  *(.debug_line)
  .debug_line    0x00000000      0x18f keypad.o
  .debug_line    0x0000018f      0x20f lcd.o
  .debug_line    0x0000039e      0x257 Main.o
  .debug_line    0x000005f5      0x29c rf.o
- .debug_line    0x00000891      0x26a SMC.o
- .debug_line    0x00000afb       0xd8 spi.o
- .debug_line    0x00000bd3      0x12e TimerEvent.o
- .debug_line    0x00000d01      0x101 UART.o
- .debug_line    0x00000e02       0x92 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodqi4.o)
- .debug_line    0x00000e94       0x99 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_divmodhi4.o)
- .debug_line    0x00000f2d       0x88 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
- .debug_line    0x00000fb5       0x93 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
- .debug_line    0x00001048       0x8e d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
- .debug_line    0x000010d6       0x9a d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodhi4.o)
- .debug_line    0x00001170      0x1d3 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
- .debug_line    0x00001343      0x157 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
- .debug_line    0x0000149a      0x291 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
- .debug_line    0x0000172b       0xe1 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
+ .debug_line    0x00000891      0x2b0 SMC.o
+ .debug_line    0x00000b41       0xd8 spi.o
+ .debug_line    0x00000c19      0x12e TimerEvent.o
+ .debug_line    0x00000d47      0x101 UART.o
+ .debug_line    0x00000e48       0x92 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodqi4.o)
+ .debug_line    0x00000eda       0x99 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_divmodhi4.o)
+ .debug_line    0x00000f73       0x88 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_exit.o)
+ .debug_line    0x00000ffb       0x93 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_copy_data.o)
+ .debug_line    0x0000108e       0x8e d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_clear_bss.o)
+ .debug_line    0x0000111c       0x9a d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/avr51\libgcc.a(_udivmodhi4.o)
+ .debug_line    0x000011b6      0x1d3 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
+ .debug_line    0x00001389      0x157 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .debug_line    0x000014e0      0x291 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+ .debug_line    0x00001771       0xe1 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
 
-.debug_frame    0x00000000      0xb6c
+.debug_frame    0x00000000      0xba8
  *(.debug_frame)
  .debug_frame   0x00000000       0x68 keypad.o
  .debug_frame   0x00000068       0xc0 lcd.o
  .debug_frame   0x00000128      0x210 Main.o
  .debug_frame   0x00000338      0x234 rf.o
- .debug_frame   0x0000056c      0x374 SMC.o
- .debug_frame   0x000008e0       0x34 spi.o
- .debug_frame   0x00000914       0xac TimerEvent.o
- .debug_frame   0x000009c0       0x60 UART.o
- .debug_frame   0x00000a20       0x54 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
- .debug_frame   0x00000a74       0x3c d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
- .debug_frame   0x00000ab0       0x84 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
- .debug_frame   0x00000b34       0x38 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
+ .debug_frame   0x0000056c      0x3b0 SMC.o
+ .debug_frame   0x0000091c       0x34 spi.o
+ .debug_frame   0x00000950       0xac TimerEvent.o
+ .debug_frame   0x000009fc       0x60 UART.o
+ .debug_frame   0x00000a5c       0x54 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
+ .debug_frame   0x00000ab0       0x3c d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .debug_frame   0x00000aec       0x84 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+ .debug_frame   0x00000b70       0x38 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
 
-.debug_str      0x00000000     0x1633
+.debug_str      0x00000000     0x1587
  *(.debug_str)
  .debug_str     0x00000000      0x13b keypad.o
                                 0x16f (size before relaxing)
@@ -716,37 +718,37 @@ LOAD d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
                                 0x336 (size before relaxing)
  .debug_str     0x000003ad      0x204 rf.o
                                 0x38a (size before relaxing)
- .debug_str     0x000005b1      0xd29 SMC.o
-                                0xeb2 (size before relaxing)
- .debug_str     0x000012da       0x26 spi.o
+ .debug_str     0x000005b1      0xc7d SMC.o
+                                0xe1d (size before relaxing)
+ .debug_str     0x0000122e       0x26 spi.o
                                 0x105 (size before relaxing)
- .debug_str     0x00001300       0x75 TimerEvent.o
-                                0x779 (size before relaxing)
- .debug_str     0x00001375       0x49 UART.o
-                                0x732 (size before relaxing)
- .debug_str     0x000013be       0xe9 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
+ .debug_str     0x00001254       0x75 TimerEvent.o
+                                0x6cb (size before relaxing)
+ .debug_str     0x000012c9       0x49 UART.o
+                                0x684 (size before relaxing)
+ .debug_str     0x00001312       0xe9 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
                                 0x16a (size before relaxing)
- .debug_str     0x000014a7       0x99 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .debug_str     0x000013fb       0x99 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
                                 0x121 (size before relaxing)
- .debug_str     0x00001540       0x9d d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+ .debug_str     0x00001494       0x9d d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
                                 0x16b (size before relaxing)
- .debug_str     0x000015dd       0x56 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
+ .debug_str     0x00001531       0x56 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
                                  0xfb (size before relaxing)
 
-.debug_loc      0x00000000     0x2770
+.debug_loc      0x00000000     0x2835
  *(.debug_loc)
  .debug_loc     0x00000000      0x119 keypad.o
  .debug_loc     0x00000119      0x34d lcd.o
  .debug_loc     0x00000466      0x787 Main.o
  .debug_loc     0x00000bed      0x6e4 rf.o
- .debug_loc     0x000012d1      0x693 SMC.o
- .debug_loc     0x00001964       0x1f spi.o
- .debug_loc     0x00001983      0x24b TimerEvent.o
- .debug_loc     0x00001bce       0xaa UART.o
- .debug_loc     0x00001c78      0x421 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
- .debug_loc     0x00002099       0x55 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
- .debug_loc     0x000020ee      0x5e9 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
- .debug_loc     0x000026d7       0x99 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
+ .debug_loc     0x000012d1      0x758 SMC.o
+ .debug_loc     0x00001a29       0x1f spi.o
+ .debug_loc     0x00001a48      0x24b TimerEvent.o
+ .debug_loc     0x00001c93       0xaa UART.o
+ .debug_loc     0x00001d3d      0x421 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
+ .debug_loc     0x0000215e       0x55 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .debug_loc     0x000021b3      0x5e9 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+ .debug_loc     0x0000279c       0x99 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
 
 .debug_macinfo
  *(.debug_macinfo)

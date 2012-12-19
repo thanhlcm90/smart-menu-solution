@@ -29,8 +29,9 @@ typedef enum {
 	SMO_main_region_on_r1_Running_running_main_EnterData_r1_EnterAmount ,
 	SMO_main_region_on_r1_Running_running_main_EnterData_r1__final_ ,
 	SMO_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering ,
-	SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit ,
 	SMO_main_region_on_r1_Running_running_main_EnterData_r1_CheckKeyPress3 ,
+	SMO_main_region_on_r1_Running_running_main_EnterData_r1_CheckKeyPress4 ,
+	SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit ,
 	SMO_main_region_on_r1_Running_running_main_MenuA ,
 	SMO_main_region_on_r1_Running_running_main_CheckKeyPress ,
 	SMO_main_region_on_r1_Running_running_main_SendData ,
@@ -80,7 +81,9 @@ typedef struct {
 	sc_string  data;
 	sc_string  lastdata;
 	sc_boolean  result;
+	sc_boolean  resultCheck;
 	sc_integer  retry;
+	sc_integer  retryCheck;
 	sc_integer  ID;
 	sc_boolean DataRecieved_raised;
 } SMOIfaceRF;
@@ -97,6 +100,7 @@ typedef struct {
 	sc_boolean  lightOn;
 	sc_integer  menuId;
 	sc_integer  tableId;
+	sc_integer  confirmId;
 	sc_boolean switchOff_raised;
 	sc_boolean switchOn_raised;
 } SMOIface;
@@ -184,10 +188,18 @@ extern void sMOIfaceRF_set_lastdata(SMO* handle, sc_string value);
 extern sc_boolean sMOIfaceRF_get_result(SMO* handle);
 /*! Sets the value of the variable 'result' that is defined in the interface scope 'RF'. */ 
 extern void sMOIfaceRF_set_result(SMO* handle, sc_boolean value);
+/*! Gets the value of the variable 'resultCheck' that is defined in the interface scope 'RF'. */ 
+extern sc_boolean sMOIfaceRF_get_resultCheck(SMO* handle);
+/*! Sets the value of the variable 'resultCheck' that is defined in the interface scope 'RF'. */ 
+extern void sMOIfaceRF_set_resultCheck(SMO* handle, sc_boolean value);
 /*! Gets the value of the variable 'retry' that is defined in the interface scope 'RF'. */ 
 extern sc_integer sMOIfaceRF_get_retry(SMO* handle);
 /*! Sets the value of the variable 'retry' that is defined in the interface scope 'RF'. */ 
 extern void sMOIfaceRF_set_retry(SMO* handle, sc_integer value);
+/*! Gets the value of the variable 'retryCheck' that is defined in the interface scope 'RF'. */ 
+extern sc_integer sMOIfaceRF_get_retryCheck(SMO* handle);
+/*! Sets the value of the variable 'retryCheck' that is defined in the interface scope 'RF'. */ 
+extern void sMOIfaceRF_set_retryCheck(SMO* handle, sc_integer value);
 /*! Gets the value of the variable 'ID' that is defined in the interface scope 'RF'. */ 
 extern sc_integer sMOIfaceRF_get_iD(SMO* handle);
 /*! Sets the value of the variable 'ID' that is defined in the interface scope 'RF'. */ 
@@ -221,6 +233,10 @@ extern void sMOIface_set_menuId(SMO* handle, sc_integer value);
 extern sc_integer sMOIface_get_tableId(SMO* handle);
 /*! Sets the value of the variable 'tableId' that is defined in the default interface scope. */ 
 extern void sMOIface_set_tableId(SMO* handle, sc_integer value);
+/*! Gets the value of the variable 'confirmId' that is defined in the default interface scope. */ 
+extern sc_integer sMOIface_get_confirmId(SMO* handle);
+/*! Sets the value of the variable 'confirmId' that is defined in the default interface scope. */ 
+extern void sMOIface_set_confirmId(SMO* handle, sc_integer value);
 /*! Raises the in event 'switchOff' that is defined in the default interface scope. */ 
 extern void sMOIface_raise_switchOff(SMO* handle);
 

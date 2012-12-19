@@ -366,7 +366,7 @@ static void sMR_react_main_region_on_r1_running_main_CheckData(SMR* handle) {
 		/* Default enter sequence for state DataReceived */
 		/* Entry action for state 'DataReceived'. */
 		sMRIfaceLCD_writeStringXY(handle->ifaceRF.data, 0, 1);
-		sMRIfaceUART_sendMsg(handle->ifaceRF.data);
+		sMRIfaceUART_sendData(handle->ifaceRF.data);
 		handle->stateConfVector[0] = SMR_main_region_on_r1_running_main_DataReceived;
 		handle->stateConfVectorPosition = 0;
 	}  else {
