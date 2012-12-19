@@ -15,9 +15,10 @@ typedef enum {
 	SMR_main_region_on ,
 	SMR_main_region_on_r1_Init ,
 	SMR_main_region_on_r1_running ,
-	SMR_main_region_on_r1_running_RF_Ready ,
-	SMR_main_region_on_r1_running_RF_GetData ,
-	SMR_main_region_on_r1_running_RF_DataRecieved ,
+	SMR_main_region_on_r1_running_main_ShowMsg ,
+	SMR_main_region_on_r1_running_main_CheckData ,
+	SMR_main_region_on_r1_running_main_DataReceived ,
+	SMR_main_region_on_r1_running_main_SendCheck ,
 	SMR_last_state
 } SMRStates;
 
@@ -45,6 +46,7 @@ typedef struct {
 	sc_string  data;
 	sc_string  lastdata;
 	sc_boolean  result;
+	sc_integer  retry;
 	sc_integer  ID;
 	sc_boolean DataRecieved_raised;
 } SMRIfaceRF;
@@ -145,6 +147,10 @@ extern void sMRIfaceRF_set_lastdata(SMR* handle, sc_string value);
 extern sc_boolean sMRIfaceRF_get_result(SMR* handle);
 /*! Sets the value of the variable 'result' that is defined in the interface scope 'RF'. */ 
 extern void sMRIfaceRF_set_result(SMR* handle, sc_boolean value);
+/*! Gets the value of the variable 'retry' that is defined in the interface scope 'RF'. */ 
+extern sc_integer sMRIfaceRF_get_retry(SMR* handle);
+/*! Sets the value of the variable 'retry' that is defined in the interface scope 'RF'. */ 
+extern void sMRIfaceRF_set_retry(SMR* handle, sc_integer value);
 /*! Gets the value of the variable 'ID' that is defined in the interface scope 'RF'. */ 
 extern sc_integer sMRIfaceRF_get_iD(SMR* handle);
 /*! Sets the value of the variable 'ID' that is defined in the interface scope 'RF'. */ 

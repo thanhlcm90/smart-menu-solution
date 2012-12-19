@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  00000b6c  00000000  00000000  00009d04  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00001621  00000000  00000000  0000a870  2**0
+ 10 .debug_str    00001633  00000000  00000000  0000a870  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00002770  00000000  00000000  0000be91  2**0
+ 11 .debug_loc    00002770  00000000  00000000  0000bea3  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000f0  00000000  00000000  0000e601  2**0
+ 12 .debug_ranges 000000f0  00000000  00000000  0000e613  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -3153,8 +3153,8 @@ void sMC_exit(SMC* handle)
 			break;
     104c:	08 95       	ret
 		}
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear : {
-			/* Default exit sequence for state Clear */
+		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
+			/* Default exit sequence for state CheckKeyPress1 */
 			handle->stateConfVector[1] = SMC_last_state;
     104e:	83 e1       	ldi	r24, 0x13	; 19
     1050:	81 83       	std	Z+1, r24	; 0x01
@@ -3728,8 +3728,8 @@ static void sMC_react_main_region_On_r1_Running_running_main_FinishDish(SMC* han
 		/* Default enter sequence for state EnterData */
 		/* Default enter sequence for region r1 */
 		/* Default react sequence for initial entry  */
-		/* Default enter sequence for state Clear */
-		/* Entry action for state 'Clear'. */
+		/* Default enter sequence for state CheckKeyPress1 */
+		/* Entry action for state 'CheckKeyPress1'. */
 		handle->iface.listId = 0;
     131e:	12 ae       	sts	0xb2, r17
     1320:	13 ae       	sts	0xb3, r17
@@ -3740,7 +3740,7 @@ static void sMC_react_main_region_On_r1_Running_running_main_FinishDish(SMC* han
     1328:	11 86       	std	Z+9, r1	; 0x09
     132a:	12 86       	std	Z+10, r1	; 0x0a
     132c:	13 86       	std	Z+11, r1	; 0x0b
-		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear;
+		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1;
     132e:	8c e0       	ldi	r24, 0x0C	; 12
     1330:	81 83       	std	Z+1, r24	; 0x01
     1332:	f8 c0       	rjmp	.+496    	; 0x1524 <__stack+0x425>
@@ -3757,8 +3757,8 @@ static void sMC_react_main_region_On_r1_Running_running_main_CancelDish(SMC* han
 		/* Default enter sequence for state EnterData */
 		/* Default enter sequence for region r1 */
 		/* Default react sequence for initial entry  */
-		/* Default enter sequence for state Clear */
-		/* Entry action for state 'Clear'. */
+		/* Default enter sequence for state CheckKeyPress1 */
+		/* Entry action for state 'CheckKeyPress1'. */
 		handle->iface.listId = 0;
     133c:	12 ae       	sts	0xb2, r17
     133e:	13 ae       	sts	0xb3, r17
@@ -3769,7 +3769,7 @@ static void sMC_react_main_region_On_r1_Running_running_main_CancelDish(SMC* han
     1346:	11 86       	std	Z+9, r1	; 0x09
     1348:	12 86       	std	Z+10, r1	; 0x0a
     134a:	13 86       	std	Z+11, r1	; 0x0b
-		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear;
+		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1;
     134c:	8c e0       	ldi	r24, 0x0C	; 12
     134e:	81 83       	std	Z+1, r24	; 0x01
     1350:	e9 c0       	rjmp	.+466    	; 0x1524 <__stack+0x425>
@@ -3854,9 +3854,9 @@ static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1__final
     13aa:	e5 c0       	rjmp	.+458    	; 0x1576 <__stack+0x477>
 }
 
-/* The reactions of state Clear. */
-static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_Clear(SMC* handle) {
-	/* The reactions of state Clear. */
+/* The reactions of state CheckKeyPress1. */
+static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1(SMC* handle) {
+	/* The reactions of state CheckKeyPress1. */
 	if (handle->iface.requestId == 0) { 
     13ac:	eb 81       	ldd	r30, Y+3	; 0x03
     13ae:	fc 81       	ldd	r31, Y+4	; 0x04
@@ -3905,7 +3905,7 @@ static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_Clear(
     13f2:	88 23       	and	r24, r24
     13f4:	09 f4       	brne	.+2      	; 0x13f8 <__stack+0x2f9>
     13f6:	96 c0       	rjmp	.+300    	; 0x1524 <__stack+0x425>
-			/* Default exit sequence for state Clear */
+			/* Default exit sequence for state CheckKeyPress1 */
 			handle->stateConfVector[1] = SMC_last_state;
 			handle->stateConfVectorPosition = 1;
     13f8:	13 83       	std	Z+3, r17	; 0x03
@@ -4379,7 +4379,7 @@ sc_boolean sMC_isActive(SMC* handle, SMCStates state) {
     166c:	4d c0       	rjmp	.+154    	; 0x1708 <sMC_isActive+0x158>
     166e:	80 e0       	ldi	r24, 0x00	; 0
     1670:	08 95       	ret
-				&& handle->stateConfVector[1] <= SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear);
+				&& handle->stateConfVector[1] <= SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1);
 		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish : 
 			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish
     1672:	81 e0       	ldi	r24, 0x01	; 1
@@ -4403,8 +4403,8 @@ sc_boolean sMC_isActive(SMC* handle, SMCStates state) {
     1690:	80 e0       	ldi	r24, 0x00	; 0
     1692:	08 95       	ret
 			);
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear : 
-			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear
+		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : 
+			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1
     1694:	81 e0       	ldi	r24, 0x01	; 1
     1696:	11 96       	adiw	r26, 0x01	; 1
     1698:	9c 91       	ld	r25, X

@@ -52,7 +52,7 @@
                   <vertices xsi:type="sgraph:Entry" xmi:id="_mXJa0Ek8EeKrdK_02R_Scg">
                     <outgoingTransitions xmi:id="_m_l64Ek8EeKrdK_02R_Scg" specification="" target="_R4yq0Ek9EeKrdK_02R_Scg"/>
                   </vertices>
-                  <vertices xsi:type="sgraph:State" xmi:id="_R4yq0Ek9EeKrdK_02R_Scg" specification="entry/&#xD;&#xA;listId = 0; KEYPAD.lastkey=0" name="Clear" incomingTransitions="_m_l64Ek8EeKrdK_02R_Scg">
+                  <vertices xsi:type="sgraph:State" xmi:id="_R4yq0Ek9EeKrdK_02R_Scg" specification="entry/&#xD;&#xA;listId = 0; KEYPAD.lastkey=0" name="CheckKeyPress1" incomingTransitions="_m_l64Ek8EeKrdK_02R_Scg">
                     <outgoingTransitions xmi:id="_bgHxcEk9EeKrdK_02R_Scg" specification="KEYPAD.key_pressed [KEYPAD.lastkey>=1 &amp;&amp; KEYPAD.lastkey&lt;=10]" target="_hs5oUEkzEeKrdK_02R_Scg"/>
                   </vertices>
                 </regions>
