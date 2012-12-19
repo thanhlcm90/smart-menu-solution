@@ -35,7 +35,14 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../SMC.c
+../keypad.c \
+../lcd.c \
+../Main.c \
+../rf.c \
+../SMC.c \
+../spi.c \
+../TimerEvent.c \
+../UART.c
 
 
 PREPROCESSING_SRCS += 
@@ -45,19 +52,47 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-SMC.o
+keypad.o \
+lcd.o \
+Main.o \
+rf.o \
+SMC.o \
+spi.o \
+TimerEvent.o \
+UART.o
 
 
 OBJS_AS_ARGS +=  \
-SMC.o
+keypad.o \
+lcd.o \
+Main.o \
+rf.o \
+SMC.o \
+spi.o \
+TimerEvent.o \
+UART.o
 
 
 C_DEPS +=  \
-SMC.d
+keypad.d \
+lcd.d \
+Main.d \
+rf.d \
+SMC.d \
+spi.d \
+TimerEvent.d \
+UART.d
 
 
 C_DEPS_AS_ARGS +=  \
-SMC.d
+keypad.d \
+lcd.d \
+Main.d \
+rf.d \
+SMC.d \
+spi.d \
+TimerEvent.d \
+UART.d
 
 
 OUTPUT_FILE_PATH +=SMC.elf
@@ -69,6 +104,20 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
