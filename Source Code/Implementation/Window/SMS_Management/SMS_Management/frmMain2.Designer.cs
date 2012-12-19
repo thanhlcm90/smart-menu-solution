@@ -58,7 +58,7 @@
             this.rbtStaffMng = new Telerik.WinControls.UI.RadButtonElement();
             this.rbtChefMng = new Telerik.WinControls.UI.RadButtonElement();
             this.radRibbonBarGroup10 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radButtonElement13 = new Telerik.WinControls.UI.RadButtonElement();
+            this.rbtTableMng = new Telerik.WinControls.UI.RadButtonElement();
             this.button1 = new System.Windows.Forms.Button();
             this.comConnection1 = new SMS_Management.COMConnection();
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
@@ -451,6 +451,7 @@
             this.rtbDishMng.Text = "Dishes";
             this.rtbDishMng.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
             this.rtbDishMng.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rtbDishMng.Click += new System.EventHandler(this.rtbDishMng_Click);
             // 
             // rtbMenuMng
             // 
@@ -465,6 +466,7 @@
             this.rtbMenuMng.Text = "Menu";
             this.rtbMenuMng.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
             this.rtbMenuMng.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rtbMenuMng.Click += new System.EventHandler(this.rtbMenuMng_Click);
             // 
             // radRibbonBarGroup9
             // 
@@ -505,29 +507,31 @@
             this.rbtChefMng.Text = "Chef";
             this.rbtChefMng.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
             this.rbtChefMng.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rbtChefMng.Click += new System.EventHandler(this.rbtChefMng_Click);
             // 
             // radRibbonBarGroup10
             // 
             this.radRibbonBarGroup10.AccessibleDescription = "Khác";
             this.radRibbonBarGroup10.AccessibleName = "Khác";
             this.radRibbonBarGroup10.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElement13});
+            this.rbtTableMng});
             this.radRibbonBarGroup10.Name = "radRibbonBarGroup10";
             this.radRibbonBarGroup10.Text = "Others";
             this.radRibbonBarGroup10.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
-            // radButtonElement13
+            // rbtTableMng
             // 
-            this.radButtonElement13.AccessibleDescription = "Quản lý bàn ăn";
-            this.radButtonElement13.AccessibleName = "Quản lý bàn ăn";
-            this.radButtonElement13.AutoSize = false;
-            this.radButtonElement13.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.radButtonElement13.Class = "RibbonBarButtonElement";
-            this.radButtonElement13.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.radButtonElement13.Name = "radButtonElement13";
-            this.radButtonElement13.Text = "Table";
-            this.radButtonElement13.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.radButtonElement13.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rbtTableMng.AccessibleDescription = "Quản lý bàn ăn";
+            this.rbtTableMng.AccessibleName = "Quản lý bàn ăn";
+            this.rbtTableMng.AutoSize = false;
+            this.rbtTableMng.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.rbtTableMng.Class = "RibbonBarButtonElement";
+            this.rbtTableMng.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rbtTableMng.Name = "rbtTableMng";
+            this.rbtTableMng.Text = "Table";
+            this.rbtTableMng.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rbtTableMng.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rbtTableMng.Click += new System.EventHandler(this.rbtTableMng_Click);
             // 
             // button1
             // 
@@ -793,7 +797,7 @@
         private Telerik.WinControls.UI.RadButtonElement rbtStaffMng;
         private Telerik.WinControls.UI.RadButtonElement rbtChefMng;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup10;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElement13;
+        private Telerik.WinControls.UI.RadButtonElement rbtTableMng;
         private Telerik.WinControls.UI.RadDesktopAlert radDesktopAlert1;
     }
 }

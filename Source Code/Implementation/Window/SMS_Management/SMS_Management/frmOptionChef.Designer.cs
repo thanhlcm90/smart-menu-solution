@@ -68,7 +68,7 @@
             this.tsbDelete});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(662, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(496, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -77,7 +77,7 @@
             this.tbsAddNew.Image = global::SMS_Management.Properties.Resources.add;
             this.tbsAddNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbsAddNew.Name = "tbsAddNew";
-            this.tbsAddNew.Size = new System.Drawing.Size(57, 24);
+            this.tbsAddNew.Size = new System.Drawing.Size(49, 22);
             this.tbsAddNew.Text = "Add";
             this.tbsAddNew.Click += new System.EventHandler(this.tsbAddNew_Click);
             // 
@@ -86,14 +86,14 @@
             this.tsbEdit.Image = global::SMS_Management.Properties.Resources.edit;
             this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEdit.Name = "tsbEdit";
-            this.tsbEdit.Size = new System.Drawing.Size(55, 24);
+            this.tsbEdit.Size = new System.Drawing.Size(47, 22);
             this.tsbEdit.Text = "Edit";
             this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // tsbSave
             // 
@@ -102,7 +102,7 @@
             this.tsbSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(60, 24);
+            this.tsbSave.Size = new System.Drawing.Size(51, 22);
             this.tsbSave.Text = "Save";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
@@ -112,26 +112,28 @@
             this.tsbCancel.Image = global::SMS_Management.Properties.Resources.cancel;
             this.tsbCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCancel.Name = "tsbCancel";
-            this.tsbCancel.Size = new System.Drawing.Size(73, 24);
+            this.tsbCancel.Size = new System.Drawing.Size(63, 22);
             this.tsbCancel.Text = "Cancel";
             this.tsbCancel.Click += new System.EventHandler(this.tsbCancel_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // tsbDelete
             // 
             this.tsbDelete.Image = global::SMS_Management.Properties.Resources.delete;
             this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(73, 24);
+            this.tsbDelete.Size = new System.Drawing.Size(60, 22);
             this.tsbDelete.Text = "Delete";
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.dateTimePicker1);
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.textBox2);
@@ -140,77 +142,91 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(12, 28);
+            this.panel3.Location = new System.Drawing.Point(9, 23);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(382, 143);
+            this.panel3.Size = new System.Drawing.Size(476, 116);
             this.panel3.TabIndex = 8;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(161, 39);
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(121, 32);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 28;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 100);
+            this.textBox1.Location = new System.Drawing.Point(98, 81);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 22);
+            this.textBox1.Size = new System.Drawing.Size(174, 20);
             this.textBox1.TabIndex = 25;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(130, 72);
+            this.textBox2.Location = new System.Drawing.Point(98, 58);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(231, 22);
+            this.textBox2.Size = new System.Drawing.Size(174, 20);
             this.textBox2.TabIndex = 24;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(130, 13);
+            this.textBox3.Location = new System.Drawing.Point(98, 11);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(231, 22);
+            this.textBox3.Size = new System.Drawing.Size(174, 20);
             this.textBox3.TabIndex = 22;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 105);
+            this.label1.Location = new System.Drawing.Point(28, 85);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 17);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 21;
             this.label1.Text = "Địa chỉ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 72);
+            this.label2.Location = new System.Drawing.Point(22, 58);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 17);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Điện thoại";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 44);
+            this.label3.Location = new System.Drawing.Point(6, 36);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 17);
+            this.label3.Size = new System.Drawing.Size(107, 13);
             this.label3.TabIndex = 19;
             this.label3.Text = "Ngày tháng năm sinh";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 16);
+            this.label4.Location = new System.Drawing.Point(41, 13);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 17);
+            this.label4.Size = new System.Drawing.Size(26, 13);
             this.label4.TabIndex = 18;
             this.label4.Text = "Tên";
             // 
             // grvChefInfo
             // 
+            this.grvChefInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grvChefInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grvChefInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvChefInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -219,13 +235,12 @@
             this.grv_ADDRESS,
             this.grv_PHONE,
             this.grv_BIRTHDAY});
-            this.grvChefInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grvChefInfo.Location = new System.Drawing.Point(0, 176);
-            this.grvChefInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grvChefInfo.Location = new System.Drawing.Point(0, 143);
+            this.grvChefInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grvChefInfo.Name = "grvChefInfo";
             this.grvChefInfo.RowTemplate.Height = 24;
             this.grvChefInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grvChefInfo.Size = new System.Drawing.Size(662, 213);
+            this.grvChefInfo.Size = new System.Drawing.Size(496, 173);
             this.grvChefInfo.TabIndex = 6;
             this.grvChefInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvChefInfo_CellClick);
             // 
@@ -262,12 +277,13 @@
             // 
             // frmOptionChef
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 389);
+            this.ClientSize = new System.Drawing.Size(496, 316);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.grvChefInfo);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmOptionChef";
             this.Text = "Option Chefs";
             this.toolStrip1.ResumeLayout(false);
