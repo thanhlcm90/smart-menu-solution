@@ -19,7 +19,7 @@ namespace SMS_Management
         public frmOptionChef()
         {
             InitializeComponent();
-            panel3.Enabled = false;
+            panel1.Enabled = false;
             tsbSave.Enabled = false;
             tsbCancel.Enabled = false;
             LoadDataDauBep();
@@ -61,7 +61,7 @@ namespace SMS_Management
         {
             FormState = FormBase.FormStateType.Edit;
             BindDataDauBep();
-            panel3.Enabled = true;
+            panel1.Enabled = true;
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
             textBox3.Text = name;
@@ -72,7 +72,7 @@ namespace SMS_Management
 
         private void tsbCancel_Click(object sender, EventArgs e)
         {
-            panel3.Enabled = false;
+            panel1.Enabled = false;
             FormState = FormBase.FormStateType.Normal;
             textBox3.Text = "";
             dateTimePicker1.Text = "";
@@ -84,7 +84,7 @@ namespace SMS_Management
 
         private void tsbAddNew_Click(object sender, EventArgs e)
         {
-            panel3.Enabled = true;
+            panel1.Enabled = true;
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
             FormState = FormStateType.New;
@@ -121,7 +121,7 @@ namespace SMS_Management
 
 
             FormState = FormStateType.Normal;
-            panel3.Enabled = false;
+            panel1.Enabled = false;
             tsbSave.Enabled = false;
             tsbCancel.Enabled = false;
             LoadDataDauBep();
