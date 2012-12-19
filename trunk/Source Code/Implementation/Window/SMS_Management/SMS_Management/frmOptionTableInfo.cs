@@ -103,5 +103,15 @@ namespace SMS_Management
 
             LoadDataBanan();
         }
+
+        private void grvTableInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            BindDataTable();
+         
+            textBox2.Text = name.ToString();
+            textBox3.Text = code.ToString();
+            comboBox1.Text = nhanvien.ToString();
+        }
     }
 }

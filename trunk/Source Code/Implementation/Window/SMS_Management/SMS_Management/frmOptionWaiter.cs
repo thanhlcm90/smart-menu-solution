@@ -58,6 +58,7 @@ namespace SMS_Management
 
         private void tsbEdit_Click(object sender, EventArgs e)
         {
+            FormState = FormBase.FormStateType.Edit;
             BindDataPhucVu();
             panel1.Enabled = true;
             tsbSave.Enabled = true;
@@ -121,6 +122,17 @@ namespace SMS_Management
             tsbSave.Enabled = false;
             tsbCancel.Enabled = false;
             LoadDataPhucVu();
+        }
+
+        private void grvWaiterInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            BindDataPhucVu();
+           
+            textBox3.Text = name;
+            dateTimePicker1.Value = birthday;
+            textBox1.Text = phone;
+            textBox2.Text = diachi;
         }
     }
     
