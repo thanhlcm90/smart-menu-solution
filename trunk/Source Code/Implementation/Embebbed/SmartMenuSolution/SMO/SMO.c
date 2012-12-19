@@ -25,6 +25,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckA
 static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_EnterAmount(SMO* handle);
 static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1__final_0(SMO* handle);
 static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering(SMO* handle);
+static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_Exit(SMO* handle);
 static void sMO_react_main_region_on_r1_Running_running_main_MenuA(SMO* handle);
 static void sMO_react_main_region_on_r1_Running_running_main_CheckKeyPress(SMO* handle);
 static void sMO_react_main_region_on_r1_Running_running_main_SendData_r1_Send(SMO* handle);
@@ -173,6 +174,12 @@ void sMO_exit(SMO* handle)
 		}
 		case SMO_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering : {
 			/* Default exit sequence for state KeepOrdering */
+			handle->stateConfVector[1] = SMO_last_state;
+			handle->stateConfVectorPosition = 1;
+			break;
+		}
+		case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+			/* Default exit sequence for state Exit */
 			handle->stateConfVector[1] = SMO_last_state;
 			handle->stateConfVectorPosition = 1;
 			break;
@@ -378,6 +385,10 @@ void sMO_runCycle(SMO* handle) {
 			sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering(handle);
 			break;
 		}
+		case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+			sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_Exit(handle);
+			break;
+		}
 		case SMO_main_region_on_r1_Running_running_main_MenuA : {
 			sMO_react_main_region_on_r1_Running_running_main_MenuA(handle);
 			break;
@@ -491,7 +502,7 @@ sc_boolean sMO_isActive(SMO* handle, SMOStates state) {
 			);
 		case SMO_main_region_on_r1_Running_running_main_EnterData : 
 			return (sc_boolean) (handle->stateConfVector[1] >= SMO_main_region_on_r1_Running_running_main_EnterData
-				&& handle->stateConfVector[1] <= SMO_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering);
+				&& handle->stateConfVector[1] <= SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit);
 		case SMO_main_region_on_r1_Running_running_main_EnterData_r1_ShowCode : 
 			return (sc_boolean) (handle->stateConfVector[1] == SMO_main_region_on_r1_Running_running_main_EnterData_r1_ShowCode
 			);
@@ -521,6 +532,9 @@ sc_boolean sMO_isActive(SMO* handle, SMOStates state) {
 			);
 		case SMO_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering : 
 			return (sc_boolean) (handle->stateConfVector[1] == SMO_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering
+			);
+		case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : 
+			return (sc_boolean) (handle->stateConfVector[1] == SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit
 			);
 		case SMO_main_region_on_r1_Running_running_main_MenuA : 
 			return (sc_boolean) (handle->stateConfVector[1] == SMO_main_region_on_r1_Running_running_main_MenuA
@@ -888,6 +902,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_ShowCo
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+				/* Default exit sequence for state Exit */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
 			default: break;
 		}
 		/* Default enter sequence for state ShowMenu */
@@ -970,6 +990,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_EnterC
 			}
 			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering : {
 				/* Default exit sequence for state KeepOrdering */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+				/* Default exit sequence for state Exit */
 				handle->stateConfVector[1] = SMO_last_state;
 				handle->stateConfVectorPosition = 1;
 				break;
@@ -1060,6 +1086,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+				/* Default exit sequence for state Exit */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
 			default: break;
 		}
 		/* Default enter sequence for state ShowMenu */
@@ -1125,9 +1157,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 							/* Default exit sequence for state CheckKeyPress1 */
 							handle->stateConfVector[1] = SMO_last_state;
 							handle->stateConfVectorPosition = 1;
-							handle->iface.menuId = 0;
-							/* Default enter sequence for state null */
-							handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_EnterData_r1__final_;
+							/* Default enter sequence for state Exit */
+							/* Entry action for state 'Exit'. */
+							sMOIfaceLCD_clear();
+							sMOIfaceLCD_writeString("Finish Ordering?");
+							sMOIfaceLCD_writeStringXY("*.No  #.Yes", 0, 1);
+							handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit;
 							handle->stateConfVectorPosition = 1;
 						} 
 					}
@@ -1195,6 +1230,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckC
 			}
 			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering : {
 				/* Default exit sequence for state KeepOrdering */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+				/* Default exit sequence for state Exit */
 				handle->stateConfVector[1] = SMO_last_state;
 				handle->stateConfVectorPosition = 1;
 				break;
@@ -1287,6 +1328,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_ShowAm
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+				/* Default exit sequence for state Exit */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
 			default: break;
 		}
 		/* Default enter sequence for state ShowMenu */
@@ -1373,6 +1420,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+				/* Default exit sequence for state Exit */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
 			default: break;
 		}
 		/* Default enter sequence for state ShowMenu */
@@ -1424,9 +1477,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 						/* Default exit sequence for state CheckKeyPress2 */
 						handle->stateConfVector[1] = SMO_last_state;
 						handle->stateConfVectorPosition = 1;
-						handle->iface.menuId = 0;
-						/* Default enter sequence for state null */
-						handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_EnterData_r1__final_;
+						/* Default enter sequence for state Exit */
+						/* Entry action for state 'Exit'. */
+						sMOIfaceLCD_clear();
+						sMOIfaceLCD_writeString("Finish Ordering?");
+						sMOIfaceLCD_writeStringXY("*.No  #.Yes", 0, 1);
+						handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit;
 						handle->stateConfVectorPosition = 1;
 					}  else {
 						if (handle->ifaceKEYPAD.lastkey == 12 && handle->ifaceKEYPAD.key_pressed_raised) { 
@@ -1436,7 +1492,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 							/* Default enter sequence for state KeepOrdering */
 							/* Entry action for state 'KeepOrdering'. */
 							sMOIfaceLCD_clear();
-							sMOIfaceLCD_writeString("Keep Ordering?");
+							sMOIfaceLCD_writeString("Order this?");
 							sMOIfaceLCD_writeStringXY("*.No  #.Yes", 0, 1);
 							handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering;
 							handle->stateConfVectorPosition = 1;
@@ -1506,6 +1562,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckA
 			}
 			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering : {
 				/* Default exit sequence for state KeepOrdering */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+				/* Default exit sequence for state Exit */
 				handle->stateConfVector[1] = SMO_last_state;
 				handle->stateConfVectorPosition = 1;
 				break;
@@ -1598,6 +1660,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_EnterA
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+				/* Default exit sequence for state Exit */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
 			default: break;
 		}
 		/* Default enter sequence for state ShowMenu */
@@ -1684,6 +1752,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1__final
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+				/* Default exit sequence for state Exit */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
 			default: break;
 		}
 		/* Default enter sequence for state ShowMenu */
@@ -1760,6 +1834,12 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_KeepOr
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+				/* Default exit sequence for state Exit */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
 			default: break;
 		}
 		/* Default enter sequence for state ShowMenu */
@@ -1771,7 +1851,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_KeepOr
 		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
 		handle->stateConfVectorPosition = 1;
 	}  else {
-		if (handle->ifaceKEYPAD.lastkey == 11 && handle->ifaceKEYPAD.key_pressed_raised) { 
+		if (handle->ifaceKEYPAD.lastkey == 12 && handle->ifaceKEYPAD.key_pressed_raised) { 
 			/* Default exit sequence for state EnterData */
 			/* Default exit sequence for region r1 */
 			/* Handle exit of all possible states (of r1) at position 1... */
@@ -1830,11 +1910,16 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_KeepOr
 					handle->stateConfVectorPosition = 1;
 					break;
 				}
+				case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+					/* Default exit sequence for state Exit */
+					handle->stateConfVector[1] = SMO_last_state;
+					handle->stateConfVectorPosition = 1;
+					break;
+				}
 				default: break;
 			}
 			handle->ifaceRF.result = bool_false;
 			handle->ifaceRF.retry = 0;
-			handle->iface.menuId = 9;
 			/* Default enter sequence for state SendData */
 			/* Default enter sequence for region r1 */
 			/* Default react sequence for initial entry  */
@@ -1843,6 +1928,112 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_KeepOr
 			handle->ifaceRF.retry += 1;
 			handle->ifaceRF.result = sMOIfaceRF_sendData(handle->iface.menuId, handle->iface.tableId, handle->ifaceDISH.ID, handle->ifaceDISH.amount);
 			handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendData_r1_Send;
+			handle->stateConfVectorPosition = 1;
+		}  else {
+			if (handle->ifaceKEYPAD.lastkey == 11 && handle->ifaceKEYPAD.key_pressed_raised) { 
+				/* Default exit sequence for state KeepOrdering */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				/* Default enter sequence for state ShowCode */
+				/* Entry action for state 'ShowCode'. */
+				sMOIfaceLCD_clear();
+				sMOIfaceLCD_writeString("Dish Code:");
+				sMOIfaceLCD_writeStringXY("_ _ _", 0, 1);
+				handle->ifaceDISH.pos = 0;
+				handle->ifaceDISH.ID = 0;
+				handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_EnterData_r1_ShowCode;
+				handle->stateConfVectorPosition = 1;
+			} 
+		}
+	}
+}
+
+/* The reactions of state Exit. */
+static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_Exit(SMO* handle) {
+	/* The reactions of state Exit. */
+	if (handle->iface.menuId == 0) { 
+		/* Default exit sequence for state EnterData */
+		/* Default exit sequence for region r1 */
+		/* Handle exit of all possible states (of r1) at position 1... */
+		switch(handle->stateConfVector[ 1 ]) {
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_ShowCode : {
+				/* Default exit sequence for state ShowCode */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_EnterCode : {
+				/* Default exit sequence for state EnterCode */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
+				/* Default exit sequence for state CheckKeyPress1 */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_CheckCode0 : {
+				/* Default exit sequence for state CheckCode0 */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_ShowAmount : {
+				/* Default exit sequence for state ShowAmount */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_CheckKeyPress2 : {
+				/* Default exit sequence for state CheckKeyPress2 */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_EnterAmount : {
+				/* Default exit sequence for state EnterAmount */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1__final_ : {
+				/* Default exit sequence for final state. */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_KeepOrdering : {
+				/* Default exit sequence for state KeepOrdering */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+				/* Default exit sequence for state Exit */
+				handle->stateConfVector[1] = SMO_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			default: break;
+		}
+		/* Default enter sequence for state ShowMenu */
+		/* Entry action for state 'ShowMenu'. */
+		sMOIfaceLCD_clear();
+		sMOIfaceLCD_writeString("A-Order  B-Del");
+		sMOIfaceLCD_writeStringXY("C-Help  D-Pay", 0, 1);
+		handle->iface.menuId = 0;
+		handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_ShowMenu;
+		handle->stateConfVectorPosition = 1;
+	}  else {
+		if (handle->ifaceKEYPAD.lastkey == 11 && handle->ifaceKEYPAD.key_pressed_raised) { 
+			/* Default exit sequence for state Exit */
+			handle->stateConfVector[1] = SMO_last_state;
+			handle->stateConfVectorPosition = 1;
+			handle->iface.menuId = 0;
+			/* Default enter sequence for state null */
+			handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_EnterData_r1__final_;
 			handle->stateConfVectorPosition = 1;
 		}  else {
 			if (handle->ifaceKEYPAD.lastkey == 12 && handle->ifaceKEYPAD.key_pressed_raised) { 
@@ -1904,10 +2095,17 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_KeepOr
 						handle->stateConfVectorPosition = 1;
 						break;
 					}
+					case SMO_main_region_on_r1_Running_running_main_EnterData_r1_Exit : {
+						/* Default exit sequence for state Exit */
+						handle->stateConfVector[1] = SMO_last_state;
+						handle->stateConfVectorPosition = 1;
+						break;
+					}
 					default: break;
 				}
 				handle->ifaceRF.result = bool_false;
 				handle->ifaceRF.retry = 0;
+				handle->iface.menuId = 9;
 				/* Default enter sequence for state SendData */
 				/* Default enter sequence for region r1 */
 				/* Default react sequence for initial entry  */
