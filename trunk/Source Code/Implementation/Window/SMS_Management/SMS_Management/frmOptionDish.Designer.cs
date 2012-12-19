@@ -122,18 +122,18 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(317, 162);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(222, 17);
+            this.label4.Size = new System.Drawing.Size(105, 17);
             this.label4.TabIndex = 18;
-            this.label4.Text = "Dách sách món ăn trong thực đơn";
+            this.label4.Text = "Dishes in menu";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 50);
+            this.label3.Location = new System.Drawing.Point(35, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 17);
+            this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Danh sách thực đơn";
+            this.label3.Text = "Menu list";
             // 
             // panel5
             // 
@@ -156,11 +156,11 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(303, 50);
+            this.label20.Location = new System.Drawing.Point(296, 51);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(55, 17);
+            this.label20.Size = new System.Drawing.Size(61, 17);
             this.label20.TabIndex = 9;
-            this.label20.Text = "Tên TA";
+            this.label20.Text = "VI Name";
             // 
             // tbNameEn
             // 
@@ -191,18 +191,18 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(25, 49);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(57, 17);
+            this.label21.Size = new System.Drawing.Size(40, 17);
             this.label21.TabIndex = 10;
-            this.label21.Text = "Đơn giá";
+            this.label21.Text = "Price";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(303, 20);
+            this.label19.Location = new System.Drawing.Point(296, 20);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(55, 17);
+            this.label19.Size = new System.Drawing.Size(68, 17);
             this.label19.TabIndex = 8;
-            this.label19.Text = "Tên TV";
+            this.label19.Text = "EN Name";
             // 
             // tbPrice
             // 
@@ -215,11 +215,11 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(4, 18);
+            this.label18.Location = new System.Drawing.Point(24, 15);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(78, 17);
+            this.label18.Size = new System.Drawing.Size(41, 17);
             this.label18.TabIndex = 7;
-            this.label18.Text = "Mã món ăn";
+            this.label18.Text = "Code";
             // 
             // toolStrip1
             // 
@@ -317,19 +317,19 @@
             // grv_VN
             // 
             this.grv_VN.DataPropertyName = "NAME_VN";
-            this.grv_VN.HeaderText = "Tên TV";
+            this.grv_VN.HeaderText = "VI Name";
             this.grv_VN.Name = "grv_VN";
             // 
             // grv_EN
             // 
             this.grv_EN.DataPropertyName = "NAME_EN";
-            this.grv_EN.HeaderText = "Tên TA";
+            this.grv_EN.HeaderText = "EN Name";
             this.grv_EN.Name = "grv_EN";
             // 
             // grv_PRICE
             // 
             this.grv_PRICE.DataPropertyName = "PRICE";
-            this.grv_PRICE.HeaderText = "Giá";
+            this.grv_PRICE.HeaderText = "Price";
             this.grv_PRICE.Name = "grv_PRICE";
             // 
             // frmOptionDish
