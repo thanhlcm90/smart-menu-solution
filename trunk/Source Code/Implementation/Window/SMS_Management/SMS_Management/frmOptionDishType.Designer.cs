@@ -59,7 +59,7 @@
             this.tsbDelete});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(548, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(411, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -69,7 +69,7 @@
             this.tsbAddNew.Image = global::SMS_Management.Properties.Resources.add;
             this.tsbAddNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAddNew.Name = "tsbAddNew";
-            this.tsbAddNew.Size = new System.Drawing.Size(57, 24);
+            this.tsbAddNew.Size = new System.Drawing.Size(49, 22);
             this.tsbAddNew.Text = "Add";
             this.tsbAddNew.Click += new System.EventHandler(this.tsbAddNew_Click);
             // 
@@ -78,14 +78,14 @@
             this.tsbEdit.Image = global::SMS_Management.Properties.Resources.edit;
             this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEdit.Name = "tsbEdit";
-            this.tsbEdit.Size = new System.Drawing.Size(55, 24);
+            this.tsbEdit.Size = new System.Drawing.Size(47, 22);
             this.tsbEdit.Text = "Edit";
             this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // tsbSave
             // 
@@ -94,7 +94,7 @@
             this.tsbSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(60, 24);
+            this.tsbSave.Size = new System.Drawing.Size(51, 22);
             this.tsbSave.Text = "Save";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
@@ -104,38 +104,40 @@
             this.tsbCancel.Image = global::SMS_Management.Properties.Resources.cancel;
             this.tsbCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCancel.Name = "tsbCancel";
-            this.tsbCancel.Size = new System.Drawing.Size(73, 24);
+            this.tsbCancel.Size = new System.Drawing.Size(63, 22);
             this.tsbCancel.Text = "Cancel";
             this.tsbCancel.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // tsbDelete
             // 
             this.tsbDelete.Image = global::SMS_Management.Properties.Resources.delete;
             this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(73, 24);
+            this.tsbDelete.Size = new System.Drawing.Size(60, 22);
             this.tsbDelete.Text = "Delete";
             this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // grvDishType
             // 
+            this.grvDishType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grvDishType.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grvDishType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grvDishType.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.grvDishType_ID,
             this.grvDishType_NAME});
-            this.grvDishType.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grvDishType.Location = new System.Drawing.Point(0, 81);
-            this.grvDishType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grvDishType.Location = new System.Drawing.Point(0, 69);
+            this.grvDishType.Margin = new System.Windows.Forms.Padding(2);
             this.grvDishType.Name = "grvDishType";
             this.grvDishType.RowTemplate.Height = 24;
             this.grvDishType.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grvDishType.Size = new System.Drawing.Size(548, 249);
+            this.grvDishType.Size = new System.Drawing.Size(411, 199);
             this.grvDishType.TabIndex = 3;
             this.grvDishType.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvDishType_CellContentClick);
             // 
@@ -154,39 +156,43 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(3, 46);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(2, 37);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(323, 34);
+            this.panel1.Size = new System.Drawing.Size(398, 28);
             this.panel1.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 11);
+            this.label1.Location = new System.Drawing.Point(14, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
+            this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên thực đơn";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 7);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Location = new System.Drawing.Point(88, 6);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 22);
+            this.textBox1.Size = new System.Drawing.Size(132, 20);
             this.textBox1.TabIndex = 0;
             // 
             // frmOptionDishType
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 330);
+            this.ClientSize = new System.Drawing.Size(411, 268);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.grvDishType);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmOptionDishType";
             this.Text = "OtionDishType";
             this.toolStrip1.ResumeLayout(false);

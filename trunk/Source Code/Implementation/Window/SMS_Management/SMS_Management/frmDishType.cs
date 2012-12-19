@@ -77,8 +77,8 @@ namespace SMS_Management
             this.toolAdd.Image = global::SMS_Management.Properties.Resources.add;
             this.toolAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAdd.Name = "toolAdd";
-            this.toolAdd.Size = new System.Drawing.Size(58, 22);
-            this.toolAdd.Text = "Thêm";
+            this.toolAdd.Size = new System.Drawing.Size(49, 22);
+            this.toolAdd.Text = "Add";
             this.toolAdd.Click += new System.EventHandler(this.toolAdd_Click);
             // 
             // toolEdit
@@ -86,8 +86,8 @@ namespace SMS_Management
             this.toolEdit.Image = global::SMS_Management.Properties.Resources.edit;
             this.toolEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolEdit.Name = "toolEdit";
-            this.toolEdit.Size = new System.Drawing.Size(46, 22);
-            this.toolEdit.Text = "Sửa";
+            this.toolEdit.Size = new System.Drawing.Size(47, 22);
+            this.toolEdit.Text = "Edit";
             this.toolEdit.Click += new System.EventHandler(this.toolEdit_Click);
             // 
             // toolStripSeparator1
@@ -102,8 +102,8 @@ namespace SMS_Management
             this.toolSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolSave.Name = "toolSave";
-            this.toolSave.Size = new System.Drawing.Size(47, 22);
-            this.toolSave.Text = "Lưu";
+            this.toolSave.Size = new System.Drawing.Size(51, 22);
+            this.toolSave.Text = "Save";
             this.toolSave.Click += new System.EventHandler(this.toolSave_Click);
             // 
             // toolCancel
@@ -112,8 +112,8 @@ namespace SMS_Management
             this.toolCancel.Image = global::SMS_Management.Properties.Resources.cancel;
             this.toolCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolCancel.Name = "toolCancel";
-            this.toolCancel.Size = new System.Drawing.Size(49, 22);
-            this.toolCancel.Text = "Hủy";
+            this.toolCancel.Size = new System.Drawing.Size(63, 22);
+            this.toolCancel.Text = "Cancel";
             this.toolCancel.Click += new System.EventHandler(this.toolCancel_Click);
             // 
             // toolStripSeparator2
@@ -126,8 +126,8 @@ namespace SMS_Management
             this.toolDelete.Image = global::SMS_Management.Properties.Resources.delete;
             this.toolDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolDelete.Name = "toolDelete";
-            this.toolDelete.Size = new System.Drawing.Size(47, 22);
-            this.toolDelete.Text = "Xóa";
+            this.toolDelete.Size = new System.Drawing.Size(60, 22);
+            this.toolDelete.Text = "Delete";
             this.toolDelete.Click += new System.EventHandler(this.toolDelete_Click);
             // 
             // groupBox1

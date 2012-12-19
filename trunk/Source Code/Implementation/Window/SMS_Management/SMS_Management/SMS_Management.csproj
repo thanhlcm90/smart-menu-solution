@@ -124,6 +124,7 @@
     <Compile Include="DataObject\ChefDTO.cs" />
     <Compile Include="DataObject\BillingDTO.cs" />
     <Compile Include="DataObject\DishDTO.cs" />
+    <Compile Include="DataObject\DishInMenuDTO.cs" />
     <Compile Include="DataObject\DishTypeDTO.cs" />
     <Compile Include="DataObject\ProccessingDTO.cs" />
     <Compile Include="DataObject\OrderDetailDTO.cs">

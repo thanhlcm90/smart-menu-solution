@@ -296,6 +296,26 @@ namespace SMS_Management
             Common.openform("frmBilling", this, this.radDock1, FormType.Mdi);
         }
 
+        private void rtbDishMng_Click(object sender, EventArgs e)
+        {
+            Common.openform("frmOptionDish", this, this.radDock1, FormType.Mdi);
+        }
+
+        private void rtbMenuMng_Click(object sender, EventArgs e)
+        {
+            Common.openform("frmOptionDishType", this, this.radDock1, FormType.Mdi);
+        }
+
+        private void rbtChefMng_Click(object sender, EventArgs e)
+        {
+            Common.openform("frmOptionChef", this, this.radDock1, FormType.Mdi);
+        }
+
+        private void rbtTableMng_Click(object sender, EventArgs e)
+        {
+            Common.openform("frmOptionTableInfo", this, this.radDock1, FormType.Mdi);
+        }
+
 
 
     }

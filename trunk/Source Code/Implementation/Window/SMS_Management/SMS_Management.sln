@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMS_Management", "SMS_Management\SMS_Management.csproj", "{17E4F022-6E94-4D52-9E48-B4D888770762}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{6BADC299-3288-4834-9C0E-B18798D578AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,12 @@ Global
 		{17E4F022-6E94-4D52-9E48-B4D888770762}.Release|Mixed Platforms.Build.0 = Release|x86
 		{17E4F022-6E94-4D52-9E48-B4D888770762}.Release|x86.ActiveCfg = Release|x86
 		{17E4F022-6E94-4D52-9E48-B4D888770762}.Release|x86.Build.0 = Release|x86
+		{6BADC299-3288-4834-9C0E-B18798D578AA}.Debug|Any CPU.ActiveCfg = Debug
+		{6BADC299-3288-4834-9C0E-B18798D578AA}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{6BADC299-3288-4834-9C0E-B18798D578AA}.Debug|x86.ActiveCfg = Debug
+		{6BADC299-3288-4834-9C0E-B18798D578AA}.Release|Any CPU.ActiveCfg = Release
+		{6BADC299-3288-4834-9C0E-B18798D578AA}.Release|Mixed Platforms.ActiveCfg = Release
+		{6BADC299-3288-4834-9C0E-B18798D578AA}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
