@@ -13,6 +13,8 @@ namespace SMS_Management
 {
     public partial class frmMain2 : Telerik.WinControls.UI.RadRibbonForm
     {
+        delegate void ShowMessageCallback(string content, string caption);
+
         Dictionary<short, List<OrderDetailDTO>> lstOrderDetail = new Dictionary<short, List<OrderDetailDTO>>();
         public frmMain2()
         {
@@ -31,7 +33,6 @@ namespace SMS_Management
                 OrderDetailDTO item;
                 short table_code;
                 string table_name;
-                RadDesktopAlert radDesktopAlert;
 
                 switch (data[0])
                 {
@@ -79,12 +80,7 @@ namespace SMS_Management
                         {
                             table_code = Convert.ToInt16(data.Substring(1, 2));
                             table_name = repO.GetTableName(table_code);
-                            radDesktopAlert = new RadDesktopAlert(this.components);
-                            radDesktopAlert.FixedSize = new System.Drawing.Size(329, 120);
-                            radDesktopAlert.ContentImage = Properties.Resources.waiter;
-                            radDesktopAlert.ContentText = table_name + ": gọi nhân viên phục vụ";
-                            radDesktopAlert.CaptionText = "Gọi nhân viên";
-                            radDesktopAlert.Show();
+                            ShowMessage(table_name + ": gọi nhân viên phục vụ", "Gọi nhân viên");
                         }
                         break;
                     case '4': //Thanh toán
@@ -96,12 +92,7 @@ namespace SMS_Management
                             PayRepostitory repPa = new PayRepostitory();
                             repPa.SendToPayment(table_code);
 
-                            radDesktopAlert = new RadDesktopAlert(this.components);
-                            radDesktopAlert.FixedSize = new System.Drawing.Size(329, 120);
-                            radDesktopAlert.ContentImage = Properties.Resources.waiter;
-                            radDesktopAlert.ContentText = table_name + ": tính tiền";
-                            radDesktopAlert.CaptionText = "Thanh toán";
-                            radDesktopAlert.Show();
+                            ShowMessage(table_name + ": tính tiền", "Thanh toán");
                         }
                         break;
                     case '5':
@@ -123,6 +114,22 @@ namespace SMS_Management
             ((FormBase)frm).RefreshData();
         }
 
+        private void ShowMessageMethod(string content, string caption)
+        {
+            RadDesktopAlert radDesktopAlert;
+            radDesktopAlert = new RadDesktopAlert(this.components);
+            radDesktopAlert.FixedSize = new System.Drawing.Size(329, 120);
+            radDesktopAlert.ContentImage = Properties.Resources.waiter;
+            radDesktopAlert.ContentText = content;
+            radDesktopAlert.CaptionText = caption ;
+            radDesktopAlert.Show();
+        }
+        private void ShowMessage(string content, string caption)
+        {
+                ShowMessageCallback d = new ShowMessageCallback(ShowMessageMethod);
+                this.Invoke(d, new object[] { content,caption });
+        }
+
         private void frmMain2_Load(object sender, EventArgs e)
         {
             comConnection1.PortName = "COM5";
@@ -137,21 +144,6 @@ namespace SMS_Management
             Common.openform("frmOrder", this,this.radDock1, FormType.Mdi);
         }
 
-
-        private void rtOrder_Click(object sender, EventArgs e)
-        {
-            Common.openform("frmOrder", this, this.radDock1, FormType.Mdi);
-        }
-
-        private void rtKitchen_Click(object sender, EventArgs e)
-        {
-            Common.openform("frmKitchen", this, this.radDock1, FormType.Mdi);
-        }
-
-        private void rtBilling_Click(object sender, EventArgs e)
-        {
-            Common.openform("frmBilling", this, this.radDock1, FormType.Mdi);
-        }
 
         private void rbtShowDetail_Click(object sender, EventArgs e)
         {
@@ -262,6 +254,7 @@ namespace SMS_Management
         private void frmMain2_FormClosed(object sender, FormClosedEventArgs e)
         {
             comConnection1.PortClose();
+            this.radDock1.CloseAllWindows();
         }
 
         private void radMenuItem1_Click(object sender, EventArgs e)
@@ -281,6 +274,26 @@ namespace SMS_Management
                 }
             }
 
+        }
+
+        private void rbtStaffMng_Click(object sender, EventArgs e)
+        {
+            Common.openform("frmOptionWaiter", this, this.radDock1, FormType.Mdi);
+        }
+
+        private void rtOrder_Click(object sender, EventArgs e)
+        {
+            Common.openform("frmOrder", this, this.radDock1, FormType.Mdi);
+        }
+
+        private void rtKitchen_Click(object sender, EventArgs e)
+        {
+            Common.openform("frmKitchen", this, this.radDock1, FormType.Mdi);
+        }
+
+        private void rtBilling_Click(object sender, EventArgs e)
+        {
+            Common.openform("frmBilling", this, this.radDock1, FormType.Mdi);
         }
 
 

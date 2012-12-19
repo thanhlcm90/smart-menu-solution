@@ -32,16 +32,31 @@
             this.radRibbonBar1 = new Telerik.WinControls.UI.RadRibbonBar();
             this.rtOrder = new Telerik.WinControls.UI.RibbonTab();
             this.radRibbonBarGroup3 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.rbtShowDetail = new Telerik.WinControls.UI.RadButtonElement();
+            this.rbtPrintList = new Telerik.WinControls.UI.RadButtonElement();
             this.radRibbonBarGroup4 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.rbtSendToKitchen = new Telerik.WinControls.UI.RadButtonElement();
+            this.rbtSendBilling = new Telerik.WinControls.UI.RadButtonElement();
             this.rtKitchen = new Telerik.WinControls.UI.RibbonTab();
             this.radRibbonBarGroup5 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.rtbConfirmFinish = new Telerik.WinControls.UI.RadButtonElement();
+            this.rtbConfirmCancel = new Telerik.WinControls.UI.RadButtonElement();
             this.rtBilling = new Telerik.WinControls.UI.RibbonTab();
             this.radRibbonBarGroup6 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.rtbPrintBilling = new Telerik.WinControls.UI.RadButtonElement();
+            this.rtbConfirmBilling = new Telerik.WinControls.UI.RadButtonElement();
             this.rtStatistic = new Telerik.WinControls.UI.RibbonTab();
             this.radRibbonBarGroup7 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radButtonElement5 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElement6 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElement8 = new Telerik.WinControls.UI.RadButtonElement();
             this.rtSystem = new Telerik.WinControls.UI.RibbonTab();
             this.radRibbonBarGroup8 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.rtbDishMng = new Telerik.WinControls.UI.RadButtonElement();
+            this.rtbMenuMng = new Telerik.WinControls.UI.RadButtonElement();
             this.radRibbonBarGroup9 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.rbtStaffMng = new Telerik.WinControls.UI.RadButtonElement();
+            this.rbtChefMng = new Telerik.WinControls.UI.RadButtonElement();
             this.radRibbonBarGroup10 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radButtonElement13 = new Telerik.WinControls.UI.RadButtonElement();
             this.button1 = new System.Windows.Forms.Button();
@@ -61,22 +76,6 @@
             this.radButtonElement3 = new Telerik.WinControls.UI.RadButtonElement();
             this.radButtonElement4 = new Telerik.WinControls.UI.RadButtonElement();
             this.radDesktopAlert1 = new Telerik.WinControls.UI.RadDesktopAlert(this.components);
-            this.comConnection1 = new SMS_Management.COMConnection();
-            this.rbtShowDetail = new Telerik.WinControls.UI.RadButtonElement();
-            this.rbtPrintList = new Telerik.WinControls.UI.RadButtonElement();
-            this.rbtSendToKitchen = new Telerik.WinControls.UI.RadButtonElement();
-            this.rbtSendBilling = new Telerik.WinControls.UI.RadButtonElement();
-            this.rtbConfirmFinish = new Telerik.WinControls.UI.RadButtonElement();
-            this.rtbConfirmCancel = new Telerik.WinControls.UI.RadButtonElement();
-            this.rtbPrintBilling = new Telerik.WinControls.UI.RadButtonElement();
-            this.rtbConfirmBilling = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement5 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement6 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement8 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement9 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement10 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement11 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement12 = new Telerik.WinControls.UI.RadButtonElement();
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
             this.radRibbonBar1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
@@ -163,6 +162,43 @@
             this.radRibbonBarGroup3.Text = "Information";
             this.radRibbonBarGroup3.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
+            // rbtShowDetail
+            // 
+            this.rbtShowDetail.AccessibleDescription = "Chi tiết bàn ăn";
+            this.rbtShowDetail.AccessibleName = "Chi tiết bàn ăn";
+            this.rbtShowDetail.AutoSize = false;
+            this.rbtShowDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.rbtShowDetail.Bounds = new System.Drawing.Rectangle(0, 0, 64, 70);
+            this.rbtShowDetail.Class = "RibbonBarButtonElement";
+            this.rbtShowDetail.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtShowDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(66)))), ((int)(((byte)(139)))));
+            this.rbtShowDetail.Image = global::SMS_Management.Properties.Resources.ViewDetailIcon;
+            this.rbtShowDetail.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rbtShowDetail.Name = "rbtShowDetail";
+            this.rbtShowDetail.Padding = new System.Windows.Forms.Padding(0);
+            this.rbtShowDetail.SmallImage = null;
+            this.rbtShowDetail.Text = "View Detail";
+            this.rbtShowDetail.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rbtShowDetail.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rbtShowDetail.Click += new System.EventHandler(this.rbtShowDetail_Click);
+            // 
+            // rbtPrintList
+            // 
+            this.rbtPrintList.AccessibleDescription = "In danh sách";
+            this.rbtPrintList.AccessibleName = "In danh sách";
+            this.rbtPrintList.AutoSize = false;
+            this.rbtPrintList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.rbtPrintList.Bounds = new System.Drawing.Rectangle(0, 0, 64, 70);
+            this.rbtPrintList.Class = "RibbonBarButtonElement";
+            this.rbtPrintList.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtPrintList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(66)))), ((int)(((byte)(139)))));
+            this.rbtPrintList.Image = global::SMS_Management.Properties.Resources.PrintIcon;
+            this.rbtPrintList.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rbtPrintList.Name = "rbtPrintList";
+            this.rbtPrintList.Text = "Print";
+            this.rbtPrintList.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rbtPrintList.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
             // radRibbonBarGroup4
             // 
             this.radRibbonBarGroup4.AccessibleDescription = "Thao tác";
@@ -173,6 +209,36 @@
             this.radRibbonBarGroup4.Name = "radRibbonBarGroup4";
             this.radRibbonBarGroup4.Text = "Operation";
             this.radRibbonBarGroup4.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // rbtSendToKitchen
+            // 
+            this.rbtSendToKitchen.AccessibleDescription = "Đưa vào bếp";
+            this.rbtSendToKitchen.AccessibleName = "Đưa vào bếp";
+            this.rbtSendToKitchen.AutoSize = false;
+            this.rbtSendToKitchen.Bounds = new System.Drawing.Rectangle(0, 0, 64, 70);
+            this.rbtSendToKitchen.Class = "RibbonBarButtonElement";
+            this.rbtSendToKitchen.Image = global::SMS_Management.Properties.Resources.ChefIcon;
+            this.rbtSendToKitchen.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rbtSendToKitchen.Name = "rbtSendToKitchen";
+            this.rbtSendToKitchen.Text = "Kitchen";
+            this.rbtSendToKitchen.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rbtSendToKitchen.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rbtSendToKitchen.Click += new System.EventHandler(this.rbtSendToKitchen_Click);
+            // 
+            // rbtSendBilling
+            // 
+            this.rbtSendBilling.AccessibleDescription = "Thanh toán";
+            this.rbtSendBilling.AccessibleName = "Thanh toán";
+            this.rbtSendBilling.AutoSize = false;
+            this.rbtSendBilling.Bounds = new System.Drawing.Rectangle(0, 0, 64, 70);
+            this.rbtSendBilling.Class = "RibbonBarButtonElement";
+            this.rbtSendBilling.Image = global::SMS_Management.Properties.Resources.PaymentIcon;
+            this.rbtSendBilling.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rbtSendBilling.Name = "rbtSendBilling";
+            this.rbtSendBilling.Text = "Payment";
+            this.rbtSendBilling.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rbtSendBilling.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rbtSendBilling.Click += new System.EventHandler(this.rbtSendBilling_Click);
             // 
             // rtKitchen
             // 
@@ -198,6 +264,36 @@
             this.radRibbonBarGroup5.Text = "Confirmation";
             this.radRibbonBarGroup5.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
+            // rtbConfirmFinish
+            // 
+            this.rtbConfirmFinish.AccessibleDescription = "Xác nhận hoàn thành";
+            this.rtbConfirmFinish.AccessibleName = "Xác nhận hoàn thành";
+            this.rtbConfirmFinish.AutoSize = false;
+            this.rtbConfirmFinish.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.rtbConfirmFinish.Class = "RibbonBarButtonElement";
+            this.rtbConfirmFinish.Image = global::SMS_Management.Properties.Resources.notification_done;
+            this.rtbConfirmFinish.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rtbConfirmFinish.Name = "rtbConfirmFinish";
+            this.rtbConfirmFinish.Text = "Finish";
+            this.rtbConfirmFinish.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rtbConfirmFinish.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rtbConfirmFinish.Click += new System.EventHandler(this.rtbConfirmFinish_Click);
+            // 
+            // rtbConfirmCancel
+            // 
+            this.rtbConfirmCancel.AccessibleDescription = "Xác nhận hủy";
+            this.rtbConfirmCancel.AccessibleName = "Xác nhận hủy";
+            this.rtbConfirmCancel.AutoSize = false;
+            this.rtbConfirmCancel.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.rtbConfirmCancel.Class = "RibbonBarButtonElement";
+            this.rtbConfirmCancel.Image = global::SMS_Management.Properties.Resources.notification_remove;
+            this.rtbConfirmCancel.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rtbConfirmCancel.Name = "rtbConfirmCancel";
+            this.rtbConfirmCancel.Text = "Cancel";
+            this.rtbConfirmCancel.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rtbConfirmCancel.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rtbConfirmCancel.Click += new System.EventHandler(this.rtbConfirmCancel_Click);
+            // 
             // rtBilling
             // 
             this.rtBilling.AccessibleDescription = "Thanh toán";
@@ -221,6 +317,35 @@
             this.radRibbonBarGroup6.Name = "radRibbonBarGroup6";
             this.radRibbonBarGroup6.Text = "Billing";
             this.radRibbonBarGroup6.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // rtbPrintBilling
+            // 
+            this.rtbPrintBilling.AccessibleDescription = "In hóa đơn";
+            this.rtbPrintBilling.AccessibleName = "In hóa đơn";
+            this.rtbPrintBilling.AutoSize = false;
+            this.rtbPrintBilling.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.rtbPrintBilling.Class = "RibbonBarButtonElement";
+            this.rtbPrintBilling.Image = global::SMS_Management.Properties.Resources.PrintIcon;
+            this.rtbPrintBilling.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rtbPrintBilling.Name = "rtbPrintBilling";
+            this.rtbPrintBilling.Text = "Print Bill";
+            this.rtbPrintBilling.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rtbPrintBilling.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // rtbConfirmBilling
+            // 
+            this.rtbConfirmBilling.AccessibleDescription = "Xác nhận thanh toán";
+            this.rtbConfirmBilling.AccessibleName = "Xác nhận thanh toán";
+            this.rtbConfirmBilling.AutoSize = false;
+            this.rtbConfirmBilling.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.rtbConfirmBilling.Class = "RibbonBarButtonElement";
+            this.rtbConfirmBilling.Image = global::SMS_Management.Properties.Resources.notification_done;
+            this.rtbConfirmBilling.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rtbConfirmBilling.Name = "rtbConfirmBilling";
+            this.rtbConfirmBilling.Text = "Confirm ";
+            this.rtbConfirmBilling.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rtbConfirmBilling.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rtbConfirmBilling.Click += new System.EventHandler(this.rtbConfirmBilling_Click);
             // 
             // rtStatistic
             // 
@@ -246,6 +371,48 @@
             this.radRibbonBarGroup7.Text = "Production and Sale Statistics";
             this.radRibbonBarGroup7.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
+            // radButtonElement5
+            // 
+            this.radButtonElement5.AccessibleDescription = "Thống kê theo ngày";
+            this.radButtonElement5.AccessibleName = "Thống kê theo ngày";
+            this.radButtonElement5.AutoSize = false;
+            this.radButtonElement5.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.radButtonElement5.Class = "RibbonBarButtonElement";
+            this.radButtonElement5.Image = global::SMS_Management.Properties.Resources.byDayIcon1;
+            this.radButtonElement5.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.radButtonElement5.Name = "radButtonElement5";
+            this.radButtonElement5.Text = "By Days";
+            this.radButtonElement5.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.radButtonElement5.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement6
+            // 
+            this.radButtonElement6.AccessibleDescription = "Thống kê theo tháng";
+            this.radButtonElement6.AccessibleName = "Thống kê theo tháng";
+            this.radButtonElement6.AutoSize = false;
+            this.radButtonElement6.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.radButtonElement6.Class = "RibbonBarButtonElement";
+            this.radButtonElement6.Image = global::SMS_Management.Properties.Resources.byMonthIcon;
+            this.radButtonElement6.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.radButtonElement6.Name = "radButtonElement6";
+            this.radButtonElement6.Text = "By Months";
+            this.radButtonElement6.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.radButtonElement6.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement8
+            // 
+            this.radButtonElement8.AccessibleDescription = "Thống kê theo năm";
+            this.radButtonElement8.AccessibleName = "Thống kê theo năm";
+            this.radButtonElement8.AutoSize = false;
+            this.radButtonElement8.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.radButtonElement8.Class = "RibbonBarButtonElement";
+            this.radButtonElement8.Image = global::SMS_Management.Properties.Resources.byYearIcon;
+            this.radButtonElement8.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.radButtonElement8.Name = "radButtonElement8";
+            this.radButtonElement8.Text = "By Years";
+            this.radButtonElement8.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.radButtonElement8.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
             // rtSystem
             // 
             this.rtSystem.AccessibleDescription = "Hệ thống";
@@ -265,22 +432,79 @@
             this.radRibbonBarGroup8.AccessibleDescription = "Quản lý món ăn";
             this.radRibbonBarGroup8.AccessibleName = "Quản lý món ăn";
             this.radRibbonBarGroup8.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElement9,
-            this.radButtonElement10});
+            this.rtbDishMng,
+            this.rtbMenuMng});
             this.radRibbonBarGroup8.Name = "radRibbonBarGroup8";
             this.radRibbonBarGroup8.Text = "Food and Beverage";
             this.radRibbonBarGroup8.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // rtbDishMng
+            // 
+            this.rtbDishMng.AccessibleDescription = "Danh sách món ăn";
+            this.rtbDishMng.AccessibleName = "Danh sách món ăn";
+            this.rtbDishMng.AutoSize = false;
+            this.rtbDishMng.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.rtbDishMng.Class = "RibbonBarButtonElement";
+            this.rtbDishMng.Image = global::SMS_Management.Properties.Resources.iconFood;
+            this.rtbDishMng.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rtbDishMng.Name = "rtbDishMng";
+            this.rtbDishMng.Text = "Dishes";
+            this.rtbDishMng.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rtbDishMng.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // rtbMenuMng
+            // 
+            this.rtbMenuMng.AccessibleDescription = "Danh sách thực đơn";
+            this.rtbMenuMng.AccessibleName = "Danh sách thực đơn";
+            this.rtbMenuMng.AutoSize = false;
+            this.rtbMenuMng.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.rtbMenuMng.Class = "RibbonBarButtonElement";
+            this.rtbMenuMng.Image = global::SMS_Management.Properties.Resources.note_icon;
+            this.rtbMenuMng.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rtbMenuMng.Name = "rtbMenuMng";
+            this.rtbMenuMng.Text = "Menu";
+            this.rtbMenuMng.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rtbMenuMng.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
             // radRibbonBarGroup9
             // 
             this.radRibbonBarGroup9.AccessibleDescription = "Quản lý nhân sự";
             this.radRibbonBarGroup9.AccessibleName = "Quản lý nhân sự";
             this.radRibbonBarGroup9.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElement11,
-            this.radButtonElement12});
+            this.rbtStaffMng,
+            this.rbtChefMng});
             this.radRibbonBarGroup9.Name = "radRibbonBarGroup9";
             this.radRibbonBarGroup9.Text = "Human Resource";
             this.radRibbonBarGroup9.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // rbtStaffMng
+            // 
+            this.rbtStaffMng.AccessibleDescription = "Quản lý nhân viên";
+            this.rbtStaffMng.AccessibleName = "Quản lý nhân viên";
+            this.rbtStaffMng.AutoSize = false;
+            this.rbtStaffMng.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.rbtStaffMng.Class = "RibbonBarButtonElement";
+            this.rbtStaffMng.Image = global::SMS_Management.Properties.Resources.user_manage;
+            this.rbtStaffMng.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rbtStaffMng.Name = "rbtStaffMng";
+            this.rbtStaffMng.Text = "Staff";
+            this.rbtStaffMng.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rbtStaffMng.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.rbtStaffMng.Click += new System.EventHandler(this.rbtStaffMng_Click);
+            // 
+            // rbtChefMng
+            // 
+            this.rbtChefMng.AccessibleDescription = "Quản lý đầu bêos";
+            this.rbtChefMng.AccessibleName = "Quản lý đầu bêos";
+            this.rbtChefMng.AutoSize = false;
+            this.rbtChefMng.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
+            this.rbtChefMng.Class = "RibbonBarButtonElement";
+            this.rbtChefMng.Image = global::SMS_Management.Properties.Resources.ChefIcon;
+            this.rbtChefMng.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.rbtChefMng.Name = "rbtChefMng";
+            this.rbtChefMng.Text = "Chef";
+            this.rbtChefMng.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
+            this.rbtChefMng.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
             // radRibbonBarGroup10
             // 
@@ -492,244 +716,6 @@
             this.radDesktopAlert1.SoundToPlay = null;
             this.radDesktopAlert1.ThemeName = null;
             // 
-            // comConnection1
-            // 
-            this.comConnection1.Location = new System.Drawing.Point(449, 64);
-            this.comConnection1.Margin = new System.Windows.Forms.Padding(4);
-            this.comConnection1.Name = "comConnection1";
-            this.comConnection1.PortBaudRate = 9600;
-            this.comConnection1.PortDataBits = 8;
-            this.comConnection1.PortName = "COM4";
-            this.comConnection1.PortParity = System.IO.Ports.Parity.None;
-            this.comConnection1.PortStopBits = System.IO.Ports.StopBits.One;
-            this.comConnection1.Size = new System.Drawing.Size(42, 27);
-            this.comConnection1.TabIndex = 2;
-            this.comConnection1.DataReceived += new SMS_Management.COMConnection.DataReceivedEventHandler(this.comConnection1_DataReceived);
-            // 
-            // rbtShowDetail
-            // 
-            this.rbtShowDetail.AccessibleDescription = "Chi tiết bàn ăn";
-            this.rbtShowDetail.AccessibleName = "Chi tiết bàn ăn";
-            this.rbtShowDetail.AutoSize = false;
-            this.rbtShowDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.rbtShowDetail.Bounds = new System.Drawing.Rectangle(0, 0, 64, 70);
-            this.rbtShowDetail.Class = "RibbonBarButtonElement";
-            this.rbtShowDetail.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtShowDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(66)))), ((int)(((byte)(139)))));
-            this.rbtShowDetail.Image = global::SMS_Management.Properties.Resources.ViewDetailIcon;
-            this.rbtShowDetail.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.rbtShowDetail.Name = "rbtShowDetail";
-            this.rbtShowDetail.Padding = new System.Windows.Forms.Padding(0);
-            this.rbtShowDetail.SmallImage = null;
-            this.rbtShowDetail.Text = "View Detail";
-            this.rbtShowDetail.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.rbtShowDetail.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.rbtShowDetail.Click += new System.EventHandler(this.rbtShowDetail_Click);
-            // 
-            // rbtPrintList
-            // 
-            this.rbtPrintList.AccessibleDescription = "In danh sách";
-            this.rbtPrintList.AccessibleName = "In danh sách";
-            this.rbtPrintList.AutoSize = false;
-            this.rbtPrintList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
-            this.rbtPrintList.Bounds = new System.Drawing.Rectangle(0, 0, 64, 70);
-            this.rbtPrintList.Class = "RibbonBarButtonElement";
-            this.rbtPrintList.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtPrintList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(66)))), ((int)(((byte)(139)))));
-            this.rbtPrintList.Image = global::SMS_Management.Properties.Resources.PrintIcon;
-            this.rbtPrintList.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.rbtPrintList.Name = "rbtPrintList";
-            this.rbtPrintList.Text = "Print";
-            this.rbtPrintList.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.rbtPrintList.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // rbtSendToKitchen
-            // 
-            this.rbtSendToKitchen.AccessibleDescription = "Đưa vào bếp";
-            this.rbtSendToKitchen.AccessibleName = "Đưa vào bếp";
-            this.rbtSendToKitchen.AutoSize = false;
-            this.rbtSendToKitchen.Bounds = new System.Drawing.Rectangle(0, 0, 64, 70);
-            this.rbtSendToKitchen.Class = "RibbonBarButtonElement";
-            this.rbtSendToKitchen.Image = global::SMS_Management.Properties.Resources.ChefIcon;
-            this.rbtSendToKitchen.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.rbtSendToKitchen.Name = "rbtSendToKitchen";
-            this.rbtSendToKitchen.Text = "Kitchen";
-            this.rbtSendToKitchen.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.rbtSendToKitchen.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.rbtSendToKitchen.Click += new System.EventHandler(this.rbtSendToKitchen_Click);
-            // 
-            // rbtSendBilling
-            // 
-            this.rbtSendBilling.AccessibleDescription = "Thanh toán";
-            this.rbtSendBilling.AccessibleName = "Thanh toán";
-            this.rbtSendBilling.AutoSize = false;
-            this.rbtSendBilling.Bounds = new System.Drawing.Rectangle(0, 0, 64, 70);
-            this.rbtSendBilling.Class = "RibbonBarButtonElement";
-            this.rbtSendBilling.Image = global::SMS_Management.Properties.Resources.PaymentIcon;
-            this.rbtSendBilling.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.rbtSendBilling.Name = "rbtSendBilling";
-            this.rbtSendBilling.Text = "Payment";
-            this.rbtSendBilling.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.rbtSendBilling.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.rbtSendBilling.Click += new System.EventHandler(this.rbtSendBilling_Click);
-            // 
-            // rtbConfirmFinish
-            // 
-            this.rtbConfirmFinish.AccessibleDescription = "Xác nhận hoàn thành";
-            this.rtbConfirmFinish.AccessibleName = "Xác nhận hoàn thành";
-            this.rtbConfirmFinish.AutoSize = false;
-            this.rtbConfirmFinish.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.rtbConfirmFinish.Class = "RibbonBarButtonElement";
-            this.rtbConfirmFinish.Image = global::SMS_Management.Properties.Resources.notification_done;
-            this.rtbConfirmFinish.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.rtbConfirmFinish.Name = "rtbConfirmFinish";
-            this.rtbConfirmFinish.Text = "Finish";
-            this.rtbConfirmFinish.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.rtbConfirmFinish.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.rtbConfirmFinish.Click += new System.EventHandler(this.rtbConfirmFinish_Click);
-            // 
-            // rtbConfirmCancel
-            // 
-            this.rtbConfirmCancel.AccessibleDescription = "Xác nhận hủy";
-            this.rtbConfirmCancel.AccessibleName = "Xác nhận hủy";
-            this.rtbConfirmCancel.AutoSize = false;
-            this.rtbConfirmCancel.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.rtbConfirmCancel.Class = "RibbonBarButtonElement";
-            this.rtbConfirmCancel.Image = global::SMS_Management.Properties.Resources.notification_remove;
-            this.rtbConfirmCancel.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.rtbConfirmCancel.Name = "rtbConfirmCancel";
-            this.rtbConfirmCancel.Text = "Cancel";
-            this.rtbConfirmCancel.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.rtbConfirmCancel.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.rtbConfirmCancel.Click += new System.EventHandler(this.rtbConfirmCancel_Click);
-            // 
-            // rtbPrintBilling
-            // 
-            this.rtbPrintBilling.AccessibleDescription = "In hóa đơn";
-            this.rtbPrintBilling.AccessibleName = "In hóa đơn";
-            this.rtbPrintBilling.AutoSize = false;
-            this.rtbPrintBilling.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.rtbPrintBilling.Class = "RibbonBarButtonElement";
-            this.rtbPrintBilling.Image = global::SMS_Management.Properties.Resources.PrintIcon;
-            this.rtbPrintBilling.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.rtbPrintBilling.Name = "rtbPrintBilling";
-            this.rtbPrintBilling.Text = "Print Bill";
-            this.rtbPrintBilling.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.rtbPrintBilling.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // rtbConfirmBilling
-            // 
-            this.rtbConfirmBilling.AccessibleDescription = "Xác nhận thanh toán";
-            this.rtbConfirmBilling.AccessibleName = "Xác nhận thanh toán";
-            this.rtbConfirmBilling.AutoSize = false;
-            this.rtbConfirmBilling.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.rtbConfirmBilling.Class = "RibbonBarButtonElement";
-            this.rtbConfirmBilling.Image = global::SMS_Management.Properties.Resources.notification_done;
-            this.rtbConfirmBilling.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.rtbConfirmBilling.Name = "rtbConfirmBilling";
-            this.rtbConfirmBilling.Text = "Confirm ";
-            this.rtbConfirmBilling.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.rtbConfirmBilling.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            this.rtbConfirmBilling.Click += new System.EventHandler(this.rtbConfirmBilling_Click);
-            // 
-            // radButtonElement5
-            // 
-            this.radButtonElement5.AccessibleDescription = "Thống kê theo ngày";
-            this.radButtonElement5.AccessibleName = "Thống kê theo ngày";
-            this.radButtonElement5.AutoSize = false;
-            this.radButtonElement5.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.radButtonElement5.Class = "RibbonBarButtonElement";
-            this.radButtonElement5.Image = global::SMS_Management.Properties.Resources.byDayIcon1;
-            this.radButtonElement5.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.radButtonElement5.Name = "radButtonElement5";
-            this.radButtonElement5.Text = "By Days";
-            this.radButtonElement5.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.radButtonElement5.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement6
-            // 
-            this.radButtonElement6.AccessibleDescription = "Thống kê theo tháng";
-            this.radButtonElement6.AccessibleName = "Thống kê theo tháng";
-            this.radButtonElement6.AutoSize = false;
-            this.radButtonElement6.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.radButtonElement6.Class = "RibbonBarButtonElement";
-            this.radButtonElement6.Image = global::SMS_Management.Properties.Resources.byMonthIcon;
-            this.radButtonElement6.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.radButtonElement6.Name = "radButtonElement6";
-            this.radButtonElement6.Text = "By Months";
-            this.radButtonElement6.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.radButtonElement6.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement8
-            // 
-            this.radButtonElement8.AccessibleDescription = "Thống kê theo năm";
-            this.radButtonElement8.AccessibleName = "Thống kê theo năm";
-            this.radButtonElement8.AutoSize = false;
-            this.radButtonElement8.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.radButtonElement8.Class = "RibbonBarButtonElement";
-            this.radButtonElement8.Image = global::SMS_Management.Properties.Resources.byYearIcon;
-            this.radButtonElement8.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.radButtonElement8.Name = "radButtonElement8";
-            this.radButtonElement8.Text = "By Years";
-            this.radButtonElement8.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.radButtonElement8.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement9
-            // 
-            this.radButtonElement9.AccessibleDescription = "Danh sách món ăn";
-            this.radButtonElement9.AccessibleName = "Danh sách món ăn";
-            this.radButtonElement9.AutoSize = false;
-            this.radButtonElement9.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.radButtonElement9.Class = "RibbonBarButtonElement";
-            this.radButtonElement9.Image = global::SMS_Management.Properties.Resources.iconFood;
-            this.radButtonElement9.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.radButtonElement9.Name = "radButtonElement9";
-            this.radButtonElement9.Text = "Dishes";
-            this.radButtonElement9.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.radButtonElement9.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement10
-            // 
-            this.radButtonElement10.AccessibleDescription = "Danh sách thực đơn";
-            this.radButtonElement10.AccessibleName = "Danh sách thực đơn";
-            this.radButtonElement10.AutoSize = false;
-            this.radButtonElement10.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.radButtonElement10.Class = "RibbonBarButtonElement";
-            this.radButtonElement10.Image = global::SMS_Management.Properties.Resources.note_icon;
-            this.radButtonElement10.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.radButtonElement10.Name = "radButtonElement10";
-            this.radButtonElement10.Text = "Menu";
-            this.radButtonElement10.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.radButtonElement10.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement11
-            // 
-            this.radButtonElement11.AccessibleDescription = "Quản lý nhân viên";
-            this.radButtonElement11.AccessibleName = "Quản lý nhân viên";
-            this.radButtonElement11.AutoSize = false;
-            this.radButtonElement11.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.radButtonElement11.Class = "RibbonBarButtonElement";
-            this.radButtonElement11.Image = global::SMS_Management.Properties.Resources.user_manage;
-            this.radButtonElement11.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.radButtonElement11.Name = "radButtonElement11";
-            this.radButtonElement11.Text = "Staff";
-            this.radButtonElement11.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.radButtonElement11.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement12
-            // 
-            this.radButtonElement12.AccessibleDescription = "Quản lý đầu bêos";
-            this.radButtonElement12.AccessibleName = "Quản lý đầu bêos";
-            this.radButtonElement12.AutoSize = false;
-            this.radButtonElement12.Bounds = new System.Drawing.Rectangle(0, 0, 64, 75);
-            this.radButtonElement12.Class = "RibbonBarButtonElement";
-            this.radButtonElement12.Image = global::SMS_Management.Properties.Resources.ChefIcon;
-            this.radButtonElement12.ImageAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.radButtonElement12.Name = "radButtonElement12";
-            this.radButtonElement12.Text = "Chef";
-            this.radButtonElement12.TextAlignment = System.Drawing.ContentAlignment.BottomCenter;
-            this.radButtonElement12.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
             // frmMain2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -801,11 +787,11 @@
         private Telerik.WinControls.UI.RadButtonElement radButtonElement6;
         private Telerik.WinControls.UI.RadButtonElement radButtonElement8;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup8;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElement9;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElement10;
+        private Telerik.WinControls.UI.RadButtonElement rtbDishMng;
+        private Telerik.WinControls.UI.RadButtonElement rtbMenuMng;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup9;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElement11;
-        private Telerik.WinControls.UI.RadButtonElement radButtonElement12;
+        private Telerik.WinControls.UI.RadButtonElement rbtStaffMng;
+        private Telerik.WinControls.UI.RadButtonElement rbtChefMng;
         private Telerik.WinControls.UI.RadRibbonBarGroup radRibbonBarGroup10;
         private Telerik.WinControls.UI.RadButtonElement radButtonElement13;
         private Telerik.WinControls.UI.RadDesktopAlert radDesktopAlert1;
