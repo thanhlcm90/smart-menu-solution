@@ -282,6 +282,29 @@
       <DependentUpon>SMS_Database.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\chef hat.jpg" />
+    <None Include="Resources\KitchenIcon.png" />
+    <None Include="Resources\user_manage.png" />
+    <None Include="Resources\staff-icon.jpg" />
+    <None Include="Resources\note-icon.png" />
+    <None Include="Resources\iconFood.png" />
+    <None Include="Resources\PlateIcon.jpeg" />
+    <None Include="Resources\byYearIcon.png" />
+    <None Include="Resources\byMonthIcon.png" />
+    <None Include="Resources\byDayIcon1.jpg" />
+    <None Include="Resources\byDayIcon.jpg" />
+    <None Include="Resources\notification_remove.png" />
+    <None Include="Resources\notification_done.png" />
+    <None Include="Resources\PaymentIcon.png" />
+    <None Include="Resources\ChefIcon.png" />
+    <None Include="Resources\ViewDetailIcon.png" />
+    <None Include="Resources\PrintIcon.png" />
+    <None Include="Resources\1132554975722960032.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\print_icon.png" />
+    <None Include="Resources\document2.png" />
+    <None Include="Resources\document1.png" />
+    <None Include="Resources\document.png" />
     <None Include="Resources\waiter.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\cancel.png" />
@@ -325,10 +348,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
-    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
-    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
-    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
-    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
