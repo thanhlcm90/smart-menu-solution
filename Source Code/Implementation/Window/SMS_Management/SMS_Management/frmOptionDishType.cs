@@ -96,5 +96,15 @@ namespace SMS_Management
             tsbSave.Enabled = false;
             tsbCancel.Enabled = false;
         }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void grvDishType_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BindDataThucDon();
+        }
     }
 }

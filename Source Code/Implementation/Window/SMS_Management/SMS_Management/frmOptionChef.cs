@@ -59,11 +59,12 @@ namespace SMS_Management
 
         private void tsbEdit_Click(object sender, EventArgs e)
         {
+            FormState = FormBase.FormStateType.Edit;
             BindDataDauBep();
             panel3.Enabled = true;
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
-            textBox1.Text = name;
+            textBox3.Text = name;
             dateTimePicker1.Value = birthday;
             textBox2.Text = phone;
             textBox1.Text = diachi;
@@ -73,7 +74,7 @@ namespace SMS_Management
         {
             panel3.Enabled = false;
             FormState = FormBase.FormStateType.Normal;
-            textBox1.Text = "";
+            textBox3.Text = "";
             dateTimePicker1.Text = "";
             textBox2.Text = "";
             textBox1.Text = "";
@@ -87,7 +88,7 @@ namespace SMS_Management
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
             FormState = FormStateType.New;
-            textBox1.Text = "";
+            textBox3.Text = "";
             dateTimePicker1.Text = "";
             textBox2.Text = "";
             textBox1.Text = "";
@@ -100,7 +101,7 @@ namespace SMS_Management
             ChefDTO dt = new ChefDTO();
             if (FormState == FormBase.FormStateType.New)
             {
-                dt.NAME = textBox1.Text.Trim();
+                dt.NAME = textBox3.Text.Trim();
                 dt.BIRTHDAY = dateTimePicker1.Value;
                 dt.ADDRESS = textBox1.Text.Trim();
                 dt.PHONE = textBox2.Text.Trim();
@@ -124,6 +125,21 @@ namespace SMS_Management
             tsbSave.Enabled = false;
             tsbCancel.Enabled = false;
             LoadDataDauBep();
+        }
+
+        private void grvChefInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BindDataDauBep();
+        
+            textBox3.Text = name;
+            dateTimePicker1.Value = birthday;
+            textBox2.Text = phone;
+            textBox1.Text = diachi;
+        }
+
+        private void tsbEdit_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.grvTableInfo = new System.Windows.Forms.DataGridView();
+            this.grv_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grv_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grv_WaiterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grv_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -37,20 +42,61 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbAddNew = new System.Windows.Forms.ToolStripButton();
-            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            this.tbsAddNew = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSave = new System.Windows.Forms.ToolStripButton();
             this.tsbCancel = new System.Windows.Forms.ToolStripButton();
-            this.grvTableInfo = new System.Windows.Forms.DataGridView();
-            this.grv_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grv_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grv_WaiterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grv_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            ((System.ComponentModel.ISupportInitialize)(this.grvTableInfo)).BeginInit();
             this.panel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grvTableInfo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // grvTableInfo
+            // 
+            this.grvTableInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grvTableInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvTableInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grv_ID,
+            this.grv_NAME,
+            this.grv_WaiterName,
+            this.grv_CODE});
+            this.grvTableInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grvTableInfo.Location = new System.Drawing.Point(0, 89);
+            this.grvTableInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grvTableInfo.Name = "grvTableInfo";
+            this.grvTableInfo.RowTemplate.Height = 24;
+            this.grvTableInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grvTableInfo.Size = new System.Drawing.Size(682, 335);
+            this.grvTableInfo.TabIndex = 9;
+            this.grvTableInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvTableInfo_CellClick);
+            // 
+            // grv_ID
+            // 
+            this.grv_ID.DataPropertyName = "ID";
+            this.grv_ID.HeaderText = "ID";
+            this.grv_ID.Name = "grv_ID";
+            this.grv_ID.Visible = false;
+            // 
+            // grv_NAME
+            // 
+            this.grv_NAME.DataPropertyName = "NAME";
+            this.grv_NAME.HeaderText = "Họ tên";
+            this.grv_NAME.Name = "grv_NAME";
+            // 
+            // grv_WaiterName
+            // 
+            this.grv_WaiterName.DataPropertyName = "WaiterName";
+            this.grv_WaiterName.HeaderText = "Tên nhân viên phụ trách";
+            this.grv_WaiterName.Name = "grv_WaiterName";
+            // 
+            // grv_CODE
+            // 
+            this.grv_CODE.DataPropertyName = "code";
+            this.grv_CODE.HeaderText = "Mã bàn";
+            this.grv_CODE.Name = "grv_CODE";
             // 
             // panel2
             // 
@@ -130,124 +176,92 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbAddNew,
-            this.tsbDelete,
+            this.tbsAddNew,
             this.tsbEdit,
+            this.toolStripSeparator1,
             this.tsbSave,
-            this.tsbCancel});
+            this.tsbCancel,
+            this.toolStripSeparator2,
+            this.tsbDelete});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(682, 25);
-            this.toolStrip1.TabIndex = 8;
+            this.toolStrip1.Size = new System.Drawing.Size(682, 27);
+            this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tsbAddNew
+            // tbsAddNew
             // 
-            this.tsbAddNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAddNew.Image = global::SMS_Management.Properties.Resources.add;
-            this.tsbAddNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAddNew.Name = "tsbAddNew";
-            this.tsbAddNew.Size = new System.Drawing.Size(23, 22);
-            this.tsbAddNew.Click += new System.EventHandler(this.tsbAddNew_Click);
-            // 
-            // tsbDelete
-            // 
-            this.tsbDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbDelete.Image = global::SMS_Management.Properties.Resources.delete;
-            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDelete.Name = "tsbDelete";
-            this.tsbDelete.Size = new System.Drawing.Size(23, 22);
-            this.tsbDelete.Text = "tsbDelete";
-            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
+            this.tbsAddNew.Image = global::SMS_Management.Properties.Resources.add;
+            this.tbsAddNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbsAddNew.Name = "tbsAddNew";
+            this.tbsAddNew.Size = new System.Drawing.Size(57, 24);
+            this.tbsAddNew.Text = "Add";
+            this.tbsAddNew.Click += new System.EventHandler(this.tsbAddNew_Click);
             // 
             // tsbEdit
             // 
-            this.tsbEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbEdit.Image = global::SMS_Management.Properties.Resources.edit;
             this.tsbEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEdit.Name = "tsbEdit";
-            this.tsbEdit.Size = new System.Drawing.Size(23, 22);
-            this.tsbEdit.Text = "tsbEdit";
+            this.tsbEdit.Size = new System.Drawing.Size(55, 24);
+            this.tsbEdit.Text = "Edit";
             this.tsbEdit.Click += new System.EventHandler(this.tsbEdit_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // tsbSave
             // 
-            this.tsbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbSave.Enabled = false;
             this.tsbSave.Image = global::SMS_Management.Properties.Resources.save;
+            this.tsbSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(23, 22);
-            this.tsbSave.Text = "tsbSave";
+            this.tsbSave.Size = new System.Drawing.Size(60, 24);
+            this.tsbSave.Text = "Save";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
             // tsbCancel
             // 
-            this.tsbCancel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCancel.Enabled = false;
             this.tsbCancel.Image = global::SMS_Management.Properties.Resources.cancel;
             this.tsbCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCancel.Name = "tsbCancel";
-            this.tsbCancel.Size = new System.Drawing.Size(23, 22);
-            this.tsbCancel.Text = "tsbCancel";
+            this.tsbCancel.Size = new System.Drawing.Size(73, 24);
+            this.tsbCancel.Text = "Cancel";
             this.tsbCancel.Click += new System.EventHandler(this.tsbCancel_Click);
             // 
-            // grvTableInfo
+            // toolStripSeparator2
             // 
-            this.grvTableInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grvTableInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvTableInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.grv_ID,
-            this.grv_NAME,
-            this.grv_WaiterName,
-            this.grv_CODE});
-            this.grvTableInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grvTableInfo.Location = new System.Drawing.Point(0, 89);
-            this.grvTableInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grvTableInfo.Name = "grvTableInfo";
-            this.grvTableInfo.RowTemplate.Height = 24;
-            this.grvTableInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grvTableInfo.Size = new System.Drawing.Size(682, 335);
-            this.grvTableInfo.TabIndex = 9;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
-            // grv_ID
+            // tsbDelete
             // 
-            this.grv_ID.DataPropertyName = "ID";
-            this.grv_ID.HeaderText = "ID";
-            this.grv_ID.Name = "grv_ID";
-            this.grv_ID.Visible = false;
-            // 
-            // grv_NAME
-            // 
-            this.grv_NAME.DataPropertyName = "NAME";
-            this.grv_NAME.HeaderText = "Họ tên";
-            this.grv_NAME.Name = "grv_NAME";
-            // 
-            // grv_WaiterName
-            // 
-            this.grv_WaiterName.DataPropertyName = "WaiterName";
-            this.grv_WaiterName.HeaderText = "Tên nhân viên phụ trách";
-            this.grv_WaiterName.Name = "grv_WaiterName";
-            // 
-            // grv_CODE
-            // 
-            this.grv_CODE.DataPropertyName = "code";
-            this.grv_CODE.HeaderText = "Mã bàn";
-            this.grv_CODE.Name = "grv_CODE";
+            this.tsbDelete.Image = global::SMS_Management.Properties.Resources.delete;
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(73, 24);
+            this.tsbDelete.Text = "Delete";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // frmOptionTableInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 424);
-            this.Controls.Add(this.grvTableInfo);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.grvTableInfo);
             this.Controls.Add(this.panel2);
             this.Name = "frmOptionTableInfo";
             this.Text = "frmOptionTableInfo";
+            ((System.ComponentModel.ISupportInitialize)(this.grvTableInfo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grvTableInfo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,16 +277,18 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsbAddNew;
-        private System.Windows.Forms.ToolStripButton tsbDelete;
-        private System.Windows.Forms.ToolStripButton tsbEdit;
-        private System.Windows.Forms.ToolStripButton tsbSave;
-        private System.Windows.Forms.ToolStripButton tsbCancel;
         private System.Windows.Forms.DataGridView grvTableInfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn grv_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn grv_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn grv_WaiterName;
         private System.Windows.Forms.DataGridViewTextBoxColumn grv_CODE;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton tbsAddNew;
+        private System.Windows.Forms.ToolStripButton tsbEdit;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton tsbSave;
+        private System.Windows.Forms.ToolStripButton tsbCancel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton tsbDelete;
     }
 }
