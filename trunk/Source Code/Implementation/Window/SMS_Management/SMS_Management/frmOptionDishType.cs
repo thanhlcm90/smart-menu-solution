@@ -106,5 +106,10 @@ namespace SMS_Management
         {
             BindDataThucDon();
         }
+
+        private void grvDishType_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            BindDataThucDon();
+        }
     }
 }
