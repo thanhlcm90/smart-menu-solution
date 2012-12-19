@@ -13,7 +13,7 @@ namespace SMS_Management
 {
     public partial class frmMain2 : Telerik.WinControls.UI.RadRibbonForm
     {
-        List<OrderDetailDTO> lstOrderDetail=new List<OrderDetailDTO>();
+        Dictionary<short, List<OrderDetailDTO>> lstOrderDetail = new Dictionary<short, List<OrderDetailDTO>>();
         public frmMain2()
         {
             InitializeComponent();
@@ -42,7 +42,13 @@ namespace SMS_Management
                             item = repO.GetOrderDetailFromCode(data);
                             if (item != null)
                             {
-                                lstOrderDetail.Add(item);
+                                if (lstOrderDetail.ContainsKey(item.TABLE_CODE))
+                                {
+                                    lstOrderDetail[item.TABLE_CODE].Add(item);
+                                }else{
+                                    lstOrderDetail.Add(item.TABLE_CODE,new List<OrderDetailDTO>());
+                                    lstOrderDetail[item.TABLE_CODE].Add(item);
+                                }
                             }
                         }
                         break;
@@ -50,7 +56,11 @@ namespace SMS_Management
                         if (data.Length==3)
                         {
                             table_code = Convert.ToInt16(data.Substring(1, 2));
-                            repO.InsertOrdered(lstOrderDetail,table_code);
+                            if (lstOrderDetail.ContainsKey(table_code))
+                            {
+                                repO.InsertOrdered(lstOrderDetail[table_code],table_code);
+                                lstOrderDetail.Remove(table_code);
+                            }
                         }
                         break;
                     case '2': //Hủy món
@@ -115,6 +125,15 @@ namespace SMS_Management
 
         private void frmMain2_Load(object sender, EventArgs e)
         {
+            comConnection1.PortName = "COM5";
+            try
+            {
+                comConnection1.PortOpen();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Không kết nổi được cổng COM");
+            }
             Common.openform("frmOrder", this,this.radDock1, FormType.Mdi);
         }
 
@@ -238,6 +257,30 @@ namespace SMS_Management
                 }
             }
             ((FormBase)frm).RefreshData();
+        }
+
+        private void frmMain2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            comConnection1.PortClose();
+        }
+
+        private void radMenuItem1_Click(object sender, EventArgs e)
+        {
+            string str="";
+            if (Common.InputBox("Cấu hình cổng COM", "Nhập tên cổng COM", ref str) == DialogResult.OK)
+            {
+                comConnection1.PortClose();
+                comConnection1.PortName = str;
+                try
+                {
+                    comConnection1.PortOpen();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Không kết nổi được cổng COM");
+                }
+            }
+
         }
 
 

@@ -46,8 +46,22 @@
             this.rtbPrintBilling = new Telerik.WinControls.UI.RadButtonElement();
             this.rtbConfirmBilling = new Telerik.WinControls.UI.RadButtonElement();
             this.rtStatistic = new Telerik.WinControls.UI.RibbonTab();
+            this.radRibbonBarGroup7 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radButtonElement5 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElement6 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElement7 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElement8 = new Telerik.WinControls.UI.RadButtonElement();
             this.rtSystem = new Telerik.WinControls.UI.RibbonTab();
+            this.radRibbonBarGroup8 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radButtonElement9 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElement10 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radRibbonBarGroup9 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radButtonElement11 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElement12 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radRibbonBarGroup10 = new Telerik.WinControls.UI.RadRibbonBarGroup();
+            this.radButtonElement13 = new Telerik.WinControls.UI.RadButtonElement();
             this.button1 = new System.Windows.Forms.Button();
+            this.comConnection1 = new SMS_Management.COMConnection();
             this.radMenuItem1 = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenuItem2 = new Telerik.WinControls.UI.RadMenuItem();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
@@ -62,20 +76,6 @@
             this.radRibbonBarGroup2 = new Telerik.WinControls.UI.RadRibbonBarGroup();
             this.radButtonElement3 = new Telerik.WinControls.UI.RadButtonElement();
             this.radButtonElement4 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radRibbonBarGroup7 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radButtonElement5 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement6 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement7 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement8 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radRibbonBarGroup8 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radButtonElement9 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement10 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radRibbonBarGroup9 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radButtonElement11 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radButtonElement12 = new Telerik.WinControls.UI.RadButtonElement();
-            this.radRibbonBarGroup10 = new Telerik.WinControls.UI.RadRibbonBarGroup();
-            this.radButtonElement13 = new Telerik.WinControls.UI.RadButtonElement();
-            this.comConnection1 = new SMS_Management.COMConnection();
             this.radDesktopAlert1 = new Telerik.WinControls.UI.RadDesktopAlert(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).BeginInit();
             this.radRibbonBar1.SuspendLayout();
@@ -311,6 +311,55 @@
             this.rtStatistic.Text = "Thống kê";
             this.rtStatistic.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
+            // radRibbonBarGroup7
+            // 
+            this.radRibbonBarGroup7.AccessibleDescription = "Thống kê bán hàng";
+            this.radRibbonBarGroup7.AccessibleName = "Thống kê bán hàng";
+            this.radRibbonBarGroup7.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radButtonElement5,
+            this.radButtonElement6,
+            this.radButtonElement7,
+            this.radButtonElement8});
+            this.radRibbonBarGroup7.Name = "radRibbonBarGroup7";
+            this.radRibbonBarGroup7.Text = "Thống kê bán hàng";
+            this.radRibbonBarGroup7.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement5
+            // 
+            this.radButtonElement5.AccessibleDescription = "Thống kê theo ngày";
+            this.radButtonElement5.AccessibleName = "Thống kê theo ngày";
+            this.radButtonElement5.Class = "RibbonBarButtonElement";
+            this.radButtonElement5.Name = "radButtonElement5";
+            this.radButtonElement5.Text = "Thống kê theo ngày";
+            this.radButtonElement5.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement6
+            // 
+            this.radButtonElement6.AccessibleDescription = "Thống kê theo tháng";
+            this.radButtonElement6.AccessibleName = "Thống kê theo tháng";
+            this.radButtonElement6.Class = "RibbonBarButtonElement";
+            this.radButtonElement6.Name = "radButtonElement6";
+            this.radButtonElement6.Text = "Thống kê theo tháng";
+            this.radButtonElement6.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement7
+            // 
+            this.radButtonElement7.AccessibleDescription = "Thống kê theo quý";
+            this.radButtonElement7.AccessibleName = "Thống kê theo quý";
+            this.radButtonElement7.Class = "RibbonBarButtonElement";
+            this.radButtonElement7.Name = "radButtonElement7";
+            this.radButtonElement7.Text = "Thống kê theo quý";
+            this.radButtonElement7.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement8
+            // 
+            this.radButtonElement8.AccessibleDescription = "Thống kê theo năm";
+            this.radButtonElement8.AccessibleName = "Thống kê theo năm";
+            this.radButtonElement8.Class = "RibbonBarButtonElement";
+            this.radButtonElement8.Name = "radButtonElement8";
+            this.radButtonElement8.Text = "Thống kê theo năm";
+            this.radButtonElement8.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
             // rtSystem
             // 
             this.rtSystem.AccessibleDescription = "Hệ thống";
@@ -324,6 +373,83 @@
             this.rtSystem.Text = "Hệ thống";
             this.rtSystem.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
+            // radRibbonBarGroup8
+            // 
+            this.radRibbonBarGroup8.AccessibleDescription = "Quản lý món ăn";
+            this.radRibbonBarGroup8.AccessibleName = "Quản lý món ăn";
+            this.radRibbonBarGroup8.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radButtonElement9,
+            this.radButtonElement10});
+            this.radRibbonBarGroup8.Name = "radRibbonBarGroup8";
+            this.radRibbonBarGroup8.Text = "Quản lý món ăn";
+            this.radRibbonBarGroup8.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement9
+            // 
+            this.radButtonElement9.AccessibleDescription = "Danh sách món ăn";
+            this.radButtonElement9.AccessibleName = "Danh sách món ăn";
+            this.radButtonElement9.Class = "RibbonBarButtonElement";
+            this.radButtonElement9.Name = "radButtonElement9";
+            this.radButtonElement9.Text = "Danh sách món ăn";
+            this.radButtonElement9.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement10
+            // 
+            this.radButtonElement10.AccessibleDescription = "Danh sách thực đơn";
+            this.radButtonElement10.AccessibleName = "Danh sách thực đơn";
+            this.radButtonElement10.Class = "RibbonBarButtonElement";
+            this.radButtonElement10.Name = "radButtonElement10";
+            this.radButtonElement10.Text = "Danh sách thực đơn";
+            this.radButtonElement10.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radRibbonBarGroup9
+            // 
+            this.radRibbonBarGroup9.AccessibleDescription = "Quản lý nhân sự";
+            this.radRibbonBarGroup9.AccessibleName = "Quản lý nhân sự";
+            this.radRibbonBarGroup9.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radButtonElement11,
+            this.radButtonElement12});
+            this.radRibbonBarGroup9.Name = "radRibbonBarGroup9";
+            this.radRibbonBarGroup9.Text = "Quản lý nhân sự";
+            this.radRibbonBarGroup9.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement11
+            // 
+            this.radButtonElement11.AccessibleDescription = "Quản lý nhân viên";
+            this.radButtonElement11.AccessibleName = "Quản lý nhân viên";
+            this.radButtonElement11.Class = "RibbonBarButtonElement";
+            this.radButtonElement11.Name = "radButtonElement11";
+            this.radButtonElement11.Text = "Quản lý nhân viên";
+            this.radButtonElement11.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement12
+            // 
+            this.radButtonElement12.AccessibleDescription = "Quản lý đầu bêos";
+            this.radButtonElement12.AccessibleName = "Quản lý đầu bêos";
+            this.radButtonElement12.Class = "RibbonBarButtonElement";
+            this.radButtonElement12.Name = "radButtonElement12";
+            this.radButtonElement12.Text = "Quản lý đầu bêos";
+            this.radButtonElement12.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radRibbonBarGroup10
+            // 
+            this.radRibbonBarGroup10.AccessibleDescription = "Khác";
+            this.radRibbonBarGroup10.AccessibleName = "Khác";
+            this.radRibbonBarGroup10.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radButtonElement13});
+            this.radRibbonBarGroup10.Name = "radRibbonBarGroup10";
+            this.radRibbonBarGroup10.Text = "Khác";
+            this.radRibbonBarGroup10.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
+            // radButtonElement13
+            // 
+            this.radButtonElement13.AccessibleDescription = "Quản lý bàn ăn";
+            this.radButtonElement13.AccessibleName = "Quản lý bàn ăn";
+            this.radButtonElement13.Class = "RibbonBarButtonElement";
+            this.radButtonElement13.Name = "radButtonElement13";
+            this.radButtonElement13.Text = "Quản lý bàn ăn";
+            this.radButtonElement13.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(609, 91);
@@ -334,6 +460,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // comConnection1
+            // 
+            this.comConnection1.Location = new System.Drawing.Point(449, 64);
+            this.comConnection1.Margin = new System.Windows.Forms.Padding(4);
+            this.comConnection1.Name = "comConnection1";
+            this.comConnection1.PortBaudRate = 9600;
+            this.comConnection1.PortDataBits = 8;
+            this.comConnection1.PortName = "COM4";
+            this.comConnection1.PortParity = System.IO.Ports.Parity.None;
+            this.comConnection1.PortStopBits = System.IO.Ports.StopBits.One;
+            this.comConnection1.Size = new System.Drawing.Size(42, 27);
+            this.comConnection1.TabIndex = 2;
+            this.comConnection1.DataReceived += new SMS_Management.COMConnection.DataReceivedEventHandler(this.comConnection1_DataReceived);
+            // 
             // radMenuItem1
             // 
             this.radMenuItem1.AccessibleDescription = "Cấu hình cổng COM";
@@ -341,6 +481,7 @@
             this.radMenuItem1.Name = "radMenuItem1";
             this.radMenuItem1.Text = "Cấu hình cổng COM";
             this.radMenuItem1.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.radMenuItem1.Click += new System.EventHandler(this.radMenuItem1_Click);
             // 
             // radMenuItem2
             // 
@@ -487,146 +628,6 @@
             this.radButtonElement4.Text = "Thanh toán";
             this.radButtonElement4.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
-            // radRibbonBarGroup7
-            // 
-            this.radRibbonBarGroup7.AccessibleDescription = "Thống kê bán hàng";
-            this.radRibbonBarGroup7.AccessibleName = "Thống kê bán hàng";
-            this.radRibbonBarGroup7.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElement5,
-            this.radButtonElement6,
-            this.radButtonElement7,
-            this.radButtonElement8});
-            this.radRibbonBarGroup7.Name = "radRibbonBarGroup7";
-            this.radRibbonBarGroup7.Text = "Thống kê bán hàng";
-            this.radRibbonBarGroup7.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement5
-            // 
-            this.radButtonElement5.AccessibleDescription = "Thống kê theo ngày";
-            this.radButtonElement5.AccessibleName = "Thống kê theo ngày";
-            this.radButtonElement5.Class = "RibbonBarButtonElement";
-            this.radButtonElement5.Name = "radButtonElement5";
-            this.radButtonElement5.Text = "Thống kê theo ngày";
-            this.radButtonElement5.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement6
-            // 
-            this.radButtonElement6.AccessibleDescription = "Thống kê theo tháng";
-            this.radButtonElement6.AccessibleName = "Thống kê theo tháng";
-            this.radButtonElement6.Class = "RibbonBarButtonElement";
-            this.radButtonElement6.Name = "radButtonElement6";
-            this.radButtonElement6.Text = "Thống kê theo tháng";
-            this.radButtonElement6.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement7
-            // 
-            this.radButtonElement7.AccessibleDescription = "Thống kê theo quý";
-            this.radButtonElement7.AccessibleName = "Thống kê theo quý";
-            this.radButtonElement7.Class = "RibbonBarButtonElement";
-            this.radButtonElement7.Name = "radButtonElement7";
-            this.radButtonElement7.Text = "Thống kê theo quý";
-            this.radButtonElement7.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement8
-            // 
-            this.radButtonElement8.AccessibleDescription = "Thống kê theo năm";
-            this.radButtonElement8.AccessibleName = "Thống kê theo năm";
-            this.radButtonElement8.Class = "RibbonBarButtonElement";
-            this.radButtonElement8.Name = "radButtonElement8";
-            this.radButtonElement8.Text = "Thống kê theo năm";
-            this.radButtonElement8.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radRibbonBarGroup8
-            // 
-            this.radRibbonBarGroup8.AccessibleDescription = "Quản lý món ăn";
-            this.radRibbonBarGroup8.AccessibleName = "Quản lý món ăn";
-            this.radRibbonBarGroup8.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElement9,
-            this.radButtonElement10});
-            this.radRibbonBarGroup8.Name = "radRibbonBarGroup8";
-            this.radRibbonBarGroup8.Text = "Quản lý món ăn";
-            this.radRibbonBarGroup8.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement9
-            // 
-            this.radButtonElement9.AccessibleDescription = "Danh sách món ăn";
-            this.radButtonElement9.AccessibleName = "Danh sách món ăn";
-            this.radButtonElement9.Class = "RibbonBarButtonElement";
-            this.radButtonElement9.Name = "radButtonElement9";
-            this.radButtonElement9.Text = "Danh sách món ăn";
-            this.radButtonElement9.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement10
-            // 
-            this.radButtonElement10.AccessibleDescription = "Danh sách thực đơn";
-            this.radButtonElement10.AccessibleName = "Danh sách thực đơn";
-            this.radButtonElement10.Class = "RibbonBarButtonElement";
-            this.radButtonElement10.Name = "radButtonElement10";
-            this.radButtonElement10.Text = "Danh sách thực đơn";
-            this.radButtonElement10.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radRibbonBarGroup9
-            // 
-            this.radRibbonBarGroup9.AccessibleDescription = "Quản lý nhân sự";
-            this.radRibbonBarGroup9.AccessibleName = "Quản lý nhân sự";
-            this.radRibbonBarGroup9.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElement11,
-            this.radButtonElement12});
-            this.radRibbonBarGroup9.Name = "radRibbonBarGroup9";
-            this.radRibbonBarGroup9.Text = "Quản lý nhân sự";
-            this.radRibbonBarGroup9.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement11
-            // 
-            this.radButtonElement11.AccessibleDescription = "Quản lý nhân viên";
-            this.radButtonElement11.AccessibleName = "Quản lý nhân viên";
-            this.radButtonElement11.Class = "RibbonBarButtonElement";
-            this.radButtonElement11.Name = "radButtonElement11";
-            this.radButtonElement11.Text = "Quản lý nhân viên";
-            this.radButtonElement11.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement12
-            // 
-            this.radButtonElement12.AccessibleDescription = "Quản lý đầu bêos";
-            this.radButtonElement12.AccessibleName = "Quản lý đầu bêos";
-            this.radButtonElement12.Class = "RibbonBarButtonElement";
-            this.radButtonElement12.Name = "radButtonElement12";
-            this.radButtonElement12.Text = "Quản lý đầu bêos";
-            this.radButtonElement12.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radRibbonBarGroup10
-            // 
-            this.radRibbonBarGroup10.AccessibleDescription = "Khác";
-            this.radRibbonBarGroup10.AccessibleName = "Khác";
-            this.radRibbonBarGroup10.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radButtonElement13});
-            this.radRibbonBarGroup10.Name = "radRibbonBarGroup10";
-            this.radRibbonBarGroup10.Text = "Khác";
-            this.radRibbonBarGroup10.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // radButtonElement13
-            // 
-            this.radButtonElement13.AccessibleDescription = "Quản lý bàn ăn";
-            this.radButtonElement13.AccessibleName = "Quản lý bàn ăn";
-            this.radButtonElement13.Class = "RibbonBarButtonElement";
-            this.radButtonElement13.Name = "radButtonElement13";
-            this.radButtonElement13.Text = "Quản lý bàn ăn";
-            this.radButtonElement13.Visibility = Telerik.WinControls.ElementVisibility.Visible;
-            // 
-            // comConnection1
-            // 
-            this.comConnection1.Location = new System.Drawing.Point(449, 64);
-            this.comConnection1.Margin = new System.Windows.Forms.Padding(4);
-            this.comConnection1.Name = "comConnection1";
-            this.comConnection1.PortBaudRate = 9600;
-            this.comConnection1.PortDataBits = 8;
-            this.comConnection1.PortName = "COM4";
-            this.comConnection1.PortParity = System.IO.Ports.Parity.None;
-            this.comConnection1.PortStopBits = System.IO.Ports.StopBits.One;
-            this.comConnection1.Size = new System.Drawing.Size(42, 27);
-            this.comConnection1.TabIndex = 2;
-            this.comConnection1.DataReceived += new SMS_Management.COMConnection.DataReceivedEventHandler(this.comConnection1_DataReceived);
-            // 
             // radDesktopAlert1
             // 
             this.radDesktopAlert1.ContentImage = null;
@@ -651,6 +652,7 @@
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "SMS - Hệ thống quản lý nhà hàng và gọi món từ xa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain2_FormClosed);
             this.Load += new System.EventHandler(this.frmMain2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radRibbonBar1)).EndInit();
             this.radRibbonBar1.ResumeLayout(false);
