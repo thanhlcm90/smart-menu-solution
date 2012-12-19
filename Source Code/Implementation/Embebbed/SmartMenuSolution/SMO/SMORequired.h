@@ -28,6 +28,7 @@ This state machine makes use of operations declared in the state machines interf
 	- sMOIfaceUART_sendData
 	- sMOIfaceRF_init
 	- sMOIfaceRF_sendData
+	- sMOIfaceRF_sendConf
 	- sMOIfaceRF_sendMsg
 	- sMOIfaceRF_getData
 are defined.
@@ -53,6 +54,7 @@ extern void sMOIfaceUART_sendData(const sc_integer cmd, const sc_integer id, con
 
 extern void sMOIfaceRF_init();
 extern sc_boolean sMOIfaceRF_sendData(const sc_integer cmd, const sc_integer id, const sc_integer dish_id, const sc_integer amount);
+extern sc_boolean sMOIfaceRF_sendConf(const sc_integer cmd, const sc_integer id);
 extern sc_boolean sMOIfaceRF_sendMsg(const sc_string msg);
 extern sc_string sMOIfaceRF_getData();
 

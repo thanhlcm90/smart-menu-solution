@@ -1,0 +1,10 @@
+GeneratorModel for yakindu::c {
+
+	statechart SMC {
+
+		feature Outlet {
+			targetProject = "SmartMenuSolution"
+			targetFolder = "SMC"
+		}
+	}
+}

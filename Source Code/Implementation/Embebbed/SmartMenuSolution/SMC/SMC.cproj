@@ -61,7 +61,61 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="custom_char.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="keypad.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="keypad.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rf.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rf.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rf_register.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sc_types.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="SMC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SMC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SMCRequired.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="spi.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="spi.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TimerEvent.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TimerEvent.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
