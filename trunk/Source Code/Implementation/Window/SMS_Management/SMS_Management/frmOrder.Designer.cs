@@ -66,35 +66,35 @@
             // grvOrder_TABLE_NAME
             // 
             this.grvOrder_TABLE_NAME.DataPropertyName = "TABLE_NAME";
-            this.grvOrder_TABLE_NAME.HeaderText = "Bàn số";
+            this.grvOrder_TABLE_NAME.HeaderText = "Table ID";
             this.grvOrder_TABLE_NAME.Name = "grvOrder_TABLE_NAME";
             this.grvOrder_TABLE_NAME.ReadOnly = true;
             // 
             // grvOrder_REQUEST_COUNT
             // 
             this.grvOrder_REQUEST_COUNT.DataPropertyName = "REQUEST_COUNT";
-            this.grvOrder_REQUEST_COUNT.HeaderText = "Số lượng món yêu cầu";
+            this.grvOrder_REQUEST_COUNT.HeaderText = "Requested (Unit)";
             this.grvOrder_REQUEST_COUNT.Name = "grvOrder_REQUEST_COUNT";
             this.grvOrder_REQUEST_COUNT.ReadOnly = true;
             // 
             // grvOrder_PROCCESSING_COUNT
             // 
             this.grvOrder_PROCCESSING_COUNT.DataPropertyName = "PROCCESSING_COUNT";
-            this.grvOrder_PROCCESSING_COUNT.HeaderText = "Số món đang làm";
+            this.grvOrder_PROCCESSING_COUNT.HeaderText = "Processing (Unit)";
             this.grvOrder_PROCCESSING_COUNT.Name = "grvOrder_PROCCESSING_COUNT";
             this.grvOrder_PROCCESSING_COUNT.ReadOnly = true;
             // 
             // grvOrder_WAITER_NAME
             // 
             this.grvOrder_WAITER_NAME.DataPropertyName = "WAITER_NAME";
-            this.grvOrder_WAITER_NAME.HeaderText = "Nhân viên";
+            this.grvOrder_WAITER_NAME.HeaderText = "Staff Name";
             this.grvOrder_WAITER_NAME.Name = "grvOrder_WAITER_NAME";
             this.grvOrder_WAITER_NAME.ReadOnly = true;
             // 
             // grvOrder_CHEF_NAME
             // 
             this.grvOrder_CHEF_NAME.DataPropertyName = "CHEF_NAME";
-            this.grvOrder_CHEF_NAME.HeaderText = "Đầu bếp";
+            this.grvOrder_CHEF_NAME.HeaderText = "Chef Name";
             this.grvOrder_CHEF_NAME.Name = "grvOrder_CHEF_NAME";
             this.grvOrder_CHEF_NAME.ReadOnly = true;
             // 
@@ -104,13 +104,13 @@
             dataGridViewCellStyle1.Format = "dd/MM/yyyy hh:mm";
             dataGridViewCellStyle1.NullValue = null;
             this.grvOrder_ADD_TIME.DefaultCellStyle = dataGridViewCellStyle1;
-            this.grvOrder_ADD_TIME.HeaderText = "Giờ vào";
+            this.grvOrder_ADD_TIME.HeaderText = "Time Started";
             this.grvOrder_ADD_TIME.Name = "grvOrder_ADD_TIME";
             // 
             // grvOrder_STATUS
             // 
             this.grvOrder_STATUS.DataPropertyName = "STATUS";
-            this.grvOrder_STATUS.HeaderText = "Trạng thái";
+            this.grvOrder_STATUS.HeaderText = "Status";
             this.grvOrder_STATUS.Name = "grvOrder_STATUS";
             this.grvOrder_STATUS.ReadOnly = true;
             this.grvOrder_STATUS.Resizable = System.Windows.Forms.DataGridViewTriState.True;
