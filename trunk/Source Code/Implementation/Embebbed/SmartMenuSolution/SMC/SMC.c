@@ -20,7 +20,7 @@ static void sMC_react_main_region_On_r1_Running_running_main_FinishDish(SMC* han
 static void sMC_react_main_region_On_r1_Running_running_main_CancelDish(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1__final_0(SMC* handle);
-static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_Clear(SMC* handle);
+static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_Send(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_Check(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_SendFail(SMC* handle);
@@ -129,8 +129,8 @@ void sMC_exit(SMC* handle)
 			handle->stateConfVectorPosition = 1;
 			break;
 		}
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear : {
-			/* Default exit sequence for state Clear */
+		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
+			/* Default exit sequence for state CheckKeyPress1 */
 			handle->stateConfVector[1] = SMC_last_state;
 			handle->stateConfVectorPosition = 1;
 			break;
@@ -228,8 +228,8 @@ void sMC_runCycle(SMC* handle) {
 			sMC_react_main_region_On_r1_Running_running_main_EnterData_r1__final_0(handle);
 			break;
 		}
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear : {
-			sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_Clear(handle);
+		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
+			sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1(handle);
 			break;
 		}
 		case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send : {
@@ -298,15 +298,15 @@ sc_boolean sMC_isActive(SMC* handle, SMCStates state) {
 			);
 		case SMC_main_region_On_r1_Running_running_main_EnterData : 
 			return (sc_boolean) (handle->stateConfVector[1] >= SMC_main_region_On_r1_Running_running_main_EnterData
-				&& handle->stateConfVector[1] <= SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear);
+				&& handle->stateConfVector[1] <= SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1);
 		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish : 
 			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish
 			);
 		case SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_ : 
 			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_
 			);
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear : 
-			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear
+		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : 
+			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1
 			);
 		case SMC_main_region_On_r1_Running_running_main_Send_Request : 
 			return (sc_boolean) (handle->stateConfVector[1] >= SMC_main_region_On_r1_Running_running_main_Send_Request
@@ -607,11 +607,11 @@ static void sMC_react_main_region_On_r1_Running_running_main_FinishDish(SMC* han
 		/* Default enter sequence for state EnterData */
 		/* Default enter sequence for region r1 */
 		/* Default react sequence for initial entry  */
-		/* Default enter sequence for state Clear */
-		/* Entry action for state 'Clear'. */
+		/* Default enter sequence for state CheckKeyPress1 */
+		/* Entry action for state 'CheckKeyPress1'. */
 		handle->iface.listId = 0;
 		handle->ifaceKEYPAD.lastkey = 0;
-		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear;
+		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1;
 		handle->stateConfVectorPosition = 1;
 	} 
 }
@@ -626,11 +626,11 @@ static void sMC_react_main_region_On_r1_Running_running_main_CancelDish(SMC* han
 		/* Default enter sequence for state EnterData */
 		/* Default enter sequence for region r1 */
 		/* Default react sequence for initial entry  */
-		/* Default enter sequence for state Clear */
-		/* Entry action for state 'Clear'. */
+		/* Default enter sequence for state CheckKeyPress1 */
+		/* Entry action for state 'CheckKeyPress1'. */
 		handle->iface.listId = 0;
 		handle->ifaceKEYPAD.lastkey = 0;
-		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear;
+		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1;
 		handle->stateConfVectorPosition = 1;
 	} 
 }
@@ -655,8 +655,8 @@ static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_Choose
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear : {
-				/* Default exit sequence for state Clear */
+			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
+				/* Default exit sequence for state CheckKeyPress1 */
 				handle->stateConfVector[1] = SMC_last_state;
 				handle->stateConfVectorPosition = 1;
 				break;
@@ -695,8 +695,8 @@ static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_Choose
 						handle->stateConfVectorPosition = 1;
 						break;
 					}
-					case SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear : {
-						/* Default exit sequence for state Clear */
+					case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
+						/* Default exit sequence for state CheckKeyPress1 */
 						handle->stateConfVector[1] = SMC_last_state;
 						handle->stateConfVectorPosition = 1;
 						break;
@@ -739,8 +739,8 @@ static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1__final
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear : {
-				/* Default exit sequence for state Clear */
+			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
+				/* Default exit sequence for state CheckKeyPress1 */
 				handle->stateConfVector[1] = SMC_last_state;
 				handle->stateConfVectorPosition = 1;
 				break;
@@ -756,9 +756,9 @@ static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1__final
 	}
 }
 
-/* The reactions of state Clear. */
-static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_Clear(SMC* handle) {
-	/* The reactions of state Clear. */
+/* The reactions of state CheckKeyPress1. */
+static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1(SMC* handle) {
+	/* The reactions of state CheckKeyPress1. */
 	if (handle->iface.requestId == 0) { 
 		/* Default exit sequence for state EnterData */
 		/* Default exit sequence for region r1 */
@@ -776,8 +776,8 @@ static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_Clear(
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_Clear : {
-				/* Default exit sequence for state Clear */
+			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
+				/* Default exit sequence for state CheckKeyPress1 */
 				handle->stateConfVector[1] = SMC_last_state;
 				handle->stateConfVectorPosition = 1;
 				break;
@@ -791,7 +791,7 @@ static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_Clear(
 		handle->stateConfVectorPosition = 1;
 	}  else {
 		if (handle->ifaceKEYPAD.lastkey <= 10 && handle->ifaceKEYPAD.lastkey >= 1 && handle->ifaceKEYPAD.key_pressed_raised) { 
-			/* Default exit sequence for state Clear */
+			/* Default exit sequence for state CheckKeyPress1 */
 			handle->stateConfVector[1] = SMC_last_state;
 			handle->stateConfVectorPosition = 1;
 			/* Default enter sequence for state ChooseDish */

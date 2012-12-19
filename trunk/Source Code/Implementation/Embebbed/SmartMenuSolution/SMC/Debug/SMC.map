@@ -706,7 +706,7 @@ LOAD d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
  .debug_frame   0x00000ab0       0x84 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
  .debug_frame   0x00000b34       0x38 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
 
-.debug_str      0x00000000     0x1621
+.debug_str      0x00000000     0x1633
  *(.debug_str)
  .debug_str     0x00000000      0x13b keypad.o
                                 0x16f (size before relaxing)
@@ -716,21 +716,21 @@ LOAD d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/av
                                 0x336 (size before relaxing)
  .debug_str     0x000003ad      0x204 rf.o
                                 0x38a (size before relaxing)
- .debug_str     0x000005b1      0xd17 SMC.o
-                                0xea0 (size before relaxing)
- .debug_str     0x000012c8       0x26 spi.o
+ .debug_str     0x000005b1      0xd29 SMC.o
+                                0xeb2 (size before relaxing)
+ .debug_str     0x000012da       0x26 spi.o
                                 0x105 (size before relaxing)
- .debug_str     0x000012ee       0x75 TimerEvent.o
-                                0x770 (size before relaxing)
- .debug_str     0x00001363       0x49 UART.o
-                                0x729 (size before relaxing)
- .debug_str     0x000013ac       0xe9 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
+ .debug_str     0x00001300       0x75 TimerEvent.o
+                                0x779 (size before relaxing)
+ .debug_str     0x00001375       0x49 UART.o
+                                0x732 (size before relaxing)
+ .debug_str     0x000013be       0xe9 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(malloc.o)
                                 0x16a (size before relaxing)
- .debug_str     0x00001495       0x99 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
+ .debug_str     0x000014a7       0x99 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(sprintf.o)
                                 0x121 (size before relaxing)
- .debug_str     0x0000152e       0x9d d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
+ .debug_str     0x00001540       0x9d d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(vfprintf_std.o)
                                 0x16b (size before relaxing)
- .debug_str     0x000015cb       0x56 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
+ .debug_str     0x000015dd       0x56 d:/program files/atmel/atmel studio 6.0/extensions/atmel/avrgcc/3.4.0.65/avrtoolchain/bin/../lib/gcc/avr/4.6.2/../../../../avr/lib/avr51\libc.a(fputc.o)
                                  0xfb (size before relaxing)
 
 .debug_loc      0x00000000     0x2770
