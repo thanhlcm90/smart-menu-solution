@@ -18,14 +18,12 @@ static void sMC_react_main_region_On_r1_Running_running_main_WaitingForRequest(S
 static void sMC_react_main_region_On_r1_Running_running_main_CheckKeyPress(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_FinishDish(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_CancelDish(SMC* handle);
-static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish(SMC* handle);
-static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1__final_0(SMC* handle);
-static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_Send(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_Check(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_SendFail(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult(SMC* handle);
 static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send__final_0(SMC* handle);
+static void sMC_react_main_region_On_r1_Running_running_main_CheckKeyPress1(SMC* handle);
 static void clearInEvents(SMC* handle);
 static void clearOutEvents(SMC* handle);
 
@@ -117,24 +115,6 @@ void sMC_exit(SMC* handle)
 			handle->stateConfVectorPosition = 1;
 			break;
 		}
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish : {
-			/* Default exit sequence for state ChooseDish */
-			handle->stateConfVector[1] = SMC_last_state;
-			handle->stateConfVectorPosition = 1;
-			break;
-		}
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_ : {
-			/* Default exit sequence for final state. */
-			handle->stateConfVector[1] = SMC_last_state;
-			handle->stateConfVectorPosition = 1;
-			break;
-		}
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
-			/* Default exit sequence for state CheckKeyPress1 */
-			handle->stateConfVector[1] = SMC_last_state;
-			handle->stateConfVectorPosition = 1;
-			break;
-		}
 		case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send : {
 			/* Default exit sequence for state Send */
 			handle->stateConfVector[1] = SMC_last_state;
@@ -163,6 +143,12 @@ void sMC_exit(SMC* handle)
 		}
 		case SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_ : {
 			/* Default exit sequence for final state. */
+			handle->stateConfVector[1] = SMC_last_state;
+			handle->stateConfVectorPosition = 1;
+			break;
+		}
+		case SMC_main_region_On_r1_Running_running_main_CheckKeyPress1 : {
+			/* Default exit sequence for state CheckKeyPress1 */
 			handle->stateConfVector[1] = SMC_last_state;
 			handle->stateConfVectorPosition = 1;
 			break;
@@ -220,18 +206,6 @@ void sMC_runCycle(SMC* handle) {
 			sMC_react_main_region_On_r1_Running_running_main_CancelDish(handle);
 			break;
 		}
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish : {
-			sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish(handle);
-			break;
-		}
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_ : {
-			sMC_react_main_region_On_r1_Running_running_main_EnterData_r1__final_0(handle);
-			break;
-		}
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
-			sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1(handle);
-			break;
-		}
 		case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send : {
 			sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_Send(handle);
 			break;
@@ -250,6 +224,10 @@ void sMC_runCycle(SMC* handle) {
 		}
 		case SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_ : {
 			sMC_react_main_region_On_r1_Running_running_main_Send_Request_send__final_0(handle);
+			break;
+		}
+		case SMC_main_region_On_r1_Running_running_main_CheckKeyPress1 : {
+			sMC_react_main_region_On_r1_Running_running_main_CheckKeyPress1(handle);
 			break;
 		}
 		default:
@@ -271,13 +249,13 @@ sc_boolean sMC_isActive(SMC* handle, SMCStates state) {
 	switch (state) {
 		case SMC_main_region_On : 
 			return (sc_boolean) (handle->stateConfVector[0] >= SMC_main_region_On
-				&& handle->stateConfVector[0] <= SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_);
+				&& handle->stateConfVector[0] <= SMC_main_region_On_r1_Running_running_main_CheckKeyPress1);
 		case SMC_main_region_On_r1_Init : 
 			return (sc_boolean) (handle->stateConfVector[0] == SMC_main_region_On_r1_Init
 			);
 		case SMC_main_region_On_r1_Running : 
 			return (sc_boolean) (handle->stateConfVector[0] >= SMC_main_region_On_r1_Running
-				&& handle->stateConfVector[0] <= SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_);
+				&& handle->stateConfVector[0] <= SMC_main_region_On_r1_Running_running_main_CheckKeyPress1);
 		case SMC_main_region_On_r1_Running_keypad_CheckKey : 
 			return (sc_boolean) (handle->stateConfVector[0] == SMC_main_region_On_r1_Running_keypad_CheckKey
 			);
@@ -296,18 +274,6 @@ sc_boolean sMC_isActive(SMC* handle, SMCStates state) {
 		case SMC_main_region_On_r1_Running_running_main_CancelDish : 
 			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_CancelDish
 			);
-		case SMC_main_region_On_r1_Running_running_main_EnterData : 
-			return (sc_boolean) (handle->stateConfVector[1] >= SMC_main_region_On_r1_Running_running_main_EnterData
-				&& handle->stateConfVector[1] <= SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1);
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish : 
-			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish
-			);
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_ : 
-			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_
-			);
-		case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : 
-			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1
-			);
 		case SMC_main_region_On_r1_Running_running_main_Send_Request : 
 			return (sc_boolean) (handle->stateConfVector[1] >= SMC_main_region_On_r1_Running_running_main_Send_Request
 				&& handle->stateConfVector[1] <= SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_);
@@ -325,6 +291,9 @@ sc_boolean sMC_isActive(SMC* handle, SMCStates state) {
 			);
 		case SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_ : 
 			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_
+			);
+		case SMC_main_region_On_r1_Running_running_main_CheckKeyPress1 : 
+			return (sc_boolean) (handle->stateConfVector[1] == SMC_main_region_On_r1_Running_running_main_CheckKeyPress1
 			);
 		default: return bool_false;
 	}
@@ -395,11 +364,23 @@ sc_boolean sMCIfaceRF_get_result(SMC* handle) {
 void sMCIfaceRF_set_result(SMC* handle, sc_boolean value) {
 	handle->ifaceRF.result = value;
 }
+sc_boolean sMCIfaceRF_get_resultCheck(SMC* handle) {
+	return handle->ifaceRF.resultCheck;
+}
+void sMCIfaceRF_set_resultCheck(SMC* handle, sc_boolean value) {
+	handle->ifaceRF.resultCheck = value;
+}
 sc_integer sMCIfaceRF_get_retry(SMC* handle) {
 	return handle->ifaceRF.retry;
 }
 void sMCIfaceRF_set_retry(SMC* handle, sc_integer value) {
 	handle->ifaceRF.retry = value;
+}
+sc_integer sMCIfaceRF_get_retryCheck(SMC* handle) {
+	return handle->ifaceRF.retryCheck;
+}
+void sMCIfaceRF_set_retryCheck(SMC* handle, sc_integer value) {
+	handle->ifaceRF.retryCheck = value;
 }
 sc_integer sMCIfaceRF_get_iD(SMC* handle) {
 	return handle->ifaceRF.ID;
@@ -604,14 +585,11 @@ static void sMC_react_main_region_On_r1_Running_running_main_FinishDish(SMC* han
 		/* Default exit sequence for state FinishDish */
 		handle->stateConfVector[1] = SMC_last_state;
 		handle->stateConfVectorPosition = 1;
-		/* Default enter sequence for state EnterData */
-		/* Default enter sequence for region r1 */
-		/* Default react sequence for initial entry  */
 		/* Default enter sequence for state CheckKeyPress1 */
 		/* Entry action for state 'CheckKeyPress1'. */
 		handle->iface.listId = 0;
 		handle->ifaceKEYPAD.lastkey = 0;
-		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1;
+		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_CheckKeyPress1;
 		handle->stateConfVectorPosition = 1;
 	} 
 }
@@ -623,40 +601,286 @@ static void sMC_react_main_region_On_r1_Running_running_main_CancelDish(SMC* han
 		/* Default exit sequence for state CancelDish */
 		handle->stateConfVector[1] = SMC_last_state;
 		handle->stateConfVectorPosition = 1;
-		/* Default enter sequence for state EnterData */
-		/* Default enter sequence for region r1 */
-		/* Default react sequence for initial entry  */
 		/* Default enter sequence for state CheckKeyPress1 */
 		/* Entry action for state 'CheckKeyPress1'. */
 		handle->iface.listId = 0;
 		handle->ifaceKEYPAD.lastkey = 0;
-		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1;
+		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_CheckKeyPress1;
 		handle->stateConfVectorPosition = 1;
 	} 
 }
 
-/* The reactions of state ChooseDish. */
-static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish(SMC* handle) {
-	/* The reactions of state ChooseDish. */
+/* The reactions of state Send. */
+static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_Send(SMC* handle) {
+	/* The reactions of state Send. */
 	if (handle->iface.requestId == 0) { 
-		/* Default exit sequence for state EnterData */
-		/* Default exit sequence for region r1 */
-		/* Handle exit of all possible states (of r1) at position 1... */
+		/* Default exit sequence for state Send Request */
+		/* Default exit sequence for region send */
+		/* Handle exit of all possible states (of send) at position 1... */
 		switch(handle->stateConfVector[ 1 ]) {
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish : {
-				/* Default exit sequence for state ChooseDish */
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send : {
+				/* Default exit sequence for state Send */
 				handle->stateConfVector[1] = SMC_last_state;
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_ : {
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Check : {
+				/* Default exit sequence for state Check */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_SendFail : {
+				/* Default exit sequence for state SendFail */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				/* Exit action for state 'SendFail'. */
+				sMC_unsetTimer( (sc_eventid) &(handle->timeEvents.SendFail_time_event_0_raised) );		
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult : {
+				/* Default exit sequence for state ResetResult */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_ : {
 				/* Default exit sequence for final state. */
 				handle->stateConfVector[1] = SMC_last_state;
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
-				/* Default exit sequence for state CheckKeyPress1 */
+			default: break;
+		}
+		/* Default enter sequence for state WaitingForRequest */
+		/* Entry action for state 'WaitingForRequest'. */
+		handle->iface.requestId = 0;
+		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_WaitingForRequest;
+		handle->stateConfVectorPosition = 1;
+	}  else {
+		if (handle->ifaceRF.result == bool_true) { 
+			/* Default exit sequence for state Send */
+			handle->stateConfVector[1] = SMC_last_state;
+			handle->stateConfVectorPosition = 1;
+			/* Default enter sequence for state Check */
+			/* Entry action for state 'Check'. */
+			handle->ifaceRF.retryCheck += 1;
+			handle->ifaceRF.resultCheck = sMCIfaceRF_getCheck();
+			handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_Check;
+			handle->stateConfVectorPosition = 1;
+		}  else {
+			if (handle->ifaceRF.retry > 15 && handle->ifaceRF.result == bool_false) { 
+				/* Default exit sequence for state Send */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				/* Default enter sequence for state SendFail */
+				/* Entry action for state 'SendFail'. */
+				sMC_setTimer( (sc_eventid) &(handle->timeEvents.SendFail_time_event_0_raised) , 2 * 1000, bool_false);
+				sMCIfaceLCD_clear();
+				sMCIfaceLCD_writeString("Send fail");
+				handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_SendFail;
+				handle->stateConfVectorPosition = 1;
+			}  else {
+				if (handle->ifaceRF.retry <= 15 && handle->ifaceRF.result == bool_false) { 
+					/* Default enter sequence for state Send */
+					/* Entry action for state 'Send'. */
+					handle->ifaceRF.retry += 1;
+					handle->ifaceRF.retryCheck = 0;
+					handle->ifaceRF.result = sMCIfaceRF_sendReq(handle->iface.requestId, handle->iface.listId);
+					handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send;
+					handle->stateConfVectorPosition = 1;
+				} 
+			}
+		}
+	}
+}
+
+/* The reactions of state Check. */
+static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_Check(SMC* handle) {
+	/* The reactions of state Check. */
+	if (handle->iface.requestId == 0) { 
+		/* Default exit sequence for state Send Request */
+		/* Default exit sequence for region send */
+		/* Handle exit of all possible states (of send) at position 1... */
+		switch(handle->stateConfVector[ 1 ]) {
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send : {
+				/* Default exit sequence for state Send */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Check : {
+				/* Default exit sequence for state Check */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_SendFail : {
+				/* Default exit sequence for state SendFail */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				/* Exit action for state 'SendFail'. */
+				sMC_unsetTimer( (sc_eventid) &(handle->timeEvents.SendFail_time_event_0_raised) );		
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult : {
+				/* Default exit sequence for state ResetResult */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_ : {
+				/* Default exit sequence for final state. */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			default: break;
+		}
+		/* Default enter sequence for state WaitingForRequest */
+		/* Entry action for state 'WaitingForRequest'. */
+		handle->iface.requestId = 0;
+		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_WaitingForRequest;
+		handle->stateConfVectorPosition = 1;
+	}  else {
+		if (handle->ifaceRF.retryCheck > 15 && handle->ifaceRF.resultCheck == bool_false) { 
+			/* Default exit sequence for state Check */
+			handle->stateConfVector[1] = SMC_last_state;
+			handle->stateConfVectorPosition = 1;
+			/* Default enter sequence for state Send */
+			/* Entry action for state 'Send'. */
+			handle->ifaceRF.retry += 1;
+			handle->ifaceRF.retryCheck = 0;
+			handle->ifaceRF.result = sMCIfaceRF_sendReq(handle->iface.requestId, handle->iface.listId);
+			handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send;
+			handle->stateConfVectorPosition = 1;
+		}  else {
+			if (handle->ifaceRF.resultCheck == bool_true) { 
+				/* Default exit sequence for state Check */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				/* Default enter sequence for state ResetResult */
+				/* Entry action for state 'ResetResult'. */
+				handle->ifaceRF.result = bool_true;
+				handle->ifaceRF.retry = 0;
+				handle->iface.requestId = 0;
+				handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult;
+				handle->stateConfVectorPosition = 1;
+			}  else {
+				if (handle->ifaceRF.retryCheck <= 15 && handle->ifaceRF.resultCheck == bool_false) { 
+					/* Default enter sequence for state Check */
+					/* Entry action for state 'Check'. */
+					handle->ifaceRF.retryCheck += 1;
+					handle->ifaceRF.resultCheck = sMCIfaceRF_getCheck();
+					handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_Check;
+					handle->stateConfVectorPosition = 1;
+				} 
+			}
+		}
+	}
+}
+
+/* The reactions of state SendFail. */
+static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_SendFail(SMC* handle) {
+	/* The reactions of state SendFail. */
+	if (handle->iface.requestId == 0) { 
+		/* Default exit sequence for state Send Request */
+		/* Default exit sequence for region send */
+		/* Handle exit of all possible states (of send) at position 1... */
+		switch(handle->stateConfVector[ 1 ]) {
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send : {
+				/* Default exit sequence for state Send */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Check : {
+				/* Default exit sequence for state Check */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_SendFail : {
+				/* Default exit sequence for state SendFail */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				/* Exit action for state 'SendFail'. */
+				sMC_unsetTimer( (sc_eventid) &(handle->timeEvents.SendFail_time_event_0_raised) );		
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult : {
+				/* Default exit sequence for state ResetResult */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_ : {
+				/* Default exit sequence for final state. */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			default: break;
+		}
+		/* Default enter sequence for state WaitingForRequest */
+		/* Entry action for state 'WaitingForRequest'. */
+		handle->iface.requestId = 0;
+		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_WaitingForRequest;
+		handle->stateConfVectorPosition = 1;
+	}  else {
+		if (handle->timeEvents.SendFail_time_event_0_raised) { 
+			/* Default exit sequence for state SendFail */
+			handle->stateConfVector[1] = SMC_last_state;
+			handle->stateConfVectorPosition = 1;
+			/* Exit action for state 'SendFail'. */
+			sMC_unsetTimer( (sc_eventid) &(handle->timeEvents.SendFail_time_event_0_raised) );		
+			/* Default enter sequence for state ResetResult */
+			/* Entry action for state 'ResetResult'. */
+			handle->ifaceRF.result = bool_true;
+			handle->ifaceRF.retry = 0;
+			handle->iface.requestId = 0;
+			handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult;
+			handle->stateConfVectorPosition = 1;
+		} 
+	}
+}
+
+/* The reactions of state ResetResult. */
+static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult(SMC* handle) {
+	/* The reactions of state ResetResult. */
+	if (handle->iface.requestId == 0) { 
+		/* Default exit sequence for state Send Request */
+		/* Default exit sequence for region send */
+		/* Handle exit of all possible states (of send) at position 1... */
+		switch(handle->stateConfVector[ 1 ]) {
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send : {
+				/* Default exit sequence for state Send */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Check : {
+				/* Default exit sequence for state Check */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_SendFail : {
+				/* Default exit sequence for state SendFail */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				/* Exit action for state 'SendFail'. */
+				sMC_unsetTimer( (sc_eventid) &(handle->timeEvents.SendFail_time_event_0_raised) );		
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult : {
+				/* Default exit sequence for state ResetResult */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_ : {
+				/* Default exit sequence for final state. */
 				handle->stateConfVector[1] = SMC_last_state;
 				handle->stateConfVectorPosition = 1;
 				break;
@@ -670,77 +894,52 @@ static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_Choose
 		handle->stateConfVectorPosition = 1;
 	}  else {
 		if (bool_true) { 
-			/* Default exit sequence for state ChooseDish */
+			/* Default exit sequence for state ResetResult */
 			handle->stateConfVector[1] = SMC_last_state;
 			handle->stateConfVectorPosition = 1;
-			handle->iface.requestId = 0;
 			/* Default enter sequence for state null */
-			handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_;
+			handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_;
 			handle->stateConfVectorPosition = 1;
-		}  else {
-			if (bool_true) { 
-				/* Default exit sequence for state EnterData */
-				/* Default exit sequence for region r1 */
-				/* Handle exit of all possible states (of r1) at position 1... */
-				switch(handle->stateConfVector[ 1 ]) {
-					case SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish : {
-						/* Default exit sequence for state ChooseDish */
-						handle->stateConfVector[1] = SMC_last_state;
-						handle->stateConfVectorPosition = 1;
-						break;
-					}
-					case SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_ : {
-						/* Default exit sequence for final state. */
-						handle->stateConfVector[1] = SMC_last_state;
-						handle->stateConfVectorPosition = 1;
-						break;
-					}
-					case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
-						/* Default exit sequence for state CheckKeyPress1 */
-						handle->stateConfVector[1] = SMC_last_state;
-						handle->stateConfVectorPosition = 1;
-						break;
-					}
-					default: break;
-				}
-				handle->ifaceRF.result = bool_false;
-				handle->ifaceRF.retry = 0;
-				/* Default enter sequence for state Send Request */
-				/* Default enter sequence for region send */
-				/* Default react sequence for initial entry  */
-				/* Default enter sequence for state Send */
-				/* Entry action for state 'Send'. */
-				handle->ifaceRF.retry += 1;
-				handle->ifaceRF.result = sMCIfaceRF_sendReq(handle->iface.requestId, handle->iface.listId);
-				handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send;
-				handle->stateConfVectorPosition = 1;
-			} 
-		}
+		} 
 	}
 }
 
 /* The reactions of state null. */
-static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1__final_0(SMC* handle) {
+static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send__final_0(SMC* handle) {
 	/* The reactions of state null. */
 	if (handle->iface.requestId == 0) { 
-		/* Default exit sequence for state EnterData */
-		/* Default exit sequence for region r1 */
-		/* Handle exit of all possible states (of r1) at position 1... */
+		/* Default exit sequence for state Send Request */
+		/* Default exit sequence for region send */
+		/* Handle exit of all possible states (of send) at position 1... */
 		switch(handle->stateConfVector[ 1 ]) {
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish : {
-				/* Default exit sequence for state ChooseDish */
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send : {
+				/* Default exit sequence for state Send */
 				handle->stateConfVector[1] = SMC_last_state;
 				handle->stateConfVectorPosition = 1;
 				break;
 			}
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_ : {
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_Check : {
+				/* Default exit sequence for state Check */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_SendFail : {
+				/* Default exit sequence for state SendFail */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				/* Exit action for state 'SendFail'. */
+				sMC_unsetTimer( (sc_eventid) &(handle->timeEvents.SendFail_time_event_0_raised) );		
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult : {
+				/* Default exit sequence for state ResetResult */
+				handle->stateConfVector[1] = SMC_last_state;
+				handle->stateConfVectorPosition = 1;
+				break;
+			}
+			case SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_ : {
 				/* Default exit sequence for final state. */
-				handle->stateConfVector[1] = SMC_last_state;
-				handle->stateConfVectorPosition = 1;
-				break;
-			}
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
-				/* Default exit sequence for state CheckKeyPress1 */
 				handle->stateConfVector[1] = SMC_last_state;
 				handle->stateConfVectorPosition = 1;
 				break;
@@ -757,142 +956,47 @@ static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1__final
 }
 
 /* The reactions of state CheckKeyPress1. */
-static void sMC_react_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1(SMC* handle) {
+static void sMC_react_main_region_On_r1_Running_running_main_CheckKeyPress1(SMC* handle) {
 	/* The reactions of state CheckKeyPress1. */
-	if (handle->iface.requestId == 0) { 
-		/* Default exit sequence for state EnterData */
-		/* Default exit sequence for region r1 */
-		/* Handle exit of all possible states (of r1) at position 1... */
-		switch(handle->stateConfVector[ 1 ]) {
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish : {
-				/* Default exit sequence for state ChooseDish */
-				handle->stateConfVector[1] = SMC_last_state;
-				handle->stateConfVectorPosition = 1;
-				break;
-			}
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_ : {
-				/* Default exit sequence for final state. */
-				handle->stateConfVector[1] = SMC_last_state;
-				handle->stateConfVectorPosition = 1;
-				break;
-			}
-			case SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 : {
-				/* Default exit sequence for state CheckKeyPress1 */
-				handle->stateConfVector[1] = SMC_last_state;
-				handle->stateConfVectorPosition = 1;
-				break;
-			}
-			default: break;
-		}
-		/* Default enter sequence for state WaitingForRequest */
-		/* Entry action for state 'WaitingForRequest'. */
-		handle->iface.requestId = 0;
-		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_WaitingForRequest;
-		handle->stateConfVectorPosition = 1;
-	}  else {
-		if (handle->ifaceKEYPAD.lastkey <= 10 && handle->ifaceKEYPAD.lastkey >= 1 && handle->ifaceKEYPAD.key_pressed_raised) { 
-			/* Default exit sequence for state CheckKeyPress1 */
-			handle->stateConfVector[1] = SMC_last_state;
-			handle->stateConfVectorPosition = 1;
-			/* Default enter sequence for state ChooseDish */
-			/* Entry action for state 'ChooseDish'. */
-			handle->iface.listId = handle->ifaceKEYPAD.lastkey;
-			handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish;
-			handle->stateConfVectorPosition = 1;
-		} 
-	}
-}
-
-/* The reactions of state Send. */
-static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_Send(SMC* handle) {
-	/* The reactions of state Send. */
-	if (handle->ifaceRF.result == bool_true) { 
-		/* Default exit sequence for state Send */
+	if (handle->ifaceKEYPAD.lastkey <= 9 && handle->ifaceKEYPAD.lastkey >= 1 && handle->ifaceKEYPAD.key_pressed_raised) { 
+		/* Default exit sequence for state CheckKeyPress1 */
 		handle->stateConfVector[1] = SMC_last_state;
 		handle->stateConfVectorPosition = 1;
-		/* Default enter sequence for state Check */
-		/* Entry action for state 'Check'. */
-		handle->ifaceRF.result = sMCIfaceRF_getCheck();
-		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_Check;
-		handle->stateConfVectorPosition = 1;
-	}  else {
-		if (handle->ifaceRF.result == bool_false) { 
-			/* Default exit sequence for state Send */
-			handle->stateConfVector[1] = SMC_last_state;
-			handle->stateConfVectorPosition = 1;
-			/* Default enter sequence for state SendFail */
-			/* Entry action for state 'SendFail'. */
-			sMC_setTimer( (sc_eventid) &(handle->timeEvents.SendFail_time_event_0_raised) , 2 * 1000, bool_false);
-			sMCIfaceLCD_clear();
-			sMCIfaceLCD_writeString("Send fail");
-			handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_SendFail;
-			handle->stateConfVectorPosition = 1;
-		} 
-	}
-}
-
-/* The reactions of state Check. */
-static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_Check(SMC* handle) {
-	/* The reactions of state Check. */
-	if (handle->ifaceRF.result == bool_false) { 
-		/* Default exit sequence for state Check */
-		handle->stateConfVector[1] = SMC_last_state;
-		handle->stateConfVectorPosition = 1;
+		handle->iface.listId = handle->ifaceKEYPAD.lastkey;
+		/* Default enter sequence for state Send Request */
+		/* Entry action for state 'Send Request'. */
+		handle->ifaceRF.result = bool_false;
+		handle->ifaceRF.retry = 0;
+		/* Default enter sequence for region send */
+		/* Default react sequence for initial entry  */
 		/* Default enter sequence for state Send */
 		/* Entry action for state 'Send'. */
 		handle->ifaceRF.retry += 1;
+		handle->ifaceRF.retryCheck = 0;
 		handle->ifaceRF.result = sMCIfaceRF_sendReq(handle->iface.requestId, handle->iface.listId);
 		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send;
 		handle->stateConfVectorPosition = 1;
 	}  else {
-		if (bool_true) { 
-			/* Default exit sequence for state Check */
+		if (handle->ifaceKEYPAD.lastkey == 10 && handle->ifaceKEYPAD.key_pressed_raised) { 
+			/* Default exit sequence for state CheckKeyPress1 */
 			handle->stateConfVector[1] = SMC_last_state;
 			handle->stateConfVectorPosition = 1;
-			/* Default enter sequence for state ResetResult */
-			/* Entry action for state 'ResetResult'. */
-			handle->ifaceRF.result = bool_true;
+			handle->iface.listId = 0;
+			/* Default enter sequence for state Send Request */
+			/* Entry action for state 'Send Request'. */
+			handle->ifaceRF.result = bool_false;
 			handle->ifaceRF.retry = 0;
-			handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult;
+			/* Default enter sequence for region send */
+			/* Default react sequence for initial entry  */
+			/* Default enter sequence for state Send */
+			/* Entry action for state 'Send'. */
+			handle->ifaceRF.retry += 1;
+			handle->ifaceRF.retryCheck = 0;
+			handle->ifaceRF.result = sMCIfaceRF_sendReq(handle->iface.requestId, handle->iface.listId);
+			handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send;
 			handle->stateConfVectorPosition = 1;
 		} 
 	}
-}
-
-/* The reactions of state SendFail. */
-static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_SendFail(SMC* handle) {
-	/* The reactions of state SendFail. */
-	if (handle->timeEvents.SendFail_time_event_0_raised) { 
-		/* Default exit sequence for state SendFail */
-		handle->stateConfVector[1] = SMC_last_state;
-		handle->stateConfVectorPosition = 1;
-		/* Exit action for state 'SendFail'. */
-		sMC_unsetTimer( (sc_eventid) &(handle->timeEvents.SendFail_time_event_0_raised) );		
-		/* Default enter sequence for state ResetResult */
-		/* Entry action for state 'ResetResult'. */
-		handle->ifaceRF.result = bool_true;
-		handle->ifaceRF.retry = 0;
-		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult;
-		handle->stateConfVectorPosition = 1;
-	} 
-}
-
-/* The reactions of state ResetResult. */
-static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult(SMC* handle) {
-	/* The reactions of state ResetResult. */
-	if (bool_true) { 
-		/* Default exit sequence for state ResetResult */
-		handle->stateConfVector[1] = SMC_last_state;
-		handle->stateConfVectorPosition = 1;
-		/* Default enter sequence for state null */
-		handle->stateConfVector[1] = SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_;
-		handle->stateConfVectorPosition = 1;
-	} 
-}
-
-/* The reactions of state null. */
-static void sMC_react_main_region_On_r1_Running_running_main_Send_Request_send__final_0(SMC* handle) {
-	/* The reactions of state null. */
 }
 
 

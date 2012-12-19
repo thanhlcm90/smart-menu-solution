@@ -21,16 +21,13 @@ typedef enum {
 	SMC_main_region_On_r1_Running_running_main_CheckKeyPress ,
 	SMC_main_region_On_r1_Running_running_main_FinishDish ,
 	SMC_main_region_On_r1_Running_running_main_CancelDish ,
-	SMC_main_region_On_r1_Running_running_main_EnterData ,
-	SMC_main_region_On_r1_Running_running_main_EnterData_r1_ChooseDish ,
-	SMC_main_region_On_r1_Running_running_main_EnterData_r1__final_ ,
-	SMC_main_region_On_r1_Running_running_main_EnterData_r1_CheckKeyPress1 ,
 	SMC_main_region_On_r1_Running_running_main_Send_Request ,
 	SMC_main_region_On_r1_Running_running_main_Send_Request_send_Send ,
 	SMC_main_region_On_r1_Running_running_main_Send_Request_send_Check ,
 	SMC_main_region_On_r1_Running_running_main_Send_Request_send_SendFail ,
 	SMC_main_region_On_r1_Running_running_main_Send_Request_send_ResetResult ,
 	SMC_main_region_On_r1_Running_running_main_Send_Request_send__final_ ,
+	SMC_main_region_On_r1_Running_running_main_CheckKeyPress1 ,
 	SMC_last_state
 } SMCStates;
 
@@ -58,7 +55,9 @@ typedef struct {
 	sc_string  data;
 	sc_string  lastdata;
 	sc_boolean  result;
+	sc_boolean  resultCheck;
 	sc_integer  retry;
+	sc_integer  retryCheck;
 	sc_integer  ID;
 	sc_boolean DataRecieved_raised;
 } SMCIfaceRF;
@@ -161,10 +160,18 @@ extern void sMCIfaceRF_set_lastdata(SMC* handle, sc_string value);
 extern sc_boolean sMCIfaceRF_get_result(SMC* handle);
 /*! Sets the value of the variable 'result' that is defined in the interface scope 'RF'. */ 
 extern void sMCIfaceRF_set_result(SMC* handle, sc_boolean value);
+/*! Gets the value of the variable 'resultCheck' that is defined in the interface scope 'RF'. */ 
+extern sc_boolean sMCIfaceRF_get_resultCheck(SMC* handle);
+/*! Sets the value of the variable 'resultCheck' that is defined in the interface scope 'RF'. */ 
+extern void sMCIfaceRF_set_resultCheck(SMC* handle, sc_boolean value);
 /*! Gets the value of the variable 'retry' that is defined in the interface scope 'RF'. */ 
 extern sc_integer sMCIfaceRF_get_retry(SMC* handle);
 /*! Sets the value of the variable 'retry' that is defined in the interface scope 'RF'. */ 
 extern void sMCIfaceRF_set_retry(SMC* handle, sc_integer value);
+/*! Gets the value of the variable 'retryCheck' that is defined in the interface scope 'RF'. */ 
+extern sc_integer sMCIfaceRF_get_retryCheck(SMC* handle);
+/*! Sets the value of the variable 'retryCheck' that is defined in the interface scope 'RF'. */ 
+extern void sMCIfaceRF_set_retryCheck(SMC* handle, sc_integer value);
 /*! Gets the value of the variable 'ID' that is defined in the interface scope 'RF'. */ 
 extern sc_integer sMCIfaceRF_get_iD(SMC* handle);
 /*! Sets the value of the variable 'ID' that is defined in the interface scope 'RF'. */ 
