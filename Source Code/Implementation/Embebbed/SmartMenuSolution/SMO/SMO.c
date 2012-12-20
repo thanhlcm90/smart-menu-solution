@@ -2210,7 +2210,7 @@ static void sMO_react_main_region_on_r1_Running_running_main_EnterData_r1_CheckK
 			handle->stateConfVector[1] = SMO_main_region_on_r1_Running_running_main_SendData_r1_Send;
 			handle->stateConfVectorPosition = 1;
 		}  else {
-			if (handle->ifaceKEYPAD.lastkey == 12 && handle->ifaceKEYPAD.key_pressed_raised) { 
+			if (handle->ifaceKEYPAD.lastkey == 11 && handle->ifaceKEYPAD.key_pressed_raised) { 
 				/* Default exit sequence for state CheckKeyPress3 */
 				handle->stateConfVector[1] = SMO_last_state;
 				handle->stateConfVectorPosition = 1;

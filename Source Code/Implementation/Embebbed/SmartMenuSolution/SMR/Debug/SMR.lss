@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   5 .debug_aranges 00000248  00000000  00000000  000031d0  2**3
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00003780  00000000  00000000  00003418  2**0
+  6 .debug_info   00003765  00000000  00000000  00003418  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001168  00000000  00000000  00006b98  2**0
+  7 .debug_abbrev 00001144  00000000  00000000  00006b7d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000174e  00000000  00000000  00007d00  2**0
+  8 .debug_line   0000174e  00000000  00000000  00007cc1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000b40  00000000  00000000  00009450  2**2
+  9 .debug_frame  00000b40  00000000  00000000  00009410  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00001076  00000000  00000000  00009f90  2**0
+ 10 .debug_str    00001077  00000000  00000000  00009f50  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00002611  00000000  00000000  0000b006  2**0
+ 11 .debug_loc    00002611  00000000  00000000  0000afc7  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000060  00000000  00000000  0000d617  2**0
+ 12 .debug_ranges 00000060  00000000  00000000  0000d5d8  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1365,10 +1365,10 @@ void sMRIfaceUART_init() {
 }
      670:	08 95       	ret
 
-00000672 <sMRIfaceUART_sendMsg>:
+00000672 <sMRIfaceUART_sendData>:
 char temp[9];
 
-void sMRIfaceUART_sendMsg(const sc_string msg) {
+void sMRIfaceUART_sendData(const sc_string msg) {
 	uart_puts(msg);
      672:	0e 94 a8 0a 	call	0x1550	; 0x1550 <uart_puts>
 }
@@ -3202,10 +3202,10 @@ static void sMR_react_main_region_on_r1_running_main_CheckData(SMR* handle) {
     106c:	20 e0       	ldi	r18, 0x00	; 0
     106e:	30 e0       	ldi	r19, 0x00	; 0
     1070:	0e 94 ea 01 	call	0x3d4	; 0x3d4 <sMRIfaceLCD_writeStringXY>
-		sMRIfaceUART_sendMsg(handle->ifaceRF.data);
+		sMRIfaceUART_sendData(handle->ifaceRF.data);
     1074:	8a 89       	ldd	r24, Y+18	; 0x12
     1076:	9b 89       	ldd	r25, Y+19	; 0x13
-    1078:	0e 94 39 03 	call	0x672	; 0x672 <sMRIfaceUART_sendMsg>
+    1078:	0e 94 39 03 	call	0x672	; 0x672 <sMRIfaceUART_sendData>
 		handle->stateConfVector[0] = SMR_main_region_on_r1_running_main_DataReceived;
     107c:	85 e0       	ldi	r24, 0x05	; 5
     107e:	88 83       	st	Y, r24

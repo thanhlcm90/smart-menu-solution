@@ -179,7 +179,7 @@ void sMRIfaceUART_init() {
 }
 char temp[9];
 
-void sMRIfaceUART_sendMsg(const sc_string msg) {
+void sMRIfaceUART_sendData(const sc_string msg) {
 	uart_puts(msg);
 }
 
