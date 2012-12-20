@@ -79,7 +79,7 @@
                   </vertices>
                   <vertices xsi:type="sgraph:State" xmi:id="_EQMkYEnQEeK8loizSpRyoQ" specification="entry/&#xD;&#xA;KEYPAD.lastkey=0" name="CheckKeyPress3" incomingTransitions="_RvazgEnZEeKfY69AqCcIng">
                     <outgoingTransitions xmi:id="_YILbcEnQEeK8loizSpRyoQ" specification="KEYPAD.key_pressed [KEYPAD.lastkey==12]" target="_KhDC0DLkEeK2R6JJvSj0nw"/>
-                    <outgoingTransitions xmi:id="_V5NTYEnZEeKfY69AqCcIng" specification="KEYPAD.key_pressed [KEYPAD.lastkey==12]" target="_6XoaICQ7EeKSaLhmfq2__g"/>
+                    <outgoingTransitions xmi:id="_V5NTYEnZEeKfY69AqCcIng" specification="KEYPAD.key_pressed [KEYPAD.lastkey==11]" target="_6XoaICQ7EeKSaLhmfq2__g"/>
                   </vertices>
                   <vertices xsi:type="sgraph:State" xmi:id="_EZNWcEnQEeK8loizSpRyoQ" specification="entry/&#xD;&#xA;KEYPAD.lastkey=0" name="CheckKeyPress4" incomingTransitions="_G4tTMEnaEeKfY69AqCcIng">
                     <outgoingTransitions xmi:id="_aoElUEnQEeK8loizSpRyoQ" specification="KEYPAD.key_pressed [KEYPAD.lastkey==12] / menuId=9" target="_ryhHgD7tEeKeiaZTPR87QA"/>
