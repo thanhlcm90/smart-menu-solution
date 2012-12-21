@@ -42,6 +42,9 @@ namespace SMS_Management
             FormState = FormStateType.New;
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
+            tsbAddNew.Enabled = false;
+            tsbEdit.Enabled = false;
+            tsbDelete.Enabled = false;
         }
 
         private void tsbDelete_Click(object sender, EventArgs e)
@@ -62,6 +65,9 @@ namespace SMS_Management
             FormState = FormStateType.Edit;
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
+            tsbAddNew.Enabled = false;
+            tsbEdit.Enabled = false;
+            tsbDelete.Enabled = false;
             panel1.Enabled = true;
             BindDataThucDon();
         }
@@ -85,6 +91,9 @@ namespace SMS_Management
             panel1.Enabled = false;
             tsbSave.Enabled = false;
             tsbCancel.Enabled = false;
+            tsbAddNew.Enabled = true;
+            tsbEdit.Enabled = true;
+            tsbDelete.Enabled = true;
             LoadDataThucDon();
         }
 
@@ -95,6 +104,9 @@ namespace SMS_Management
             textBox1.Text = "";
             tsbSave.Enabled = false;
             tsbCancel.Enabled = false;
+            tsbAddNew.Enabled = true;
+            tsbEdit.Enabled = true;
+            tsbDelete.Enabled = true;
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

@@ -110,8 +110,8 @@ namespace SMS_Management
                         }
                         break;
                 }
-            Form frm = ((HostWindow)this.radDock1.DocumentManager.ActiveDocument).MdiChild;
-            ((FormBase)frm).RefreshData();
+                    Form frm = ((HostWindow)this.radDock1.DocumentManager.ActiveDocument).MdiChild;
+                    ((FormBase)frm).RefreshData();
         }
 
         private void ShowMessageMethod(string content, string caption)
@@ -159,15 +159,6 @@ namespace SMS_Management
                 string add_time = grv.CurrentRow.Cells["grvOrder_ADD_TIME"].Value.ToString();
                 frmDishDetail frm1 = new frmDishDetail(id, table_name, chef_name, waiter_name, add_time, request_count);
                 frm1.ShowDialog();
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string str = "";
-            if (Common.InputBox("Test", "Nhập đoạn mã yêu cầu", ref str) == DialogResult.OK)
-            {
-                comConnection1_DataReceived(str);
             }
         }
 
@@ -314,6 +305,27 @@ namespace SMS_Management
         private void rbtTableMng_Click(object sender, EventArgs e)
         {
             Common.openform("frmOptionTableInfo", this, this.radDock1, FormType.Mdi);
+        }
+
+        private void radMenuItem3_Click(object sender, EventArgs e)
+        {
+            string str = "";
+            if (Common.InputBox("Test", "Nhập đoạn mã yêu cầu", ref str) == DialogResult.OK)
+            {
+                comConnection1_DataReceived(str);
+            }
+
+        }
+
+        private void radMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void radDock1_ActiveWindowChanged(object sender, DockWindowEventArgs e)
+        {
+            Form frm = ((HostWindow)this.radDock1.DocumentManager.ActiveDocument).MdiChild;
+            ((FormBase)frm).RefreshData();
         }
 
 

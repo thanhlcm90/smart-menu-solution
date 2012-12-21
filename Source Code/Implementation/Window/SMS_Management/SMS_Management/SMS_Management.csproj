@@ -311,11 +311,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\SMS_Database.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Database\SMS_Database_log.ldf">
       <DependentUpon>SMS_Database.mdf</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\waiter.png" />
     <None Include="Resources\add.png" />

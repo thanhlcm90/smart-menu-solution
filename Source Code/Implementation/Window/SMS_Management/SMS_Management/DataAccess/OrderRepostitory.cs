@@ -42,7 +42,7 @@ namespace SMS_Management
                              PRICE=n.PRICE,
                              MONEY=ZZ*n.PRICE,
                              STATUS = "Chờ làm"
-                         }).SingleOrDefault();
+                         }).FirstOrDefault ();
                 return query;
             }
             return null;
@@ -149,16 +149,22 @@ namespace SMS_Management
                 ORDER_DETAIL query = (from p in Context.ORDER_DETAIL
                                   where p.ORDER.TABLES_INFO.CODE == lst.TABLE_CODE &&
                                   p.DISH_ID==lst.DISH_ID &&
-                                  p.STATUS!="Đang làm"
-                                  select p).SingleOrDefault();
+                                  p.STATUS!="Chờ làm"
+                                  select p).FirstOrDefault();
+                PROCESSING query1 = (from p in Context.PROCESSING 
+                                     where p.ORDERDTL_ID == query.Id 
+                                     select p).FirstOrDefault();
+
                 if (query == null) return false;
                 if (query.AMOUNT <= lst.AMOUNT)
                 {
                     Context.ORDER_DETAIL.DeleteObject(query);
+                    Context.PROCESSING.DeleteObject(query1);
                 }
                 else if (query.AMOUNT > lst.AMOUNT)
                 {
                     query.AMOUNT -= lst.AMOUNT;
+                    query1.AMOUNT -= query1.AMOUNT;
                 }
                 Context.SaveChanges();
                 return true;

@@ -44,6 +44,9 @@ namespace SMS_Management
             textBox3.Text = "";
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
+            tbsAddNew.Enabled = false;
+            tsbEdit.Enabled = false;
+            tsbDelete.Enabled = false;
             List<string> waitername = rep.GetWaiterNameList();
             comboBox1.DataSource = waitername;
             panel2.Enabled = true;
@@ -56,6 +59,11 @@ namespace SMS_Management
             textBox3.Text = "";
             comboBox1.Text = "";
             panel2.Enabled = false;
+            tsbSave.Enabled = false;
+            tsbCancel.Enabled = false;
+            tbsAddNew.Enabled = true;
+            tsbEdit.Enabled = true;
+            tsbDelete.Enabled = true;
         }
 
         private void tsbDelete_Click(object sender, System.EventArgs e)
@@ -76,6 +84,9 @@ namespace SMS_Management
             BindDataTable();
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
+            tbsAddNew.Enabled = false;
+            tsbEdit.Enabled = false;
+            tsbDelete.Enabled = false;
             textBox2.Text = name.ToString();
             textBox3.Text = code.ToString();
             comboBox1.Text = nhanvien.ToString();
@@ -100,7 +111,11 @@ namespace SMS_Management
                 repT.UpdateTable(dt);
             }
             FormState = FormStateType.Normal;
-
+            tsbSave.Enabled = false;
+            tsbCancel.Enabled = false;
+            tbsAddNew.Enabled = true;
+            tsbEdit.Enabled = true;
+            tsbDelete.Enabled = true;
             LoadDataBanan();
         }
 
