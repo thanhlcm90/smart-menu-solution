@@ -64,6 +64,9 @@ namespace SMS_Management
             panel1.Enabled = true;
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
+            tbsAddNew.Enabled = false;
+            tsbEdit.Enabled = false;
+            tsbDelete.Enabled = false;
             textBox3.Text = name;
             dateTimePicker1.Value = birthday;
             textBox2.Text = phone;
@@ -80,6 +83,9 @@ namespace SMS_Management
             textBox1.Text = "";
             tsbSave.Enabled = false;
             tsbCancel.Enabled = false;
+            tbsAddNew.Enabled = true;
+            tsbEdit.Enabled = true;
+            tsbDelete.Enabled = true;
         }
 
         private void tsbAddNew_Click(object sender, EventArgs e)
@@ -87,6 +93,9 @@ namespace SMS_Management
             panel1.Enabled = true;
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
+            tbsAddNew.Enabled = false;
+            tsbEdit.Enabled = false;
+            tsbDelete.Enabled = false;
             FormState = FormStateType.New;
             textBox3.Text = "";
             dateTimePicker1.Text = "";
@@ -124,6 +133,9 @@ namespace SMS_Management
             panel1.Enabled = false;
             tsbSave.Enabled = false;
             tsbCancel.Enabled = false;
+            tbsAddNew.Enabled = true;
+            tsbEdit.Enabled = true;
+            tsbDelete.Enabled = true;
             LoadDataDauBep();
         }
 
@@ -137,9 +149,5 @@ namespace SMS_Management
             textBox1.Text = diachi;
         }
 
-        private void tsbEdit_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

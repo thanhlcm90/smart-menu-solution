@@ -78,6 +78,10 @@ namespace SMS_Management
         {
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
+            tbsAddNew.Enabled = false;
+            tsbEdit.Enabled = false;
+            tsbDelete.Enabled = false;
+            panel5.Enabled = true;
             FormState = FormStateType.New;
             panel5.Enabled = true;
             tbCode.Text = "";
@@ -120,6 +124,9 @@ namespace SMS_Management
             FormState = FormStateType.Edit;
             tsbSave.Enabled = true;
             tsbCancel.Enabled = true;
+            tbsAddNew.Enabled = false;
+            tsbEdit.Enabled = false;
+            tsbDelete.Enabled = false;
             panel5.Enabled = true;
             BindDataDishMenu();
         }
@@ -150,8 +157,22 @@ namespace SMS_Management
                 repM.UpdateDish(dt);
             }
             FormState = FormBase.FormStateType.Normal;
-            // LoadDataThucDonMau();
+            tsbSave.Enabled = false;
+            tsbCancel.Enabled = false;
+            tbsAddNew.Enabled = true;
+            tsbEdit.Enabled = true;
+            tsbDelete.Enabled = true;
             LoadDataMonAn();
+        }
+
+        private void tsbCancel_Click(object sender, System.EventArgs e)
+        {
+
+            tsbSave.Enabled = false;
+            tsbCancel.Enabled = false;
+            tbsAddNew.Enabled = true;
+            tsbEdit.Enabled = true;
+            tsbDelete.Enabled = true;
         }
 
      
